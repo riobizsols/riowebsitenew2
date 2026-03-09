@@ -1,0 +1,394 @@
+.ipr-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.ipr_banner_title {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 4vw;
+  font-weight: 700;
+  z-index: 2;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ipr_ser_img{
+  margin-top: 8rem;
+    width: 100%;
+    height: auto;
+  
+}
+
+.ipr-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+.ipr_banner_sub_title {
+  position: absolute;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 1.5vw;
+  font-weight: 600;
+  z-index: 2;
+  width: 100%;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ipr_buttom {
+  background: linear-gradient(to right, #1b75bb, #2b40dd);
+  position: absolute;
+  text-transform: uppercase;
+  top: 62%;
+  left: 50%;
+  padding: 10px 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+.ipr_icon1 {
+  font-size: 30px;
+  color: black;
+  background-color: #146bae;
+  padding: 2px;
+  border-radius: 50px;
+}
+
+.ipr_service_title {
+  text-align: center;
+  color: #146bae;
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 60px;
+}
+
+.ipr_service_para {
+  text-align: center;
+  font-size: 20px;
+  line-height: 2rem;
+  margin-top: 30px;
+}
+
+.ipr_divider {
+  border: 0;
+  border-top: 2px solid #1b75bb;
+  color: #1b75bb;
+}
+
+.container_ipr {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+}
+
+.container_ipr1 {
+  display: grid;
+  grid-template-columns: 18% 80%;
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.ipr_icon {
+  background: linear-gradient(90deg, #5A1CCB -2.17%, #815EDC 100%);
+  border-radius: 50px 6px 6px 6px;
+  text-align: right;
+  line-height: 103px;
+  color: #fff;
+  font-size: 30px;
+  padding: 20px;
+  height: auto;
+}
+
+.ipr_ser {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ipr_text_column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ipr_text_column h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.ipr_text_column p {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 30px;
+  padding-right: 40px;
+}
+
+.ipr_service {
+  font-size: 60px;
+  color: #1b75bb;
+  font-weight: 700;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.ipr_text {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ipr_text h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.ipr_text p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.ipr_text_img {
+  margin-left: 9rem;
+}
+
+.container_ipr_ser {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 7rem;
+  width: 100%;
+}
+
+.ipr-choose {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.ipr-choose-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+.ipr_choose_title {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 4vw;
+  font-weight: 700;
+  z-index: 2;
+  width: 100%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ipr_choose_para {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 2vw;
+  padding: 50px;
+  z-index: 2;
+  width: 100%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .ipr_banner_title {
+      font-size: 6vw;
+  }
+  .ipr_choose_title{
+    font-size: 2vw;
+    font-weight: 700;
+  }
+
+  .ipr_choose_para {
+    font-size: 15px;
+  }
+
+  .ipr_ser_img{
+  
+    width: 70%;
+    height: auto;
+    text-align: center;
+  
+}
+
+
+.ipr_text_img {
+  margin-left: 0px;
+}
+
+  .ipr_banner_sub_title {
+      font-size: 15px;
+    margin-top: -40px;
+  }
+
+  .ipr_buttom {
+      padding: 8px 15px;
+      font-size: 12px;
+      margin-top: 50px;
+  }
+
+  .ipr_service_title {
+      font-size: 36px;
+  }
+
+  .ipr_service_para {
+      font-size: 16px;
+  }
+
+  .container_ipr,
+  .container_ipr_ser {
+      grid-template-columns: 1fr;
+  }
+
+  .ipr_text_column h1 {
+      font-size: 24px;
+  }
+
+  .ipr_text_column p {
+      font-size: 14px;
+  }
+
+  .ipr_choose_title {
+      font-size: 6vw;
+  }
+
+  /* .ipr_choose_para {
+      font-size: 4vw;
+  } */
+
+  .ipr_text h2 {
+      font-size: 32px;
+  }
+
+  .ipr_text p {
+      font-size: 16px;
+  }
+
+  .ipr_icon {
+      font-size: 20px;
+      line-height: 70px;
+      padding: 10px;
+  }
+  .container_ipr1 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .ipr_banner_title {
+      font-size: 18px;
+      /* top: 20%; */
+  }
+
+  .ipr-choose-img {
+    width: 100%;
+    height: 400px;
+  }
+
+
+  .ipr_banner_sub_title {
+      font-size: 10px;
+  }
+
+  .ipr_buttom {
+    background: linear-gradient(to right, #1b75bb, #2b40dd);
+    position: absolute;
+    text-transform: uppercase;
+    top: 52%;
+    left: 50%;
+    padding: 10px 20px;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .ipr_buttom {
+      padding: 6px 10px;
+      font-size: 10px;
+  }
+
+  .ipr_service_title {
+      font-size: 28px;
+  }
+
+  .ipr_service_para {
+      font-size: 14px;
+  }
+
+  .ipr_text_column h1 {
+      font-size: 20px;
+  }
+
+  .ipr_text_column p {
+      font-size: 12px;
+  }
+
+  .ipr_choose_title {
+      font-size: 15px;
+  }
+
+  .ipr_choose_para {
+      font-size: 10px;
+  }
+
+  .ipr_text h2 {
+      font-size: 28px;
+  }
+
+  .ipr_text p {
+      font-size: 14px;
+  }
+
+  .ipr_icon {
+      font-size: 13px;
+      line-height: 50px;
+      padding: 5px;
+  }
+  .container_ipr1 {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .ipr_icon {
+    font-size: 20px;
+    padding: 10px;
+    line-height: 60px;
+  }
+}

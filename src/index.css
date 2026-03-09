@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: Outfit, sans-serif;
+  background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height:5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 5px;
+  border: transparent;
+}

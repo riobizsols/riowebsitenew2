@@ -1,0 +1,263 @@
+.service {
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+    background-color: #EBEBEB;
+    border-radius: 80px 80px 80px 80px;
+    padding: 0px;
+    padding-bottom: 50px;
+  }
+  
+  .title {
+    padding: 20px 20px;
+    color: #27589E;
+    font-size: 40px;
+    font-weight: 600;
+  }
+  
+  .subtitle-homeser {
+    padding: 0px 30px 0px 0px;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
+  
+  /* Responsive grid for cards */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  } 
+  
+  .card {
+    background-color: #1C1C2D;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    color: white;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    transition: ease-out 0.3s;
+  }
+  
+
+  
+  .card img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 15px;
+    text-align: center;
+    object-fit: contain;
+    max-width: 60px;
+    max-height: 60px;
+    display: block;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card:hover {
+    background: linear-gradient(to bottom, #2B40DD, #1B75BB);
+  }
+  
+  .title_head {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+  }
+
+  .title_head1{
+    margin: 10px 0 0 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .descrip_para {
+    font-size: 13px;
+    text-align: center;
+    padding: 8px 0;
+    line-height: 1.4;
+    margin: 8px 0;
+  }
+  
+  .divider {
+    background-color: rgb(30, 29, 29);
+    width: 90%;
+    height: 1px;
+    margin: 10px 0;
+    border: none;
+  }
+  
+  /* MODIFIED: Center bottom row cards using offset */
+  .container .row .col-lg-4:nth-child(4) {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    max-width: 350px;
+  }
+  
+  .container .row .col-lg-4:nth-child(5) {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    max-width: 350px;
+  }
+  
+  /* Add vertical spacing */
+  .container .row .col-lg-4:nth-child(n+4) {
+    margin-top: 20px;
+  }
+  
+  .container .row .col-lg-4:nth-child(-n+3) {
+    margin-bottom: 20px;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .heading {
+      font-size: 40px;
+      margin-top: 50px;
+      margin-left: 20px;
+    }
+  
+    .bannerimage {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  
+    .icon-button {
+      margin-right: 0;
+      width: 100%;
+    }
+  
+    .title {
+      font-size: 30px;
+    }
+  
+    .subtitle {
+      font-size: 18px;
+    }
+  
+    .card {
+       
+      height: auto;
+      margin-bottom: 20px;
+    }
+  
+    /* .grid-container {
+      gap: 15px;
+    } */
+  
+    .title_head {
+      font-size: 18px;
+    }
+  
+    .descrip_para {
+      font-size: 12px;
+    }
+    .divider {
+      background-color: #1B75BB;
+      width:100%;
+      margin: 10px 0px 0px 10px;
+    }
+  }
+  
+  /* Extra small devices (phones) */
+  @media (max-width: 576px) {
+    .heading {
+      font-size: 32px;
+      margin-left: 10px;
+    }
+  
+    .subtitle {
+      font-size: 16px;
+    }
+  
+    .card img {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .card{
+     
+      margin-bottom: 20px;
+    }
+    .title_head {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .descrip_para {
+      font-size: 12px;
+    }
+  
+    .icon-button {
+      font-size: 14px;
+      padding: 10px 15px;
+      margin-right: 0;
+      width: 100%;
+    }
+    .divider {
+      background-color: rgb(30, 29, 29);
+      width:100%;
+      margin: 10px 0;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .heading {
+      font-size: 32px;
+      margin-left: 10px;
+    }
+  
+    .subtitle {
+      font-size: 16px;
+    }
+  
+    .card img {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .card{
+      margin-bottom: 20px;
+    }
+    .title_head {
+      font-size: 18px;
+    }
+  
+    .descrip_para {
+      font-size: 12px;
+    }
+  
+    .icon-button {
+      font-size: 14px;
+      padding: 10px 15px;
+      margin-right: 0;
+      width: 100%;
+    }
+    .divider {
+      background-color: #1B75BB;
+      width:100%;
+      margin: 10px 0;
+    }
+  }
+  
+  

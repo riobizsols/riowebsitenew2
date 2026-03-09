@@ -1,0 +1,54 @@
+// ============================================================================
+// BACKUP FILE: Home.jsx - Original version
+// CREATED: 2026-01-18
+// PURPOSE: Backup before updating metadata to remove IPR and ERP references
+// TO RESTORE: Copy this file back to src/components/pages/Home.jsx
+// ============================================================================
+
+import React from 'react'
+import Homebanner from '../Home/Homebanner'
+import Clientlogo from '../Home/Clientlogo'
+import Services from '../Home/HomeServices'
+import Story from '../Home/Story'
+import Team from '../Home/Team'
+import Count from '../Home/Count'
+import ClientLogohead from '../Home/ClientLogohead'
+import HomeContact from '../Home/HomeContact'
+import { Helmet } from 'react-helmet';
+
+
+
+function Home() {
+  return (
+    <div>
+
+      <Helmet>
+        <title>Discover Digital Solutions | Riobizsols Services Simplified 
+        </title>
+        {/* <link rel="canonical" href="https://riobizsols.com/contact" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/staffing" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/digital-marketing/" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/app-development" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/web-development" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/odoo/" />
+        <link rel="canonical" href="https://riobizsols.com/our-service/ipr/" /> */}
+        
+        <meta name="description" content="Explore Riobizsols for digital marketing, ERP, staffing, IPR, web & app development. Your partner in innovation and growth. Contact us today" />
+
+        <meta name="keywords" content="web development companies,website development company, ecommerce website developer, web development agency, web application development" />
+      </Helmet>
+      
+        <Homebanner/>
+        <ClientLogohead/>
+        
+        <Services/>
+         <Story/> 
+          <Count/>    
+         <Team/>    
+        <HomeContact/> 
+        
+    </div>
+  )
+}
+
+export default Home

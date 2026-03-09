@@ -1,0 +1,214 @@
+/* Main Banner Styling */
+.banner {
+  background: linear-gradient(to bottom, #eef3f6, #d9ecfa);
+  max-width: 100%;
+  height: 600px;
+  background-repeat: no-repeat;
+  margin: 0px;
+  border-radius: 0 0 80px 80px;
+}
+
+.homebanner-des {
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.homebanner-title {
+  font-size: 60px;
+  color: #2a4873;
+  font-weight: 800;
+  padding: 0 10px;
+  margin-top: 120px;
+}
+
+
+
+.homebanner-img {
+  margin: 70px auto;
+  width: 100%;
+}
+
+
+
+.banner-button {
+  margin-left: 10px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(to right, #1b75bb, #2b40dd);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.banner-button:hover {
+  background-color: #0056b3;
+  color: #f5f5f3;
+}
+
+
+/* Mobile Banner Styling */
+.banner-mob {
+  background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217, 236, 250));
+  max-width: 100%;
+  height: 800px;
+  border-radius: 0 0 80px 80px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.bannerimage-mob {
+  width: 300px;
+  height: auto;
+  margin: 30px auto;
+}
+
+.heading-mob {
+  font-size: 36px;
+  text-align: center;
+  margin: 20px 0;
+  color: #2a4873;
+}
+
+.description-mob {
+  font-size: 18px;
+  text-align: center;
+}
+
+.banner-button-mob {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* 
+@media screen and (max-width: 768px){
+  .banner {
+    background: linear-gradient(to bottom, #eef3f6, #d9ecfa);
+    max-width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    margin: 0px;
+    border-radius: 0 0 80px 80px;
+  }
+
+  .homebanner-des {
+    font-size: 16px;
+    padding: 0 10px;
+  } 
+  .homebanner-title {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 10px;
+  }
+
+ 
+
+  .homebanner-img {
+    margin: 30px 170px;
+    width: 50%;
+  
+  }
+
+  .banner-button {
+    margin: 20px auto;
+    font-size: 14px;
+    padding: 8px 16px;
+    display: block;
+    text-align: center;
+  }
+  
+} */
+/* Media Queries for Mobile Responsiveness */
+/* @media screen and (max-width: 425px) {
+ 
+  .banner{
+    display: none;
+  }
+
+  .banner-mob {
+    display: flex;
+  }
+
+  .homebanner-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .heading-homebanner, .homebanner-title {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .banner-button {
+    margin: 20px auto;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .bannerimage {
+    display: none;
+  }
+
+  .bannerimage-mob {
+    width: 250px;
+  }
+
+  .heading-mob {
+    font-size: 32px;
+  }
+
+  .description-mob {
+    font-size: 16px;
+  }
+} */
+
+@media screen and (max-width: 768px) {
+  .banner {
+    height: auto;
+    border-radius: 0;
+    padding-bottom: 20px;
+  }
+
+  .homebanner-title {
+    font-size: 36px; /* Reduced font size for mobile */
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 10px;
+  }
+
+  .homebanner-des {
+    font-size: 14px; /* Slightly smaller font size */
+    padding: 0 20px;
+    text-align: center; /* Center-align text for mobile */
+  }
+
+  .homebanner-img {
+    margin: 30px auto;
+    width: 80%; /* Smaller width for mobile */
+  }
+
+  .banner-button {
+    margin: 20px auto; /* Center button for mobile */
+    font-size: 14px; /* Reduced font size */
+    padding: 8px 16px; /* Smaller padding for compact design */
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,127 @@
+.exit-intent-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1200;
+}
+
+.exit-intent-modal {
+  position: relative;
+  width: min(420px, 100%);
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 24px 24px 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.exit-intent-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #475569;
+  cursor: pointer;
+}
+
+.exit-intent-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #e0f2fe;
+  color: #0284c7;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.exit-intent-title {
+  margin: 12px 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.exit-intent-body {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.exit-intent-list {
+  margin: 0 0 16px 16px;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.exit-intent-list li {
+  margin-bottom: 6px;
+}
+
+.exit-intent-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.exit-intent-primary,
+.exit-intent-secondary {
+  flex: 1 1 150px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.exit-intent-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+.exit-intent-secondary {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.exit-intent-primary:hover {
+  filter: brightness(1.05);
+}
+
+.exit-intent-secondary:hover {
+  background: #e2e8f0;
+}
+
+@media (max-width: 640px) {
+  .exit-intent-modal {
+    padding: 20px 18px 18px;
+  }
+
+  .exit-intent-title {
+    font-size: 20px;
+  }
+
+  .exit-intent-actions {
+    flex-direction: column;
+  }
+
+  .exit-intent-primary,
+  .exit-intent-secondary {
+    width: 100%;
+  }
+}

@@ -1,0 +1,673 @@
+.container-digital {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.digital-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.digital_banner_title {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 5vw;
+  font-weight: 700;
+  z-index: 2;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container_digital_ser {
+  display: grid;
+  grid-template-columns: 45% 50%;
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 8rem;
+}
+.container_digital_ser1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 0rem auto;
+  padding: 0 50px;
+}
+
+.images-column {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+}
+
+.image-item {
+  width: 100%;
+  height: auto;
+}
+
+.text-column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.digital-ser-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.digital-ser-title1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+.digital-ser-title span {
+  color: #1b75bb;
+}
+
+.digital-ser-para {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.digit-icon, .digit-icon1, .digit-icon2, .digit-icon3 {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  transition: 600ms ease;
+  padding: 10px;
+}
+
+.digit-icon {
+  background: #FFF7F2;
+  color: #FFBD8D;
+}
+
+.digit-icon1 {
+  background-color: #FEF1F2;
+  color: #F5818C;
+}
+
+.digit-icon2 {
+  background-color: #EBFBFF;
+  color: #07D3FC;
+}
+
+.digit-icon3 {
+  background-color: #F0FBF7;
+  color: #48D39B;
+}
+
+.digit-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0px;
+}
+
+.digital-button {
+  width: 10rem;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #ffffff;
+  background: linear-gradient(to right, #1b75bb, #2b40dd);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+.digital-button1 {
+  width: 12rem;
+  margin-top: 20px;
+  margin-left: 35px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #ffffff;
+  background: linear-gradient(to right, #1b75bb, #2b40dd);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+.digital-button .button-icon {
+  transition: color 0.3s ease;
+}
+
+.digital-button:hover {
+  background-color: #0056b3;
+  color: #f5f5f3;
+}
+
+.top-ser-bg {
+  width: 100%;
+  height: auto;
+  background: #F2F2F2;
+}
+
+
+.top-ser-container {
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 8rem;
+}
+
+.top-ser-subtitle  {
+  margin-top: 6rem;
+  color: #1b75bb;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.top-ser-subtitle1  {
+  margin-top: 1rem;
+  color: #1b75bb;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.top-ser-title{
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.top-ser-title1{
+  font-weight: 600;
+  font-size: 50px;
+  margin-top: 7rem;
+}
+.top-ser-para{
+  line-height: 30px;
+  font-size: 18px;
+} 
+.digit-ser-para1{
+  line-height: 30px;
+  font-size: 18px;
+  color: #3d3d3d;
+} 
+.work{
+padding-left: 50px;
+font-size: 16px;
+font-weight: 700;
+margin-top: 40px;
+
+}
+.top-count{
+  font-weight: 700;
+  font-size: 70px;
+  color: #1b75bb;
+  padding-left:50px ;
+  height: auto;
+  margin-top: -30px;
+  
+ 
+}
+
+.digital_wapp{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 90px;
+  width: 100%;
+}
+.digital_ser_wapp{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 90px;
+  width: 100%;
+}
+.digital_wapp p{
+  /* font-family: var(--urbanist); */
+  color: #575757;
+  font-size: 13px;
+  font-weight: 300;
+  /* line-height: 28px; */
+  letter-spacing: 0.3px;
+  margin-bottom: 0;
+}
+
+.digital_wapp h5{
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  transition: 400ms ease-in-out;
+}
+
+.digital-grid{
+  gap:10px;
+  background-color: #ffffff;
+  filter: drop-shadow(
+    1px 2px 8px var(--shadow-color)
+  );
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.black.digital-grid {
+  --shadow-color: hsl(0deg 0% 0% / 0.25);
+}
+
+.digital1_wapp{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+  /* margin-top: 10px; */
+}
+
+.digital1_wapp1{
+  display: flex;
+  gap:15px;
+  margin-bottom: 20px;
+  /* margin-top: 10px; */
+}
+.digital1_wapp p{
+  /* font-family: var(--urbanist); */
+  color: #575757;
+  font-size: 13px;
+  font-weight: 300;
+  /* line-height: 28px; */
+  letter-spacing: 0.3px;
+  margin-bottom: 0;
+}
+
+.digital1_wapp h5{
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  transition: 400ms ease-in-out;
+}
+
+.digital1-grid{
+  gap:10px;
+  background-color: #ffffff;
+  filter: drop-shadow(
+    1px 2px 8px var(--shadow-color)
+  );
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.digital1-grid2{
+  border: 1px solid #dcdcdc;
+  gap:10px;
+
+  border-radius: 85px;
+  width: 90%;
+  height: 230px;
+  padding: 60px 20px;
+  text-align: center;
+}
+.black.digital1-grid {
+  --shadow-color: hsl(0deg 0% 0% / 0.25);
+}
+.digital_logo{
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.digital_logo img {
+  width: 50px;
+  height: 33px;
+  display: block;
+}
+
+.digital-service-bg{
+  width: 100%;
+  height: auto;
+  background: #F4F4F4;
+  margin-top: -140px;
+}
+
+.digital-ser-img{
+  margin-top: 30px;
+    /* height: 400px;
+  width: 500px;   */
+   width: 95%;
+    height: auto;  
+  border-radius: 0px 0px 0px 130px;
+}
+
+.digital-progress{
+  display: flex;
+  gap: 2rem;
+  margin: 50px 0px 0px 30px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(#EE4619 90%, #F4F4F4 0);    
+}
+
+.progress-bar::before {
+  content: "90%";
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.progress-bar1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(#EE4619 99%, #F4F4F4 0);    
+}
+
+.progress-bar1::before {
+  content: "99%";
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.digital-progress h4{
+  font-size: 19px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.digital_ser_wapp_subtitle{
+    text-transform: uppercase;
+    color: #1b75bb;
+    font-size: 16px;
+    font-weight: 700;
+}
+.digital_ser_wapp_title{
+  font-size: 55px;
+  font-weight: 700;
+  margin-top: 3rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container_digital_ser {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .container_digital_ser1 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .digital_wapp, .digital1_wapp {
+    display: block;
+    margin: 20px auto;
+  }
+  
+
+  .digital-grid {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .digital-grid,
+  .digital1-grid,
+  .digital1-grid2 {
+    padding: 30px 15px;
+    height: auto;
+   
+  }
+
+  .digital1-grid {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .text-column h1 {
+    font-size: 1.5rem;
+  }
+  .top-ser-title{
+    font-size: 40px;
+    padding: 10px;
+  }
+  .top-ser-para{
+    font-size: 18px;
+    padding: 10px;
+  }
+  .work{
+    margin-top: 10px;
+  }
+  .top-count{
+    margin-top: 10px;
+    
+    font-weight: 700;
+  font-size: 70px;
+  }
+
+  .text-column p {
+    font-size: 1rem;
+  }
+
+  .digital_banner_title {
+    font-size: 8vw;
+  }
+
+  .digital-button {
+    width: 100%;
+    font-size: 14px;
+  }
+  .digital-ser-img{
+    width: 100%;
+    margin-top: 140px;
+    height: auto;
+  }
+
+  .digital-progress {
+    flex-direction: column;  /* Stack the progress circles vertically */
+    align-items: center;
+    margin-left: 0;          /* Remove margin on smaller screens */
+    gap: 1rem;               /* Reduce gap between elements */
+  }
+
+  .progress-bar {
+    width: 80px;             /* Reduce the size of the progress bar */
+    height: 80px;
+  }
+
+  .progress-bar::before {
+    font-size: 14px;         /* Adjust the font size */
+  }
+  .digital1_wapp {
+    flex-direction: column;  /* Stack the items vertically */
+    gap: 20px;               /* Add more spacing between items */
+    margin-bottom: 40px;     /* Adjust bottom margin */
+  }
+
+  .digital1_wapp1 {
+    flex-direction: column;  /* Stack the items vertically */
+    gap: 20px;               /* Add more spacing between items */
+    margin-bottom: 40px;     /* Adjust bottom margin */
+  }
+  .digital1-grid2 {
+    height: 180px;           /* Reduce height on smaller screens */
+    /* padding: 40px 15px;   */
+    gap: 20px;      /* Adjust padding */
+    text-align: center;
+  }
+
+  .digital1-grid2 img {
+    height: 40px;            /* Adjust image size */
+    width: 80px;
+  }
+
+  .digital1_wapp h6 {
+    font-size: 14px;         /* Reduce text size */
+  }
+
+}
+
+@media only screen and (max-width: 576px) and (min-width:320px) {
+  .container_digital_ser {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .digital_wapp, .digital1_wapp {
+    display: block;
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+.digital-button {
+  width: 80%;
+}
+  .image-item {
+    width: 90%;
+    height: auto;
+  }
+  .digital-ser-para{
+    width: 90%;
+  }
+
+  .container_digital_ser1 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .digital-ser-img{
+    width: 100%;
+    height: auto;
+    margin-top: 190px;
+  }
+  .digital-ser-title {
+    font-size: 1.2rem;
+  }
+
+  .digital-ser-para p {
+    font-size: 0.9rem;
+  }
+  .top-count{
+    margin-top: 10px;
+    
+    font-weight: 700;
+  font-size: 70px;
+  }
+
+  .digit-wrapper {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 90%;
+  }
+
+
+  .digital_banner_title {
+    font-size: 10vw;
+  }
+  .digital1-grid2 {
+    height: 180px;           /* Reduce height on smaller screens */
+    /* padding: 40px 15px;   */
+    gap: 20px;      /* Adjust padding */
+    text-align: center;
+  }
+
+  
+.text-column {
+  flex: 1;
+  /* min-width: 300px; */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.top-ser-para{
+  width: 100%;
+}
+
+.digital-grid{
+  gap:10px;
+  background-color: #ffffff;
+  filter: drop-shadow(
+    1px 2px 8px var(--shadow-color)
+  );
+  border-radius: 25px;
+  width: 99%;
+  height: 330px;
+  padding: 60px 30px;
+  text-align: center;
+}
+.black.digital-grid {
+  --shadow-color: hsl(0deg 0% 0% / 0.25);
+}
+
+
+}
+
+@media (max-width: 480px) {
+  .progress-bar {
+    width: 60px;             /* Further reduce size for smaller screens */
+    height: 60px;
+  }
+
+  .progress-bar::before {
+    font-size: 12px;         /* Adjust the font size for smaller screens */
+  }
+  .progress-bar1 {
+    width: 60px;             /* Further reduce size for smaller screens */
+    height: 60px;
+  }
+
+  .progress-bar1::before {
+    font-size: 12px;         /* Adjust the font size for smaller screens */
+  }
+} 

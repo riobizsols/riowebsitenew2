@@ -1,0 +1,257 @@
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+/* 
+.slider-app{
+    width: 50%;
+    margin:10rem auto;
+    height: 770px;
+}
+
+.slider-app img{
+    width: 20rem;
+    margin: 0 auto;
+} */
+
+/* .slide{
+    transform: scale(0.2);
+    transition: transform 300ms;
+    opacity: 0.5;
+} */
+
+/* .activeSlide{
+    transform: scale(1.1);
+    opacity: 1;
+}
+.arrow{
+    background-color: #141414;
+    position: absolute;
+    cursor: pointer;
+    z-index:10;
+    color: rgb(255, 255, 255);
+    padding: 10px ;
+    border-radius: 60%;
+    width: 40px;
+   
+    
+}
+.next{
+    right: 0%;
+    top:50%;
+}
+.prev{
+    left:0%;
+    top: 50%;
+    
+}
+.arrow svg{
+ transition: color 300ms;
+}
+.arrow svg:hover{
+    color: #68c5fa;
+} 
+
+.carousel-container {
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    perspective: 1000px; 
+  }
+  
+  .carousel-slide {
+    position: relative;
+    transform: scale(0.85); 
+    transition: transform 0.3s ease; 
+  }
+  
+  .carousel-slide img {
+    width: 37vw;
+    height: 30vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .slick-center .carousel-slide {
+    transform: scale(1) rotateY(0deg); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .carousel-slide:not(.slick-center) {
+    transform: scale(0.85) rotateY(-10deg); 
+  }
+  
+  
+  .carousel-overlay {
+    width: 37vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); 
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .carousel-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .carousel-description {
+    font-size: 1em;
+    margin: 5px 0 0;
+  }
+ 
+  .slick-list {
+    height: 380px;
+} */
+
+
+.activeSlide {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.arrow {
+    background-color: #141414;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 60%;
+    width: 40px;
+}
+
+.next {
+    right: 0%;
+    top: 50%;
+}
+
+.prev {
+    left: 0%;
+    top: 50%;
+}
+
+.arrow svg {
+    transition: color 300ms;
+}
+
+.arrow svg:hover {
+    color: #68c5fa;
+}
+
+.carousel-container {
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    perspective: 1000px; /* Set perspective for 3D effect */
+}
+
+.carousel-slide {
+    position: relative;
+    transform: scale(0.85); /* Scale down non-centered slides */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.carousel-slide img {
+    width: 35vw;
+    height: 25vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slick-center .carousel-slide {
+    transform: scale(1) rotateY(0deg); /* Center slide appears larger and straight */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-slide:not(.slick-center) {
+    transform: scale(0.85) rotateY(-10deg); /* Slight tilt for non-centered slides */
+}
+
+/* Overlay for title and description */
+.carousel-overlay {
+    width: 35vw;
+    height: 12vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.carousel-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.carousel-description {
+    font-size: 1em;
+    margin: 5px 0 0;
+}
+
+.slick-list {
+    height: 380px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .carousel-slide img {
+        width: 35vw; 
+        height: 35vw; 
+    }
+
+    .carousel-overlay {
+        width: 35vw; 
+        height: 23vw;
+    }
+
+    .carousel-title {
+        font-size: 1.2em; 
+    }
+
+    .carousel-description {
+        font-size: 0.9em; 
+    }
+
+    .arrow {
+        padding: 8px; 
+        width: 35px; 
+    }
+}
+
+@media only screen and (max-width: 480px) and (min-width:320px) {
+    .carousel-slide img {
+        width: 90vw; /* Further adjust image width for smaller screens */
+        height: 75vw;
+    }
+
+    .carousel-overlay {
+        padding: 5px;
+        width: 90vw; /* Further adjust padding */
+        height: 35vw;
+    }
+
+    .carousel-title {
+        font-size: 1em; /* Further adjust font size for mobile */
+    }
+
+    .carousel-description {
+        font-size: 0.8em; /* Further adjust font size for mobile */
+    }
+
+    .arrow {
+        padding: 5px; /* Further adjust padding for arrows */
+        width: 30px; /* Further adjust width for arrows */
+    }
+}
+
+

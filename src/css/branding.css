@@ -1,0 +1,385 @@
+.brand_bg{
+    background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217,236,250)); 
+}
+.brand_container{
+    display: flex;
+    padding: 8vw;
+    grid-template-columns: 50% 50%;
+    gap:60px;
+}
+.brand_container1{
+    display: flex;
+    grid-template-columns: 35% 65%;
+    gap:0px;
+    /* background-color: #27589E; */
+}
+.brand_title{
+    font-family: "Outfit", Sans-serif;
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 65px;
+    color:#27589E;
+    padding-top: 4vw;
+    margin-left: 1rem;
+}
+
+.brand_text_column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  .brand_column{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    padding: 0vw;
+  }
+
+  .brand_para{
+    font-size: 20px;
+   padding: 0rem 0rem 0rem 1rem;
+  }
+  .brand_button{
+    background: linear-gradient(to right, #1b75bb, #2b40dd);
+    width: 12rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+  }
+
+  .slider_box{
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0px 4px 15px hsla(0, 0%, 0%, 0.242);
+    padding: 40px;
+    
+  }
+
+  .slider_para{
+    padding: 0px 10px 20px 10px;
+
+  }
+  .black.slider_box {
+    --shadow-color: hsl(0deg 0% 0% / 0.25);
+  }
+
+  .brand-ser-bg{
+  width: 100%;
+  height: auto;
+  background: #F2F2F2;
+  padding-bottom: 8rem;
+  }
+
+  .brand-ser-bg1{
+    width: 100%;
+    height: auto;
+    /* background: #F2F2F2; */
+    padding-bottom: 8rem;
+    }
+    
+  .brand_ser_title{
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    color: #1b75bb;
+    padding: 70px 0px 20px 0px;
+
+  }
+  .brand_ser_para{
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+
+  }
+  .brand_grid3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0px 10px 0px 10px;
+    text-align: center;
+  }
+
+  .brand_grid3_bg{
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    box-shadow: hsla(233, 72%, 52%, 0.459);
+  }
+  .brand_grid3_img{
+    margin-top: 40px;
+    margin-bottom: 40px ;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.07),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 6.5px 10px rgba(0, 0, 0, 0.06),
+    0 17.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 21.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 30px 30px rgba(0, 0, 0, 0.07)
+  ;
+  
+  }
+
+  .brand_grid3_bg h2{
+    color: #27589E;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .brand_grid3_bg p{
+    padding: 0px 20px 20px 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .brand_title1{
+    color: #27589E;
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 4rem;
+  }
+  .brand_para1{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .brand_icon_container{
+    display: flex;
+    gap:10px;
+    margin-top: 30px;
+  }
+  .brand_icon{
+    transform: rotate(70deg);
+    font-size:60px;
+    color: #1b75bb;
+  }
+  .brand_icon:hover{
+    color: black;
+  }
+  .brand_icon_title{
+    color: #1b75bb;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .brand_icon_para{
+    font-size: 20px;
+  }
+  .brand_grid2{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 20px;
+   margin-left: 20vw;
+   margin-right: 20vw;
+   margin-top: 5vw;
+   text-align: center;
+  }
+  .hr_color{
+   color: #27589E;
+   margin-top: 6rem;
+  }
+
+ 
+.slick-slide {
+  padding: 0 10px;
+  height: 550px;
+}
+.slick-list {
+  margin: 0 -10px;
+  height: 280px; /* Set desired height for the visible area of the slider */
+    overflow: hidden;
+}
+.slider_box_icon{
+  height:80px;
+  width: 80px;
+  background-color: #e7e3f2;
+  padding: 7px;
+  border-radius: 50%;
+}
+.slider_box_icon_img{
+  /* width:40, height:40, textAlign:'center', marginTop:15, marginLeft:13 */
+  width:40px;
+  height:40px;
+  margin-top: 15px;
+  margin-left: 15px;
+  
+}
+.slider_box_icon_title{
+  /* margin-top: 1rem; */
+  font-size: 25px;
+  font-weight: 600;
+  padding: 1rem 0rem 0.1rem 0.5rem;
+}
+.slider_box_icon_p{
+  padding: 0rem 0rem 0rem 0.5rem;
+}
+
+
+  .slider_box1, .slider_box2, .slider_box3, .slider_box4 {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+}
+.slider_slick_container{
+  width: 60%;
+  padding:30px
+}
+  
+  /* For mobile devices (up to 768px width) */
+@media (max-width: 768px) {
+ 
+  
+  .slider_slick_container {
+    width: 100%;
+    padding: 10px; 
+  }
+
+  /* Adjust slider box height and padding for mobile */
+  .slider_box1, .slider_box2, .slider_box3, .slider_box4 {
+    height: auto; /* Let height adjust based on content */
+    padding: 15px; /* Reduce padding */
+  }
+
+  /* Slick-slide adjustments for mobile */
+  .slick-slide {
+    height: auto; /* Let height adjust dynamically */
+    padding: 10px 5px; /* Reduce padding */
+  }
+
+  /* Adjust slick-list height and overflow behavior */
+  .slick-list {
+    height: auto; /* Allow it to grow with the content */
+    overflow: visible; /* Ensure that content is not cut off */
+  }
+
+  /* Stack elements vertically for mobile */
+  .slider_box_icon {
+    /* margin: 0 auto; */
+    height: 60px;
+    width: 60px; /* Reduce icon size */
+  }
+
+  .slider_box_icon_img {
+    width: 30px;
+    height: 30px; /* Reduce image size */
+    margin-top: 6px;
+  }
+
+  /* Adjust title and text sizes for mobile */
+  .slider_box_icon_title {
+    font-size: 16px; /* Reduce font size */
+    padding: 0.5rem 0rem 0.1rem 0.5rem;
+  }
+
+  .slider_box_icon_p {
+    font-size: 14px; /* Reduce font size */
+    padding: 0.5rem 0rem;
+  }
+
+  /* Reduce brand title and paragraph font size for mobile */
+  .brand_title {
+    font-size: 30px;
+    line-height: 40px;
+    padding-top: 2vw;
+  }
+
+  .brand_para {
+    font-size: 16px;
+  }
+
+  /* Adjust button size for mobile */
+  .brand_button {
+    width: 10rem;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  /* Stack brand container items vertically */
+  .brand_container {
+    flex-direction: column;
+    padding: 4vw;
+    gap: 20px;
+  }
+
+  /* Stack elements in the brand container1 */
+  .brand_container1 {
+    flex-direction: column;
+    gap: 20px;
+    padding: 4vw;
+  }
+
+  /* Adjust the grid layout for smaller screens */
+  .brand_grid3, .brand_grid2 {
+    grid-template-columns: 1fr; /* Make it a single column grid */
+    margin: 0 20px;
+    gap: 15px;
+  }
+
+  /* Adjust title and paragraph size inside grid */
+  .brand_grid3_bg h2, .brand_grid3_bg p, .brand_title1, .brand_para1 {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+}
+
+/* For very small devices (up to 480px width) */
+@media (max-width: 480px) {
+  .slick-slider {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Further reduce slider height and spacing */
+  .slick-slide {
+    padding: 0 5px;
+    height: 200px;
+    flex-direction: column;
+  }
+
+  .slick-list {
+    margin: 0 -5px;
+    height: 200px;
+  }
+
+  .slider_box1, .slider_box2, .slider_box3, .slider_box4 {
+    padding: 8px;
+  }
+
+  /* Adjust brand title and button size */
+  .brand_title {
+    font-size: 24px;
+    line-height: 30px;
+    padding-top: 1vw;
+  }
+
+  .brand_button {
+    width: 8rem;
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  /* Adjust icon size further */
+  .slider_box_icon {
+    height: 50px;
+    width: 50px;
+  }
+  .slider_box_icon_img {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* Adjust grid margins and font size further */
+  .brand_grid3_bg h2, .brand_grid3_bg p, .brand_title1, .brand_para1 {
+    font-size: 1.2rem;
+  }
+}

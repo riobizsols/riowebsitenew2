@@ -1,0 +1,18 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+# Google Search Console verification
+User-agent: Googlebot
+Disallow:
+
+# Bing Verification
+User-agent: Bingbot
+Disallow:
+
+# Sitemap
+Sitemap: https://riobizsols.com/sitemap.xml
+
+# Allow search engines to crawl static assets
+Allow: /assets/
+Allow: /public/

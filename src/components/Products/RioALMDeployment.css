@@ -1,0 +1,369 @@
+.deployment-hero {
+  background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
+  color: white;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.deployment-hero .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.deployment-hero .hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.deployment-hero .hero-subtitle {
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Deployment Options */
+.deployment-options-section {
+  padding: 80px 24px;
+}
+
+.deployment-options-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.deployment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.deployment-option {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.deployment-option:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: #0052cc;
+}
+
+.option-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.option-icon {
+  width: 48px;
+  height: 48px;
+  color: #0052cc;
+  flex-shrink: 0;
+}
+
+.option-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.option-description {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.benefits-title,
+.requirements-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 24px 0 12px 0;
+}
+
+.benefits-list,
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.benefits-list li,
+.requirements-list li {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.8;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #0052cc;
+  font-weight: bold;
+}
+
+.requirements-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #999;
+}
+
+/* Comparison Table */
+.deployment-comparison {
+  padding: 80px 24px;
+  background: #f9fafb;
+}
+
+.deployment-comparison .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 48px 0;
+  line-height: 1.2;
+}
+
+.comparison-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e8e8;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 0;
+  background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.table-cell {
+  padding: 20px;
+  font-size: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-cell:last-child {
+  border-right: none;
+}
+
+.criteria-cell {
+  font-weight: 600;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row .table-cell {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #666666;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+}
+
+.table-row .table-cell:last-child {
+  border-right: none;
+}
+
+.table-row .criteria-cell {
+  color: #1a1a1a;
+  font-weight: 500;
+  border-right: 1px solid #e8e8e8;
+}
+
+/* Implementation Section */
+.implementation-section {
+  padding: 80px 24px;
+}
+
+.implementation-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.implementation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.impl-card {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.impl-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.impl-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.impl-card p {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Security Section */
+.security-section {
+  padding: 80px 24px;
+  background: #f9fafb;
+}
+
+.security-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.security-content {
+  flex: 1;
+}
+
+.security-text {
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.8;
+  margin: 0 0 24px 0;
+}
+
+.security-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.security-list li {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.security-list strong {
+  color: #1a1a1a;
+}
+
+.security-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3f4f6 100%);
+  border-radius: 16px;
+  color: #0052cc;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .deployment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .implementation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .deployment-hero .hero-title {
+    font-size: 32px;
+  }
+
+  .deployment-hero .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .deployment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .implementation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    font-size: 12px;
+  }
+
+  .table-cell {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .deployment-option {
+    padding: 24px;
+  }
+}

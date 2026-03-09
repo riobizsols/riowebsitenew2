@@ -1,0 +1,245 @@
+    .ser_img{
+        width: 550px;
+        height: 550px;
+        border-radius: 20px; 
+        background-color:linear-gradient(to bottom #ffffff00, #000000);
+        background-size: cover;
+        display: block;
+        object-fit: cover; 
+    }
+
+.ser_disply{
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  gap:20;
+  margin: 30px 60px 30px ;
+}
+
+    .ser{
+    /* padding-right: 20px; */
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    
+}
+.client_subhead{
+    text-transform: uppercase;
+    color: #575757;
+}
+
+.ser h3{
+    position: absolute;
+    color: white;
+    font-size: 44px;
+    font-weight: 700;
+    bottom: 50px;
+    left: 32%;
+    z-index:2;
+    transform: translateX(-32%);
+  
+}
+.ser p{
+    position: absolute;
+    z-index:2;
+    background-color:rgba(255, 255, 255, 0.2);
+    border: #fdfdfd solid;
+   cursor: pointer;
+    top: 200px;
+    left: 40%;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    transition: background 0.3s ease, transform 0.3s ease; 
+}
+.ser p:hover{
+    background: linear-gradient(to bottom left, #2B40DD,#1B75BB); /* Gradient from light blue to blue */
+    transform: scale(1.1); 
+    border:none;
+}
+.ser p svg{
+    color: white; /* Set the icon color to white */
+    font-size: 62px; /* Increase the size of the icon */
+    font-weight: bold; 
+}
+.ser p:hover svg {
+    transform: scale(1.2); /* Zoom in the icon on hover */
+}
+.ser h1:hover{
+    color: #1B75BB;
+}
+.ser h2{
+    position: absolute;
+    color: #fdfdfd;
+    font-size: 120px;
+    font-weight: 900;
+    top: 4px;
+    opacity: 0.7;
+    left: 30px;
+}
+
+.divider-ser {
+    background-color:#131313;
+    margin-top: 90px;
+    margin-left: 30px;
+    width: 100%;
+    height: 0.5px;
+    font-weight: bolder;
+
+  }
+
+
+.ser::after {
+    content: '';
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(7, 7, 7, 0.973));
+    opacity: 0.8;
+    z-index: 1;
+    color: white;
+    transition: opacity 0.3s ease;
+  }
+  
+.ser_title{
+    padding: 20px;
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+/* 
+@media screen and (max-width: 600px) {
+
+    .ser_img{
+        width: 350px;
+        height: 350px;
+        border-radius: 20px; 
+        background-color:linear-gradient(to bottom #ffffff00, #000000);
+        background-size: cover;
+        display: block;
+        object-fit: cover;
+    }
+    .ser h1{
+
+        font-size: 35px;
+    font-weight: 600;
+    }
+    .ser h2{
+        font-size: 60px;
+    font-weight: 900;
+
+    }
+    .ser p{
+        position: absolute;
+        z-index:2;
+        background-color:rgba(255, 255, 255, 0.2);
+        border: #fdfdfd solid;
+       cursor: pointer;
+        top: 100px;
+        left: 36%;
+        width: 80px;
+        height: 80px;
+        border-radius: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        transition: background 0.3s ease, transform 0.3s ease; 
+    }
+    .ser p:hover{
+        background: linear-gradient(to bottom left, #2B40DD,#1B75BB); 
+        transform: scale(1.1); 
+        border:none;
+    }
+    .ser p svg{
+        color: white; 
+        font-size: 42px; 
+        font-weight: bold; 
+    }
+    
+} */
+/* Existing styles remain the same... */
+
+@media screen and (max-width: 768px) {
+    .ser_img {
+      width: 100%; /* Make images responsive */
+      height: auto; /* Keep the aspect ratio */
+    }
+  
+    .ser {
+      margin-bottom: 40px; /* Adjust spacing for smaller screens */
+    }
+  
+    .ser h3 {
+      font-size: 24px; /* Smaller font size for mobile */
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px; /* Adjust positioning */
+    }
+  
+    .ser p {
+      top: 70px; /* Adjust the positioning for mobile */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px; /* Smaller circle */
+      height: 60px; /* Smaller circle */
+    }
+  
+    .ser p svg {
+      font-size: 30px; /* Smaller icon for mobile */
+    }
+  
+    .ser h2 {
+      font-size: 60px; /* Smaller number size */
+      left: 10px;
+    }
+  
+    .ser_title {
+      font-size: 32px; /* Adjust main title for mobile */
+    }
+  
+    .client h3 {
+      font-size: 28px; /* Adjust client section heading */
+    }
+  
+    .divider-ser {
+      margin: 40px 0; /* Adjust divider for smaller spacing */
+    }
+  }
+  
+  @media only screen and (max-width: 576px) and (min-width:320px) {
+    .ser_img {
+      width: 100%; /* Full width for extra small screens */
+      height: auto;
+    }
+  
+    .ser h1 {
+      font-size: 20px; /* Even smaller text for smaller screens */
+    }
+  
+    .ser p {
+      top: 60px;
+      width: 50px;
+      height: 50px;
+    }
+  
+    .ser p svg {
+      font-size: 24px;
+    }
+  
+    .ser h2 {
+      font-size: 40px; /* Smaller number */
+    }
+  
+    .ser_title {
+      font-size: 28px; /* Smaller title */
+    }
+  }
+  

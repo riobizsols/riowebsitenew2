@@ -1,0 +1,255 @@
+.web_container_bg{
+    background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217,236,250)); 
+
+}
+.web_banner{
+    display: flex;
+    grid-template-columns: 50% 50%;
+    
+}
+.web_banner_img{
+    padding: 20px;
+    height: 600px;
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+.web_text_col{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    flex: 1;
+    padding: 50px;
+}
+.web_banner_title{
+    font-size: 45px;
+    font-weight: 700;
+    padding-top: 30px;
+}
+.web_banner_subtitle{
+    color: #6A4760;
+    font-size: 35px;
+    font-weight: 600;
+}
+.web_text_col p{
+    font-size: 18px;
+}
+.web_service{
+    background-color: #F2F2F2;
+    margin: 0;
+    padding: 0 0 4em 0 ;
+    height: auto;
+    width: 100%;
+   
+}
+.web_service h2{
+    text-align: center;
+    color: #6A4760;
+    font-size: 55px;
+    font-weight: 600;
+    padding: 2em 0 0;
+}
+
+.web_wapp {
+    display: flex;
+    gap: 15px;
+    margin: 20px;
+  }
+
+  .web-grid{
+    gap:10px;
+    background-color: #ffffff;
+    filter: drop-shadow(
+      1px 2px 8px var(--shadow-color)
+    );
+    border-radius: 25px;
+    width: 50%;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.black.web-grid {
+    --shadow-color: hsla(0, 0%, 0%, 0.139);
+  }
+
+  .web-grid-title{
+    font-size: 25px;
+    color: rgb(22, 21, 21);
+    font-weight: 700;
+    padding-top: 10px;
+  }
+
+  .web-grid-description{
+    color: #575757;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.3px;
+  }
+  .web_center_logo{
+    display: block;
+    margin: 0 auto; 
+  }
+
+  .web_bg{
+    background-color: #6A4760;
+    margin: 0;
+    padding: 0 0 4em 0 ;
+    height: auto;
+    width: 100%;
+   
+}
+.web_bg_title{
+    color: white;
+    font-size: 55px;
+    font-weight: 600;
+    text-align: center;
+    padding: 2em 2em 0.4em 2em;
+}
+.web_bg_para{
+    color:white;
+    font-size: 35px;
+    font-family: 500;
+    text-align: center;
+    padding: 0em 1em 0.4em 1em;
+}
+.web_contact_title{
+     text-align: center;
+     font-family: "Outfit", Sans-serif;
+    font-size: 55px;
+    font-weight: 600;
+    color: #6A4760;
+    padding: 2em 1.5em 0.1em 1.5em;
+}
+.web_contact_para{
+    text-align: center;
+    font-size: 22px;
+}
+.web_contact_para1{
+    text-align: center;
+    font-size: 22px;
+    margin-top: -20px;
+}
+/* General mobile styles */
+@media (max-width: 768px) {
+    .web_banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .web_banner_img {
+        width: 80%; /* Adjust width for smaller screens */
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .web_text_col {
+        padding: 20px;
+        min-width: 100%; /* Allow full width for mobile */
+    }
+
+    .web_banner_title {
+        font-size: 32px;
+    }
+
+    .web_banner_subtitle {
+        font-size: 24px;
+    }
+
+    .web_text_col p {
+        font-size: 16px;
+    }
+
+    .web_service h2 {
+        font-size: 40px;
+    }
+
+    .web_wapp {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .web-grid {
+        width: 90%; /* Full width on mobile */
+        padding: 40px 20px;
+    }
+
+    .web-grid-title {
+        font-size: 22px;
+    }
+
+    .web-grid-description {
+        font-size: 16px;
+    }
+
+    .web_bg_title {
+        font-size: 40px;
+        padding: 1.5em 1em 0.4em 1em;
+    }
+
+    .web_bg_para {
+        font-size: 25px;
+        padding: 0.5em 1em 1em 1em;
+    }
+
+    .web_contact_title {
+        font-size: 40px;
+        padding: 1.5em 1em 0.4em 1em;
+    }
+
+    .web_contact_para {
+        font-size: 18px;
+    }
+}
+
+/* For even smaller screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .web_banner_img {
+        width: 100%; /* Full width for mobile */
+        height: auto;
+        padding: 10px;
+    }
+
+    .web_banner_title {
+        font-size: 28px;
+    }
+
+    .web_banner_subtitle {
+        font-size: 20px;
+    }
+
+    .web_service h2 {
+        font-size: 32px;
+    }
+
+    .web_bg_title {
+        font-size: 32px;
+    }
+
+    .web_bg_para {
+        font-size: 20px;
+    }
+
+    .web_contact_title {
+        font-size: 32px;
+    }
+
+    .web_contact_para {
+        font-size: 16px;
+    }
+
+    .web-grid {
+        width: 100%; /* Full width for small screens */
+        padding: 30px 15px;
+    }
+
+    .web-grid-title {
+        font-size: 20px;
+    }
+
+    .web-grid-description {
+        font-size: 14px;
+    }
+}

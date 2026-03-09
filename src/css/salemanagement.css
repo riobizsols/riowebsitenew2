@@ -1,0 +1,201 @@
+.sale_container_bg{
+    background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217,236,250)); 
+    width: 100%;
+
+}
+.sale_banner{
+    display: flex;
+    grid-template-columns: 50% 50%;
+    
+}
+.sale_banner1{
+    display: flex;
+    grid-template-columns: 70% 30%;
+    gap:20px;
+    
+}
+.sale_banner2{
+    display: flex;
+    grid-template-columns: 50% 50%;
+    gap:20px;
+}
+.sale_banner_img{
+    padding: 20px;
+    height: 600px;
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.sale_banner_img1{
+    padding: 20px;
+    height: 650px;
+    width: 600px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.sale_banner_img2{
+    width:550px;
+     height:600px; 
+     /* padding: 20px; */
+     margin-top: 30px;
+     margin-left: 30px;
+
+}
+.sale_image{
+    padding: 60px 120px 0px 120px;
+    /* paddingLeft:120, paddingTop:60, paddingRight:120 */
+}
+.sale_image1{
+    padding:0px 30px 0px 60px;
+}
+.sale_text_col{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px; 
+    flex: 1;
+    padding: 70px;
+}
+.sale_text_col1{
+    display: flex;
+    flex-direction: column;
+     /* min-width: 400px;   */
+     /* flex: 1;  */
+    /* padding: 70px; */
+}
+
+.sale_text_col1 h2{
+    margin-top: 8vw;
+    font-size: 4vw;
+}
+.sale_text_col1 p{
+    font-size: 1.4vw;
+}
+.sale_banner_title{
+    font-size: 45px;
+    font-weight: 700;
+    padding-top: 30px;
+}
+.sale_banner_subtitle{
+    color: #6A4760;
+    font-size: 35px;
+    font-weight: 600;
+}
+.sale_title1{
+    color: #6A4760;
+    margin-top: 8vw;
+    font-size: 4vw;
+}
+.sale_text_col p{
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+    .sale_banner {
+        display: block; /* Stack elements vertically */
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .sale_banner1 {
+        display: block; /* Stack elements vertically */
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 10px;
+    }
+
+    .sale_banner_img {
+        height: auto; /* Adjust image height */
+        width: 100%; /* Make image responsive */
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .sale_banner_img2{
+        height: 500px; /* Adjust image height */
+        width: 60%; /* Make image responsive */
+        padding: 10px;
+        margin-top: 20px;
+        margin-left: 80px;
+       text-align: center;
+    }
+
+    .sale_image {
+        padding: 20px 30px 0px 30px; /* Adjust padding for smaller screens */
+    }
+    .sale_image1{
+        width: 100%;
+        height: auto;
+    }
+    .sale_text_col {
+        padding: 20px;
+        min-width: auto; /* Remove min-width */
+    }
+
+    .sale_text_col1 h2 {
+        margin-top: 10px;
+        font-size: 6vw; /* Adjust font size for smaller screens */
+    }
+
+    .sale_text_col1 p {
+        font-size: 3vw; /* Adjust paragraph font size */
+    }
+
+    .sale_banner_title {
+        font-size: 6vw; /* Adjust title size for mobile */
+        padding-top: 15px;
+    }
+
+    .sale_banner_subtitle {
+        font-size: 5vw; /* Adjust subtitle size for mobile */
+    }
+
+    .sale_text_col p {
+        font-size: 4vw; /* Adjust paragraph text for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .sale_image {
+        width: 100%;
+    }
+
+    .sale_text_col1 h2 {
+        font-size: 8vw;
+    }
+
+    .sale_text_col1 p {
+        font-size: 4vw;
+    }
+
+    .sale_banner_title {
+        font-size: 8vw;
+    }
+
+    .sale_banner_subtitle {
+        font-size: 6vw;
+    }
+
+    .sale_text_col p {
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-width:480px) and (min-width:320px) {
+    
+.sale_banner_img1{
+    padding: 20px;
+    height: 400px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.sale_banner_img2{
+    height: 400px; /* Adjust image height */
+    width: 100%; /* Make image responsive */
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+    
+}

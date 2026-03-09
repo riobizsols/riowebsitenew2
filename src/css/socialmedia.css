@@ -1,0 +1,282 @@
+.sm_banner_bg{
+    background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217,236,250)); 
+}
+.sm_container{
+    display: flex;
+    
+    grid-template-columns: 50% 50%;
+    gap:60px;
+    padding: 70px;
+}
+.sm_text_column {
+    flex: 1;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sm_banner_title{
+    font-family: "Outfit", Sans-serif;
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 65px;
+    color:#27589E;
+    /* margin-top: 6vw; */
+   
+
+  }
+  .sm_banner_img{
+  
+   width: 600px;
+   height: 400px;
+   padding: 20px;
+   border-radius:100px;
+   /* margin-top: 20px; */
+  }
+  .sm_banner_descr{
+    /* padding-left: 40px;  */
+    font-size: 18px;
+  }
+  .sm_title{
+        font-family: "Outfit", Sans-serif;
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 49px;
+        text-align: center;
+        color: #27589E;
+        margin-top: 8rem;
+  }
+  .sm_txt_description{
+    font-family: "Outfit", Sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 35px;
+    text-align: center !important;
+    padding: 0px 60px 0px 60px;
+  }
+  .sm_card{
+    background-color: #1C1C2D;
+    border-radius: 180px 180px 0px 0px;
+    margin-bottom: 20px;
+    color: white;
+    width: 100%;
+    height: 450px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: ease-out 0.3s;
+  }
+
+  .sm_card:hover {
+    background: linear-gradient(to bottom, #2B40DD, #1B75BB);
+  }
+
+  .sm_title_head {
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+        /* margin-bottom: 6px; */
+  }
+  .sm_descrip_para{
+    font-size: 18px;
+    text-align: center;
+    padding: 10px; 
+  }
+  .sm_card_img{
+    margin-top: 20px;
+    width: 70px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .tab-title {
+    font-size: 25px;
+    font-weight: 600;
+    color:#1B75BB
+  }
+  .tab-para{
+    font-size: 22px;
+  }
+  .sm_choose_bg{
+    background: #EBEBEB
+  }
+  .sm_choose_title{
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 49px;
+    text-align: center;
+    color: #27589E;
+    margin-top: 4rem; 
+    padding-top: 40px;
+    padding-bottom: 10px;
+  }
+  .sm_choose_para{
+    padding-left: 120px;
+    padding-right: 120px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .sm_choose_img{
+    border-radius: 0px 280px 280px 0px;
+  }
+  .sm_accordion{
+    margin-top: -80px;
+  }
+
+
+  .sm_button{
+    background: linear-gradient(to right, #1b75bb, #2b40dd);
+    width: 12rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+  }
+  .sm_icon1 {
+    font-size: 30px;
+    color: black;
+    background-color: #146bae;
+    padding: 2px;
+    border-radius: 50px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .sm_container {
+        padding: 30px;
+        display: block;
+    }
+
+    .sm_banner_title {
+        font-size: 35px;
+        line-height: 45px;
+    }
+    .sm_choose_img{
+      width: 100%;
+      height: auto;
+    }
+
+    .sm_banner_img {
+        width: 100%;
+        /* max-width: 400px; */
+    }
+    .sm_text_column {
+      min-width: 100%; /* Make it take full width on tablets and smaller devices */
+      padding: 10px; /* Add some padding to ensure spacing */
+      align-items: center; /* Center content */
+  }
+
+    .sm_title {
+        font-size: 35px;
+        margin-top: 3rem;
+    }
+
+    .sm_txt_description {
+        font-size: 18px;
+        padding: 0px 20px;
+    }
+
+    .sm_card {
+        border-radius: 100px 100px 0px 0px;
+        height: auto;
+    }
+
+    .sm_card_img {
+        width: 40px;
+    }
+    .sm_button{
+      /* width: 50%; */
+      padding: 15px 0;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .tab-title {
+        font-size: 18px;
+    }
+
+    .tab-para {
+        font-size: 16px;
+    }
+
+    .sm_choose_title {
+        font-size: 35px;
+    }
+
+    .sm_choose_para {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sm_choose_img {
+        width: 100%;
+        border-radius: 0px 100px 100px 0px;
+    }
+
+    .sm_banner_descr, .sm_descrip_para {
+        font-size: 16px;
+    }
+}
+
+/* Further adjustments for smaller screens (mobile phones) */
+@media (max-width: 480px) {
+    .sm_banner_title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+
+    .sm_banner_img {
+        width: 100%;
+        height: auto;
+        border-radius: 70px;
+        
+    }
+
+    .sm_title {
+        font-size: 30px;
+        margin-top: 2rem;
+    }
+
+    .sm_txt_description {
+        font-size: 16px;
+    }
+
+    .sm_card_img {
+        width: 30px;
+    }
+
+    .tab-title {
+        font-size: 16px;
+    }
+
+    .tab-para {
+        font-size: 14px;
+    }
+
+    .sm_choose_title {
+        font-size: 30px;
+    }
+
+    .sm_choose_para {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:679px){
+
+  .sm_container {
+    padding: 30px;
+    display: block;
+}
+  
+}
+

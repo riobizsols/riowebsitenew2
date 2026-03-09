@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.s-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(238, 243, 246), rgb(217,236,250)); 
+    padding: 40px;
+    gap: 20px;
+}
+
+.txtd {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.txtd h1 {
+    font-size: 2.2em;
+    color: #1B75BB;
+}
+
+.txtd h3 {
+    font-size: 1.5em;
+    color: #1B75BB;
+    margin: 10px 0;
+}
+
+.txtd p {
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: justify;
+    font-size: larger;
+}
+
+.connect-button {
+    width: 250px;
+    margin-top: 20px;
+    padding: 15px 20px;
+    font-size: 1em;
+    color: #FFF;
+    background-color: #1B75BB;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.connect-button:hover {
+    background: linear-gradient(32deg, #3030e8 20%, #1b75bb 100%);
+    transform: translateY(-2px);
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.short-img1 {
+    width: 100%;
+    max-width: 648px;
+    height: auto;
+    border: 4px solid #1B75BB;
+    border-radius: 0px 155px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.short-img1:hover {
+    transform: scale(1.05);
+}
+
+.txtd1 h2{
+    text-align: center;
+    font-size: 2.6em;
+    color: #27589E;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.txtd1 p {
+    line-height: 1.6;
+    text-align: center;
+    font-size: 1.6em;
+    color: #27589E;
+    font-weight: 700;
+}
+
+.shortterm-hiring-container {
+    display: flex;
+    gap: 50px;
+    padding: 40px 80px;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.shortterm-text1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    text-align: justify;
+}
+
+.text-section h2 {
+    color: #1B75BB;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.text-section p {
+    line-height: 1.6;
+    font-size: larger;
+}
+
+.s-sec2 {
+    display: flex;
+    padding: 40px 80px;
+    background-color: #f9fafb;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.short-text2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    text-align: justify;
+}
+
+.image3 {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0px 155px;
+}
+
+.shortterm-extra-container {
+    display: flex;
+    padding: 40px 80px;
+    gap: 50px;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.shortterm-text2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    text-align: justify;
+}
+
+.s-text-section h2 {
+    color: #1B75BB;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+.s-text-section p {
+    line-height: 1.6;
+    font-size: larger;
+    align-items: justify;
+}
+
+.s-image2 {
+    width: 100%;
+    height: 29vw;
+    max-width: 645px;
+    border-radius: 155px 0px;
+   margin-top: 89px;
+}
+
+@media (max-width: 480px) {
+    .s-section {
+        grid-template-columns: 1fr; 
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .txtd h1 {
+        font-size: 1.8em;
+    }
+
+    .txtd h3 {
+        font-size: 1.3em;
+    }
+
+    .txtd p {
+        font-size: 1em; 
+    }
+
+    .connect-button {
+        width: 100%;
+        font-size: 0.9em;
+        padding: 12px 15px;
+    }
+
+    .short-img1 {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0; 
+    }
+
+    .txtd1 {
+        padding: 20px;
+    }
+
+    .shortterm-hiring-container, 
+    .s-sec2, 
+    .shortterm-extra-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image3, .s-image2 {
+        width: 100%;
+        height: auto; 
+    }
+
+    .shortterm-text1, 
+    .short-text2, 
+    .shortterm-text2 {
+        text-align: left;
+    }
+
+    .text-section h2, 
+    .s-text-section h2 {
+        font-size: 1.2em;
+    }
+
+    .text-section p, 
+    .s-text-section p {
+        font-size: 1em;
+    }
+
+    .shortterm-hiring-container, 
+    .shortterm-extra-container {
+        padding: 20px;
+    }
+
+    .s-image2 {
+        margin-top: 40px; 
+    }
+}
+
+
+@media (min-width: 600px) {
+    .s-section {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .txtd h1 {
+        font-size: 2em;
+    }
+
+    .txtd h3 {
+        font-size: 1.4em;
+    }
+
+    .connect-button {
+        width: auto; 
+        font-size: 1em;
+    }
+
+    .short-img1 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .shortterm-hiring-container, 
+    .shortterm-extra-container {
+        flex-direction: row; 
+        gap: 50px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .s-section {
+        grid-template-columns: 1fr 1fr; 
+        padding: 40px;
+        gap: 30px;
+    }
+
+    .txtd h1 {
+        font-size: 2.2em;
+        color: #27589E;
+        margin: 10px 0;
+        font-weight: 700;
+    }
+
+    .txtd h3 {
+        font-size: 2.2em;
+        color: #27589E;
+        margin: 10px 0;
+        font-weight: 700;
+    }
+
+    .connect-button {
+        width: 250px; 
+    }
+
+    .short-img1 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .shortterm-hiring-container, 
+    .shortterm-extra-container {
+        gap: 60px;
+    }
+
+    .s-image2 {
+        margin-top: 89px; 
+    }
+}

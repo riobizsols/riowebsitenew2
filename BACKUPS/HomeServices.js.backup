@@ -1,0 +1,184 @@
+// ============================================================================
+// BACKUP FILE: HomeServices.js - Original version
+// CREATED: 2026-01-18
+// PURPOSE: Backup before removing IPR and ERP, adding ALM
+// TO RESTORE: Copy this file back to src/components/Home/HomeServices.js
+// ============================================================================
+
+import React from 'react'
+import '../../css/home-service.css'
+import Digital from '../../../src/assets/images/dm.png';
+import Web from '../../../src/assets/images/wd.png';
+import App from '../../../src/assets/images/ad.png';
+import Staff from '../../../src/assets/images/staff.png';
+import ERP from '../../../src/assets/images/erp.png';
+import IP from '../../../src/assets/images/IP.png';
+import Divider from '@mui/material/Divider';
+import {Link} from 'react-router-dom';
+
+
+
+function Services() {
+  const Web ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/m4cliid7bj5sx10flesg.png"
+  const Digital ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599907/rio_main_website/m0v93zn1r5ehnqamqhpc.png"
+  const App ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599890/rio_main_website/bwa6k62zz3jvvfb8wsbx.png"
+  const Staff ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599940/rio_main_website/zsmbw34rfoookdmgmcpv.png"
+  const ERP ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599909/rio_main_website/tforbrel1q99hprvvl3u.png"
+  const IP ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599921/rio_main_website/qavhhy6uudzw1vvitctc.png"
+
+  return (
+    <div className='service'>
+        <h2 className='title'>Here's How we Help You Succeed!</h2>
+        <h4 className='subtitle-homeser'>Your success is our Success! With a clear vision of being "The World's best 
+          End-to-End Business Solution provider" the RIO BizSols team ensures to help 
+          from start to finish.</h4>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4 col-md-6 ">
+              <div className='card'>
+              <Link to='/our-service/digital-marketing/' style={{textDecoration:'none', color:'White'}}><img src={Digital} alt="Digital"/></Link>
+              
+                <div className='info'>
+                 
+                <Link to='/our-service/digital-marketing/' style={{textDecoration:'none', color:'White'}}> <h1 className='title_head' >
+                      Digital <br/>
+                      Marketing
+                    </h1></Link>
+               
+                   
+                    <p className='descrip_para'>Committed to delivering high-performance results, 
+                      we aim to provide complete digital marketing services to 
+                      help you produce high-quality sales, improve ROI, 
+                      and generate valuable leads for your business.</p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/digital-marketing/' style={{textDecoration:'none', color:'White'}}> <h4 className='title_head1'>To Known More</h4></Link>
+                     
+                     
+                </div>
+
+
+             </div>
+
+              </div>
+              <div className="col-lg-4 col-md-6">
+              <div className='card'>
+              <Link to='/our-service/web-development' style={{textDecoration:'none', color:'White'}}><img src={Web}  alt="Web"/></Link>
+                <div className='info'>
+                  
+                    <h1 className='title_head'>
+                      Web <br/>
+                      Development
+                    </h1>
+                    <p className='descrip_para'>Committed to delivering high-performance results, 
+                      we aim to provide complete digital marketing services to 
+                      help you produce high-quality sales, improve ROI, and generate 
+                      valuable leads for your business.</p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/web-development' style={{textDecoration:'none', color:'White'}}> <h4 className='title_head1'>To Known More</h4></Link>
+
+                </div>
+
+             </div>
+              </div>
+              <div className="col-lg-4 col-md-6">
+              <div className='card'>
+              <Link to='/our-service/app-development' style={{textDecoration:'none', color:'White'}}>
+              <img src={App} alt="App"  style={{marginLeft:30}}/></Link>
+                <div className='info'>
+                <Link to='/our-service/app-development' style={{textDecoration:'none', color:'White'}}>
+                    <h1 className='title_head'>
+                      App <br/>
+                      Development
+                    </h1></Link>
+                    <p className='descrip_para'>Committed to delivering high-performance results, 
+                      we aim to provide complete digital marketing services to 
+                      help you produce high-quality sales, improve ROI, and generate 
+                      valuable leads for your business.</p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/app-development' style={{textDecoration:'none', color:'White'}}>
+                      <h4 className='title_head1'>To Known More</h4></Link>
+                </div>
+
+             </div>
+              </div>
+            
+              <div className="col-lg-4 col-md-6 ">
+              <div className='card'>
+              <Link to='/our-service/staffing' style={{textDecoration:'none', color:'White'}}>
+
+              <img src={Staff} alt="Staff" /></Link>
+                <div className='info'>
+                <Link to='/our-service/staffing' style={{textDecoration:'none', color:'White'}}>
+
+                    <h1 className='title_head'>
+                    Staffing
+                    </h1></Link>
+                    <p className='descrip_para'>Focusing on outsourced talent acquisition, 
+                      temporary staffing, direct hiring, temp-to-hire, and on-premise staff management, 
+                      RIO leverages recruitment expertise to address hiring needs in today's workforce.
+                      <br/>
+                      <br/>
+                      </p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/staffing' style={{textDecoration:'none', color:'White'}}>
+
+                      <h4 className='title_head1'>To Known More</h4></Link>
+                </div>
+
+             </div>
+
+              </div>
+              <div className="col-lg-4 col-md-6">
+                
+              <div className='card'>
+              <Link to='/our-service/odoo/' style={{textDecoration:'none', color:'White'}}>
+
+              <img src={ERP}  alt="ERP"/></Link>
+                <div className='info'>
+                <Link to='/our-service/odoo/' style={{textDecoration:'none', color:'White'}}>
+
+                    <h1 className='title_head'>
+                    ERP Software
+                    </h1></Link>
+                    <p className='descrip_para'>We specialize in designing and implementing ERP solutions for all, 
+                      from startups to international corporations. We provide Odoo-based ERP solutions for 
+                      companies of all sizes, addressing their unique challenges in local markets.</p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/odoo/' style={{textDecoration:'none', color:'White'}}>
+
+                      <h4 className='title_head1'>To Known More</h4></Link>
+                </div>
+
+             </div>
+              </div>
+              <div className="col-lg-4 col-md-6">
+              <div className='card'>
+              <Link to='/our-service/ipr/' style={{textDecoration:'none', color:'White'}}>
+
+              <img src={IP} alt="IP"/></Link>
+                <div className='info'>
+                <Link to='/our-service/ipr/' style={{textDecoration:'none', color:'White'}}>
+
+                    <h1 className='title_head'>
+                    Intellectual Property Rights 
+                      
+                    </h1></Link>
+                    <p className='descrip_para'>Understanding IP assets is vital in 
+                      today's fast-paced world. RIO's team of IP professionals can help defend and monetize 
+                      their value via expert analysis, 
+                      consulting, transaction execution, and testimony.<br/><br/></p>
+                      <Divider style={{ background: 'white', width:310}}/>
+                      <Link to='/our-service/ipr/' style={{textDecoration:'none', color:'White'}}>
+
+                      <h4 className='title_head1'>To Known More</h4></Link>
+                </div>
+
+             </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  )
+}
+
+export default Services

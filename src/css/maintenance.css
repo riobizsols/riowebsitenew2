@@ -1,0 +1,56 @@
+/* Default styles */
+.wave-imgs-content-text {
+    margin: 0px 20px 0px 30px;
+}
+
+.wave-imgs-content-text1 {
+    margin: 0px 60px 0px 60px;
+    font-size: 18px;
+}
+
+.wave-imgs-content-textright {
+    margin: 0px 60px 0px 60px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.wave-imgs-content-head {
+    margin: 0px 60px 10px 60px;
+    font-size: 55px;
+}
+
+.wave-imgs-content-head1 {
+    margin: 0px 60px 10px 60px;
+    font-size: 55px;
+    text-align: right;
+}
+
+.maintenance-head {
+    text-align: center;
+    font-size: 55px;
+    font-weight: 700;
+    color: black;
+    padding-bottom: 40px;
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 768px) {
+    .wave-imgs-content-text,
+    .wave-imgs-content-text1,
+    .wave-imgs-content-textright {
+        margin: 0px 15px;
+        font-size: 14px; /* Adjust font size for smaller screens */
+        text-align: center; /* Center-align text for better readability */
+    }
+
+    .wave-imgs-content-head,
+    .wave-imgs-content-head1 {
+        margin: 0px 15px 10px 15px;
+        font-size: 30px; /* Reduce font size for smaller screens */
+        text-align: center; /* Center-align headings for better display */
+    }
+
+    .maintenance-head {
+        font-size: 35px; /* Adjust the heading font size for mobile */
+    }
+}

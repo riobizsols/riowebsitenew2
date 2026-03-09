@@ -1,0 +1,12 @@
+.menu{
+    align-items: Center;
+    display: flex;
+    text-decoration: none;
+    margin-left: 220px;
+    /* padding-right: 80px; */
+    width: 500px;
+    font-weight: 600;
+    list-style: none;
+    justify-content: space-evenly;
+   
+}
