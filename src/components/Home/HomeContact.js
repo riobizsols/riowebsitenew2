@@ -96,7 +96,7 @@ const [formData, setFormData] = useState({
         // Track form submission
         visitorTracking.trackFormSubmission('home_contact', formData);
         
-        const apiBase = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+        const apiBase = process.env.REACT_APP_API_URL || '';
         const response = await axios.post(`${apiBase}/send-email`, formData);
         if (response.data.success) {
             alert('Email sent successfully!');

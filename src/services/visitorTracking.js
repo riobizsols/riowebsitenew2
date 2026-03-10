@@ -169,7 +169,7 @@ export const initializeVisitorProfile = async () => {
 
   // Send initial tracking data to backend
   try {
-    await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/visitors/track`, {
+    await fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(visitorProfile),
@@ -207,7 +207,7 @@ export const trackPageView = (pageName, pageData = {}) => {
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
     
     // Send update to backend
-    fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/visitors/update`, {
+    fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/update`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -290,7 +290,7 @@ export const trackFormSubmission = (formType, formData = {}) => {
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
     
     // Send detailed form tracking to backend
-    fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/visitors/form-submission`, {
+    fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/form-submission`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
