@@ -456,6 +456,7 @@
 .alm-security .container {
   max-width: 1360px;
   margin: 0 auto;
+  padding-left: 56px;
 }
 
 .security-content {
@@ -469,20 +470,40 @@
   flex: 1;
 }
 
+/* Match screenshot: heading and subtitle left-aligned, clear size hierarchy */
+.alm-security .section-title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.alm-security .section-subtitle {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
 .security-features {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Sentence format: bold label + colon + description, one consistent medium size */
 .security-features li {
-  margin-bottom: 24px;
-  font-size: 16px;
-  color: #666666;
-  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #555;
 }
 
 .security-features strong {
+  font-weight: 600;
   color: #1a1a1a;
 }
 
@@ -492,14 +513,22 @@
   justify-content: center;
 }
 
-.security-icon {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3f4f6 100%);
+/* Rounded rectangular box with subtle shading (screenshot shape) */
+.security-icon-badge {
+  width: 220px;
+  height: 220px;
   border-radius: 16px;
+  background: linear-gradient(180deg, #eef6fc 0%, #e3eff8 100%);
+  border: 1px solid rgba(0, 82, 204, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 82, 204, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.security-icon-symbol {
+  width: 80px;
+  height: 80px;
   color: #0052cc;
 }
 

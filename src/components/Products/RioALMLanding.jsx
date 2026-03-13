@@ -6,6 +6,7 @@ import {
   FiBarChart2, FiSmartphone, 
   FiLayers, FiLock
 } from 'react-icons/fi';
+import { HiShieldCheck } from 'react-icons/hi';
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
@@ -421,8 +422,8 @@ const RioALMLanding = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <div className="security-icon">
-                <FiLock size={80} />
+              <div className="security-icon-badge" aria-hidden="true">
+                <HiShieldCheck className="security-icon-symbol" />
               </div>
             </div>
           </div>

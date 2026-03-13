@@ -279,31 +279,33 @@ export default function RioALMPricing() {
     <div className="rio-pricing-page">
       {/* ===== HERO SECTION ===== */}
       <section className="pricing-hero">
-        <div className="pricing-container">
-          <h1 className="pricing-hero-title">
-            RIO ALM Pricing<br />
-            <span className="subtitle-small">Per-Site Licensing, Flexible Deployment</span>
-          </h1>
-          
-          <p className="pricing-hero-subheading">
-            Site-based pricing (not per-user) • Unlimited users & assets included<br />
-            Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud
-          </p>
+        <div className="pricing-hero-inner">
+          <div className="pricing-container">
+            <h1 className="pricing-hero-title">
+              RIO ALM Pricing<br />
+              <span className="subtitle-small">Per-Site Licensing, Flexible Deployment</span>
+            </h1>
+            
+            <p className="pricing-hero-subheading">
+              Site-based pricing (not per-user) • Unlimited users & assets included<br />
+              Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud
+            </p>
 
-          <div className="pricing-hero-ctas">
-            <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
-              Book a Demo
-            </Link>
-            <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-secondary-large">
-              Get a Proposal
-            </a>
-          </div>
+            <div className="pricing-hero-ctas">
+              <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
+                Book a Demo
+              </Link>
+              <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
+                Get a Proposal
+              </Link>
+            </div>
 
-          <div className="trust-strip">
-            <span>✓ Unlimited Users</span>
-            <span>✓ Unlimited Assets</span>
-            <span>✓ Role-Based Access</span>
-            <span>✓ Audit-Ready</span>
+            <div className="trust-strip">
+              <span>✓ Unlimited Users</span>
+              <span>✓ Unlimited Assets</span>
+              <span>✓ Role-Based Access</span>
+              <span>✓ Audit-Ready</span>
+            </div>
           </div>
         </div>
       </section>
@@ -376,9 +378,9 @@ export default function RioALMPricing() {
                   <Link to="/products/rio-alm/contact" className="btn btn-primary">
                     Book Demo
                   </Link>
-                  <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-outline">
+                  <Link to="/products/rio-alm/contact" className="btn btn-outline">
                     Get Proposal
-                  </a>
+                  </Link>
                 </div>
 
                 <div
@@ -429,10 +431,12 @@ export default function RioALMPricing() {
       {/* ===== WHAT'S INCLUDED ===== */}
       <section className="whats-included-section">
         <div className="pricing-container">
-          <h2 className="section-title">What's Included in All Plans</h2>
-          <p className="section-subtitle">
-            Every RIO ALM license includes unlimited users, unlimited assets, and all core features.
-          </p>
+          <div className="whats-heading-row">
+            <h2 className="section-title">What's Included in All Plans</h2>
+            <p className="section-subtitle">
+              Every RIO ALM license includes unlimited users, unlimited assets, and all core features.
+            </p>
+          </div>
 
           <div className="features-grid">
             {FEATURES_DATA.map((feature, idx) => (
@@ -449,10 +453,12 @@ export default function RioALMPricing() {
       {/* ===== DEPLOYMENT OPTIONS ===== */}
       <section className="deployment-section">
         <div className="pricing-container">
-          <h2 className="section-title">Choose Your Deployment</h2>
-          <p className="section-subtitle">
-            Flexibility to match your infrastructure and operations needs.
-          </p>
+          <div className="deployment-heading-row">
+            <h2 className="section-title">Choose Your Deployment</h2>
+            <p className="section-subtitle">
+              Flexibility to match your infrastructure and operations needs.
+            </p>
+          </div>
 
           <div className="deployment-grid">
             {DEPLOYMENT_OPTIONS.map((option, idx) => (
@@ -483,9 +489,9 @@ export default function RioALMPricing() {
 
           <div className="deployment-help">
             <p className="help-text">Need help choosing the right deployment?</p>
-            <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-outline-small">
+            <Link to="/contact" className="btn btn-outline-small">
               Contact Our Team
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -710,9 +716,9 @@ export default function RioALMPricing() {
             <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
               Book a Demo
             </Link>
-            <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-secondary-large">
+            <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
               Get a Proposal
-            </a>
+            </Link>
           </div>
         </div>
       </section>

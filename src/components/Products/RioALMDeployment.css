@@ -1,24 +1,24 @@
 .deployment-hero {
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
-  padding: 80px 24px;
+  padding: 80px 16px;
   text-align: center;
 }
 
 .deployment-hero .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .deployment-hero .hero-title {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .deployment-hero .hero-subtitle {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -26,7 +26,7 @@
 
 /* Deployment Options */
 .deployment-options-section {
-  padding: 80px 24px;
+  padding: 80px 16px;
 }
 
 .deployment-options-section .container {
@@ -76,7 +76,7 @@
 }
 
 .option-description {
-  font-size: 14px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.6;
   margin: 0 0 24px 0;
@@ -84,7 +84,7 @@
 
 .benefits-title,
 .requirements-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 24px 0 12px 0;
@@ -99,7 +99,7 @@
 
 .benefits-list li,
 .requirements-list li {
-  font-size: 13px;
+  font-size: 14px;
   color: #666666;
   line-height: 1.8;
   padding-left: 24px;
@@ -124,7 +124,7 @@
 
 /* Comparison Table */
 .deployment-comparison {
-  padding: 80px 24px;
+  padding: 80px 16px;
   background: #f9fafb;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -162,7 +162,7 @@
 
 .table-cell {
   padding: 20px;
-  font-size: 14px;
+  font-size: 15px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -187,7 +187,7 @@
 
 .table-row .table-cell {
   padding: 16px 20px;
-  font-size: 14px;
+  font-size: 15px;
   color: #666666;
   border-right: 1px solid #e8e8e8;
   display: flex;
@@ -206,7 +206,7 @@
 
 /* Implementation Section */
 .implementation-section {
-  padding: 80px 24px;
+  padding: 80px 16px;
 }
 
 .implementation-section .container {
@@ -236,14 +236,14 @@
 }
 
 .impl-card h3 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .impl-card p {
-  font-size: 13px;
+  font-size: 14px;
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -251,7 +251,7 @@
 
 /* Security Section */
 .security-section {
-  padding: 80px 24px;
+  padding: 80px 16px;
   background: #f9fafb;
 }
 
@@ -263,19 +263,32 @@
 .security-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  gap: 40px;
+  align-items: stretch;
 }
 
 .security-content {
   flex: 1;
 }
 
+/* Keep Security & Compliance heading on a single line on wide screens */
+.security-content .section-title {
+  text-align: left;
+  margin: 0 0 12px 0;
+  white-space: nowrap;
+}
+
 .security-text {
-  font-size: 16px;
+  font-size: 17px;
   color: #666666;
   line-height: 1.8;
   margin: 0 0 24px 0;
+}
+
+/* Force intro sentence into exactly two lines on large screens */
+.security-text-line {
+  display: block;
+  white-space: normal;
 }
 
 .security-list {
@@ -285,7 +298,7 @@
 }
 
 .security-list li {
-  font-size: 14px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -299,12 +312,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
+  min-height: 0;
   background: linear-gradient(135deg, #e3f2fd 0%, #f3f4f6 100%);
   border-radius: 16px;
   color: #0052cc;
-  margin: 0 auto;
+  align-self: flex-end;
+  margin: 0 auto 200px auto;
 }
 
 /* Responsive Design */
@@ -321,11 +336,18 @@
     grid-template-columns: 1fr;
   }
 
+  /* Allow security points to wrap on small screens */
+  .security-list li {
+    white-space: normal;
+  }
+
   .table-header,
   .table-row {
     grid-template-columns: 2fr 1fr 1fr;
   }
 }
+
+/* (no extra stacking rules here; logo stays alongside text on desktops) */
 
 @media (max-width: 768px) {
   .deployment-hero .hero-title {

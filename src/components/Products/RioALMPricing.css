@@ -30,6 +30,7 @@
   color: var(--text-dark);
   line-height: 1.6;
   background-color: #fff;
+  font-size: 1.05rem;
 }
 
 .pricing-container {
@@ -52,14 +53,40 @@
    ============================================================================ */
 
 .pricing-hero {
+  background-color: #ffffff;
+  padding: 8px 20px 36px;
+}
+
+.pricing-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 50px 20px;
+  border-radius: 16px;
+  padding: 32px 32px 40px;
   text-align: center;
 }
 
+/* More compact violet box just for RIO MEMS hero */
+.mems-hero {
+  max-width: 1200px;
+  padding: 18px 20px 22px;
+}
+
+.mems-hero .pricing-hero-title {
+  margin-bottom: 4px;
+}
+
+.mems-hero .pricing-hero-title .subtitle-small {
+  margin-top: 6px;
+}
+
+.mems-hero .pricing-hero-subheading {
+  margin: 10px 0 16px 0;
+}
+
 .pricing-hero-title {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   margin-bottom: 10px;
   line-height: 1.2;
@@ -67,7 +94,7 @@
 }
 
 .pricing-hero-title .subtitle-small {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   opacity: 0.95;
   display: block;
@@ -75,9 +102,9 @@
 }
 
 .pricing-hero-subheading {
-  font-size: 18px;
+  font-size: 19px;
   opacity: 0.9;
-  margin: 20px 0 40px 0;
+  margin: 16px 0 24px 0;
   line-height: 1.5;
   max-width: 800px;
   margin-left: auto;
@@ -88,7 +115,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
 }
 
@@ -231,7 +258,7 @@
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
@@ -241,7 +268,7 @@
 .section-subtitle {
   text-align: center;
   color: var(--text-light);
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 25px;
 }
 
@@ -481,6 +508,24 @@
   padding: 50px 20px;
 }
 
+/* Title + subtitle row for \"What's Included in All Plans\" */
+.whats-heading-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.whats-heading-row .section-title {
+  margin-bottom: 0;
+}
+
+.whats-heading-row .section-subtitle {
+  margin-bottom: 0;
+  text-align: left;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -510,14 +555,14 @@
 }
 
 .feature-item h4 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--text-dark);
 }
 
 .feature-item p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-light);
   line-height: 1.5;
 }
@@ -529,6 +574,31 @@
 .deployment-section {
   padding: 50px 20px;
   background-color: white;
+}
+
+/* Remove inner horizontal padding so headings sit at left edge of content area */
+.whats-included-section .pricing-container,
+.deployment-section .pricing-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Title + subtitle row for \"Choose Your Deployment\" */
+.deployment-heading-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.deployment-heading-row .section-title {
+  margin-bottom: 0;
+}
+
+.deployment-heading-row .section-subtitle {
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .deployment-grid {
@@ -713,6 +783,36 @@
 .addon-notes p {
   font-size: 14px;
   color: var(--text-light);
+}
+
+/* ============================================================================
+   RIO MEMS PRICING – COMPACT CARD VARIANT
+   ============================================================================ */
+
+.mems-pricing-cards .pricing-cards-grid {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.mems-pricing-cards .pricing-card {
+  padding: 18px 18px;
+}
+
+.mems-pricing-cards .card-plan-name {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.mems-pricing-cards .card-description {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.mems-pricing-cards .card-price .amount {
+  font-size: 32px;
 }
 
 /* ============================================================================

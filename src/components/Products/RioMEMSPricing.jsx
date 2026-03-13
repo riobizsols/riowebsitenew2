@@ -49,7 +49,7 @@ const MEMS_PRICING = {
 };
 
 export default function RioMEMSPricing() {
-  const [region, setRegion] = React.useState<'inr' | 'usd'>('inr');
+  const [region, setRegion] = React.useState('inr');
 
   const config = region === 'inr' ? MEMS_PRICING.inr : MEMS_PRICING.usd;
 
@@ -57,28 +57,30 @@ export default function RioMEMSPricing() {
     <div className="rio-pricing-page">
       {/* Hero */}
       <section className="pricing-hero">
-        <div className="pricing-container">
-          <h1 className="pricing-hero-title">
-            RIO MEMS Pricing
-            <br />
-            <span className="subtitle-small">
-              Medical Equipment Maintenance System for Hospitals
-            </span>
-          </h1>
-          <p className="pricing-hero-subheading">
-            One-time licensing with optional annual AMC. Unlimited users for your biomedical,
-            maintenance, and clinical teams.
-          </p>
-          <div className="pricing-hero-ctas">
-            <Link
-              to="/products/medical-equipment-maintenance/contact"
-              className="btn btn-primary-large"
-            >
-              Book RIO MEMS Demo
-            </Link>
-            <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-secondary-large">
-              Request RIO MEMS Proposal
-            </a>
+        <div className="pricing-hero-inner mems-hero">
+          <div className="pricing-container">
+            <h1 className="pricing-hero-title">
+              RIO MEMS Pricing
+              <br />
+              <span className="subtitle-small">
+                Medical Equipment Maintenance System for Hospitals
+              </span>
+            </h1>
+            <p className="pricing-hero-subheading">
+              One-time licensing with optional annual AMC. Unlimited users for your biomedical,
+              maintenance, and clinical teams.
+            </p>
+            <div className="pricing-hero-ctas">
+              <Link
+                to="/products/medical-equipment-maintenance/contact"
+                className="btn btn-primary-large"
+              >
+                Book RIO MEMS Demo
+              </Link>
+              <a href="mailto:tony.rozario@riobizsols.com" className="btn btn-secondary-large">
+                Request RIO MEMS Proposal
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -105,7 +107,7 @@ export default function RioMEMSPricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pricing-cards-section">
+      <section className="pricing-cards-section mems-pricing-cards">
         <div className="pricing-container">
           <h2 className="section-title">RIO MEMS License Options</h2>
           <div className="pricing-cards-grid">

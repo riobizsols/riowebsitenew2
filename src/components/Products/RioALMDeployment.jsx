@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FiServer, FiLock, FiGitBranch, FiDatabase } from 'react-icons/fi';
+import { FiServer, FiGitBranch, FiDatabase } from 'react-icons/fi';
+import { HiShieldCheck } from 'react-icons/hi';
 import CTABanner from './CTABanner';
 import './RioALMDeployment.css';
 
@@ -206,7 +207,12 @@ const RioALMDeployment = () => {
             <div className="security-content">
               <h2 className="section-title">Security & Compliance</h2>
               <p className="security-text">
-                RIO ALM is built with enterprise security standards in mind, regardless of deployment model.
+                <span className="security-text-line">
+                  RIO ALM protects your asset and maintenance data with enterprise-grade controls,
+                </span>
+                <span className="security-text-line">
+                  whether you deploy it on-premises, in your own cloud, or via our managed hosting.
+                </span>
               </p>
               <ul className="security-list">
                 <li><strong>Data Encryption:</strong> Industry-standard encryption for data in transit and at rest</li>
@@ -218,7 +224,7 @@ const RioALMDeployment = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <FiLock size={120} />
+              <HiShieldCheck size={50} />
             </div>
           </div>
         </div>
