@@ -9,7 +9,7 @@ import Image2 from '../../../assets/images/shortimg2.jpeg';
 import Image3 from '../../../assets/images/shortimg3.jpeg';
 import Image4 from '../../../assets/images/shortimg4.jpeg';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Shortterm = () => {
   const Image1 ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599938/rio_main_website/afykicryic9cv7lrib5s.jpg"

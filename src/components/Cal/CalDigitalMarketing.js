@@ -9,7 +9,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import HomeContact from '../Home/HomeContact';
 import Accordion from '../Accordion/Accordion';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import * as visitorTracking from '../../services/visitorTracking';
 
 function CalDigitalMarketing() {

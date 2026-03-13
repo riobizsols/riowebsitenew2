@@ -17,7 +17,7 @@ import {EffectCoverflow, Pagination, Navigation} from 'swiper/modules';
 import ContactFrom from '../../Services/ContactFrom';
 import ThreeDCarousel from './slider';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const Iosapp = () => {

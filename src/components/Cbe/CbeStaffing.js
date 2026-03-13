@@ -20,7 +20,7 @@ import smiley from '../../assets/images/smiley.png'
 import badge from '../../assets/images/badge.png'
 import logo from '../../assets/images/riologo.png'
 import { FaRegHandPointer } from "react-icons/fa6";
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 import {Link} from 'react-router-dom'; 

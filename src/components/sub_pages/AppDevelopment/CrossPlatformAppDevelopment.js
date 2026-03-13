@@ -16,7 +16,7 @@ import ionic from '../../../assets/images/Ionic.jpg'
 import ThreeDCarousel from './slider1';
 import ContactFrom from '../../Services/ContactFrom';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 

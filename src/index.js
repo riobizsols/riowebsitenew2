@@ -7,6 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import reportWebVitals from './reportwebvitals';
 import ReactGA from "react-ga4";
 import TagManager from 'react-gtm-module';
+import { HelmetProvider } from 'react-helmet-async';
 
 const tagManagerArgs = {
   gtmId: 'GTM-MKJW5WZQ', // Replace with your GTM ID
@@ -21,7 +22,9 @@ ReactGA.initialize("G-VH7FR8Q8HL");
 // G-RXSQ0HH7M8
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );
 

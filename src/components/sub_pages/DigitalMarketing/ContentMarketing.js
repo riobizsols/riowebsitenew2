@@ -5,7 +5,7 @@ import ClientLogohead from '../../Home/ClientLogohead';
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import ContactFrom from '../../Services/ContactFrom';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 export const ContentMarketing = () => {
 

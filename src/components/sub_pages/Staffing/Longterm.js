@@ -9,7 +9,7 @@ import Image2 from '../../../assets/images/longimg2.jpeg'
 import Image3 from '../../../assets/images/longimg3.jpeg'
 import Image4 from '../../../assets/images/longimg4.jpeg'
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Longterm = () => {
   const Image1 ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599926/rio_main_website/isg06mepil8b9tvfixxw.jpg"

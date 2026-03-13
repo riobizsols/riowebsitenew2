@@ -83,7 +83,7 @@ router.post('/track', (req, res) => {
   }
 });
 
-// Update visitor behavior
+// Update visitor behavior (creates visitor if not found, so no 404 from stale localStorage)
 router.post('/update', (req, res) => {
   try {
     const { visitorId, behavior, lastActivity } = req.body;
@@ -94,10 +94,17 @@ router.post('/update', (req, res) => {
       visitors[visitorIndex].behavior = behavior;
       visitors[visitorIndex].lastActivity = lastActivity;
       writeData(visitorsDataFile, visitors);
-
       res.json({ success: true, message: 'Visitor updated successfully' });
     } else {
-      res.status(404).json({ error: 'Visitor not found' });
+      // Visitor not in backend yet (e.g. from localStorage after backend restart) – create them
+      visitors.push({
+        visitorId,
+        behavior: behavior || {},
+        lastActivity: lastActivity || new Date().toISOString(),
+        createdAt: new Date().toISOString(),
+      });
+      writeData(visitorsDataFile, visitors);
+      res.json({ success: true, message: 'Visitor created from update' });
     }
   } catch (error) {
     console.error('Error updating visitor:', error);

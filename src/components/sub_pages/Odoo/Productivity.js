@@ -5,7 +5,7 @@ import ClientLogohead from '../../Home/ClientLogohead'
 import Discuss from '../../../assets/images/Discuss.png'
 import approvel from '../../../assets/images/Approvel.png'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Productivity() {
   const productivity="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599931/rio_main_website/jjxqr56ialkvlab8gulu.png"

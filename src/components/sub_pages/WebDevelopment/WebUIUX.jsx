@@ -1,6 +1,6 @@
 import React from 'react'
 import '../WebDevelopment/WebUIUX.css'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import ClientLogohead from '../../Home/ClientLogohead'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { Link } from 'react-router-dom'

@@ -5,7 +5,7 @@ import ClientLogohead from '../../Home/ClientLogohead';
 import Payperaccordion from '../../Accordion/Payperaccordion';
 import ContactFrom from '../../Services/ContactFrom';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 

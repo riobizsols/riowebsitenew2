@@ -4,7 +4,7 @@ import LazyImage from '../LazyImage';
 import ClientLogohead from '../Home/ClientLogohead'
 import { Link } from 'react-router-dom';
 import ContactFrom from './ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import * as visitorTracking from '../../services/visitorTracking';
 import { FaCheck, FaMobile, FaLaptopCode, FaPalette, FaComments, FaTools, FaRocket } from 'react-icons/fa';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../WebDevelopment/WebHostingService.css'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FaAnglesRight } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 import ClientLogohead from '../../Home/ClientLogohead'

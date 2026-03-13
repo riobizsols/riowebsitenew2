@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import '../../css/about-elegant.css'
 import { FiTarget, FiUsers, FiZap, FiHeart } from 'react-icons/fi';
 

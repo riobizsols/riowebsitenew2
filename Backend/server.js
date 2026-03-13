@@ -21,6 +21,12 @@ const productOwnerEmail = 'info@riobizsols.com';  // Replace with actual product
 app.post('/send-email', (req, res) => {
     const { firstname, email, phone, message } = req.body;
 
+    console.log('[send-email] Request received:', { firstname, email, phone, messageLength: message?.length });
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.error('[send-email] Missing EMAIL_USER or EMAIL_PASS in .env');
+        return res.status(500).json({ success: false, message: 'Server email config missing', error: 'EMAIL_USER or EMAIL_PASS not set' });
+    }
+
    // Create Nodemailer transporter
     // const transporter = nodemailer.createTransport({
     //     host: 'smtp.zoho.com', // Zoho SMTP server
@@ -32,14 +38,16 @@ app.post('/send-email', (req, res) => {
     //     },
     // });
 
-    //Create Nodemailer transporter
+    // Gmail: use port 587 (STARTTLS) - many hosts block outbound 465
     const transporter = nodemailer.createTransport({
-        service: 'gmail',  // You can use other email services as well
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        requireTLS: true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
-        
     });
 
     transporter.verify((error, success) => {
@@ -63,27 +71,48 @@ app.post('/send-email', (req, res) => {
     // Send email
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            return res.status(500).json({  success: false, message: 'Error sending email', error });
+            console.error('[send-email] Nodemailer error:', error.message);
+            console.error('[send-email] Full error:', error);
+            return res.status(500).json({ success: false, message: 'Error sending email', error: error.message });
         }
-        res.status(200).json({success: true, message: 'Email sent successfully!' });
+        console.log('[send-email] Sent successfully:', info.messageId);
+        res.status(200).json({ success: true, message: 'Email sent successfully!' });
     });
 });
 
 // Use visitor tracking routes
 app.use('/api/visitors', visitorRoutes);
 
+// Health check – confirms backend is running (open in browser or curl)
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, message: 'Backend is running', port: process.env.PORT || 3003 });
+});
+
 // Serve static files from the React build folder (production)
-const buildPath = path.join(__dirname, '..', 'build');
+const possibleBuildPaths = [
+  path.join(__dirname, '..', 'build'),  // project root: .../riowebsitenew2/build
+  path.join(__dirname, 'build'),         // build inside Backend: .../Backend/build
+  path.join(process.cwd(), 'build'),     // cwd/build (e.g. cPanel app root)
+];
+const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || possibleBuildPaths[0];
+
 if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
   app.use(express.static(buildPath));
   app.get('*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
   });
+  console.log('Serving static build from:', buildPath);
+} else {
+  console.warn('Build folder not found. Tried:', possibleBuildPaths.join(', '));
+  console.warn('Set NODE_ENV=production and ensure "build" exists, or GET / will 404.');
 }
 
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.warn('Warning: EMAIL_USER or EMAIL_PASS not set in .env – /send-email will return 500 until fixed.');
+    }
 });
 
 

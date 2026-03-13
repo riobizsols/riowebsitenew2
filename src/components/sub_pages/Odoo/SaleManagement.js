@@ -7,7 +7,7 @@ import point from '../../../assets/images/point.jpg'
 import rental from '../../../assets/images/rental.jpg'
 import sale1 from '../../../assets/images/sales.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function SaleManagement() {
   const sale ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599939/rio_main_website/v5ha0qg7heof4bacgpbq.png"

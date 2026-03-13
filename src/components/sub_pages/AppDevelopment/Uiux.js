@@ -22,7 +22,7 @@ import testing from '../../../assets/images/Testing-Iteration.jpg'
 import launch from '../../../assets/images/Launch-Support-1.jpg'
 import ContactFrom from '../../Services/ContactFrom';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const Uiux = () => {

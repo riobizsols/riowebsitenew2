@@ -10,7 +10,7 @@ import hireimg5 from '../../../assets/images/hireimg5.png';
 import ContactFrom from '../../Services/ContactFrom'
 import { FaRegCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const Hire = () => {

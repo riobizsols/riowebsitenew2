@@ -22,7 +22,7 @@ export default function Header1() {
       <Navbar.Brand href="/">
         <img src={Logo} alt=''/>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" class='mob-navbar' />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="mob-navbar" />
       <Navbar.Collapse id="basic-navbar-nav" >
         <Nav className="menu">
           <Nav.Link href="/">Home</Nav.Link>

@@ -8,7 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Payperaccordion from '../../Accordion/Payperaccordion';
 import ContactFrom from '../../Services/ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 function SocialMediaMarketing() {

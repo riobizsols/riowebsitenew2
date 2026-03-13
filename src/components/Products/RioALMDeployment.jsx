@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FiServer, FiLock, FiGitBranch, FiDatabase } from 'react-icons/fi';
 import CTABanner from './CTABanner';
 import './RioALMDeployment.css';
