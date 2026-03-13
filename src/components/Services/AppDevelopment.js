@@ -19,7 +19,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { Link } from 'react-router-dom';
 import ServiceContact from './ServiceContact'
 import ContactFrom from './ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import * as visitorTracking from '../../services/visitorTracking';
 
 

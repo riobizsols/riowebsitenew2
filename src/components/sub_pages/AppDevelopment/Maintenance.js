@@ -29,7 +29,7 @@ import Regular from '../../../assets/images/Regular-Updates-Optimization.png'
 import securitycompliance from '../../../assets/images/Security-Compliance.png'
 import Scalability from '../../../assets/images/Scalability.png'
 import ContactFrom from '../../Services/ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const Maintenance = () => {

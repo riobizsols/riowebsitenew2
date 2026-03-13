@@ -8,7 +8,7 @@ import logo from '../../../assets/images/riologo.png'
 import blog from '../../../assets/images/blog.png'
 import live from '../../../assets/images/Live-Chat.png'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Website() {
     const odooweb="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599953/rio_main_website/swbeof4f19rwhpbbr4k8.png"

@@ -19,7 +19,7 @@ import feedback from '../../../assets/images/Feedback-Refinement-251x300.jpg'
 import finial from '../../../assets/images/Final-Delivery-1-251x300.jpg'
 import ongoing from '../../../assets/images/Ongoing-Support-Collaboration-1-251x300.jpg'
 import ContactFrom from '../../Services/ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 const ConsultingPrototyping = () => {
@@ -72,21 +72,21 @@ const finial="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599913/rio_
           Consulting </h2>
          
             <div className='consult-grid-container'>
-            <div class="item">
-              <img src={strategic} alt="strategic" class='item-consult-img' />
+            <div className="item">
+              <img src={strategic} alt="strategic" className='item-consult-img' />
               <h2>Strategic Planning</h2>
               <p>We help you define your app’s objectives and create a strategic roadmap to achieve them.</p>
             </div>
-  <div class="item">
-  <img src={ma} alt="ma" class='item-consult-img' />
+  <div className="item">
+  <img src={ma} alt="ma" className='item-consult-img' />
 
     <h2>
     Market Analysis
     </h2>
     <p>Gain insights into your target audience, competitors, and market trends to make informed decisions.</p>
   </div>
-  <div class="item">
-    <img src={technology} alt="technology"  class='item-consult-img'/>
+  <div className="item">
+    <img src={technology} alt="technology"  className='item-consult-img'/>
     <h2>Technology Guidance</h2>
     <p>
     Receive expert advice on the best technologies and frameworks to use for your project.
@@ -96,21 +96,21 @@ const finial="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599913/rio_
             </div>
             <h2 style={{textAlign:'center', marginBottom:50}}>Prototyping</h2>
             <div className='consult-grid-container'>
-            <div class="item">
-              <img src={wirefram} alt="wirefram" class='item-consult-img' />
+            <div className="item">
+              <img src={wirefram} alt="wirefram" className='item-consult-img' />
               <h2>Wireframing</h2>
               <p>Visualize the structure and layout of your app with detailed wireframes.</p>
             </div>
-  <div class="item">
-  <img src={inter} alt="inter" class='item-consult-img' />
+  <div className="item">
+  <img src={inter} alt="inter" className='item-consult-img' />
 
     <h2>
     Interactive Prototypes
     </h2>
     <p>Experience a working model of your app, allowing you to test and refine functionalities before development.</p>
   </div>
-  <div class="item">
-    <img src={usertest} alt="usertest"  class='item-consult-img'/>
+  <div className="item">
+    <img src={usertest} alt="usertest"  className='item-consult-img'/>
     <h2>User Testing</h2>
     <p>
     Gather feedback from real users to ensure your app meets their needs and expectations.

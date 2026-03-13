@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import {
   FiPackage, FiTool, FiUsers, FiFileText,
   FiBarChart2, FiSmartphone, FiLayers, FiLock,

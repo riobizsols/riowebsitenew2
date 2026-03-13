@@ -6,7 +6,7 @@ import account from '../../../assets/images/accounting.jpg'
 import invoice from '../../../assets/images/invoicing.jpg'
 import expense from '../../../assets/images/expense.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 function FinanceManagement() {

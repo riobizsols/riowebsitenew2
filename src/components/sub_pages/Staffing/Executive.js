@@ -12,7 +12,7 @@ import exe3img from '../../../assets/images/exe3img.gif';
 import exe4img from '../../../assets/images/exe4img.gif';
 import { Link } from 'react-router-dom';
 import ContactFrom from '../../Services/ContactFrom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Executive = () => {
     const exeimg ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599911/rio_main_website/l9kpslwjjhidivobvq9n.png"

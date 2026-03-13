@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Image from '../../../assets/images/fresh1img.jpeg'; 
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io'; 
 import logo from '../../../assets/images/logo.png'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import ContactFrom from '../../Services/ContactFrom';
 
 
@@ -82,32 +82,32 @@ const Freshhire = () => {
                 </div>
             </section>
 
-            <section class="fresher-hiring">
+            <section className="fresher-hiring">
     <div>
-        <h2 class="fretxt" style={{marginBottom:40}}>Why Choose Rio For Fresher’s Hiring?</h2>
+        <h2 className="fretxt" style={{marginBottom:40}}>Why Choose Rio For Fresher’s Hiring?</h2>
     </div>
-    <div class="mindmap">
-        <div class="branch">
+    <div className="mindmap">
+        <div className="branch">
             <h2>Comprehensive Screening Process</h2>
             <p>Our rigorous screening process ensures that only the most capable and driven candidates are presented to you. 
                We evaluate candidates on various parameters, 
                including academic performance, technical skills, soft skills, and cultural fit.
             </p>
         </div>
-        <div class="branch">
+        <div className="branch">
             <h2>Wide Talent Pool</h2>
             <p>We have access to a wide pool of recent graduates from various disciplines, 
                thanks to our partnerships with top universities and colleges, providing diverse candidates suited to your needs.
             </p>
         </div>
-        <div class="branch">
+        <div className="branch">
             <h2>Customized Recruitment Solutions</h2>
             <p>We offer bespoke hiring solutions that align with your organizational goals. 
                From mass recruitment drives to niche skill hiring,
                our flexible approach ensures you get the right talent at the right time.
             </p>
         </div>
-        <div class="branch">
+        <div className="branch">
             <h2>End-to-End Recruitment Support</h2>
             <p>Our services continue beyond providing candidates. 
                We offer end-to-end recruitment support, including onboarding assistance, 

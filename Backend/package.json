@@ -7,6 +7,10 @@
     "start": "nodemon server.js",
     "start:prod": "node server.js"
   },
+  "nodemonConfig": {
+    "watch": ["*.js", "routes"],
+    "ignore": ["data/**", "node_modules/**", "*.json"]
+  },
   "author": "",
   "license": "ISC",
   "description": "",

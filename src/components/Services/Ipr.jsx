@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import IPR from '../../assets/images/IPR1.jpg'
 import '../../css/Ipr.css'
 import LazyImage from '../LazyImage';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { BiCheck } from "react-icons/bi";
 import ClientLogohead from '../Home/ClientLogohead';
 import { Divider } from '@mui/material';

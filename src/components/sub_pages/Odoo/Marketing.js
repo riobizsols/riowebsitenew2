@@ -10,7 +10,7 @@ import sms from '../../../assets/images/sms.jpg'
 // import invoice from '../../../assets/images/invoicing.jpg'
 // import expense from '../../../assets/images/expense.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Marketing() {
   const marketing="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599940/rio_main_website/ua6m5pylnmrkuyssghza.jpg"

@@ -16,7 +16,7 @@ import ContactFrom from '../../Services/ContactFrom';
 import ServiceContact from '../../Services/ServiceContact';
 import { Link } from 'react-router-dom';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Contractual = () => {
   const contraimg ="https://res.cloudinary.com/dhzg3dnfc/image/upload/f_auto,q_auto/v1732599901/rio_main_website/v4uafk0yknmzq79itjbd.jpg"

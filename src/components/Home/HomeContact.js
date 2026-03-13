@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../css/Contact.css';
 import axios from 'axios';
 import * as visitorTracking from '../../services/visitorTracking';
+import { getApiBaseUrl } from '../../utils/urlHelper';
 
 
 const HomeContact = () => {
@@ -13,6 +14,8 @@ const [formData, setFormData] = useState({
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,32 +94,26 @@ const [formData, setFormData] = useState({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
+    if (!validate() || isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitStatus(null);
     try {
-        // Track form submission
-        visitorTracking.trackFormSubmission('home_contact', formData);
-        
-        const apiBase = process.env.REACT_APP_API_URL || '';
-        const response = await axios.post(`${apiBase}/send-email`, formData);
-        if (response.data.success) {
-            alert('Email sent successfully!');
-        } else {
-            alert('Failed to send email.');
-        }
+      visitorTracking.trackFormSubmission('home_contact', formData);
+      const apiBase = getApiBaseUrl();
+      const response = await axios.post(`${apiBase}/send-email`, formData);
+      if (response.data.success) {
+        setSubmitStatus('success');
+        setFormData({ firstname: '', email: '', phone: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
-        console.error('There was an error sending the email:', error);
-        alert('Error sending email!');
+      console.error('There was an error sending the email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Clear the form
-    setFormData({
-      firstname: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
   };
-};
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -272,7 +269,16 @@ const [formData, setFormData] = useState({
               {errors.message && <span className="error-message">{errors.message}</span>}
             </div>
 
-            <button className='s-btn' type="submit">Submit</button>
+            {submitStatus === 'success' && (
+              <p className="form-success-msg" role="alert">Thank you! Your message has been received. We will get back to you soon.</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="form-error-msg" role="alert">Something went wrong. Please try again or email us directly.</p>
+            )}
+
+            <button className="s-btn" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Submit'}
+            </button>
             </form>
           </div>
         </div>

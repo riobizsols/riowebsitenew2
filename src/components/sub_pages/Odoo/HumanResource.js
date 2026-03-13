@@ -8,7 +8,7 @@ import Timeoff from '../../../assets/images/Timeoff.jpg'
 import Content from '../../../assets/images/content_hr.jpg'
 
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function HumanResource() {
   const hr ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599917/rio_main_website/w6frbucrhefrjbnneyp1.png"

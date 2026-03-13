@@ -7,7 +7,7 @@ import planning from '../../../assets/images/planning.jpg'
 import timesheet from '../../../assets/images/timesheets.jpg'
 import field from '../../../assets/images/field.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function OdooServices() {
   const odooservice ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/azjotiuwds78rwqbymnw.png"

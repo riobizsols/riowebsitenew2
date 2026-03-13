@@ -10,7 +10,7 @@ import ContactFrom from '../../Services/ContactFrom'
 import { FaRegCheckCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import ClientLogohead from '../../Home/ClientLogohead';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Temp = () => {
    const tempimg1 ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599942/rio_main_website/hu56aecdajlffltzwz6a.png"

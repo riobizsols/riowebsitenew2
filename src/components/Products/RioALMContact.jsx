@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 import './RioALMContact.css';
 

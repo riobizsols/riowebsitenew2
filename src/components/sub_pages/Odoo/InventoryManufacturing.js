@@ -10,7 +10,7 @@ import inveQua from '../../../assets/images/inve_qua.jpg'
 // import invoice from '../../../assets/images/invoicing.jpg'
 // import expense from '../../../assets/images/expense.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function InventoryManufacturing() {
   const inventory="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599919/rio_main_website/mhtaftqff7w7zoubxnso.png"

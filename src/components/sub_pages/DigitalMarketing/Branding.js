@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import HomeContact from '../../Home/HomeContact';
 import {Link} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 function Branding() {

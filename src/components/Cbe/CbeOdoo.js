@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import odoo from '../../assets/images/ERP-Odoo.jpg'
 import '../../css/odoo.css'
 import ClientLogohead from '../Home/ClientLogohead'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import webicon from '../../assets/images/Website-2.png'
 import sale from '../../assets/images/sale.png'
 import { FaRegArrowAltCircleRight } from "react-icons/fa";

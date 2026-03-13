@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FiCalendar, FiUser, FiArrowLeft } from 'react-icons/fi';
 import '../../css/BlogDetail.css';
 import LazyImage from '../LazyImage';

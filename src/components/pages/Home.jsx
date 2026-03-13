@@ -7,7 +7,7 @@ import Count from '../Home/Count'
 import ClientLogohead from '../Home/ClientLogohead'
 import HomeContact from '../Home/HomeContact'
 import IndustrySection from '../Home/IndustrySection'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FiTrendingUp, FiCheckCircle } from 'react-icons/fi';
 import CTABanner from './CTABanner';
 import './RioALMIndustries.css';

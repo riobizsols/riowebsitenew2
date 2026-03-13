@@ -3,6 +3,8 @@
  * Captures visitor profile, behavior, and engagement data
  */
 
+import { getApiBaseUrl } from '../utils/urlHelper';
+
 // Generate unique visitor ID
 const generateVisitorId = () => {
   return 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -169,7 +171,7 @@ export const initializeVisitorProfile = async () => {
 
   // Send initial tracking data to backend
   try {
-    await fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/track`, {
+    await fetch(`${getApiBaseUrl()}/api/visitors/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(visitorProfile),
@@ -207,7 +209,7 @@ export const trackPageView = (pageName, pageData = {}) => {
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
     
     // Send update to backend
-    fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/update`, {
+    fetch(`${getApiBaseUrl()}/api/visitors/update`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -290,7 +292,7 @@ export const trackFormSubmission = (formType, formData = {}) => {
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
     
     // Send detailed form tracking to backend
-    fetch(`${process.env.REACT_APP_API_URL || ''}/api/visitors/form-submission`, {
+    fetch(`${getApiBaseUrl()}/api/visitors/form-submission`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

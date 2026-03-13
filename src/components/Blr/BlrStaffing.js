@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import '../../css/Staffing.css'
 import Divider from '@mui/material/Divider';
 import ClientLogohead from '../Home/ClientLogohead'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 import {Link} from 'react-router-dom'; 

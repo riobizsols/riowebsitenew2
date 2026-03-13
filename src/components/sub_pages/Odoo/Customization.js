@@ -4,7 +4,7 @@ import customization from '../../../assets/images/customization_odoo.png'
 import ClientLogohead from '../../Home/ClientLogohead'
 import Studio from '../../../assets/images/customization_studio.jpg'
 import ContactFrom from '../../Services/ContactFrom'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 function Customization() {

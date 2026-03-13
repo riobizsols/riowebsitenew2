@@ -13,7 +13,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { FaRegCheckCircle } from "react-icons/fa";
 import ContactFrom from '../../Services/ContactFrom'
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Lateral = () => {
   const Image1 ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599924/rio_main_website/pbwv3eisphl3rwxacpsi.jpg"

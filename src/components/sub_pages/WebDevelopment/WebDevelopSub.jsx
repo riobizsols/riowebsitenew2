@@ -1,6 +1,6 @@
 import React from 'react'
 import '../WebDevelopment/WebDevelopSub'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { FaAnglesRight } from "react-icons/fa6";
 import ClientLogohead from '../../Home/ClientLogohead'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
