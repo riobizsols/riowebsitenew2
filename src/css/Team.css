@@ -27,49 +27,74 @@
 
 .team_card{
     display: flex;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
+
+/* Each card limited to 320–360px, no stretch */
+.team-member-link {
+    display: block;
+    flex: 0 0 auto;
+    max-width: 260px;
+}
+
 .card__article{
     position: relative;
-   
-  }
-
-
+    max-width: 260px;
+    width: 100%;
+    overflow: visible;
+}
 
 .team_img{
-    height: 240px;
-    width: 180px;
-    margin-top: 0px;
-    border-radius: 120px 120px 20px 20px;
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: 420px;
+    margin: 0 auto;
+    border-radius: 130px 130px 0px 0px;
     object-fit: cover;
+    object-position: center top;
     cursor: pointer;
-    filter: grayscale();
+    filter: grayscale(100%);
     transition: filter 0.4s ease-in-out;
+    position: relative;
+    z-index: 1;
 }
 
 .team_img:hover {
-    filter:none;
+    filter: none;
 }
+
 .card_data{
-    background: rgb(255, 255, 255); 
-    padding: 30px 20px 20px 20px;
-    margin-top: -20px;
-    border-radius: 0px 0px 10px 10px;
+    background: rgb(255, 255, 255);
+    max-width: 260px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 20px;
+    margin-top: -24px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: 0;
 }
+
 .card_data_overlay {
-    position: absolute; 
-    bottom: 0; 
+    position: absolute;
+    bottom: 0;
     text-decoration: none;
     margin-bottom: -3px;
-    border-radius:10px;
-    background: rgb(255, 255, 255); /* Black see-through */
-    color: #313131; 
-    /* width: 72.5%; */
-    width: 200px;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    color: #313131;
+    max-width: 260px;
+    width: 100%;
     transition: .5s ease;
-    opacity:0;
-   
+    opacity: 0;
     font-size: 16px;
     padding: 20px;
     text-align: center;
@@ -103,63 +128,75 @@
         /* background-color: #cfbefb; */
         height: 1500px;
     }
+    .team-member-link,
+    .card__article {
+        max-width: 320px;
+    }
+
     .team_img{
-        text-align: center;
-        height: 220px;
-        width: 170px;
+        max-width: 260px;
+        height: 340px;
         margin-top: 20px;
-        border-radius: 110px 110px 20px 20px;
+        border-radius: 130px 130px 12px 12px;
         object-fit: cover;
+        object-position: center top;
         cursor: pointer;
         filter: grayscale();
         transition: filter 0.4s ease-in-out;
-    } 
-   
+    }
+
+    .card_data {
+        max-width: 260px;
+    }
 
     .card_data_overlay {
-        position: absolute; 
-        bottom: 0; 
-        
-       
-        border-radius:10px;
-        background: rgb(255, 255, 255); /* Black see-through */
-        color: #313131; 
-        width: 200px;
-        transition: .5s ease;
-        opacity:0;
-        /* margin-left: 98px; */
+        max-width: 260px;
         font-size: 16px;
         padding: 20px;
         text-align: center;
-        
     }
+
     .team_card {
-        grid-template-columns: 1fr; /* 1 column for mobile devices */
-        justify-items: center; /* Center items horizontally */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 80px;
+        padding: 0 16px;
     }
 }
     
-
-@media screen and (max-width: 320px) {
-    .team_card{
-        flex-direction: column;
-       
-    }
-
-    
-}
 
 @media screen and (max-width: 480px) {
     .team_card {
-        flex-direction: column; /* Stacks cards on top of each other for mobile */
-        grid-template-columns: none; /* Removes the grid layout on mobile */
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 48px;
     }
-    .team_contanier{
-        /* background-image: url('../assets/images/App-bg-img.webp'); */
+    .team-member-link,
+    .card__article {
+        max-width: 300px;
+    }
+    .team_img {
+        max-width: 240px;
+        height: 320px;
+        border-radius: 120px 120px 12px 12px;
+    }
+    .card_data {
+        max-width: 240px;
+    }
+    .card_data_overlay {
+        max-width: 240px;
+    }
+    .team_contanier {
         background-repeat: repeat;
     }
-    
+}
+
+@media screen and (max-width: 320px) {
+    .team_card {
+        flex-direction: column;
+        align-items: center;
+    }
 }
   

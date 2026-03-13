@@ -128,9 +128,50 @@
 }
 
 .card-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  display: inline-block;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-icon svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.industry-card-tech-startup .card-icon {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
+  color: #667eea;
+}
+
+.industry-card-ecommerce .card-icon {
+  background: linear-gradient(135deg, rgba(240, 147, 251, 0.2) 0%, rgba(245, 87, 108, 0.2) 100%);
+  color: #e84393;
+}
+
+.industry-card-manufacturing .card-icon {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+  color: #4facfe;
+}
+
+.industry-card-healthcare .card-icon {
+  background: linear-gradient(135deg, rgba(67, 233, 123, 0.2) 0%, rgba(56, 249, 215, 0.2) 100%);
+  color: #27ae60;
+}
+
+.industry-card-saas .card-icon {
+  background: linear-gradient(135deg, rgba(250, 112, 154, 0.2) 0%, rgba(254, 225, 64, 0.2) 100%);
+  color: #e74c3c;
+}
+
+.industry-card:hover .card-icon {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {

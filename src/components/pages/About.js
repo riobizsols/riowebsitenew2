@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '../../css/about-elegant.css'
@@ -6,22 +6,6 @@ import { FiTarget, FiUsers, FiZap, FiHeart } from 'react-icons/fi';
 
 const About = () => {
   const cloudinaryImg ="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599892/rio_main_website/rzllor2rlfpunfelj6o0.jpg"
-  const imgRef = useRef(null); 
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (imgRef.current) {
-        const scrollY = window.scrollY; 
-        imgRef.current.style.transform = `translateY(${scrollY * 0.1}px)`; 
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll); 
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <div>
@@ -67,14 +51,13 @@ const About = () => {
         </script>
       </Helmet>
       <div className="about-banner">
-        <h1 className="about-title">About RIO BizSols</h1>
         <div className="about-image-wrapper">
           <img
             className="about-main-image"
             src={cloudinaryImg}
             alt="RIO BizSols Team"
-            ref={imgRef}
           />
+          <h1 className="about-title">About RIO BizSols</h1>
         </div>
       </div>
       

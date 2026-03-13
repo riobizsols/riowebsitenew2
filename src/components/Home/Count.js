@@ -123,7 +123,6 @@ function Count() {
             from first rollout to ongoing optimization of their product stack.</p>
       </div>
       {/* <Divider className="col-12 col-md-6 divider"/> */}
-      <hr className='b-line col-12 col-md-6 divider' />
       <MovingIcon /> 
     </div>
     </div>

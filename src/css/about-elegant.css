@@ -79,45 +79,47 @@
   }
 }
 
-/* Image Section */
-.about-image-section {
-  padding: 60px 20px;
+/* Image Section - About banner */
+.about-banner {
+  padding: 40px 20px 20px;
   background: #f8f9fa;
 }
 
-.about-image-container {
+.about-image-wrapper {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.image-wrapper {
-  position: relative;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  max-height: 500px;
+  max-height: 460px; /* keeps paragraph below fully visible */
 }
 
 .about-main-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
   display: block;
+  transform-origin: center;
+  transition: transform 0.8s ease;
 }
 
-.image-wrapper:hover .about-main-image {
-  transform: scale(1.03);
-}
-
-.image-overlay {
+.about-title {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(27, 117, 187, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
   pointer-events: none;
+}
+
+.about-image-wrapper:hover .about-main-image {
+  transform: rotate(360deg) scale(1.03);
 }
 
 /* Content Section */
@@ -162,27 +164,30 @@
 
 /* Core Values */
 .core-values {
-  margin-bottom: 100px;
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
 }
 
 .core-values h2 {
   font-size: 2.5em;
   color: #1B75BB;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
   font-weight: 700;
 }
 
 .values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  gap: 24px;
+  align-items: stretch;
 }
 
 .value-card {
   background: white;
   border-radius: 12px;
-  padding: 40px 30px;
+  padding: 28px 24px;
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);

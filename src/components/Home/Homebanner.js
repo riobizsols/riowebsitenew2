@@ -17,15 +17,14 @@ function Homebanner() {
       <div className="banner">
     <div className='container'>
     <div className='row'>
-        <div className="col-lg-6">
-                <h1 className='homebanner-title'> End-to-End Business Solutions
-   Provider</h1>
+        <div className="col-lg-7 col-12 homebanner-text-col">
+                <h1 className='homebanner-title'>End-to-End Business Solutions Provider</h1>
                 <p className='homebanner-des'>Let us help you succeed with tailored solutions, every step of the way. 
                 Together, we turn your business goals into reality.</p>
                 <Link to='/contact'>
         <button className="get-started">LET'S CONNECT <ArrowCircleRightIcon/></button></Link>
           </div>
-            <div className="col-lg-6">
+            <div className="col-lg-5 col-12 homebanner-img-col">
               <LazyImage src={imageUrl} alt="RIOBizSols Business Solutions" className='homebanner-img' width={600} height={400}/> 
             </div>
            
@@ -44,8 +43,7 @@ function Homebanner() {
                
           </div>
             <div className="col-lg-6">
-            <h1 className='homebanner-title'> End-to-End Business Solutions
-   Provider</h1>
+            <h1 className='homebanner-title'>End-to-End Business Solutions Provider</h1>
                 <p className='homebanner-des'>Let us help you succeed with tailored solutions, every step of the way. 
                 Together, we turn your business goals into reality.</p>
                 <Link to="/contact" style={{textDecoration:'none', color:'White'}}> <button className='banner-button'>Let's Connect

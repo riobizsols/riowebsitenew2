@@ -8,17 +8,47 @@
   border-radius: 0 0 80px 80px;
 }
 
-.homebanner-des {
-  font-size: 16px;
-  padding: 0 10px;
+/* Hero container: wider span, reduced side margins, centered */
+.banner .container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
+.banner .container .row {
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Left column: more width so heading has room; no narrow restrictions */
+.homebanner-text-col {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.homebanner-des {
+  font-size: 16px;
+  padding: 0;
+  margin-left: 0;
+}
+
+/* Heading: max-width forces exactly 2 lines on desktop (End-to-End Business / Solutions Provider) */
 .homebanner-title {
   font-size: 60px;
   color: #2a4873;
   font-weight: 800;
-  padding: 0 10px;
-  margin-top: 120px;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 0.35em;
+  text-align: left;
+  line-height: 1.1;
+  max-width: 760px;
+}
+
+/* Image column stays balanced */
+.homebanner-img-col {
+  min-width: 0;
 }
 
 
@@ -180,6 +210,14 @@
 } */
 
 @media screen and (max-width: 768px) {
+  .banner .container {
+    padding: 0 24px;
+  }
+
+  .banner .container .row {
+    min-height: auto;
+  }
+
   .banner {
     height: auto;
     border-radius: 0;
@@ -187,10 +225,11 @@
   }
 
   .homebanner-title {
-    font-size: 36px; /* Reduced font size for mobile */
+    font-size: 36px;
     text-align: center;
     margin-top: 50px;
     padding: 0 10px;
+    max-width: 100%;
   }
 
   .homebanner-des {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -15,6 +15,8 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 
 export default function Header() {
+  const [productsOpen, setProductsOpen] = useState(false);
+
   return (
     
     <Navbar expand="lg" className='nav_bar'>
@@ -27,7 +29,17 @@ export default function Header() {
         <Nav className="menu">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
-          <NavDropdown title="Products" id="products-nav-dropdown">
+          <div
+            className="products-dropdown-wrapper"
+            onMouseEnter={() => setProductsOpen(true)}
+            onMouseLeave={() => setProductsOpen(false)}
+          >
+          <NavDropdown
+            title="Products"
+            id="products-nav-dropdown"
+            show={productsOpen}
+            onToggle={setProductsOpen}
+          >
             <NavDropdown drop="end" title="RIO ALM" id="products-alm-dropdown">
               <NavDropdown.Item href="/products/rio-alm">Overview</NavDropdown.Item>
               <NavDropdown.Item href="/products/rio-alm/pricing">Pricing</NavDropdown.Item>
@@ -49,6 +61,7 @@ export default function Header() {
               <NavDropdown.Item href="https://chromewebstore.google.com/detail/aissist-connect-comment-e/pncjbdpggmlfclmaifflmbidojgokban" target="_blank" rel="noopener noreferrer">Add to Chrome</NavDropdown.Item>
             </NavDropdown>
           </NavDropdown>
+          </div>
           <Nav.Link href="/blog">Blogs</Nav.Link>
         </Nav>
         <Nav className="ms-auto">

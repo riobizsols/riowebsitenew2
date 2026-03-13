@@ -1,7 +1,12 @@
+/* Page-level: slightly reduced side margins, base font scaling */
+.rio-alm-overview-page {
+  font-size: 1.1rem;
+}
+
 .alm-hero {
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
-  padding: 80px 24px;
+  padding: 80px 64px 80px 32px;
   margin-top: 0;
 }
 
@@ -10,13 +15,15 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1360px;
+  margin: 0 auto;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-width: 100%;
 }
 
 .hero-title {
@@ -89,14 +96,32 @@
 
 .dashboard-placeholder {
   width: 100%;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 560px;
   border-radius: 12px;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
 }
 
+.dashboard-placeholder .placeholder-header {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-dashboard-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+/* Fallback placeholder styles (if image not loaded) */
 .placeholder-header {
   background: rgba(255, 255, 255, 0.1);
   padding: 16px;
@@ -135,17 +160,17 @@
 
 /* Outcomes Section */
 .alm-outcomes {
-  padding: 80px 24px;
+  padding: 80px 48px;
   background: #f9fafb;
 }
 
 .alm-outcomes .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -154,7 +179,7 @@
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: 20px;
   color: #666666;
   text-align: center;
   margin: 0 0 48px 0;
@@ -182,28 +207,28 @@
 }
 
 .outcome-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, #0052cc 0%, #003d82 100%);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   margin-bottom: 16px;
 }
 
 .outcome-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .outcome-description {
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -211,11 +236,11 @@
 
 /* Overview Section */
 .alm-overview {
-  padding: 80px 24px;
+  padding: 80px 48px;
 }
 
 .alm-overview .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -224,14 +249,14 @@
 }
 
 .section-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #666666;
   line-height: 1.8;
   margin: 0 0 24px 0;
 }
 
 .subsection-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 40px 0 24px 0;
@@ -267,7 +292,7 @@
 }
 
 .step-label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #1a1a1a;
   text-align: center;
@@ -276,19 +301,19 @@
 
 .lifecycle-arrow {
   color: #0052cc;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   display: none;
 }
 
 /* Modules Section */
 .alm-modules {
-  padding: 80px 24px;
+  padding: 80px 48px;
   background: #f9fafb;
 }
 
 .alm-modules .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -300,11 +325,11 @@
 
 /* How it Works */
 .alm-how-it-works {
-  padding: 80px 24px;
+  padding: 80px 48px;
 }
 
 .alm-how-it-works .container {
-  max-width: 1000px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -326,28 +351,28 @@
 }
 
 .step-circle {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, #0052cc 0%, #003d82 100%);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0 auto 16px;
 }
 
 .step-item h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .step-item p {
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -362,12 +387,12 @@
 
 /* Deployment Section */
 .alm-deployment {
-  padding: 80px 24px;
+  padding: 80px 48px;
   background: #f9fafb;
 }
 
 .alm-deployment .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -387,14 +412,14 @@
 }
 
 .deployment-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 16px 0;
 }
 
 .deployment-description {
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   line-height: 1.6;
   margin: 0 0 24px 0;
@@ -407,7 +432,7 @@
 }
 
 .deployment-benefits li {
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.8;
   padding-left: 24px;
@@ -425,11 +450,11 @@
 
 /* Security Section */
 .alm-security {
-  padding: 80px 24px;
+  padding: 80px 48px;
 }
 
 .alm-security .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -452,7 +477,7 @@
 
 .security-features li {
   margin-bottom: 24px;
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   line-height: 1.8;
 }
@@ -480,12 +505,12 @@
 
 /* Industries Section */
 .alm-industries {
-  padding: 80px 24px;
+  padding: 80px 48px;
   background: #f9fafb;
 }
 
 .alm-industries .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -511,14 +536,14 @@
 }
 
 .industry-card h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 8px 0;
 }
 
 .industry-label {
-  font-size: 13px;
+  font-size: 15px;
   color: #0052cc;
   font-weight: 500;
   margin: 0 0 16px 0;
@@ -531,7 +556,7 @@
 }
 
 .industry-benefits li {
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.8;
   padding-left: 20px;
@@ -549,11 +574,11 @@
 
 /* Comparison Section */
 .alm-comparison {
-  padding: 80px 24px;
+  padding: 80px 48px;
 }
 
 .alm-comparison .container {
-  max-width: 1000px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -578,7 +603,7 @@
 
 .comparison-col {
   padding: 20px;
-  font-size: 14px;
+  font-size: 16px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -599,7 +624,7 @@
 
 .comparison-row .comparison-col {
   padding: 16px 20px;
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   border-right: 1px solid #e8e8e8;
   display: flex;
@@ -618,22 +643,22 @@
 
 /* FAQ Section */
 .alm-faq {
-  padding: 80px 24px;
+  padding: 80px 48px;
   background: #f9fafb;
 }
 
 .alm-faq .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 /* Navigation Section */
 .alm-nav-section {
-  padding: 60px 24px;
+  padding: 60px 48px;
 }
 
 .alm-nav-section .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -664,14 +689,14 @@
 }
 
 .nav-link-card h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .nav-link-card p {
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   margin: 0 0 16px 0;
   line-height: 1.5;
@@ -680,7 +705,7 @@
 .nav-link-card span {
   color: #0052cc;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* Responsive Design */
@@ -722,11 +747,11 @@
 /* Blog Section */
 .alm-blog-section {
   background: #f9fafb;
-  padding: 80px 24px;
+  padding: 80px 48px;
 }
 
 .alm-blog-section .container {
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -762,7 +787,7 @@
 }
 
 .blog-card-small h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
   color: #1a1a1a;
@@ -770,7 +795,7 @@
 }
 
 .blog-card-small p {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
   margin: 0;
   line-height: 1.5;
@@ -781,7 +806,7 @@
   display: inline-block;
   color: #0052cc;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   transition: all 0.3s ease;
 }
 
@@ -800,7 +825,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -823,16 +848,33 @@
 }
 
 @media (max-width: 1024px) {
+  .alm-hero,
+  .alm-outcomes,
+  .alm-overview,
+  .alm-modules,
+  .alm-how-it-works,
+  .alm-deployment,
+  .alm-security,
+  .alm-industries,
+  .alm-comparison,
+  .alm-faq,
+  .alm-nav-section,
+  .alm-blog-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   .alm-hero {
-    padding: 60px 16px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .hero-title {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .hero-subtitle {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .hero-ctas {
@@ -844,11 +886,11 @@
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .section-subtitle {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .outcomes-grid {

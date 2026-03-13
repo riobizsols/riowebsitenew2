@@ -9,6 +9,7 @@ import {
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
+import { almDashboard } from '../../assets/almImages';
 import './RioALMLanding.css';
 
 const RioALMLanding = () => {
@@ -122,7 +123,7 @@ const RioALMLanding = () => {
   ];
 
   return (
-    <>
+    <div className="rio-alm-overview-page">
       <Helmet>
         <title>RIO ALM - Enterprise Asset Lifecycle Management Software Solution</title>
         <meta name="description" content="RIO ALM is an enterprise asset lifecycle management platform providing complete visibility from procurement to maintenance, compliance, and depreciation reporting. Deploy on-premises, cloud, or hybrid." />
@@ -202,16 +203,11 @@ const RioALMLanding = () => {
           <div className="hero-visual">
             <div className="dashboard-placeholder">
               <div className="placeholder-header">Dashboard Preview</div>
-              <div className="placeholder-content">
-                <div className="placeholder-bar"></div>
-                <div className="placeholder-bar short"></div>
-                <div className="placeholder-grid">
-                  <div className="placeholder-cell"></div>
-                  <div className="placeholder-cell"></div>
-                  <div className="placeholder-cell"></div>
-                  <div className="placeholder-cell"></div>
-                </div>
-              </div>
+              <img
+                src={almDashboard}
+                alt="RIO ALM Dashboard"
+                className="hero-dashboard-image"
+              />
             </div>
           </div>
         </div>
@@ -645,7 +641,7 @@ const RioALMLanding = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

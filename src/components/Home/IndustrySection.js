@@ -1,6 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faRocket,
+  faShoppingCart,
+  faIndustry,
+  faHeartPulse,
+  faCloud
+} from '@fortawesome/free-solid-svg-icons';
 import '../../css/IndustryCards.css';
+
+const industryIcons = {
+  'tech-startup': faRocket,
+  'ecommerce': faShoppingCart,
+  'manufacturing': faIndustry,
+  'healthcare': faHeartPulse,
+  'saas': faCloud
+};
 
 const IndustrySection = () => {
   const industries = [
@@ -9,7 +25,6 @@ const IndustrySection = () => {
       title: 'Tech Startups',
       subtitle: 'From Idea to Funded',
       description: 'Fast development, growth hacking, and flexible staffing for rapid scaling.',
-      icon: '⚡',
       color: 'tech-startup',
       stats: 'MVP to Series A'
     },
@@ -18,7 +33,6 @@ const IndustrySection = () => {
       title: 'E-commerce',
       subtitle: 'Sell More. Run Smoother.',
       description: 'Beautiful websites, smart marketing, and systems that don\'t slow you down.',
-      icon: '🛍️',
       color: 'ecommerce',
       stats: '$100K - $5M+'
     },
@@ -27,7 +41,6 @@ const IndustrySection = () => {
       title: 'Manufacturing',
       subtitle: 'Digital Transformation',
       description: 'Real-time production tracking, inventory management, and compliance automation.',
-      icon: '🏭',
       color: 'manufacturing',
       stats: 'Efficiency First'
     },
@@ -36,7 +49,6 @@ const IndustrySection = () => {
       title: 'Healthcare',
       subtitle: 'Modern Systems',
       description: 'HIPAA-compliant practice management, staffing, and patient engagement.',
-      icon: '🏥',
       color: 'healthcare',
       stats: 'Care-Focused Tech'
     },
@@ -45,7 +57,6 @@ const IndustrySection = () => {
       title: 'SaaS',
       subtitle: 'Build Better. Faster.',
       description: 'Product velocity, growth metrics, and operational systems that scale.',
-      icon: '💻',
       color: 'saas',
       stats: 'Seed to Series B+'
     }
@@ -66,7 +77,9 @@ const IndustrySection = () => {
               to={`/industry/${industry.id}`}
               className={`industry-card industry-card-${industry.color}`}
             >
-              <div className="card-icon">{industry.icon}</div>
+              <div className="card-icon">
+                <FontAwesomeIcon icon={industryIcons[industry.id]} />
+              </div>
               <h3 className="card-title">{industry.title}</h3>
               <p className="card-subtitle">{industry.subtitle}</p>
               <p className="card-description">{industry.description}</p>

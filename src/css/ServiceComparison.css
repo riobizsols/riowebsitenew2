@@ -10,7 +10,7 @@
 .comparison-hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 80px 20px;
+  padding: 80px 48px;
   text-align: center;
   margin-bottom: 60px;
 }
@@ -31,16 +31,17 @@
 }
 
 /* ===== CONTAINER & GRID ===== */
-.container {
-  max-width: 1200px;
+/* Scoped to comparison page only – left/right margins per RioBizSols compare page */
+.comparison-page .container {
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 48px;
 }
 
 /* ===== DECISION FRAMEWORK ===== */
 .decision-framework {
   background: white;
-  padding: 60px 20px;
+  padding: 60px 48px;
   margin-bottom: 60px;
 }
 
@@ -101,7 +102,7 @@
 
 /* ===== SERVICE GRID (OVERVIEW) ===== */
 .comparison-overview {
-  padding: 60px 20px;
+  padding: 60px 48px;
   background: white;
   margin-bottom: 60px;
 }
@@ -446,7 +447,7 @@
 
 /* Old Deep Dive styles for backward compatibility */
 .service-deep-dive {
-  padding: 60px 20px;
+  padding: 60px 48px;
   background: white;
   margin-bottom: 60px;
 }
@@ -563,7 +564,7 @@
 
 /* ===== SCENARIOS SECTION (REDESIGNED) ===== */
 .scenarios-section {
-  padding: 60px 20px;
+  padding: 60px 48px;
   background: #f8f9fa;
   margin-bottom: 60px;
 }
@@ -683,7 +684,7 @@
 
 /* ===== STRATEGY FRAMEWORK ===== */
 .strategy-framework {
-  padding: 60px 20px;
+  padding: 60px 48px;
   background: white;
   margin-bottom: 60px;
 }
@@ -733,7 +734,7 @@
 .comparison-cta {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 80px 20px;
+  padding: 80px 48px;
   text-align: center;
   margin-top: 60px;
 }
@@ -775,6 +776,11 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .comparison-page .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .comparison-hero-title {
     font-size: 1.8rem;
   }
@@ -910,8 +916,13 @@
 }
 
 @media (max-width: 480px) {
+  .comparison-page .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .comparison-hero {
-    padding: 40px 15px;
+    padding: 40px 16px;
   }
 
   .comparison-hero-title {
@@ -942,7 +953,7 @@
   }
 
   .comparison-cta {
-    padding: 40px 15px;
+    padding: 40px 16px;
   }
 
   .comparison-cta h2 {

@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 import './RioALMContact.css';
 
+const HEADQUARTERS_ADDRESS = {
+  company: 'RIO BizSols Pvt Ltd',
+  street: '', // e.g. '123, Example Road, Koramangala'
+  city: 'Bangalore',
+  stateCountry: 'Karnataka, India',
+};
+const CONTACT_PHONE = '+91 80 1234 5678';
+
 const RioALMContact = () => {
+  const submittingRef = useRef(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,7 +38,19 @@ const RioALMContact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
+    // Get form: from submit event (e.target) or from button click (e.currentTarget.form)
+    const form = (e.target && e.target.tagName === 'FORM')
+      ? e.target
+      : (e.currentTarget && e.currentTarget.form) || (e.target && e.target.closest && e.target.closest('form'));
+    if (form && !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (submittingRef.current) return;
+    submittingRef.current = true;
     // In a real application, this would send to your backend
     console.log('Form submitted:', formData);
     setSubmitted(true);
@@ -42,6 +64,7 @@ const RioALMContact = () => {
         subject: 'Demo Request',
         message: ''
       });
+      submittingRef.current = false;
     }, 3000);
   };
 
@@ -76,7 +99,7 @@ const RioALMContact = () => {
                   <p>Your message has been sent successfully. We'll get back to you soon.</p>
                 </div>
               ) : (
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form className="contact-form" onSubmit={handleSubmit} action="#">
                   <div className="form-group">
                     <label htmlFor="name" className="form-label">Full Name *</label>
                     <input
@@ -158,7 +181,14 @@ const RioALMContact = () => {
                     ></textarea>
                   </div>
 
-                  <button type="submit" className="submit-btn">
+                  <button
+                    type="submit"
+                    className="submit-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSubmit(e);
+                    }}
+                  >
                     <FiSend className="btn-icon" />
                     Send Message
                   </button>
@@ -175,8 +205,10 @@ const RioALMContact = () => {
                 <div className="info-item">
                   <FiMapPin className="info-icon" />
                   <div className="info-content">
-                    <p>RIO BizSols Pvt Ltd</p>
-                    <p>Bangalore, India</p>
+                    <p>{HEADQUARTERS_ADDRESS.company}</p>
+                    {HEADQUARTERS_ADDRESS.street && <p>{HEADQUARTERS_ADDRESS.street}</p>}
+                    <p>{HEADQUARTERS_ADDRESS.city}</p>
+                    <p>{HEADQUARTERS_ADDRESS.stateCountry}</p>
                   </div>
                 </div>
               </div>
@@ -187,7 +219,7 @@ const RioALMContact = () => {
                   <FiPhone className="info-icon" />
                   <div className="info-content">
                     <p className="info-label">Phone</p>
-                    <p><a href="tel:+91">Contact us for phone number</a></p>
+                    <p><a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}>{CONTACT_PHONE}</a></p>
                   </div>
                 </div>
                 <div className="info-item">
