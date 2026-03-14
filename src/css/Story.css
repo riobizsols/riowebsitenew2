@@ -87,7 +87,7 @@
 }
 .count-des2{
     margin-bottom: 40px;
-    
+    margin-top: 4px;
 }
 
 .count2 {
@@ -99,6 +99,46 @@
     font-size: 20px;
     font-weight: 700;
     color: #1B75BB;
+    margin-bottom: 20px;
+}
+
+/* Left-align numbers and headings in counter blocks */
+.counter [class*="col-"] {
+    text-align: left;
+}
+.counter .count2,
+.counter .count-title2,
+.counter .count-des2 {
+    text-align: left;
+}
+
+/* Full-width blue line with moving logo */
+.count-divider-wrap {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    height: 40px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+.count-divider-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #1B75BB;
+    transform: translateY(-50%);
+}
+.count-divider-wrap .moving-icon-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 36px;
+    z-index: 1;
 }
 
 /* Divider */

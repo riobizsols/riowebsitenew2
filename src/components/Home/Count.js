@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react'
 import '../../css/Story.css';
-import Divider from '@mui/material/Divider';
 import MovingIcon from './Moving';
 
 function Count() {
@@ -89,7 +88,7 @@ function Count() {
 
 
   return (
-   
+  <>
     <div className='container'>
       <div className="row counter">
       <div className="col-12 col-md-3">
@@ -122,11 +121,13 @@ function Count() {
           <p className='count-des2'>RIO solutions successfully implemented for customers across industries, 
             from first rollout to ongoing optimization of their product stack.</p>
       </div>
-      {/* <Divider className="col-12 col-md-6 divider"/> */}
-      <MovingIcon /> 
+      </div>
     </div>
+    <div className="count-divider-wrap">
+      <div className="count-divider-line" aria-hidden="true" />
+      <MovingIcon />
     </div>
-
+  </>
   )
 }
 export default Count

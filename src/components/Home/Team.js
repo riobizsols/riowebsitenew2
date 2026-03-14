@@ -33,9 +33,10 @@ function Team() {
   
   return (
     <div className='col-12'>
-           <h1 className='team_title'>THE TRIO BEHIND RIO’S GROWTH</h1>
-               <p className='team_des'>Meet the powerhouse trio behind Rio Business Solutions - the driving force that made it all possible. Their visionary leadership, financial expertise, and operational excellence have made everything possible, driving success for both our company and clients. Their teamwork is the foundation of Rio’s growth and impact.</p>
-   
+        <div className='team_intro'>
+          <h1 className='team_title'>THE TRIO BEHIND RIO’S GROWTH</h1>
+          <p className='team_des'>Meet the powerhouse trio behind Rio Business Solutions - the driving force that made it all possible. Their visionary leadership, financial expertise, and operational excellence have made everything possible, driving success for both our company and clients. Their teamwork is the foundation of Rio’s growth and impact.</p>
+        </div>
         <div className='team_contanier'>
           <div className="team_card">
             {teamMembers.map((member, index) => (

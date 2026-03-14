@@ -13,7 +13,7 @@ import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 function Homebanner() {
   const imageUrl = "//res.cloudinary.com/dhzg3dnfc/image/upload/v1732599895/rio_main_website/u9grcwa3mm6fz6e816nn.png"; // Cloudinary image URL
   return (
-    <div>
+    <div className="banner-wrapper">
       <div className="banner">
     <div className='container'>
     <div className='row'>

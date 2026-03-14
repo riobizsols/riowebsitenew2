@@ -202,15 +202,17 @@ const RioALMDeployment = () => {
 
       {/* Security & Compliance */}
       <section className="security-section">
-        <div className="container">
+        <div className="security-section-container">
           <div className="security-grid">
-            <div className="security-content">
-              <div className="security-heading-row">
-                <h2 className="section-title">Security & Compliance</h2>
-                <p className="security-text security-text-inline">
-                  RIO ALM protects your asset and maintenance data with enterprise-grade controls, whether you deploy it on-premises, in your own cloud, or via our managed hosting.
-                </p>
-              </div>
+            <div className="security-top-left">
+              <h2 className="security-heading">Security & Compliance</h2>
+              <div className="security-heading-underline" aria-hidden="true" />
+            </div>
+            <p className="security-text">
+              <span className="security-text-line">RIO ALM protects your asset and maintenance data with enterprise-grade controls,</span>
+              <span className="security-text-line">whether you deploy it on-premises, in your own cloud, or via our managed hosting.</span>
+            </p>
+            <div className="security-bottom-left">
               <ul className="security-list">
                 <li><strong>Data Encryption:</strong> Industry-standard encryption for data in transit and at rest</li>
                 <li><strong>Access Control:</strong> Role-based access control with granular permissions</li>
@@ -220,8 +222,10 @@ const RioALMDeployment = () => {
                 <li><strong>Network Security:</strong> Firewall-compatible, VPN-friendly architecture</li>
               </ul>
             </div>
-            <div className="security-visual">
-              <HiShieldCheck size={50} />
+            <div className="security-bottom-right">
+              <div className="security-visual">
+                <HiShieldCheck size={50} />
+              </div>
             </div>
           </div>
         </div>

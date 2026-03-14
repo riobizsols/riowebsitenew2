@@ -45,9 +45,16 @@ nav.rio_menu{
   text-decoration: none;
 }
 
-ul li a{
+/* Nav links (Home, About, Products, Blogs): match banner title color */
+.nav_bar .nav-link,
+.nav_bar ul li a {
   display: block;
   text-decoration: none;
+  color: #2a4873;
+}
+
+.nav_bar .nav-link:hover,
+.nav_bar ul li a:hover {
   color: #1B75BB;
 }
 

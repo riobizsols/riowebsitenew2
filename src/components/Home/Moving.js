@@ -11,10 +11,10 @@ function InfiniteMovingIcon() {
   const step = 5; // Define how many pixels the icon should move with each step
 
   // This function calculates the maximum boundary based on the window width
+  const iconWidth = 36;
   const calculateMaxPosition = () => {
     const windowWidth = window.innerWidth;
-    const iconWidth = 100; // Adjust the icon width (you can measure this value dynamically if needed)
-    setMaxPosition(windowWidth - iconWidth - 20); // Reduce some pixels to avoid touching screen edge
+    setMaxPosition(windowWidth - iconWidth - 24);
   };
 
   useEffect(() => {
@@ -52,16 +52,17 @@ function InfiniteMovingIcon() {
   }, [direction, maxPosition]); // Dependency array includes direction and maxPosition to ensure the effect runs when they change
 
   return (
-    <div>
+    <div className="moving-icon-wrap">
       <img
         src={Riologo}
         alt="Logo"
         style={{
-          marginTop: -15,
           position: "absolute",
-          left: `${position}px`, // Position is dynamically controlled by state
-          transition: "left 0.05s linear", // Smooth transition for movement
-          
+          left: `${position}px`,
+          transition: "left 0.05s linear",
+          width: 36,
+          height: 36,
+          objectFit: "contain",
         }}
       />
     </div>

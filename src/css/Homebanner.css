@@ -1,11 +1,21 @@
+/* Wrapper: same background as header so margin strips merge with header */
+.banner-wrapper {
+  padding-left: 16px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
 /* Main Banner Styling */
 .banner {
   background: linear-gradient(to bottom, #eef3f6, #d9ecfa);
+  width: 100%;
   max-width: 100%;
   height: 600px;
   background-repeat: no-repeat;
-  margin: 0px;
-  border-radius: 0 0 80px 80px;
+  margin: 0;
+  border-radius: 48px;
+  box-sizing: border-box;
 }
 
 /* Hero container: wider span, reduced side margins, centered */

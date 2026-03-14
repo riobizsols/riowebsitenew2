@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+  <!-- Shield shape - rounded, enterprise style -->
+  <path d="M40 8 L68 16 L68 36 C68 54 56 64 40 72 C24 64 12 54 12 36 L12 16 Z" fill="#0052cc" fill-opacity="0.12" stroke="#0052cc" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Checkmark - compliance / verified -->
+  <path d="M28 40 L36 48 L52 32" stroke="#0052cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
