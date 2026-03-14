@@ -1,24 +1,27 @@
 .industries-hero {
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
-  padding: 80px 24px;
+  padding: 80px 16px;
   text-align: center;
+  margin-left: 24px;
+  margin-right: 24px;
+  border-radius: 12px;
 }
 
 .industries-hero .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .industries-hero .hero-title {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .industries-hero .hero-subtitle {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -26,7 +29,7 @@
 
 /* Industries Content */
 .industries-content {
-  padding: 80px 24px;
+  padding: 80px 16px;
 }
 
 .industries-content .container {
@@ -44,7 +47,7 @@
 }
 
 .industry-name {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 12px 0;
@@ -52,7 +55,7 @@
 }
 
 .industry-subtitle {
-  font-size: 16px;
+  font-size: 18px;
   color: #666666;
   margin: 0;
 }
@@ -70,7 +73,7 @@
 }
 
 .industry-section .section-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 20px 0;
@@ -85,7 +88,7 @@
 
 .challenges-list li,
 .solutions-list li {
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   line-height: 1.8;
   padding-left: 24px;
@@ -132,7 +135,7 @@
   color: #0052cc;
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -151,7 +154,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
 }
 
@@ -167,7 +170,7 @@
 
 /* Why Choose Section */
 .why-choose-section {
-  padding: 80px 24px;
+  padding: 80px 16px;
   background: #f9fafb;
 }
 
@@ -177,7 +180,7 @@
 }
 
 .why-choose-section .section-title {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -214,14 +217,14 @@
 }
 
 .why-card h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .why-card p {
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -248,15 +251,15 @@
 
 @media (max-width: 768px) {
   .industries-hero .hero-title {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .industries-hero .hero-subtitle {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .industry-name {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .industry-grid {
@@ -274,7 +277,7 @@
   }
 
   .why-choose-section .section-title {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 32px;
   }
 

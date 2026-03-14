@@ -3,6 +3,9 @@
   color: white;
   padding: 80px 16px;
   text-align: center;
+  margin-left: 24px;
+  margin-right: 24px;
+  border-radius: 12px;
 }
 
 .deployment-hero .container {
@@ -262,20 +265,30 @@
 
 .security-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   gap: 40px;
   align-items: stretch;
 }
 
 .security-content {
   flex: 1;
+  min-width: 0;
 }
 
-/* Keep Security & Compliance heading on a single line on wide screens */
+/* Heading and intro text on one row, intro as single line */
+.security-heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: nowrap;
+}
+
 .security-content .section-title {
   text-align: left;
-  margin: 0 0 12px 0;
+  margin: 0;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .security-text {
@@ -283,12 +296,17 @@
   color: #666666;
   line-height: 1.8;
   margin: 0 0 24px 0;
+  max-width: 100%;
 }
 
-/* Force intro sentence into exactly two lines on large screens */
-.security-text-line {
-  display: block;
-  white-space: normal;
+/* Single line next to subheading */
+.security-text-inline {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .security-list {
@@ -334,6 +352,16 @@
 
   .security-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Stack heading and text on narrow screens; allow text to wrap */
+  .security-heading-row {
+    flex-wrap: wrap;
+  }
+  .security-text-inline {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
 
   /* Allow security points to wrap on small screens */

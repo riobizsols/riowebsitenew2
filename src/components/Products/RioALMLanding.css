@@ -10,6 +10,26 @@
   margin-top: 0;
 }
 
+/* RIO MEMS Overview: equal left/right margins, balanced banner size */
+.mems-overview-page {
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}
+
+.alm-hero.mems-hero {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 56px 32px 56px 32px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.alm-hero.mems-hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .alm-hero .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -325,7 +345,7 @@
 
 /* How it Works */
 .alm-how-it-works {
-  padding: 80px 48px;
+  padding: 80px 48px 32px 48px;
 }
 
 .alm-how-it-works .container {
@@ -448,9 +468,9 @@
   font-weight: bold;
 }
 
-/* Security Section */
+/* Security Section – about 2 lines gap above the heading, small gap from steps above */
 .alm-security {
-  padding: 80px 48px;
+  padding: 24px 48px 80px 48px;
 }
 
 .alm-security .container {
@@ -468,6 +488,7 @@
 
 .security-text {
   flex: 1;
+  margin-top: -24px;
 }
 
 /* Match screenshot: heading and subtitle left-aligned, clear size hierarchy */
@@ -507,10 +528,38 @@
   color: #1a1a1a;
 }
 
+/* Align icon with explanation block (subtitle + list), not the main heading */
 .security-visual {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-top: 96px;
+}
+
+/* MEMS overview: smaller icon, right-aligned, slightly lower to align with explanation text */
+.mems-overview-page .alm-security .security-visual {
+  align-self: center;
+  margin-top: 32px;
+}
+/* Single clean box: flat background, no outer glow so it doesn’t look like two boxes */
+.mems-overview-page .alm-security .security-icon-badge {
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #e8f0f9;
+  border: 1px solid rgba(0, 82, 204, 0.18);
+  box-shadow: none;
+}
+.mems-overview-page .alm-security .security-icon-symbol {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  min-width: 56px;
+  min-height: 56px;
+  max-width: 56px;
+  max-height: 56px;
 }
 
 /* Rounded rectangular box with subtle shading (screenshot shape) */
@@ -524,12 +573,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .security-icon-symbol {
   width: 80px;
   height: 80px;
   color: #0052cc;
+  flex-shrink: 0;
+  display: block;
 }
 
 /* Industries Section */

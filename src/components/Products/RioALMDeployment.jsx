@@ -205,15 +205,12 @@ const RioALMDeployment = () => {
         <div className="container">
           <div className="security-grid">
             <div className="security-content">
-              <h2 className="section-title">Security & Compliance</h2>
-              <p className="security-text">
-                <span className="security-text-line">
-                  RIO ALM protects your asset and maintenance data with enterprise-grade controls,
-                </span>
-                <span className="security-text-line">
-                  whether you deploy it on-premises, in your own cloud, or via our managed hosting.
-                </span>
-              </p>
+              <div className="security-heading-row">
+                <h2 className="section-title">Security & Compliance</h2>
+                <p className="security-text security-text-inline">
+                  RIO ALM protects your asset and maintenance data with enterprise-grade controls, whether you deploy it on-premises, in your own cloud, or via our managed hosting.
+                </p>
+              </div>
               <ul className="security-list">
                 <li><strong>Data Encryption:</strong> Industry-standard encryption for data in transit and at rest</li>
                 <li><strong>Access Control:</strong> Role-based access control with granular permissions</li>

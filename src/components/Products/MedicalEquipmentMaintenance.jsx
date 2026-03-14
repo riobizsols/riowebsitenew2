@@ -11,6 +11,7 @@ import {
   FiSmartphone,
   FiLock
 } from 'react-icons/fi';
+import { MdHealthAndSafety } from 'react-icons/md';
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
@@ -163,8 +164,9 @@ const MedicalEquipmentMaintenance = () => {
         />
       </Helmet>
 
+      <div className="mems-overview-page">
       {/* Hero Section */}
-      <section className="alm-hero">
+      <section className="alm-hero mems-hero">
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -392,8 +394,8 @@ const MedicalEquipmentMaintenance = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <div className="security-icon">
-                <FiLock size={80} />
+              <div className="security-icon-badge" aria-hidden="true">
+                <MdHealthAndSafety className="security-icon-symbol" />
               </div>
             </div>
           </div>
@@ -415,7 +417,9 @@ const MedicalEquipmentMaintenance = () => {
         title="See the Medical Equipment Maintenance System in Action"
         subtitle="Schedule a walkthrough tailored to your hospital or healthcare network and explore how we can support your biomedical and maintenance teams."
         ctaText="Book Healthcare Demo"
+        ctaLink="/products/rio-alm/contact"
       />
+      </div>
     </>
   );
 };
