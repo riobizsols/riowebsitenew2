@@ -3,8 +3,8 @@
   color: white;
   padding: 80px 16px;
   text-align: center;
-  margin-left: 24px;
-  margin-right: 24px;
+  margin-left: 16px;
+  margin-right: 16px;
   border-radius: 12px;
 }
 
@@ -14,14 +14,14 @@
 }
 
 .features-hero .hero-title {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .features-hero .hero-subtitle {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -52,7 +52,7 @@
 }
 
 .group-title {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;

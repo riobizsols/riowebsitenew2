@@ -289,14 +289,22 @@
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
     gap: 40px;
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
   }
   
-  .grid-1, .grid-2 {
+  .grid-1,
+  .grid-2 {
     display: flex;
     flex-direction: column;
-    padding-left: 40px;
+  }
+
+  .grid-1 {
+    padding-left: 8px;
+  }
+
+  .grid-2 {
+    padding-left: 24px;
   }
   
   .phone, .email {
@@ -326,6 +334,7 @@
   .numbers {
     font-size: 20px;
     color: #000000;
+  margin-left: 8px;
   }
   
   .numbers span {

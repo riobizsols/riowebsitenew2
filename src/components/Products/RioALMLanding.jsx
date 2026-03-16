@@ -10,7 +10,7 @@ import { HiShieldCheck } from 'react-icons/hi';
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
-import { almDashboard } from '../../assets/almImages';
+import RioAlmDashboard from '../../assets/images/rio-alm-dashboard f.png';
 import './RioALMLanding.css';
 
 const RioALMLanding = () => {
@@ -205,8 +205,8 @@ const RioALMLanding = () => {
             <div className="dashboard-placeholder">
               <div className="placeholder-header">Dashboard Preview</div>
               <img
-                src={almDashboard}
-                alt="RIO ALM Dashboard"
+                src={RioAlmDashboard}
+                alt="RIO ALM dashboard preview"
                 className="hero-dashboard-image"
               />
             </div>

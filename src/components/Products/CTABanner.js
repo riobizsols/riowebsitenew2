@@ -1,12 +1,12 @@
 import React from 'react';
 import './CTABanner.css';
-import { Link } from 'react-router-dom';
+
+const CONTACT_URL = "http://103.27.234.248:3004/products/rio-alm/contact";
 
 const CTABanner = ({ 
   title = "Ready to Transform Your Asset Management?",
   subtitle = "Get a personalized demo and discover how RIO ALM can streamline your operations.",
-  ctaText = "Request a Demo",
-  ctaLink = "/contact"
+  ctaText = "Request a Demo"
 }) => {
   return (
     <section className="cta-banner">
@@ -14,12 +14,12 @@ const CTABanner = ({
         <h2 className="cta-title">{title}</h2>
         <p className="cta-subtitle">{subtitle}</p>
         <div className="cta-buttons">
-          <Link to={ctaLink} className="cta-btn cta-btn-primary">
+          <a href={CONTACT_URL} className="cta-btn cta-btn-primary">
             {ctaText}
-          </Link>
-          <Link to="/products/rio-alm/contact" className="cta-btn cta-btn-secondary">
+          </a>
+          <a href={CONTACT_URL} className="cta-btn cta-btn-secondary">
             Get a Proposal
-          </Link>
+          </a>
         </div>
       </div>
     </section>

@@ -335,7 +335,16 @@ const apiBase = getApiBaseUrl();
               </div>
               <div className="con-1">
                 <div className='ph'>Phone Numbers</div>
-                <div className='numbers'><span><a href="tel:+17602846711" style={{textDecoration:'none', color:'black'}}>+1 760 284 6711</a> /</span> <span> <a href="tel:+918884910777 " style={{textDecoration:'none', color:'black'}}>+918884910777</a></span></div>
+                <div className='numbers'>
+                  <span>
+                    <a
+                      href="tel:+918884910777"
+                      style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                      +918884910777
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
 
