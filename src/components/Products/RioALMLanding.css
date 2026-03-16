@@ -10,24 +10,35 @@
   margin-top: 0;
 }
 
-/* RIO MEMS Overview: equal left/right margins, balanced banner size */
+/* RIO MEMS Overview: full-width layout, no right-side whitespace */
 .mems-overview-page {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  overflow-x: hidden;
 }
 
+/* RIO MEMS hero: blue background edge-to-edge, full width, no extra margin */
 .alm-hero.mems-hero {
+  width: 100%;
+  max-width: none;
   margin-left: 0;
   margin-right: 0;
-  padding: 56px 32px 56px 32px;
-  border-radius: 12px;
+  padding: 56px 0;
+  border-radius: 0;
   box-sizing: border-box;
 }
 
+/* Inner container only constrains content; background is on the section above */
 .alm-hero.mems-hero .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
 }
 
 .alm-hero .container {
@@ -47,21 +58,21 @@
 }
 
 .hero-title {
-  font-size: 52px;
+  font-size: var(--font-hero-sm);
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
 }
 
 .hero-subtitle {
-  font-size: 20px;
+  font-size: var(--font-xl);
   line-height: 1.6;
   margin: 0;
   opacity: 0.98;
 }
 
 .hero-subtext {
-  font-size: 16px;
+  font-size: var(--font-body);
   line-height: 1.6;
   margin: 0;
   opacity: 0.85;
@@ -127,7 +138,7 @@
 .dashboard-placeholder .placeholder-header {
   background: rgba(255, 255, 255, 0.12);
   padding: 14px 18px;
-  font-size: 16px;
+  font-size: var(--font-body);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -145,7 +156,7 @@
 .placeholder-header {
   background: rgba(255, 255, 255, 0.1);
   padding: 16px;
-  font-size: 14px;
+  font-size: var(--font-sm);
   font-weight: 600;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -190,7 +201,7 @@
 }
 
 .section-title {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -199,7 +210,7 @@
 }
 
 .section-subtitle {
-  font-size: 20px;
+  font-size: var(--font-xl);
   color: #666666;
   text-align: center;
   margin: 0 0 48px 0;
@@ -241,14 +252,14 @@
 }
 
 .outcome-title {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .outcome-description {
-  font-size: 16px;
+  font-size: var(--font-body);
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -269,7 +280,7 @@
 }
 
 .section-text {
-  font-size: 18px;
+  font-size: var(--font-lg);
   color: #666666;
   line-height: 1.8;
   margin: 0 0 24px 0;
@@ -307,12 +318,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: var(--font-2xl);
   font-weight: 600;
 }
 
 .step-label {
-  font-size: 16px;
+  font-size: var(--font-body);
   font-weight: 600;
   color: #1a1a1a;
   text-align: center;
@@ -321,7 +332,7 @@
 
 .lifecycle-arrow {
   color: #0052cc;
-  font-size: 30px;
+  font-size: var(--font-3xl);
   font-weight: bold;
   display: none;
 }
@@ -379,13 +390,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 700;
   margin: 0 auto 16px;
 }
 
 .step-item h3 {
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
@@ -432,14 +443,14 @@
 }
 
 .deployment-title {
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 16px 0;
 }
 
 .deployment-description {
-  font-size: 16px;
+  font-size: var(--font-body);
   color: #666666;
   line-height: 1.6;
   margin: 0 0 24px 0;
@@ -494,7 +505,7 @@
 /* Match screenshot: heading and subtitle left-aligned, clear size hierarchy */
 .alm-security .section-title {
   text-align: left;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 12px;
@@ -502,7 +513,7 @@
 
 .alm-security .section-subtitle {
   text-align: left;
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 400;
   color: #555;
   margin-bottom: 28px;
@@ -618,7 +629,7 @@
 }
 
 .industry-card h3 {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 8px 0;
@@ -685,7 +696,7 @@
 
 .comparison-col {
   padding: 20px;
-  font-size: 16px;
+  font-size: var(--font-body);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -706,7 +717,7 @@
 
 .comparison-row .comparison-col {
   padding: 16px 20px;
-  font-size: 16px;
+  font-size: var(--font-body);
   color: #666666;
   border-right: 1px solid #e8e8e8;
   display: flex;
@@ -771,14 +782,14 @@
 }
 
 .nav-link-card h4 {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .nav-link-card p {
-  font-size: 16px;
+  font-size: var(--font-body);
   color: #666666;
   margin: 0 0 16px 0;
   line-height: 1.5;
@@ -787,7 +798,7 @@
 .nav-link-card span {
   color: #0052cc;
   font-weight: 600;
-  font-size: 20px;
+  font-size: var(--font-xl);
 }
 
 /* Responsive Design */
@@ -798,7 +809,7 @@
   }
 
   .hero-title {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .outcomes-grid {
@@ -869,7 +880,7 @@
 }
 
 .blog-card-small h4 {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 600;
   margin: 0;
   color: #1a1a1a;
@@ -877,7 +888,7 @@
 }
 
 .blog-card-small p {
-  font-size: 16px;
+  font-size: var(--font-body);
   color: #666;
   margin: 0;
   line-height: 1.5;
@@ -888,7 +899,7 @@
   display: inline-block;
   color: #0052cc;
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--font-body);
   transition: all 0.3s ease;
 }
 
@@ -907,7 +918,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 16px;
+  font-size: var(--font-body);
   cursor: pointer;
 }
 
@@ -952,11 +963,11 @@
   }
 
   .hero-title {
-    font-size: 36px;
+    font-size: var(--font-4xl);
   }
 
   .hero-subtitle {
-    font-size: 18px;
+    font-size: var(--font-lg);
   }
 
   .hero-ctas {
@@ -968,11 +979,11 @@
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .section-subtitle {
-    font-size: 18px;
+    font-size: var(--font-lg);
   }
 
   .outcomes-grid {

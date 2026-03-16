@@ -14,14 +14,14 @@
 }
 
 .deployment-hero .hero-title {
-  font-size: 52px;
+  font-size: var(--font-hero-sm);
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .deployment-hero .hero-subtitle {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -79,7 +79,7 @@
 }
 
 .option-description {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: #666666;
   line-height: 1.6;
   margin: 0 0 24px 0;
@@ -87,7 +87,7 @@
 
 .benefits-title,
 .requirements-title {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   font-weight: 600;
   color: #1a1a1a;
   margin: 24px 0 12px 0;
@@ -137,7 +137,7 @@
 }
 
 .section-title {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -165,7 +165,7 @@
 
 .table-cell {
   padding: 20px;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -190,7 +190,7 @@
 
 .table-row .table-cell {
   padding: 16px 20px;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: #666666;
   border-right: 1px solid #e8e8e8;
   display: flex;
@@ -280,7 +280,7 @@
 }
 
 .security-heading {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: left;
@@ -392,11 +392,11 @@
 
 @media (max-width: 768px) {
   .deployment-hero .hero-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .deployment-hero .hero-subtitle {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .section-title,
@@ -419,12 +419,12 @@
   .table-header,
   .table-row {
     grid-template-columns: 1.5fr 1fr 1fr;
-    font-size: 12px;
+    font-size: var(--font-xs);
   }
 
   .table-cell {
     padding: 12px;
-    font-size: 12px;
+    font-size: var(--font-xs);
   }
 
   .deployment-option {

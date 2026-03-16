@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-size: 18px;
+  font-size: var(--font-lg);
   color: var(--text-light);
 }
 
@@ -53,70 +53,136 @@
    ============================================================================ */
 
 .pricing-hero {
-  background-color: #ffffff;
-  padding: 8px 20px 36px;
+  /* Full-width gradient banner for pricing hero */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px 56px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  color: #ffffff;
+}
+
+/* RIO MEMS Pricing: reduce banner vertical size */
+.pricing-hero:has(.mems-hero) {
+  padding: 24px 20px 32px;
 }
 
 .pricing-hero-inner {
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 16px;
-  padding: 32px 32px 40px;
+  color: inherit;
+  padding: 0;
+}
+
+/* Hero: two-column layout, centered in page, equal spacing */
+.pricing-hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.pricing-hero-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pricing-hero-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* RIO MEMS Pricing hero: single-column, centered alignment, reduced vertical padding */
+.pricing-hero-inner.mems-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 24px;
   text-align: center;
 }
 
-/* More compact violet box just for RIO MEMS hero */
-.mems-hero {
-  max-width: 1200px;
-  padding: 18px 20px 22px;
+.pricing-hero-inner.mems-hero .pricing-container {
+  text-align: center;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .mems-hero .pricing-hero-title {
-  margin-bottom: 4px;
+  margin: 0 auto 8px;
+  text-align: center;
 }
 
 .mems-hero .pricing-hero-title .subtitle-small {
   margin-top: 6px;
+  text-align: center;
 }
 
 .mems-hero .pricing-hero-subheading {
-  margin: 10px 0 16px 0;
+  margin: 14px auto 20px;
+  max-width: 720px;
+  text-align: center;
+  line-height: 1.55;
+  white-space: normal;
+}
+
+.mems-hero .pricing-hero-ctas {
+  justify-content: center;
 }
 
 .pricing-hero-title {
-  font-size: 52px;
+  font-size: var(--font-hero-sm);
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0 0 12px 0;
   line-height: 1.2;
   letter-spacing: -0.5px;
+  text-align: left;
 }
 
 .pricing-hero-title .subtitle-small {
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 500;
   opacity: 0.95;
   display: block;
-  margin-top: 10px;
-}
-
-.pricing-hero-subheading {
-  font-size: 19px;
-  opacity: 0.9;
-  margin: 16px 0 24px 0;
-  line-height: 1.5;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 8px;
+  text-align: left;
 }
 
 .pricing-hero-ctas {
   display: flex;
   gap: 20px;
-  justify-content: center;
-  margin-bottom: 32px;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.pricing-hero-subheading {
+  font-size: 1.1875rem;
+  opacity: 0.9;
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+  max-width: 100%;
+  text-align: left;
+  white-space: nowrap; /* keep each line on a single row on large screens */
+}
+
+.pricing-hero-subheading-line2 {
+  margin-bottom: 24px;
+}
+
+.pricing-hero-right .trust-strip {
+  margin-top: 0;
+  padding-top: 24px;
+  justify-content: flex-start;
 }
 
 /* Button Styles */
@@ -129,7 +195,7 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
 }
 
 .btn-primary,
@@ -154,9 +220,12 @@
 }
 
 .btn-secondary-large:hover {
-  background-color: #f0f4ff;
+  /* Subtle but clear hover state: light blue outline + tint */
+  background-color: #e3edff;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+  color: var(--primary-color); /* keep text readable on light background */
 }
 
 .btn-outline,
@@ -175,29 +244,27 @@
 
 .btn-primary-large {
   padding: 16px 36px;
-  font-size: 16px;
+  font-size: var(--font-body);
 }
 
 .btn-secondary-large {
   padding: 16px 36px;
-  font-size: 16px;
+  font-size: var(--font-body);
 }
 
 .btn-outline-small {
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: var(--font-sm);
 }
 
 /* Trust Strip */
 .trust-strip {
   display: flex;
-  gap: 30px;
-  justify-content: center;
+  gap: 28px;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 30px;
-  padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 14px;
+  font-size: var(--font-sm);
   font-weight: 500;
 }
 
@@ -213,7 +280,7 @@
 }
 
 .region-note {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
   margin-bottom: 20px;
 }
@@ -231,7 +298,7 @@
   background-color: white;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: var(--font-sm);
   font-weight: 600;
   color: var(--text-dark);
   transition: all 0.3s ease;
@@ -258,7 +325,7 @@
 }
 
 .section-title {
-  font-size: 38px;
+  font-size: 2.375rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
@@ -268,7 +335,7 @@
 .section-subtitle {
   text-align: center;
   color: var(--text-light);
-  font-size: 18px;
+  font-size: var(--font-lg);
   margin-bottom: 25px;
 }
 
@@ -311,14 +378,14 @@
   color: white;
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .card-plan-name {
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-dark);
@@ -326,7 +393,7 @@
 
 .card-description {
   color: var(--text-light);
-  font-size: 14px;
+  font-size: var(--font-sm);
   margin-bottom: 20px;
 }
 
@@ -340,7 +407,7 @@
   color: var(--primary-color);
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: var(--font-sm);
   font-weight: 600;
 }
 
@@ -352,19 +419,19 @@
 }
 
 .card-price .currency {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 600;
   color: var(--primary-color);
 }
 
 .card-price .amount {
-  font-size: 42px;
+  font-size: 2.625rem;
   font-weight: 700;
   color: var(--text-dark);
 }
 
 .card-price .period {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
 }
 
@@ -377,7 +444,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: var(--font-sm);
   margin-bottom: 12px;
   color: var(--text-dark);
 }
@@ -410,7 +477,7 @@
   border-top: 1px solid var(--border-color);
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--primary-color);
   user-select: none;
 }
@@ -421,7 +488,7 @@
   align-items: center;
   width: auto;
   text-align: center;
-  font-size: 12px;
+  font-size: var(--font-xs);
 }
 
 .card-details-toggle:hover {
@@ -438,7 +505,7 @@
   background-color: #f0f4ff;
   color: var(--primary-color);
   transition: transform 0.3s ease;
-  font-size: 12px;
+  font-size: var(--font-xs);
   flex-shrink: 0;
 }
 
@@ -476,7 +543,7 @@
 
 .detail-group ul {
   list-style: none;
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
 }
 
@@ -495,7 +562,7 @@
 }
 
 .detail-group p {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
 }
 
@@ -548,21 +615,21 @@
 }
 
 .feature-icon {
-  font-size: 28px;
+  font-size: 1.75rem;
   color: var(--primary-color);
   margin-bottom: 15px;
   display: inline-block;
 }
 
 .feature-item h4 {
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: var(--text-dark);
 }
 
 .feature-item p {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: var(--text-light);
   line-height: 1.5;
 }
@@ -631,14 +698,14 @@
   color: white;
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .deployment-card h3 {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--text-dark);
@@ -646,12 +713,12 @@
 
 .deployment-subtitle-text {
   color: var(--text-light);
-  font-size: 14px;
+  font-size: var(--font-sm);
   margin-bottom: 15px;
 }
 
 .deployment-description {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: var(--text-dark);
   margin-bottom: 25px;
   font-weight: 500;
@@ -669,7 +736,7 @@
 
 .deployment-bestfor p {
   color: var(--text-light);
-  font-size: 14px;
+  font-size: var(--font-sm);
 }
 
 .deployment-includes {
@@ -690,7 +757,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
   margin-bottom: 8px;
 }
@@ -708,7 +775,7 @@
 }
 
 .help-text {
-  font-size: 16px;
+  font-size: var(--font-body);
   font-weight: 600;
   margin-bottom: 20px;
   color: var(--text-dark);
@@ -738,7 +805,7 @@
 }
 
 .addon-type-title {
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 25px;
@@ -753,20 +820,20 @@
 .addon-table td {
   padding: 16px 0;
   border-bottom: 1px solid var(--border-color);
-  font-size: 14px;
+  font-size: var(--font-sm);
 }
 
 .addon-table td strong {
   display: block;
   margin-bottom: 6px;
   color: var(--text-dark);
-  font-size: 15px;
+  font-size: var(--font-body-sm);
 }
 
 .addon-note {
   display: block;
   color: var(--text-light);
-  font-size: 13px;
+  font-size: var(--font-sm);
   font-weight: 400;
   font-style: italic;
 }
@@ -781,7 +848,7 @@
 }
 
 .addon-notes p {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: var(--text-light);
 }
 
@@ -802,17 +869,17 @@
 }
 
 .mems-pricing-cards .card-plan-name {
-  font-size: 20px;
+  font-size: var(--font-xl);
   margin-bottom: 6px;
 }
 
 .mems-pricing-cards .card-description {
-  font-size: 13px;
+  font-size: var(--font-sm);
   margin-bottom: 12px;
 }
 
 .mems-pricing-cards .card-price .amount {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 /* ============================================================================
@@ -842,7 +909,7 @@
 
 .tco-left h3,
 .tco-right h3 {
-  font-size: 20px;
+  font-size: var(--font-xl);
   font-weight: 700;
   margin-bottom: 15px;
   color: var(--text-dark);
@@ -851,7 +918,7 @@
 .tco-left p,
 .tco-right p {
   color: var(--text-light);
-  font-size: 14px;
+  font-size: var(--font-sm);
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -860,7 +927,7 @@
   background-color: #f8fafc;
   padding: 15px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: var(--font-sm);
   border-left: 4px solid var(--text-light);
   font-family: 'Courier New', monospace;
 }
@@ -893,7 +960,7 @@
 }
 
 .tco-benefit h4 {
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--text-dark);
@@ -907,7 +974,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: var(--text-dark);
   margin-bottom: 12px;
 }
@@ -961,7 +1028,7 @@
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   font-weight: 600;
   color: var(--text-dark);
 }
@@ -997,7 +1064,7 @@
 .faq-answer {
   padding: 0 20px 20px 55px;
   color: var(--text-light);
-  font-size: 14px;
+  font-size: var(--font-sm);
   line-height: 1.6;
   background-color: #f8fafc;
   animation: slideDown 0.3s ease;
@@ -1010,7 +1077,7 @@
 .final-cta-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 60px 20px;
+  padding: 36px 20px 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1020,21 +1087,23 @@
 }
 
 .cta-headline {
-  font-size: 36px;
+  font-size: var(--font-4xl);
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.3;
   max-width: 900px;
+  color: #ffffff;
 }
 
 .cta-subline {
-  font-size: 16px;
+  font-size: var(--font-body);
   opacity: 0.95;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.5;
+  color: #ffffff;
 }
 
 .final-ctas {
@@ -1054,7 +1123,7 @@
 }
 
 .contact-info h4 {
-  font-size: 16px;
+  font-size: var(--font-body);
   font-weight: 700;
   margin-bottom: 25px;
   text-transform: uppercase;
@@ -1071,7 +1140,7 @@
 .contact-link {
   color: white;
   text-decoration: none;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   font-weight: 500;
   transition: all 0.3s ease;
   display: inline-flex;
@@ -1086,7 +1155,7 @@
 
 .disclaimer {
   margin-top: 30px;
-  font-size: 13px;
+  font-size: var(--font-sm);
   opacity: 0.85;
 }
 
@@ -1095,21 +1164,40 @@
    ============================================================================ */
 
 @media (max-width: 768px) {
+  .pricing-hero-container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .pricing-hero-left,
+  .pricing-hero-right {
+    align-items: center;
+  }
+
   .pricing-hero-title {
-    font-size: 36px;
+    font-size: var(--font-4xl);
+    text-align: center;
   }
 
   .pricing-hero-title .subtitle-small {
-    font-size: 18px;
+    font-size: var(--font-lg);
+    text-align: center;
   }
 
   .pricing-hero-subheading {
-    font-size: 16px;
+    font-size: var(--font-body);
+    text-align: center;
+    white-space: normal; /* allow wrapping on smaller screens */
   }
 
   .pricing-hero-ctas {
     flex-direction: column;
     align-items: stretch;
+    justify-content: center;
+  }
+
+  .pricing-hero-right .trust-strip {
+    justify-content: center;
   }
 
   .btn-primary-large,
@@ -1122,7 +1210,7 @@
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .pricing-card.highlight {
@@ -1144,11 +1232,11 @@
   }
 
   .cta-headline {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .cta-subline {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .final-ctas {
@@ -1178,16 +1266,16 @@
   }
 
   .pricing-hero-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .pricing-hero-title .subtitle-small {
-    font-size: 16px;
+    font-size: var(--font-body);
     margin-top: 8px;
   }
 
   .pricing-hero-subheading {
-    font-size: 14px;
+    font-size: var(--font-sm);
     margin: 15px 0 30px 0;
   }
 
@@ -1199,7 +1287,7 @@
   .trust-strip {
     gap: 10px;
     flex-direction: column;
-    font-size: 13px;
+    font-size: var(--font-sm);
     padding-top: 20px;
     margin-top: 20px;
   }
@@ -1213,7 +1301,7 @@
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: var(--font-2xl);
     margin-bottom: 30px;
   }
 
@@ -1223,20 +1311,20 @@
 
   .badge-popular {
     left: 10px;
-    font-size: 11px;
+    font-size: var(--font-xs);
     padding: 5px 12px;
   }
 
   .card-plan-name {
-    font-size: 18px;
+    font-size: var(--font-lg);
   }
 
   .card-price .currency {
-    font-size: 18px;
+    font-size: var(--font-lg);
   }
 
   .card-price .amount {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .pricing-cards-section,
@@ -1246,7 +1334,7 @@
   .tco-section,
   .faq-section,
   .final-cta-section {
-    padding: 50px 15px;
+    padding: 32px 15px 36px;
   }
 
   .feature-item {
@@ -1256,7 +1344,7 @@
   .deployment-badge {
     top: 10px;
     right: 10px;
-    font-size: 11px;
+    font-size: var(--font-xs);
   }
 
   .addons-column {
@@ -1264,20 +1352,20 @@
   }
 
   .addon-type-title {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .addon-table td {
     padding: 12px 0;
-    font-size: 13px;
+    font-size: var(--font-sm);
   }
 
   .addon-table td strong {
-    font-size: 14px;
+    font-size: var(--font-sm);
   }
 
   .addon-note {
-    font-size: 12px;
+    font-size: var(--font-xs);
   }
 
   .tco-left,
@@ -1290,32 +1378,32 @@
   }
 
   .tco-benefit h4 {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .tco-benefit ul li {
-    font-size: 14px;
+    font-size: var(--font-sm);
     gap: 10px;
   }
 
   .faq-question {
     padding: 15px;
-    font-size: 14px;
+    font-size: var(--font-sm);
     gap: 10px;
   }
 
   .faq-answer {
     padding: 0 15px 15px 40px;
-    font-size: 13px;
+    font-size: var(--font-sm);
   }
 
   .cta-headline {
-    font-size: 22px;
+    font-size: 1.375rem;
     margin-bottom: 15px;
   }
 
   .cta-subline {
-    font-size: 14px;
+    font-size: var(--font-sm);
     margin-bottom: 30px;
   }
 
@@ -1329,16 +1417,16 @@
   }
 
   .contact-info h4 {
-    font-size: 15px;
+    font-size: var(--font-body-sm);
     margin-bottom: 15px;
   }
 
   .contact-link {
-    font-size: 14px;
+    font-size: var(--font-sm);
   }
 
   .disclaimer {
-    font-size: 12px;
+    font-size: var(--font-xs);
     margin-top: 20px;
   }
 }

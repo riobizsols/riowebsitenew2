@@ -1,11 +1,13 @@
 .industries-hero {
+  /* Full-width hero banner */
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
   padding: 80px 16px;
   text-align: center;
-  margin-left: 24px;
-  margin-right: 24px;
-  border-radius: 12px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
 }
 
 .industries-hero .container {

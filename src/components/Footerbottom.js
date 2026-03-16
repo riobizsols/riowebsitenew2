@@ -32,14 +32,14 @@ import { FaQuora } from "react-icons/fa6";
                 <div className="footer-right-col">
                 <h5 className='footer_title1'>Products</h5>
              <ul className='footer_menu'>
-               <Link to='/products/rio-alm' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO ALM</li></Link>
-               <Link to='/products/medical-equipment-maintenance' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO MEMS (Medical Equipment Maintenance)</li></Link>
-               <Link to='/products/aissist' style={{textDecoration:'none', color:'#BDBBBB'}}><li>AIssist – LinkedIn Assistant</li></Link>
-               <Link to='/products/rio-alm/features' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO ALM Features</li></Link>
-               <Link to='/products/rio-alm/industries' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO ALM Industries</li></Link>
-               <Link to='/products/rio-alm/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO ALM Deployment</li></Link>
-               <Link to='/products/rio-alm/contact' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO ALM Demo Request</li></Link>
-               <Link to='/products/medical-equipment-maintenance/pricing' style={{textDecoration:'none', color:'#BDBBBB'}}><li>RIO MEMS Pricing</li></Link>
+               <li><Link to='/products/rio-alm' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM</Link></li>
+               <li><Link to='/products/medical-equipment-maintenance' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS (Medical Equipment Maintenance)</Link></li>
+               <li><Link to='/products/aissist' style={{textDecoration:'none', color:'#BDBBBB'}}>AIssist – LinkedIn Assistant</Link></li>
+               <li><Link to='/products/rio-alm/features' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Features</Link></li>
+               <li><Link to='/products/rio-alm/industries' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Industries</Link></li>
+               <li><Link to='/products/rio-alm/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Deployment</Link></li>
+               <li><Link to='/products/rio-alm/contact' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Demo Request</Link></li>
+               <li><Link to='/products/medical-equipment-maintenance/pricing' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS Pricing</Link></li>
              </ul>
                 </div>
                 <div className="footer-right-col">

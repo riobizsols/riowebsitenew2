@@ -1,16 +1,15 @@
 .menu{
-    align-items: Center;
+    align-items: center;
     display: flex;
     text-decoration: none;
-    margin-left: 150px;
     padding-top: 30px;
-    font-size: 20px;
-    /* padding-right: 80px; */
-    width: 500px;
-   font-weight: 600;
+    font-size: var(--font-xl);
+    font-weight: 600;
     list-style: none;
-    justify-content: space-evenly;
-   
+    /* Center the nav items horizontally in the header */
+    flex: 1;
+    justify-content: center;
+    gap: 32px;
 }
 .nav-social{
   display: none;
@@ -18,16 +17,20 @@
 
 .nav_bar{
    display: flex;
+   align-items: center; /* vertically center logo + nav + button */
    padding-top: 10px;
-   background-color: #ffffff;
+   /* Solid top color that matches the very top of the banner gradient */
+   background-color: #f4f9ff;
+   border-bottom: none;
+   margin-bottom: 0;
 }
 
 /* Match hero margins: generous left/right so content doesn’t touch edges */
 .nav_bar .container {
    max-width: 1200px;
    margin: 0 auto;
-   padding-left: 48px;
-   padding-right: 48px;
+   padding-left: 40px;
+   padding-right: 40px;
 }
 
 /* Products dropdown: keep inline with nav items and show on hover */
@@ -39,10 +42,18 @@
   margin-top: 0;
 }
 
+/* Ensure product dropdown items use the same font; keep Bootstrap default spacing */
+.nav_bar .navbar-nav .dropdown-menu .dropdown-item {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: var(--font-body) !important;
+}
+
 nav.rio_menu{
-  text-align: right;
   display: flex;
+  align-items: center;
+  justify-content: center; /* center the menu horizontally within header */
   text-decoration: none;
+  flex: 1;
 }
 
 /* Nav links (Home, About, Products, Blogs): match banner title color */

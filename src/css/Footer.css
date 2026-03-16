@@ -1,7 +1,7 @@
 .footer{
     background-color: #171717;
     color: white;
-    padding: 40px 0 20px;
+    padding: 24px 0 16px;
 }
 
 /* Right side: Products and Let's Connect in one row */
@@ -21,11 +21,17 @@
     min-width: 180px;
 }
 
+/* Nudge the Products column slightly to the right without affecting layout */
+.footer-right-col:first-child {
+    margin-left: 150px;
+}
+
+/* Match "Our Locations" (h1) size – same as banner/locations heading */
 .footer_title1,
 .footer_title2 {
-    font-size: 1.125rem;
+    font-size: 2em;
     font-weight: 600;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
     color: #fff;
 }
 
@@ -37,12 +43,21 @@
     color: rgb(189, 187, 187);
 }
 .footer_menu li {
-    margin: 0.6rem 0 0 0;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin: 0.4rem 0 0 0;
+    font-size: var(--font-body);
+    line-height: var(--line-normal);
 }
 .footer_menu li:first-child {
     margin-top: 0;
+}
+.footer_menu li a {
+    display: block;
+    color: rgb(189, 187, 187);
+    text-decoration: none;
+    cursor: pointer;
+}
+.footer_menu li a:hover {
+    color: #fff;
 }
 .footer_connect_list {
     list-style: none;
@@ -54,9 +69,9 @@
     align-items: center;
     list-style: none;
     text-align: left;
-    margin: 0.5rem 0 0 0;
+    margin: 0.35rem 0 0 0;
     padding: 0;
-    font-size: 1rem;
+    font-size: var(--font-body);
     line-height: 1.4;
     color: #ffffff;
 }
@@ -71,20 +86,20 @@
 }
 
 .footer_title{
-    margin-top: 40px;
+    margin-top: 0;
     width: 300px;
     height: auto;
 } 
 
 .footer_title1 {
-    margin-top: 24px;
+    margin-top: 4px;
 }
 .footer_title2 {
-    margin-top: 24px;
+    margin-top: 4px;
 }
 .foot-loc{
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 .footer-locations-wrap{
     display: flex;
@@ -92,6 +107,7 @@
     align-items: flex-end;
     justify-content: center;
     text-align: center;
+    margin-top: 12px;
 }
 .footer-locations-inner{
     max-width: 640px;
@@ -118,7 +134,7 @@
 
 .footer_location_img1{
     display: block;
-    margin: 12px auto 8px;
+    margin: 6px auto 4px;
 }
 .footer_link{
     text-decoration: none;
@@ -127,7 +143,7 @@
 
 .footer_location_img2{
     display: block;
-    margin: 12px auto 8px;
+    margin: 6px auto 4px;
 }
 .location_title{
   text-align: center;
@@ -141,7 +157,7 @@
     font-size: 16px;
     color:#B6BDB9;
     margin-left: 0;
-    margin-top: 0;
+    margin-top: 8px;
     text-align: left;
 }
 
@@ -149,7 +165,7 @@
     font-size: 16px;
     color:#BDBBBB;
     margin-left: 0;
-    margin-top: 250px;
+    margin-top: 7cm;
     text-align: left;
 }
 /* 
@@ -221,7 +237,7 @@
 @media screen and (max-width: 768px) {
     .footer {
         height: auto;
-        padding: 20px 10px;
+        padding: 16px 10px 12px;
     }
 
     .footer-right-group {
@@ -251,7 +267,7 @@
     }
 
     .footer_location {
-        margin: 20px 0;
+        margin: 12px 0;
         text-align: center;
     }
 }
@@ -267,8 +283,8 @@
         
      }
     .footer_title1, .footer_title2 {
-        margin-top: 40px;
-        font-size: 16px;
+        margin-top: 20px;
+        /* keep 2em to match Our Locations (h1) – do not override */
     }
 
     .footer_location_img1, .footer_location_img2 {

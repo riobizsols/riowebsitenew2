@@ -2,5 +2,6 @@
 body {
   margin: 0;
   font-family: Outfit, sans-serif;
-  background-color: #ffffff;
+  /* Match header/banner base color so any gaps are invisible */
+  background-color: #f4f9ff;
 }

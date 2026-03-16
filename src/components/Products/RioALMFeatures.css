@@ -3,9 +3,11 @@
   color: white;
   padding: 80px 16px;
   text-align: center;
-  margin-left: 16px;
-  margin-right: 16px;
-  border-radius: 12px;
+  /* Full-width banner: stretch to viewport edges */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  border-radius: 0;
 }
 
 .features-hero .container {
@@ -14,14 +16,14 @@
 }
 
 .features-hero .hero-title {
-  font-size: 52px;
+  font-size: var(--font-hero-sm);
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .features-hero .hero-subtitle {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -52,7 +54,7 @@
 }
 
 .group-title {
-  font-size: 34px;
+  font-size: 2.125rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -77,7 +79,7 @@
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -86,7 +88,7 @@
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: var(--font-lg);
   color: #666666;
   text-align: center;
   margin: 0 0 48px 0;
@@ -114,14 +116,14 @@
 }
 
 .integration-card h3 {
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .integration-card p {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -161,14 +163,14 @@
 }
 
 .comparison-card h3 {
-  font-size: 18px;
+  font-size: var(--font-lg);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .comparison-card p {
-  font-size: 14px;
+  font-size: var(--font-sm);
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -191,15 +193,15 @@
 
 @media (max-width: 768px) {
   .features-hero .hero-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .features-hero .hero-subtitle {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .group-title {
-    font-size: 24px;
+    font-size: var(--font-2xl);
   }
 
   .features-grid {
@@ -207,11 +209,11 @@
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .section-subtitle {
-    font-size: 16px;
+    font-size: var(--font-body);
     margin-bottom: 32px;
   }
 
