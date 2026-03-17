@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: flex-start;
-    gap: clamp(2.5rem, 5vw, 4rem);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .footer-right-col {
@@ -43,7 +43,7 @@
     color: rgb(189, 187, 187);
 }
 .footer_menu li {
-    margin: 0.4rem 0 0 0;
+    margin: 0.15rem 0 0 0;
     font-size: var(--font-body);
     line-height: var(--line-normal);
 }
@@ -69,7 +69,7 @@
     align-items: center;
     list-style: none;
     text-align: left;
-    margin: 0.35rem 0 0 0;
+    margin: 0.2rem 0 0 0;
     padding: 0;
     font-size: var(--font-body);
     line-height: 1.4;

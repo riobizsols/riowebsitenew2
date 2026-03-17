@@ -206,7 +206,7 @@ const apiBase = getApiBaseUrl();
             "name": "RioBizSols",
             "description": "End-to-end business solutions provider",
             "url": "https://riobizsols.com",
-            "telephone": "+91-9876543210",
+            "telephone": "+91 88849 10777",
             "email": "info@riobizsols.com",
             "areaServed": ["IN", "US", "GB"],
             "sameAs": [
@@ -341,7 +341,7 @@ const apiBase = getApiBaseUrl();
                       href="tel:+918884910777"
                       style={{ textDecoration: 'none', color: 'black' }}
                     >
-                      +918884910777
+                      +91 88849 10777
                     </a>
                   </span>
                 </div>

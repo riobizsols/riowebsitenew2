@@ -1,11 +1,13 @@
 .deployment-hero {
+  /* Full-width banner: edge-to-edge, like other heroes */
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
   padding: 80px 16px;
   text-align: center;
-  margin-left: 24px;
-  margin-right: 24px;
-  border-radius: 12px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
 }
 
 .deployment-hero .container {
@@ -254,15 +256,16 @@
 
 /* Security Section – 2x2 grid: top row = heading+underline | paragraph; bottom row = list | icon */
 .security-section {
-  padding: 80px 24px;
-  background: #f9fafb;
+  padding: 80px 0; /* no horizontal padding so image can sit flush */
+  /* Match the image background so there is no visible color difference */
+  background: #ffffff;
 }
 
 .security-section-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding-left: 48px;
-  padding-right: 48px;
+  padding-right: 0; /* no extra right padding so image sits tight on the right */
 }
 
 .security-grid {
@@ -343,17 +346,18 @@
 }
 
 .security-visual {
-  margin-top: 40px;
-  margin-left: 5cm;
+  margin-top: 0; /* reduce white space above the image */
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 180px;
-  height: 180px;
-  min-height: 0;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3f4f6 100%);
-  border-radius: 16px;
-  color: #0052cc;
+  justify-content: flex-end; /* keep image toward the right side */
+  margin-left: 0; /* don't push image back left; keep it tight to the right */
+}
+
+.security-image {
+  max-width: 500px; /* slightly smaller to avoid overlapping long text */
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Responsive Design */

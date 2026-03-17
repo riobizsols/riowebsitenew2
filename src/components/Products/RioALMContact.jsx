@@ -9,7 +9,7 @@ const HEADQUARTERS_ADDRESS = {
   city: 'Bangalore',
   stateCountry: 'Karnataka, India',
 };
-const CONTACT_PHONE = '+91 80 1234 5678';
+const CONTACT_PHONE = '+91 88849 10777';
 
 const RioALMContact = () => {
   const submittingRef = useRef(false);

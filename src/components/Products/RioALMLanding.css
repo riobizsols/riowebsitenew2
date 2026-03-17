@@ -511,9 +511,18 @@
   margin-bottom: 12px;
 }
 
+/* MEMS overview: one line + longer underline below heading */
+.mems-overview-page .alm-security .section-title {
+  white-space: nowrap;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 82, 204, 0.35);
+  display: inline-block;
+  min-width: 85%;
+}
+
 .alm-security .section-subtitle {
   text-align: left;
-  font-size: var(--font-lg);
+  font-size: var(--font-xl); /* larger for better readability in explanations */
   font-weight: 400;
   color: #555;
   margin-bottom: 28px;
@@ -529,8 +538,8 @@
 /* Sentence format: bold label + colon + description, one consistent medium size */
 .security-features li {
   margin-bottom: 20px;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: var(--font-lg); /* ~20–21px on current scale */
+  line-height: 1.7;
   color: #555;
 }
 
@@ -969,7 +978,10 @@
   .hero-subtitle {
     font-size: var(--font-lg);
   }
+}
 
+/* Stack hero buttons only on smaller tablets/phones */
+@media (max-width: 768px) {
   .hero-ctas {
     flex-direction: column;
   }
