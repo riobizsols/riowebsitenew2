@@ -7,6 +7,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { FaQuora } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as visitorTracking from '../../services/visitorTracking';
@@ -353,6 +354,15 @@ const apiBase = getApiBaseUrl();
               <Link className='icn' to='https://www.linkedin.com/company/rio-business-solutions-usa/'><FaLinkedinIn /></Link>
               <Link className='icn' to='https://www.youtube.com/channel/UC37z3CVHMraqRnrGrlucZ0g'><FaYoutube /></Link>
               <Link className='icn' to='https://www.quora.com/profile/RIO-Bizsols-Pvt-Ltd?q=rio+business+solutions'><FaQuora /></Link>
+              <a
+                className='icn'
+                href={`https://wa.me/918884910777?text=${encodeURIComponent("Hello! I'm visiting from your website and would like to get in touch.")}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Chat on WhatsApp'
+              >
+                <FaWhatsapp />
+              </a>
             </div>
           </div>
 

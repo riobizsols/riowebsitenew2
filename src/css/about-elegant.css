@@ -83,9 +83,9 @@
 .about-banner {
   padding: 0;
   background: #f4f9ff;
-  /* make section span full viewport width even inside centered containers */
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .about-image-wrapper {
@@ -125,15 +125,17 @@
   transform: rotate(360deg) scale(1.03);
 }
 
+/* Mobile: keep banner text comfortably inside the image */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: var(--font-xl);
+  }
+}
+
 /* Content Section */
 .about-content-section {
   padding: 80px 20px;
   background: white;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* About Intro */
@@ -334,9 +336,8 @@
   border-radius: 0;
   text-align: center;
   color: #ffffff;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
 }
 

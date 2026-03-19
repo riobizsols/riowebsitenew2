@@ -2,7 +2,8 @@
     align-items: center;
     display: flex;
     text-decoration: none;
-    padding-top: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: var(--font-xl);
     font-weight: 600;
     list-style: none;
@@ -18,7 +19,8 @@
 .nav_bar{
    display: flex;
    align-items: center; /* vertically center logo + nav + button */
-   padding-top: 10px;
+   padding-top: 12px;
+   padding-bottom: 12px;
    /* Solid top color that matches the very top of the banner gradient */
    background-color: #f4f9ff;
    border-bottom: none;
@@ -69,56 +71,98 @@ nav.rio_menu{
   color: #1B75BB;
 }
 
+@media screen and (max-width: 991px) {
+  .nav_bar {
+    width: 100%;
+    max-width: 100%;
+  }
+  .nav_bar .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .menu {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
 @media screen and (max-width: 600px) {
- .nav_bar{
-  background-color: #313030;
-  color: #1B75BB;
-  height: 350px;
- 
- }
+  .nav_bar {
+    /* Keep header color consistent with banner on mobile */
+    background-color: #f4f9ff;
+    color: #2a4873;
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
 
- .navbar-collapse {
-  justify-content: flex-start;
-  margin-right: 250px; /* Aligns the text to the left */
-}
-.menu {
-  margin-left: -120px;
-  color: #1B75BB;/* Aligns text within the menu to the left */
-}
-.nav-link:hover {
-  color: #1B75BB;
-}
-.nav-link{
-  color: #ffffff;
- 
-}
-.menu-button{
-  display: none;
-}
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-  
-}
-.mob-menu-button{
-  display:none;
-}
-.nav-social{
-  display: flex;
-  margin-left: 150px;
+  .nav_bar .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+  }
 
-  
-}
+  .navbar-collapse {
+    justify-content: flex-start;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #f4f9ff;
+    border-radius: 16px;
+    padding: 12px;
+  }
 
+  .menu {
+    margin-left: 0;
+    color: #1B75BB;
+  }
 
-.nav-social-icon{
-  color:#ffffff;
-  /* width: 150px;
-  height: 150px; */
-  margin-left: 10px;
-  
-  
-}
+  .nav-link:hover {
+    color: #1B75BB;
+  }
 
+  .nav-link {
+    color: #2a4873;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%232a4873' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  }
+
+  .mob-menu-button {
+    display: none;
+  }
+
+  .nav-social {
+    display: flex;
+    margin-left: 0;
+  }
+
+  .nav-social-icon {
+    color: #ffffff;
+    margin-left: 10px;
+  }
+
+  .contact-us-btn {
+    margin-left: 0 !important;
+    margin-top: 8px !important;
+  }
 }
 
     
@@ -151,7 +195,7 @@ nav.rio_menu{
       /* background: linear-gradient(to right, #1B75BB,#2B40DD);  */
       
       border: none;
-      margin-top: 30px;
+      margin-top: 0;
       height: 50px;
      
       border-radius: 25px;
@@ -180,8 +224,8 @@ nav.rio_menu{
 
 @media screen and (max-width: 991px) {
   .nav_bar .container {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .contact-us-btn {
     margin-left: 0 !important;

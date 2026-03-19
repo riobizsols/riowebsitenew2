@@ -1,13 +1,12 @@
 .industries-hero {
-  /* Full-width hero banner */
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
-  padding: 80px 16px;
+  padding: 48px 16px;
   text-align: center;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;
+  max-width: 100%;
   border-radius: 0;
+  box-sizing: border-box;
 }
 
 .industries-hero .container {
@@ -31,7 +30,7 @@
 
 /* Industries Content */
 .industries-content {
-  padding: 80px 16px;
+  padding: 40px 16px;
 }
 
 .industries-content .container {
@@ -40,12 +39,12 @@
 }
 
 .industry-detail {
-  margin-bottom: 80px;
-  padding-bottom: 80px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .industry-header {
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 .industry-name {
@@ -65,8 +64,8 @@
 .industry-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 48px;
+  gap: 32px;
+  margin-bottom: 28px;
 }
 
 .industry-section {
@@ -106,7 +105,7 @@
 }
 
 .solutions-list li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: #0052cc;
@@ -116,8 +115,8 @@
 .industry-footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding-top: 32px;
+  gap: 32px;
+  padding-top: 24px;
   border-top: 1px solid #e8e8e8;
 }
 
@@ -166,13 +165,14 @@
 }
 
 .industry-divider {
-  margin-top: 80px;
+  margin-top: 32px;
+  padding-top: 24px;
   border-bottom: 1px solid #e8e8e8;
 }
 
 /* Why Choose Section */
 .why-choose-section {
-  padding: 80px 16px;
+  padding: 48px 16px;
   background: #f9fafb;
 }
 
@@ -186,7 +186,7 @@
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
-  margin: 0 0 48px 0;
+  margin: 0 0 32px 0;
   line-height: 1.2;
 }
 
@@ -288,7 +288,24 @@
   }
 
   .industry-detail {
-    margin-bottom: 60px;
-    padding-bottom: 60px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+
+  .industry-divider {
+    margin-top: 28px;
+    padding-top: 28px;
+  }
+
+  .industries-hero {
+    padding: 36px 16px;
+  }
+
+  .industries-content {
+    padding: 28px 16px;
+  }
+
+  .why-choose-section {
+    padding: 36px 16px;
   }
 }

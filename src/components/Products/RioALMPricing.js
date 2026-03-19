@@ -296,12 +296,10 @@ export default function RioALMPricing() {
               </div>
             </div>
             <div className="pricing-hero-right">
-              <p className="pricing-hero-subheading">
-                Site-based pricing (not per-user) • Unlimited users & assets included
-              </p>
-              <p className="pricing-hero-subheading pricing-hero-subheading-line2">
-                Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud
-              </p>
+              <ul className="pricing-hero-points">
+                <li>Site-based pricing (not per-user). Unlimited users & assets included.</li>
+                <li>Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud.</li>
+              </ul>
               <div className="trust-strip">
                 <span>✓ Unlimited Users</span>
                 <span>✓ Unlimited Assets</span>

@@ -1,7 +1,21 @@
- @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Prevent mobile content from being cut off on the right */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   font-family: Outfit, sans-serif;
-  /* Match header/banner base color so any gaps are invisible */
   background-color: #f4f9ff;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.App {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }

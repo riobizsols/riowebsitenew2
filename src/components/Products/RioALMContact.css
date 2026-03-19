@@ -174,7 +174,7 @@ textarea.form-input {
 }
 
 .info-title {
-  font-size: 16px;
+  font-size: var(--font-xl); /* slightly larger section labels (Headquarters, Get in Touch, What to Expect, Quick Links) */
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 16px 0;
@@ -237,7 +237,7 @@ textarea.form-input {
 }
 
 .expectation-list li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: #0052cc;

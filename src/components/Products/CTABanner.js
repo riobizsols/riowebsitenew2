@@ -1,7 +1,8 @@
 import React from 'react';
 import './CTABanner.css';
 
-const CONTACT_URL = "http://103.27.234.248:3004/products/rio-alm/contact";
+// Use an internal route so it works on localhost and on the deployed site
+const CONTACT_URL = "/products/rio-alm/contact";
 
 const CTABanner = ({ 
   title = "Ready to Transform Your Asset Management?",

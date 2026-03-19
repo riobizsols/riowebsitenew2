@@ -1,13 +1,12 @@
 .deployment-hero {
-  /* Full-width banner: edge-to-edge, like other heroes */
   background: linear-gradient(135deg, #003d82 0%, #0052cc 100%);
   color: white;
   padding: 80px 16px;
   text-align: center;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;
+  max-width: 100%;
   border-radius: 0;
+  box-sizing: border-box;
 }
 
 .deployment-hero .container {
@@ -113,7 +112,7 @@
 }
 
 .benefits-list li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: #0052cc;
@@ -121,7 +120,7 @@
 }
 
 .requirements-list li::before {
-  content: "•";
+  content: "\2022";
   position: absolute;
   left: 0;
   color: #999;

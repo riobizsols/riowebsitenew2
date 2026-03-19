@@ -6,11 +6,11 @@ import {
   FiBarChart2, FiSmartphone, 
   FiLayers, FiLock
 } from 'react-icons/fi';
-import { HiShieldCheck } from 'react-icons/hi';
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
 import RioAlmDashboard from '../../assets/images/rio-alm-dashboard f.png';
+import EnterpriseSecurityImage from '../../assets/images/enterprise-security.png';
 import './RioALMLanding.css';
 
 const RioALMLanding = () => {
@@ -422,9 +422,7 @@ const RioALMLanding = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <div className="security-icon-badge" aria-hidden="true">
-                <HiShieldCheck className="security-icon-symbol" />
-              </div>
+              <img src={EnterpriseSecurityImage} alt="Enterprise-grade security" className="security-image" />
             </div>
           </div>
         </div>
