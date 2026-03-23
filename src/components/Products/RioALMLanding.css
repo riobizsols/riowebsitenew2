@@ -149,7 +149,6 @@
   height: auto;
   display: block;
   object-fit: contain;
-  vertical-align: top;
 }
 
 /* Fallback placeholder styles (if image not loaded) */
@@ -715,6 +714,20 @@
 .comparison-row .comparison-col:first-child {
   color: #1a1a1a;
   font-weight: 500;
+}
+
+/* Mobile: allow horizontal scroll instead of squeezing/cutting */
+@media (max-width: 768px) {
+  .alm-comparison .comparison-table {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .alm-comparison .comparison-header,
+  .alm-comparison .comparison-row {
+    min-width: 720px;
+  }
 }
 
 /* FAQ Section */

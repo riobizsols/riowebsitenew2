@@ -385,9 +385,17 @@
     white-space: normal;
   }
 
+  .deployment-comparison .comparison-table {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .table-header,
   .table-row {
-    grid-template-columns: 2fr 1fr 1fr;
+    /* Markup has 4 cells per row (Criteria + 3 options). Keep 4 columns */
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    min-width: 860px;
   }
 }
 
@@ -421,8 +429,15 @@
 
   .table-header,
   .table-row {
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    min-width: 860px;
     font-size: var(--font-xs);
+  }
+
+  .deployment-comparison .comparison-table {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   .table-cell {
