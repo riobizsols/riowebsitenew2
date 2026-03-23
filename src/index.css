@@ -1,7 +1,52 @@
+/* Global typography scale – 17px base for better readability */
+:root {
+  font-size: 17px;
+  --font-body: 1rem;           /* 17px – main body text */
+  --font-sm: 1rem;             /* 17px – was 14px, raised for readability */
+  --font-xs: 0.875rem;         /* ~15px – was 12px, raised for readability */
+  --font-lg: 1.125rem;         /* ~19px */
+  --font-xl: 1.25rem;          /* ~21px */
+  --font-2xl: 1.5rem;          /* ~26px */
+  --font-3xl: 1.875rem;        /* ~32px */
+  --font-4xl: 2.25rem;         /* ~38px */
+  --font-5xl: 3rem;            /* 51px */
+  --font-hero: 3.75rem;        /* ~64px – main hero titles */
+  --font-hero-sm: 3.25rem;     /* ~55px – section heroes */
+  --font-body-sm: 1rem;        /* 17px – was 15px */
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-relaxed: 1.6;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: Outfit, sans-serif;
-  background-color: #f0f0f0;
+  font-size: var(--font-body);
+  line-height: var(--line-normal);
+  background-color: #f4f9ff;
+  overflow-x: hidden;
+}
+
+/* Prevent text from causing horizontal overflow on mobile */
+p, li, span, h1, h2, h3, h4, h5, h6, a, td, th, label {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile: keep all content within viewport */
+@media (max-width: 768px) {
+  .container,
+  .container-fluid {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
 }
 
 ::-webkit-scrollbar {

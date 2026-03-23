@@ -57,6 +57,30 @@ const getBrowserVersion = () => {
   return match ? match[1] : 'Unknown';
 };
 
+// ---- Payload trimming helpers (prevents backend 413 Payload Too Large) ----
+const trimArray = (arr, max) => (Array.isArray(arr) ? arr.slice(-max) : []);
+
+const sanitizeBehavior = (behavior) => {
+  if (!behavior || typeof behavior !== 'object') return behavior;
+
+  const pagesVisitedRecent = trimArray(behavior.pagesVisited, 10);
+  // Keep detailed `data` only for the latest entry; older entries can be large over time.
+  const lastIndex = pagesVisitedRecent.length - 1;
+
+  const pagesVisited = pagesVisitedRecent.map((entry, idx) => {
+    if (!entry || typeof entry !== 'object') return entry;
+    if (idx === lastIndex) return entry;
+    return { page: entry.page, timestamp: entry.timestamp };
+  });
+
+  return {
+    ...behavior,
+    pagesVisited,
+    servicesInterested: trimArray(behavior.servicesInterested, 20),
+    ctaClicked: trimArray(behavior.ctaClicked, 20),
+  };
+};
+
 // Get UTM parameters
 const getUTMParameters = () => {
   const params = new URLSearchParams(window.location.search);
@@ -171,11 +195,14 @@ export const initializeVisitorProfile = async () => {
 
   // Send initial tracking data to backend
   try {
-    await fetch(`${getApiBaseUrl()}/api/visitors/track`, {
+    const res = await fetch(`${getApiBaseUrl()}/api/visitors/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(visitorProfile),
     });
+    if (!res.ok) {
+      console.warn('Could not send visitor profile. Status:', res.status);
+    }
   } catch (error) {
     console.warn('Could not send visitor profile:', error);
   }
@@ -205,6 +232,9 @@ export const trackPageView = (pageName, pageData = {}) => {
       data: pageData,
     });
     profile.lastActivity = new Date().toISOString();
+
+    // Trim payload to avoid backend 413 (Payload Too Large)
+    profile.behavior = sanitizeBehavior(profile.behavior);
     
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
     
@@ -217,7 +247,13 @@ export const trackPageView = (pageName, pageData = {}) => {
         behavior: profile.behavior,
         lastActivity: profile.lastActivity,
       }),
-    }).catch(error => console.warn('Could not update visitor:', error));
+    })
+      .then((res) => {
+        if (!res.ok) {
+          console.warn('Could not update visitor. Status:', res.status);
+        }
+      })
+      .catch((error) => console.warn('Could not update visitor:', error));
   }
 };
 
@@ -229,6 +265,7 @@ export const trackServiceInterest = (service) => {
     if (!profile.behavior.servicesInterested.includes(service)) {
       profile.behavior.servicesInterested.push(service);
     }
+    profile.behavior.servicesInterested = trimArray(profile.behavior.servicesInterested, 20);
     profile.lastActivity = new Date().toISOString();
     localStorage.setItem('visitorProfile', JSON.stringify(profile));
   }
@@ -251,6 +288,7 @@ export const trackCTAClick = (ctaName) => {
     cta: ctaName,
     timestamp: new Date().toISOString(),
   });
+  profile.behavior.ctaClicked = trimArray(profile.behavior.ctaClicked, 20);
   profile.lastActivity = new Date().toISOString();
   localStorage.setItem('visitorProfile', JSON.stringify(profile));
 };

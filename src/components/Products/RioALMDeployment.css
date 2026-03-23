@@ -3,9 +3,10 @@
   color: white;
   padding: 80px 16px;
   text-align: center;
-  margin-left: 24px;
-  margin-right: 24px;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 .deployment-hero .container {
@@ -14,14 +15,14 @@
 }
 
 .deployment-hero .hero-title {
-  font-size: 52px;
+  font-size: var(--font-hero-sm);
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .deployment-hero .hero-subtitle {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin: 0;
   line-height: 1.5;
   opacity: 0.95;
@@ -79,7 +80,7 @@
 }
 
 .option-description {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: #666666;
   line-height: 1.6;
   margin: 0 0 24px 0;
@@ -87,7 +88,7 @@
 
 .benefits-title,
 .requirements-title {
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   font-weight: 600;
   color: #1a1a1a;
   margin: 24px 0 12px 0;
@@ -111,7 +112,7 @@
 }
 
 .benefits-list li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: #0052cc;
@@ -119,7 +120,7 @@
 }
 
 .requirements-list li::before {
-  content: "•";
+  content: "\2022";
   position: absolute;
   left: 0;
   color: #999;
@@ -137,7 +138,7 @@
 }
 
 .section-title {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: center;
@@ -165,7 +166,7 @@
 
 .table-cell {
   padding: 20px;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -190,7 +191,7 @@
 
 .table-row .table-cell {
   padding: 16px 20px;
-  font-size: 15px;
+  font-size: var(--font-body-sm);
   color: #666666;
   border-right: 1px solid #e8e8e8;
   display: flex;
@@ -254,15 +255,16 @@
 
 /* Security Section – 2x2 grid: top row = heading+underline | paragraph; bottom row = list | icon */
 .security-section {
-  padding: 80px 24px;
-  background: #f9fafb;
+  padding: 80px 0; /* no horizontal padding so image can sit flush */
+  /* Match the image background so there is no visible color difference */
+  background: #ffffff;
 }
 
 .security-section-container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding-left: 48px;
-  padding-right: 48px;
+  padding-right: 0; /* no extra right padding so image sits tight on the right */
 }
 
 .security-grid {
@@ -280,7 +282,7 @@
 }
 
 .security-heading {
-  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 700;
   color: #1a1a1a;
   text-align: left;
@@ -343,17 +345,18 @@
 }
 
 .security-visual {
-  margin-top: 40px;
-  margin-left: 5cm;
+  margin-top: 0; /* reduce white space above the image */
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 180px;
-  height: 180px;
-  min-height: 0;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3f4f6 100%);
-  border-radius: 16px;
-  color: #0052cc;
+  justify-content: flex-end; /* keep image toward the right side */
+  margin-left: 0; /* don't push image back left; keep it tight to the right */
+}
+
+.security-image {
+  max-width: 500px; /* slightly smaller to avoid overlapping long text */
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Responsive Design */
@@ -392,11 +395,11 @@
 
 @media (max-width: 768px) {
   .deployment-hero .hero-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .deployment-hero .hero-subtitle {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .section-title,
@@ -419,12 +422,12 @@
   .table-header,
   .table-row {
     grid-template-columns: 1.5fr 1fr 1fr;
-    font-size: 12px;
+    font-size: var(--font-xs);
   }
 
   .table-cell {
     padding: 12px;
-    font-size: 12px;
+    font-size: var(--font-xs);
   }
 
   .deployment-option {

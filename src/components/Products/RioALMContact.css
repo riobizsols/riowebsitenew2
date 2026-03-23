@@ -11,7 +11,7 @@
 }
 
 .contact-hero .hero-title {
-  font-size: 48px;
+  font-size: var(--font-hero-sm); /* larger \"Get in Touch\" on desktop */
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
@@ -174,7 +174,7 @@ textarea.form-input {
 }
 
 .info-title {
-  font-size: 16px;
+  font-size: var(--font-xl); /* slightly larger section labels (Headquarters, Get in Touch, What to Expect, Quick Links) */
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 16px 0;
@@ -182,8 +182,8 @@ textarea.form-input {
 
 .info-item {
   display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 10px; /* tighter spacing between contact rows */
 }
 
 .info-icon {
@@ -200,9 +200,9 @@ textarea.form-input {
 
 .info-content p {
   margin: 0 0 4px 0;
-  font-size: 14px;
+  font-size: var(--font-lg); /* larger contact info text */
   color: #666666;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .info-label {
@@ -228,16 +228,16 @@ textarea.form-input {
 }
 
 .expectation-list li {
-  font-size: 13px;
+  font-size: var(--font-lg); /* larger bullets under What to Expect */
   color: #666666;
-  line-height: 1.8;
+  line-height: 1.6; /* reduce vertical whitespace inside bullets */
   padding-left: 24px;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 4px; /* less gap between expectation items */
 }
 
 .expectation-list li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   color: #0052cc;
@@ -246,21 +246,21 @@ textarea.form-input {
 
 .quick-contact {
   background: #f9fafb;
-  padding: 24px;
+  padding: 18px; /* slightly less padding around Quick Links box */
   border-radius: 8px;
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .quick-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px; /* closer Quick Links items */
 }
 
 .quick-link {
   color: #0052cc;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--font-lg); /* larger Quick Links text */
   font-weight: 500;
   transition: color 0.2s ease;
   display: block;
@@ -301,16 +301,16 @@ textarea.form-input {
 }
 
 .faq-card h3 {
-  font-size: 16px;
+  font-size: var(--font-xl); /* larger question text */
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
 }
 
 .faq-card p {
-  font-size: 13px;
+  font-size: var(--font-lg); /* larger answer text */
   color: #666666;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -328,7 +328,7 @@ textarea.form-input {
 
 @media (max-width: 768px) {
   .contact-hero .hero-title {
-    font-size: 32px;
+    font-size: 36px; /* bigger on mobile for better visibility */
   }
 
   .contact-hero .hero-subtitle {

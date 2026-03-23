@@ -22,10 +22,31 @@
   justify-content: center;
   font-size: 32px;
   margin-bottom: 16px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.feature-icon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+}
+
+.feature-icon-inner svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-shrink: 0;
 }
 
 .feature-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 12px 0;
@@ -33,7 +54,7 @@
 }
 
 .feature-description {
-  font-size: 13px;
+  font-size: 15px;
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -48,6 +69,11 @@
     width: 56px;
     height: 56px;
     font-size: 28px;
+  }
+
+  .feature-icon-inner {
+    width: 28px;
+    height: 28px;
   }
 
   .feature-title {

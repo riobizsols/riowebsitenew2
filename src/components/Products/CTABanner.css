@@ -3,8 +3,11 @@
   padding: 80px 16px;
   text-align: center;
   color: white;
-  margin: 80px 24px 80px 24px;
-  border-radius: 12px;
+  margin: 80px 0;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .cta-banner-content {
@@ -13,14 +16,15 @@
 }
 
 .cta-title {
-  font-size: 36px;
+  font-size: var(--font-4xl);
   font-weight: 700;
   margin: 0 0 16px 0;
   line-height: 1.2;
+  color: #ffffff;
 }
 
 .cta-subtitle {
-  font-size: 16px;
+  font-size: var(--font-body);
   margin: 0 0 32px 0;
   line-height: 1.6;
   opacity: 0.95;
@@ -71,11 +75,11 @@
   }
 
   .cta-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .cta-subtitle {
-    font-size: 14px;
+    font-size: var(--font-sm);
     margin-bottom: 24px;
   }
 

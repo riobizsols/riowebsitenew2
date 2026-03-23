@@ -78,6 +78,7 @@ import RioMEMSIndustries from './components/Products/RioMEMSIndustries';
 import RioMEMSPricing from './components/Products/RioMEMSPricing';
 import AissistLanding from './components/Products/AissistLanding';
 import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
+import WhatsAppFloat from './components/WhatsAppFloat';
 import StaffingComparison from './components/ServiceComparison/StaffingComparison';
 import WebDevComparison from './components/ServiceComparison/WebDevComparison';
 import DigitalMarketingComparison from './components/ServiceComparison/DigitalMarketingComparison';
@@ -242,6 +243,7 @@ function App() {
 
     </Routes> 
     <ExitIntentPopup />
+    <WhatsAppFloat />
     <Footerbottom/>    
     </div>
     </Router>

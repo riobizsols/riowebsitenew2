@@ -79,19 +79,22 @@
   }
 }
 
-/* Image Section - About banner */
+/* Image Section - About banner (full-width like home hero) */
 .about-banner {
-  padding: 40px 20px 20px;
-  background: #f8f9fa;
+  padding: 0;
+  background: #f4f9ff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .about-image-wrapper {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 0; /* no rounded corners so it touches edges */
+  box-shadow: none;
   max-height: 460px; /* keeps paragraph below fully visible */
 }
 
@@ -110,7 +113,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  font-size: 3rem;
+  font-size: var(--font-5xl);
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
@@ -122,20 +125,23 @@
   transform: rotate(360deg) scale(1.03);
 }
 
+/* Mobile: keep banner text comfortably inside the image */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: var(--font-xl);
+  }
+}
+
 /* Content Section */
 .about-content-section {
   padding: 80px 20px;
   background: white;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 /* About Intro */
 .about-intro {
-  margin-bottom: 80px;
+  margin-top: 60px;   /* space after full-width image */
+  margin-bottom: 48px;
   text-align: center;
 }
 
@@ -165,7 +171,7 @@
 /* Core Values */
 .core-values {
   max-width: 1200px;
-  margin: 40px auto 60px;
+  margin: 24px auto 40px;
   padding: 0 20px;
 }
 
@@ -222,9 +228,9 @@
 
 /* What We Do */
 .what-we-do {
-  margin-bottom: 100px;
+  margin-bottom: 48px;
   background: #f8f9fa;
-  padding: 60px 40px;
+  padding: 40px 40px;
   border-radius: 15px;
 }
 
@@ -232,7 +238,7 @@
   font-size: 2.5em;
   color: #1B75BB;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   font-weight: 700;
 }
 
@@ -271,14 +277,14 @@
 
 /* Why Choose Us */
 .why-choose-us {
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .why-choose-us h2 {
   font-size: 2.5em;
   color: #1B75BB;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   font-weight: 700;
 }
 
@@ -323,25 +329,30 @@
   font-size: 1em;
 }
 
-/* CTA Section */
+/* CTA Section - full-width banner like hero */
 .about-cta {
   background: linear-gradient(135deg, #1B75BB 0%, #0d4a8a 100%);
-  padding: 80px 40px;
-  border-radius: 15px;
+  padding: 48px 40px;
+  border-radius: 0;
   text-align: center;
-  color: white;
+  color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .about-cta h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .about-cta p {
   font-size: 1.2em;
   margin-bottom: 35px;
   opacity: 0.95;
+  color: #ffffff;
 }
 
 .cta-button {
@@ -361,6 +372,7 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   background: #f0f0f0;
+  color: #1B75BB;
 }
 
 /* Responsive Design */

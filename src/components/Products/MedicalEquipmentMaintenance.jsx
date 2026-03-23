@@ -11,7 +11,7 @@ import {
   FiSmartphone,
   FiLock
 } from 'react-icons/fi';
-import { MdHealthAndSafety } from 'react-icons/md';
+import memsSecurityIcon from '../../assets/images/mems compliance.png';
 import FeatureCard from './FeatureCard';
 import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
@@ -394,9 +394,11 @@ const MedicalEquipmentMaintenance = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <div className="security-icon-badge" aria-hidden="true">
-                <MdHealthAndSafety className="security-icon-symbol" />
-              </div>
+              <img
+                src={memsSecurityIcon}
+                alt="Medical equipment security illustration"
+                className="security-image"
+              />
             </div>
           </div>
         </div>

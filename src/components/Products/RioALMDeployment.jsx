@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiServer, FiGitBranch, FiDatabase } from 'react-icons/fi';
-import { HiShieldCheck } from 'react-icons/hi';
+import securityIcon from '../../assets/images/alm deployment security icon.png';
 import CTABanner from './CTABanner';
 import './RioALMDeployment.css';
 
@@ -224,7 +224,11 @@ const RioALMDeployment = () => {
             </div>
             <div className="security-bottom-right">
               <div className="security-visual">
-                <HiShieldCheck size={50} />
+                <img
+                  src={securityIcon}
+                  alt="Security and compliance illustration"
+                  className="security-image"
+                />
               </div>
             </div>
           </div>

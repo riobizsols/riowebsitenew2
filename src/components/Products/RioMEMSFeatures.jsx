@@ -119,7 +119,7 @@ const RioMEMSFeatures = () => {
   ];
 
   return (
-    <>
+    <div className="mems-features-page">
       <Helmet>
         <title>RIO MEMS Features | Medical Equipment Maintenance System</title>
         <meta
@@ -170,7 +170,7 @@ const RioMEMSFeatures = () => {
         subtitle="Schedule a focused demo on how RIO MEMS supports your biomedical and maintenance workflows."
         ctaText="Book RIO MEMS Demo"
       />
-    </>
+    </div>
   );
 };
 

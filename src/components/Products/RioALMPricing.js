@@ -280,31 +280,32 @@ export default function RioALMPricing() {
       {/* ===== HERO SECTION ===== */}
       <section className="pricing-hero">
         <div className="pricing-hero-inner">
-          <div className="pricing-container">
-            <h1 className="pricing-hero-title">
-              RIO ALM Pricing<br />
-              <span className="subtitle-small">Per-Site Licensing, Flexible Deployment</span>
-            </h1>
-            
-            <p className="pricing-hero-subheading">
-              Site-based pricing (not per-user) • Unlimited users & assets included<br />
-              Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud
-            </p>
-
-            <div className="pricing-hero-ctas">
-              <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
-                Book a Demo
-              </Link>
-              <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
-                Get a Proposal
-              </Link>
+          <div className="pricing-hero-container">
+            <div className="pricing-hero-left">
+              <h1 className="pricing-hero-title">
+                RIO ALM Pricing<br />
+                <span className="subtitle-small">Per-Site Licensing, Flexible Deployment</span>
+              </h1>
+              <div className="pricing-hero-ctas">
+                <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
+                  Book a Demo
+                </Link>
+                <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
+                  Get a Proposal
+                </Link>
+              </div>
             </div>
-
-            <div className="trust-strip">
-              <span>✓ Unlimited Users</span>
-              <span>✓ Unlimited Assets</span>
-              <span>✓ Role-Based Access</span>
-              <span>✓ Audit-Ready</span>
+            <div className="pricing-hero-right">
+              <ul className="pricing-hero-points">
+                <li>Site-based pricing (not per-user). Unlimited users & assets included.</li>
+                <li>Customer-hosted (on-prem/private cloud) or RIO-hosted private cloud.</li>
+              </ul>
+              <div className="trust-strip">
+                <span>✓ Unlimited Users</span>
+                <span>✓ Unlimited Assets</span>
+                <span>✓ Role-Based Access</span>
+                <span>✓ Audit-Ready</span>
+              </div>
             </div>
           </div>
         </div>
