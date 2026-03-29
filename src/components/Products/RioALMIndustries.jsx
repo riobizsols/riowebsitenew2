@@ -141,7 +141,7 @@ const RioALMIndustries = () => {
       <section className="industries-content">
         <div className="container">
           {industries.map((industry, index) => (
-            <div key={index} className="industry-detail">
+            <div key={index} className={`industry-detail industry-${index + 1}`}>
               <div className="industry-header">
                 <h2 className="industry-name">{industry.name}</h2>
                 <p className="industry-subtitle">{industry.subtitle}</p>
@@ -149,7 +149,7 @@ const RioALMIndustries = () => {
 
               <div className="industry-grid">
                 <div className="industry-section">
-                  <h3 className="section-title">Key Challenges</h3>
+                  <h3 className="section-title section-title-challenges">Key Challenges</h3>
                   <ul className="challenges-list">
                     {industry.challenges.map((challenge, i) => (
                       <li key={i}>{challenge}</li>
@@ -158,7 +158,7 @@ const RioALMIndustries = () => {
                 </div>
 
                 <div className="industry-section">
-                  <h3 className="section-title">RIO ALM Solutions</h3>
+                  <h3 className="section-title section-title-solutions">RIO ALM Solutions</h3>
                   <ul className="solutions-list">
                     {industry.solutions.map((solution, i) => (
                       <li key={i}>{solution}</li>

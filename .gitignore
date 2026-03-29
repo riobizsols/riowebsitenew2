@@ -14,6 +14,12 @@
 
 # production
 /build
+Backend/build
+Backend/*.zip
+
+# runtime / local data (created on server; do not commit PII or huge JSON)
+Backend/data/visitors.json
+Backend/data/form_submissions.json
 
 # misc
 .DS_Store

@@ -88,6 +88,7 @@ import EcommerceIndustry from './components/Industries/EcommerceIndustry';
 import ManufacturingIndustry from './components/Industries/ManufacturingIndustry';
 import HealthcareIndustry from './components/Industries/HealthcareIndustry';
 import SaasIndustry from './components/Industries/SaasIndustry';
+import AdminChat from './components/pages/AdminChat';
 
 
 
@@ -240,6 +241,7 @@ function App() {
      <Route path='/industry/manufacturing' element={<ManufacturingIndustry/>}/>
      <Route path='/industry/healthcare' element={<HealthcareIndustry/>}/>
      <Route path='/industry/saas' element={<SaasIndustry/>}/>
+     <Route path='/admin/chat' element={<AdminChat/>}/>
 
     </Routes> 
     <ExitIntentPopup />

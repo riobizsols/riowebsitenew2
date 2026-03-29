@@ -5,6 +5,8 @@ import CTABanner from './CTABanner';
 import FAQAccordion from './FAQAccordion';
 
 const AissistLanding = () => {
+  const pricingUrl = 'https://oneaissist.com/pricing';
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -141,6 +143,7 @@ const AissistLanding = () => {
         />
         <link rel="canonical" href="https://riobizsols.com/products/aissist" />
       </Helmet>
+      <div className="aissist-page">
 
       {/* Hero Section */}
       <section className="alm-hero">
@@ -165,10 +168,11 @@ const AissistLanding = () => {
                 Add to Chrome
               </a>
               <a
-                href="https://oneaissist.com/pricing"
+                href={pricingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary"
+                className="btn btn-secondary aissist-pricing-link"
+                aria-label="View AIssist pricing"
               >
                 View Pricing
               </a>
@@ -221,21 +225,20 @@ const AissistLanding = () => {
       {/* Feature Blocks */}
       <section className="alm-overview">
         <div className="container">
-          {featureBlocks.map((block) => (
-            <div key={block.title} className="overview-content" style={{ marginBottom: '40px' }}>
-              <p className="section-subtitle" style={{ textTransform: 'uppercase', marginBottom: 8 }}>
-                {block.eyebrow}
-              </p>
-              <h2 className="section-title" style={{ marginBottom: 12 }}>
-                {block.title}
-              </h2>
-              <ul className="security-features">
-                {block.points.map((pt) => (
-                  <li key={pt}>{pt}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <h2 className="section-title">Feature Highlights</h2>
+          <div className="aissist-features-grid">
+            {featureBlocks.map((block) => (
+              <div key={block.title} className="aissist-feature-card">
+                <p className="aissist-feature-eyebrow">{block.eyebrow}</p>
+                <h3 className="aissist-feature-title">{block.title}</h3>
+                <ul className="security-features">
+                  {block.points.map((pt) => (
+                    <li key={pt}>{pt}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -290,10 +293,11 @@ const AissistLanding = () => {
           </div>
           <div style={{ textAlign: 'center', marginTop: '32px' }}>
             <a
-              href="https://oneaissist.com/pricing"
+              href={pricingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-button-secondary"
+              className="cta-button-secondary aissist-pricing-link"
+              aria-label="View full AIssist pricing"
             >
               View Full AIssist Pricing
             </a>
@@ -315,6 +319,7 @@ const AissistLanding = () => {
         subtitle="Install AIssist, start with the free plan, and see how much time you save while staying authentic."
         ctaText="Add AIssist to Chrome"
       />
+      </div>
     </>
   );
 };

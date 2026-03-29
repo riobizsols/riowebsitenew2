@@ -21,6 +21,7 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   animation: whatsapp-float-bob 3.2s ease-in-out infinite;
+  cursor: pointer;
 }
 
 .whatsapp-float::after {
@@ -58,6 +59,105 @@
   display: block;
 }
 
+.whatsapp-chat-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  width: min(340px, calc(100vw - 28px));
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+  padding: 12px;
+}
+
+.whatsapp-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.whatsapp-chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.whatsapp-chat-close {
+  border: 0;
+  background: transparent;
+  color: #374151;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.whatsapp-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 2px;
+}
+
+.whatsapp-chat-bubble {
+  max-width: 82%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.whatsapp-chat-bubble-support {
+  align-self: flex-start;
+  background: #f3f4f6;
+  color: #1f2937;
+  border-top-left-radius: 4px;
+}
+
+.whatsapp-chat-bubble-user {
+  align-self: flex-end;
+  background: #25d366;
+  color: #ffffff;
+  border-top-right-radius: 4px;
+}
+
+.whatsapp-chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.whatsapp-chat-input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.whatsapp-chat-input:focus {
+  outline: none;
+  border-color: #25d366;
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-chat-send {
+  border: 0;
+  border-radius: 8px;
+  background: #25d366;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
 @media (max-width: 576px) {
   .whatsapp-float {
     right: 14px;
@@ -69,6 +169,11 @@
   .whatsapp-float-icon {
     width: 28px;
     height: 28px;
+  }
+
+  .whatsapp-chat-popup {
+    right: 14px;
+    bottom: 76px;
   }
 }
 
