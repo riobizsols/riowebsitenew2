@@ -90,16 +90,13 @@ import HealthcareIndustry from './components/Industries/HealthcareIndustry';
 import SaasIndustry from './components/Industries/SaasIndustry';
 import AdminChat from './components/pages/AdminChat';
 
-
-
 const options = {
-  autoConfig: true, 
-  debug: false,     
+  autoConfig: true,
+  debug: false,
 };
 
-
 ReactPixel.init('2112408199250636', options);
-ReactPixel.pageView(); 
+ReactPixel.pageView();
 
 function App() {
   // Initialize visitor tracking on app mount

@@ -25,16 +25,17 @@ function visitorIdToSelectionKey(visitorId) {
   return visitorId == null ? LEGACY_VISITOR_QUERY : visitorId;
 }
 
-function isAdminMessage(item) {
-  return String(item?.sender || '').toLowerCase() === 'admin';
-}
-
+/** Inbound = left (visitor / bot / WhatsApp). Admin = right (“send”). */
 function inboundSenderLabel(sender) {
   const s = String(sender || '').toLowerCase();
   if (s === 'user') return 'Visitor';
   if (s === 'customer') return 'WhatsApp';
   if (s === 'support') return 'Support';
-  return 'Contact';
+  return 'Received';
+}
+
+function isOutboundAdmin(item) {
+  return String(item?.sender || '').toLowerCase() === 'admin';
 }
 
 function formatMessageTime(ts) {
@@ -66,8 +67,11 @@ export default function AdminChat() {
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [downloadStats, setDownloadStats] = useState(null);
 
   const messagesScrollRef = useRef(null);
+  /** Last seen thread tail — scroll only when the active thread’s latest message changes (or thread switches). */
+  const lastScrollTailRef = useRef({ key: null, tail: null });
 
   const authFetchHeaders = useMemo(
     () => (authToken ? { Authorization: `Bearer ${authToken}` } : {}),
@@ -162,13 +166,36 @@ export default function AdminChat() {
     }
   }, [authToken, authFetchHeaders, clearAuth]);
 
+  const loadDownloadStats = useCallback(async ({ silent = false } = {}) => {
+    if (!authToken) return;
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/api/chatbot/download-stats`, {
+        headers: authFetchHeaders,
+      });
+      if (res.status === 401) {
+        clearAuth();
+        if (!silent) setLoginError('Session expired or invalid token. Sign in again.');
+        return;
+      }
+      if (!res.ok) throw new Error(`Failed to load download stats (${res.status})`);
+      const data = await res.json();
+      setDownloadStats(data?.data || null);
+    } catch (err) {
+      console.warn('Failed to load download stats:', err);
+      if (!silent) {
+        setDownloadStats(null);
+      }
+    }
+  }, [authToken, authFetchHeaders, clearAuth]);
+
   useEffect(() => {
     if (!authToken) {
       setIsLoadingList(false);
       return;
     }
     loadConversations({ silent: false });
-  }, [authToken, loadConversations]);
+    loadDownloadStats({ silent: false });
+  }, [authToken, loadConversations, loadDownloadStats]);
 
   useEffect(() => {
     if (!authToken) return;
@@ -179,12 +206,18 @@ export default function AdminChat() {
     if (!authToken) return undefined;
     const id = setInterval(() => {
       loadConversations({ silent: true });
+      loadDownloadStats({ silent: true });
       if (selectedKey != null) {
         loadMessages(selectedKey, { silent: true });
       }
     }, 1000);
     return () => clearInterval(id);
-  }, [authToken, selectedKey, loadConversations, loadMessages]);
+  }, [authToken, selectedKey, loadConversations, loadMessages, loadDownloadStats]);
+
+  const assetDownloadRows = useMemo(() => {
+    const byAsset = downloadStats?.totalsByAsset || {};
+    return Object.entries(byAsset).sort((a, b) => b[1] - a[1]);
+  }, [downloadStats]);
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
@@ -275,9 +308,34 @@ export default function AdminChat() {
   }, [conversations, searchQuery]);
 
   useEffect(() => {
-    if (!messagesScrollRef.current) return;
-    messagesScrollRef.current.scrollTop = messagesScrollRef.current.scrollHeight;
-  }, [selectedKey, messages.length]);
+    if (selectedKey == null) {
+      lastScrollTailRef.current = { key: null, tail: null };
+      return;
+    }
+    if (isLoadingMessages) {
+      return;
+    }
+
+    const container = messagesScrollRef.current;
+    if (!container) return;
+
+    const last = sortedMessages.length > 0 ? sortedMessages[sortedMessages.length - 1] : null;
+    const tail = last ? `${last.id}:${last.timestamp || ''}:${last.text || last.message || ''}` : '';
+
+    const prev = lastScrollTailRef.current;
+    const keyChanged = prev.key !== selectedKey;
+    const tailChanged = prev.tail !== tail;
+
+    lastScrollTailRef.current = { key: selectedKey, tail };
+
+    if (!keyChanged && !tailChanged) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      container.scrollTop = container.scrollHeight;
+    });
+  }, [selectedKey, sortedMessages, isLoadingMessages]);
 
   if (!authToken) {
     return (
@@ -322,6 +380,26 @@ export default function AdminChat() {
         <button type="button" className="admin-chat-logout-btn" onClick={clearAuth}>
           Sign out
         </button>
+      </div>
+
+      <div className="admin-chat-stats-card" aria-live="polite">
+        <div className="admin-chat-stats-title">
+          PDF downloads today {downloadStats?.dateKey ? `(${downloadStats.dateKey})` : ''}
+        </div>
+        <div className="admin-chat-stats-total">
+          Total: {Number(downloadStats?.totalDownloadsToday || 0)}
+        </div>
+        {assetDownloadRows.length > 0 ? (
+          <div className="admin-chat-stats-assets">
+            {assetDownloadRows.map(([assetName, count]) => (
+              <span key={assetName} className="admin-chat-stats-pill">
+                {assetName}: {count}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <div className="admin-chat-stats-empty">No PDF downloads tracked today yet.</div>
+        )}
       </div>
 
       <div className="admin-chat-layout">
@@ -406,29 +484,29 @@ export default function AdminChat() {
             {selectedKey != null &&
               !isLoadingMessages &&
               sortedMessages.map((item) => {
-                const admin = isAdminMessage(item);
+                const outbound = isOutboundAdmin(item);
                 return (
                   <div
                     key={item.id}
-                    className={`admin-chat-msg-row ${admin ? 'admin-chat-msg-row--outbound' : 'admin-chat-msg-row--inbound'}`}
+                    className={`admin-chat-msg-row ${outbound ? 'admin-chat-msg-row--outbound' : 'admin-chat-msg-row--inbound'}`}
                   >
-                    {!admin && (
+                    {!outbound && (
                       <div className="admin-chat-avatar admin-chat-avatar--inbound" aria-hidden="true">
                         <FiUser />
                       </div>
                     )}
                     <div className="admin-chat-bubble-wrap">
                       <span className="admin-chat-bubble-label">
-                        {admin ? 'You' : inboundSenderLabel(item.sender)}
+                        {outbound ? 'You' : inboundSenderLabel(item.sender)}
                       </span>
                       <div
-                        className={`admin-chat-bubble ${admin ? 'admin-chat-bubble--outbound' : 'admin-chat-bubble--inbound'}`}
+                        className={`admin-chat-bubble ${outbound ? 'admin-chat-bubble--outbound' : 'admin-chat-bubble--inbound'}`}
                       >
                         {item.text || item.message || ''}
                       </div>
                       <span className="admin-chat-bubble-time">{formatMessageTime(item.timestamp)}</span>
                     </div>
-                    {admin && (
+                    {outbound && (
                       <div className="admin-chat-avatar admin-chat-avatar--outbound" aria-hidden="true">
                         <FiUser />
                       </div>

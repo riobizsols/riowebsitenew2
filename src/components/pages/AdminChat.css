@@ -29,6 +29,50 @@
   margin: 0;
 }
 
+.admin-chat-stats-card {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #d1d7db;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.admin-chat-stats-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111b21;
+}
+
+.admin-chat-stats-total {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #008069;
+}
+
+.admin-chat-stats-assets {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-chat-stats-pill {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #f0f2f5;
+  color: #334155;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.admin-chat-stats-empty {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #667781;
+}
+
 .admin-chat-logout-btn {
   padding: 8px 16px;
   font-size: 0.875rem;
@@ -351,6 +395,7 @@
   font-size: 0.875rem;
   line-height: 1.45;
   word-break: break-word;
+  white-space: pre-line;
   box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.08);
 }
 

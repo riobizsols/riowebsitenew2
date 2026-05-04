@@ -4,24 +4,165 @@ const nodemailer = require('nodemailer');
 const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
-require('dotenv').config();
+// Backend/.env wins over empty or stale OS-level vars (default dotenv does not override existing keys).
+require('dotenv').config({ path: path.join(__dirname, '.env'), override: true });
 
 // Import visitor tracking routes
 const visitorRoutes = require('./routes/visitors');
 
 const app = express();
+const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
+
+// Behind one reverse proxy (cPanel / nginx / Apache), so req.ip uses X-Forwarded-For in production.
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
+function parseAllowedOriginsFromEnv() {
+  const raw = hasValue(process.env.FRONTEND_ORIGINS)
+    ? process.env.FRONTEND_ORIGINS
+    : process.env.FRONTEND_ORIGIN;
+  if (!hasValue(raw)) return [];
+  return String(raw)
+    .split(',')
+    .map((origin) => origin.trim().replace(/\/+$/, ''))
+    .filter(Boolean);
+}
+
+const allowedOrigins = parseAllowedOriginsFromEnv();
+const localDevOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000'];
+
+const corsOptions = {
+  origin(origin, callback) {
+    const normalizedOrigin = typeof origin === 'string' ? origin.trim().replace(/\/+$/, '') : '';
+    // Allow server-to-server / curl requests that do not send Origin.
+    if (!normalizedOrigin) return callback(null, true);
+
+    if (allowedOrigins.length > 0) {
+      return callback(null, allowedOrigins.includes(normalizedOrigin));
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      return callback(null, true);
+    }
+
+    return callback(null, localDevOrigins.includes(normalizedOrigin));
+  },
+  credentials: true,
+};
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Stage 3 local chat testing storage (in-memory only)
 let messages = [];
 
-const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
-
 const LEGACY_VISITOR_KEY = '__legacy__';
+const CHATBOT_DOWNLOADS_FILE = path.join(__dirname, 'data', 'chatbot_downloads.json');
+
+function ensureJsonArrayFile(filePath) {
+  try {
+    const dir = path.dirname(filePath);
+    if (!require('fs').existsSync(dir)) {
+      require('fs').mkdirSync(dir, { recursive: true });
+    }
+    if (!require('fs').existsSync(filePath)) {
+      require('fs').writeFileSync(filePath, JSON.stringify([], null, 2));
+    }
+  } catch (error) {
+    console.error('[chatbot] Failed to initialize storage file:', filePath, error.message);
+  }
+}
+
+function readJsonArrayFile(filePath) {
+  try {
+    ensureJsonArrayFile(filePath);
+    const raw = require('fs').readFileSync(filePath, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeJsonArrayFile(filePath, data) {
+  try {
+    ensureJsonArrayFile(filePath);
+    require('fs').writeFileSync(filePath, JSON.stringify(Array.isArray(data) ? data : [], null, 2));
+  } catch (error) {
+    console.error('[chatbot] Failed to persist storage file:', filePath, error.message);
+  }
+}
+
+function getTodayDateKey() {
+  const now = new Date();
+  const year = now.getUTCFullYear();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function normalizeAssetName(assetName) {
+  return hasValue(assetName) ? String(assetName).trim().toLowerCase() : '';
+}
+
+function getPdfPathForAsset(assetName) {
+  const normalized = normalizeAssetName(assetName);
+  if (normalized === 'alm-services-pdf') return '/pdfs/alm-services.pdf';
+  if (normalized === 'assist-services-pdf') return '/pdfs/assist-services.pdf';
+  if (normalized === 'mems-services-pdf') return '/pdfs/mems-services.pdf';
+  return '/pdfs/services-overview.pdf';
+}
+
+function buildPublicBaseUrl(req) {
+  const configuredBase = hasValue(process.env.CHATBOT_PUBLIC_BASE_URL)
+    ? process.env.CHATBOT_PUBLIC_BASE_URL.trim()
+    : (hasValue(process.env.PUBLIC_BASE_URL) ? process.env.PUBLIC_BASE_URL.trim() : '');
+  if (configuredBase) {
+    return configuredBase.replace(/\/+$/, '');
+  }
+
+  const originHeader = typeof req?.headers?.origin === 'string' ? req.headers.origin.trim() : '';
+  if (originHeader) {
+    return originHeader.replace(/\/+$/, '');
+  }
+
+  const host = typeof req?.headers?.host === 'string' ? req.headers.host.trim() : '';
+  if (host) {
+    const forwardedProto = typeof req?.headers?.['x-forwarded-proto'] === 'string'
+      ? req.headers['x-forwarded-proto'].split(',')[0].trim()
+      : '';
+    const protocol = forwardedProto || (req?.secure ? 'https' : 'http');
+    return `${protocol}://${host}`;
+  }
+
+  return 'http://localhost:3000';
+}
+
+function getDownloadUrlForAsset(assetName, req) {
+  const normalized = normalizeAssetName(assetName);
+  const base = buildPublicBaseUrl(req);
+  if (normalized === 'alm-services-pdf') {
+    return hasValue(process.env.CHATBOT_PDF_URL_ALM)
+      ? process.env.CHATBOT_PDF_URL_ALM.trim()
+      : `${base}${getPdfPathForAsset(assetName)}`;
+  }
+  if (normalized === 'assist-services-pdf') {
+    return hasValue(process.env.CHATBOT_PDF_URL_ASSIST)
+      ? process.env.CHATBOT_PDF_URL_ASSIST.trim()
+      : `${base}${getPdfPathForAsset(assetName)}`;
+  }
+  if (normalized === 'mems-services-pdf') {
+    return hasValue(process.env.CHATBOT_PDF_URL_MEMS)
+      ? process.env.CHATBOT_PDF_URL_MEMS.trim()
+      : `${base}${getPdfPathForAsset(assetName)}`;
+  }
+  if (hasValue(process.env.CHATBOT_SERVICES_PDF_URL)) {
+    return process.env.CHATBOT_SERVICES_PDF_URL.trim();
+  }
+  return `${base}${getPdfPathForAsset(assetName)}`;
+}
 
 /** Bearer or X-Admin-Chat-Token — must match ADMIN_CHAT_TOKEN in .env */
 function getAdminChatTokenFromRequest(req) {
@@ -95,6 +236,168 @@ const conversationKey = (m) => {
 
 // Constant product owner email
 const productOwnerEmail = 'info@riobizsols.com';  // Replace with actual product owner email
+const chatNotificationEmailFallback = 'info@riobizsols.com';
+/** Default From for floating-chat emails when CHAT_NOTIFICATION_FROM is unset (use Gmail account that matches EMAIL_USER). */
+const chatNotificationFromFallback = 'bizsolsrio@gmail.com';
+const demoBookingRecipientsFallback = ['tony.rozario@riobizsols.com', 'shilpa@riobizsols.com'];
+
+function createSmtpTransporter() {
+  const pass =
+    typeof process.env.EMAIL_PASS === 'string' ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass,
+    },
+  });
+}
+
+/** Best-effort client IP for email text; labels loopback so ::1 is not mistaken for a public address. */
+function getClientIpForChatEmail(req) {
+  const xff = req.headers['x-forwarded-for'];
+  if (typeof xff === 'string' && xff.trim()) {
+    const first = xff.split(',')[0].trim();
+    if (first) return formatLoopbackIpLabel(first);
+  }
+  const raw = typeof req.ip === 'string' ? req.ip.trim() : '';
+  if (raw) return formatLoopbackIpLabel(raw);
+  return 'unknown';
+}
+
+function formatLoopbackIpLabel(ip) {
+  const isLoopback =
+    ip === '::1' ||
+    ip === '127.0.0.1' ||
+    ip === '::ffff:127.0.0.1' ||
+    /^::ffff:127\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(ip);
+  if (isLoopback) {
+    return 'Local / loopback (not a public IP — visitor or tester on the same machine as the server, e.g. localhost)';
+  }
+  return ip;
+}
+
+/** Human-readable IST line for chat notification emails only (does not change stored/API timestamps). */
+function formatChatEmailReceivedAtIST(isoOrString) {
+  const d = new Date(typeof isoOrString === 'string' ? isoOrString.trim() : isoOrString);
+  if (Number.isNaN(d.getTime())) {
+    return typeof isoOrString === 'string' && isoOrString.trim() ? isoOrString.trim() : 'unknown';
+  }
+  const inIst = d.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  });
+  return `${inIst} IST`;
+}
+
+async function sendWebsiteChatNotificationEmail({ visitorId, messageText, timestamp, req }) {
+  if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
+    console.warn('[chat-email] Skipped notification: EMAIL_USER/EMAIL_PASS missing');
+    return;
+  }
+
+  const notificationTo = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
+    ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
+    : chatNotificationEmailFallback;
+  const notificationFrom = hasValue(process.env.CHAT_NOTIFICATION_FROM)
+    ? process.env.CHAT_NOTIFICATION_FROM.trim()
+    : chatNotificationFromFallback;
+
+  const safeVisitorId = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
+  const rawTimestamp = hasValue(timestamp) ? String(timestamp).trim() : new Date().toISOString();
+  const receivedAtIst = formatChatEmailReceivedAtIST(rawTimestamp);
+  const senderIp = getClientIpForChatEmail(req);
+  const senderUserAgent = req.headers['user-agent'] || 'unknown';
+
+  const transporter = createSmtpTransporter();
+
+  const mailOptions = {
+    from: notificationFrom,
+    to: notificationTo,
+    subject: `New Website Chat Inquiry - Visitor ${safeVisitorId}`,
+    text:
+      `Hello Team,\n\n` +
+      `You have received a new inquiry from the website chat widget.\n\n` +
+      `Visitor Details\n` +
+      `- Visitor ID: ${safeVisitorId}\n` +
+      `- Received At (IST): ${receivedAtIst}\n` +
+      `- IP Address: ${senderIp}\n` +
+      `- Browser: ${senderUserAgent}\n\n` +
+      `Customer Message\n` +
+      `${messageText}\n\n` +
+      `Recommended Action\n` +
+      `Please review this message in the admin chat panel and respond promptly.\n\n` +
+      `Regards,\n` +
+      `Rio Website Notification Bot`,
+  };
+
+  const info = await transporter.sendMail(mailOptions);
+  console.log('[chat-email] Notification sent', { to: notificationTo, messageId: info.messageId });
+}
+
+async function sendDemoBookingNotificationEmail({
+  visitorId,
+  selectedSlot,
+  selectedService,
+  sourcePage,
+  req,
+}) {
+  if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
+    console.warn('[chatbot-demo-email] Skipped notification: EMAIL_USER/EMAIL_PASS missing');
+    return;
+  }
+
+  const transporter = createSmtpTransporter();
+  const senderIp = getClientIpForChatEmail(req);
+  const senderUserAgent = req.headers['user-agent'] || 'unknown';
+  const safeVisitorId = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
+  const safeSlot = hasValue(selectedSlot) ? String(selectedSlot).trim() : 'Not provided';
+  const safeService = hasValue(selectedService) ? String(selectedService).trim() : 'General service';
+  const safeSourcePage = hasValue(sourcePage) ? String(sourcePage).trim() : 'unknown';
+  const receivedAtIst = formatChatEmailReceivedAtIST(new Date().toISOString());
+  const recipients = hasValue(process.env.DEMO_BOOKING_NOTIFICATION_EMAILS)
+    ? process.env.DEMO_BOOKING_NOTIFICATION_EMAILS
+        .split(',')
+        .map((email) => email.trim())
+        .filter(Boolean)
+    : demoBookingRecipientsFallback;
+
+  const mailOptions = {
+    from: hasValue(process.env.CHAT_NOTIFICATION_FROM)
+      ? process.env.CHAT_NOTIFICATION_FROM.trim()
+      : chatNotificationFromFallback,
+    to: recipients.join(','),
+    subject: `Demo booking interest from website chat - ${safeVisitorId}`,
+    text:
+      `Hello Team,\n\n` +
+      `A website visitor requested a demo via chatbot flow.\n\n` +
+      `Visitor Details\n` +
+      `- Visitor ID: ${safeVisitorId}\n` +
+      `- Selected Service: ${safeService}\n` +
+      `- Selected Slot: ${safeSlot}\n` +
+      `- Source Page: ${safeSourcePage}\n` +
+      `- Received At (IST): ${receivedAtIst}\n` +
+      `- IP Address: ${senderIp}\n` +
+      `- Browser: ${senderUserAgent}\n\n` +
+      `Recommended Action\n` +
+      `Please follow up with the visitor on the confirmed date/time.\n\n` +
+      `Regards,\n` +
+      `Rio Website Chatbot`,
+  };
+
+  const info = await transporter.sendMail(mailOptions);
+  console.log('[chatbot-demo-email] Notification sent', { to: recipients, messageId: info.messageId });
+}
 
 // Route to handle email sending
 app.post('/send-email', (req, res) => {
@@ -118,16 +421,7 @@ app.post('/send-email', (req, res) => {
     // });
 
     // Gmail: use port 587 (STARTTLS) - many hosts block outbound 465
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
+    const transporter = createSmtpTransporter();
 
     transporter.verify((error, success) => {
         if (error) {
@@ -165,6 +459,119 @@ app.use('/api/visitors', visitorRoutes);
 // Health check – confirms backend is running (open in browser or curl)
 app.get('/api/health', (req, res) => {
   res.json({ ok: true, message: 'Backend is running', port: process.env.PORT || 3003 });
+});
+
+/**
+ * Send one chat-style notification to CHAT_NOTIFICATION_EMAIL (smoke test).
+ * Auth: same as admin chat — Bearer ADMIN_CHAT_TOKEN (optional if token unset in .env).
+ */
+app.post('/api/chat/test-notification-email', requireAdminChatAuth, async (req, res) => {
+  if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
+    return res.status(503).json({
+      success: false,
+      message: 'EMAIL_USER or EMAIL_PASS is not set; cannot send test mail.',
+    });
+  }
+  const to = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
+    ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
+    : chatNotificationEmailFallback;
+  try {
+    await sendWebsiteChatNotificationEmail({
+      visitorId: 'test-notification',
+      messageText:
+        'This is a manual test from POST /api/chat/test-notification-email. If you see this, CHAT_NOTIFICATION_EMAIL delivery works.',
+      timestamp: new Date().toISOString(),
+      req,
+    });
+  } catch (emailError) {
+    console.error('[chat-email] Test notification failed:', emailError.message);
+    return res.status(500).json({
+      success: false,
+      message: emailError.message,
+    });
+  }
+  return res.json({
+    success: true,
+    message: `Test notification sent to ${to}. Check inbox and spam.`,
+    to,
+  });
+});
+
+app.post('/api/chatbot/track-service-download', (req, res) => {
+  const { visitorId, assetName } = req.body || {};
+  const safeAssetName = hasValue(assetName) ? String(assetName).trim() : 'rio-services-overview-pdf';
+  const dateKey = getTodayDateKey();
+  const allDownloads = readJsonArrayFile(CHATBOT_DOWNLOADS_FILE);
+  const entry = {
+    id: Date.now(),
+    dateKey,
+    visitorId: hasValue(visitorId) ? String(visitorId).trim() : null,
+    assetName: safeAssetName,
+    timestamp: new Date().toISOString(),
+  };
+  allDownloads.push(entry);
+  writeJsonArrayFile(CHATBOT_DOWNLOADS_FILE, allDownloads);
+
+  const dailyDownloads = allDownloads.filter(
+    (download) => download.dateKey === dateKey && download.assetName === safeAssetName
+  ).length;
+  const downloadUrl = getDownloadUrlForAsset(safeAssetName, req);
+
+  return res.status(200).json({
+    success: true,
+    data: {
+      downloadUrl,
+      dailyDownloads,
+      dateKey,
+      assetName: safeAssetName,
+    },
+  });
+});
+
+app.get('/api/chatbot/download-stats', requireAdminChatAuth, (req, res) => {
+  const dateKey = getTodayDateKey();
+  const allDownloads = readJsonArrayFile(CHATBOT_DOWNLOADS_FILE);
+  const todayDownloads = allDownloads.filter((download) => download.dateKey === dateKey);
+  const totalsByAsset = {};
+
+  todayDownloads.forEach((download) => {
+    const key = hasValue(download?.assetName)
+      ? String(download.assetName).trim()
+      : 'rio-services-overview-pdf';
+    totalsByAsset[key] = (totalsByAsset[key] || 0) + 1;
+  });
+
+  return res.status(200).json({
+    success: true,
+    data: {
+      dateKey,
+      totalDownloadsToday: todayDownloads.length,
+      totalsByAsset,
+    },
+  });
+});
+
+app.post('/api/chatbot/demo-booking-notify', async (req, res) => {
+  const { visitorId, selectedSlot, selectedService, sourcePage } = req.body || {};
+  try {
+    await sendDemoBookingNotificationEmail({
+      visitorId,
+      selectedSlot,
+      selectedService,
+      sourcePage,
+      req,
+    });
+    return res.status(200).json({
+      success: true,
+      message: 'Demo booking notification sent successfully.',
+    });
+  } catch (error) {
+    console.error('[chatbot-demo-email] Failed to send notification:', error.message);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send demo booking notification.',
+    });
+  }
 });
 
 // Local chat testing API (keeps local storage, plus optional WhatsApp Cloud API send)
@@ -214,6 +621,20 @@ app.post('/api/chat/send', async (req, res) => {
     sendToWhatsApp: chatMessage.sendToWhatsApp,
     timestamp: chatMessage.timestamp,
   });
+
+  // Send email notification only for website visitor messages.
+  // Do not await SMTP — it blocks the HTTP response and makes the chat widget feel slow.
+  const isWebsiteVisitorMessage = String(normalizedSender).toLowerCase() === 'user';
+  if (isWebsiteVisitorMessage) {
+    void sendWebsiteChatNotificationEmail({
+      visitorId: visitorId || LEGACY_VISITOR_KEY,
+      messageText: trimmedMessage,
+      timestamp: chatMessage.timestamp,
+      req,
+    }).catch((emailError) => {
+      console.error('[chat-email] Failed to send notification:', emailError.message);
+    });
+  }
 
   const {
     WHATSAPP_TOKEN,
@@ -324,11 +745,13 @@ app.get('/api/chat/messages', chatMessagesReadAuth, (req, res) => {
     }
   }
 
-  console.log('[chat-api] Messages requested:', {
-    count: data.length,
-    total: messages.length,
-    visitorIdFilter: visitorIdFilter || '(none)',
-  });
+  if (process.env.DEBUG_CHAT_POLL === '1') {
+    console.log('[chat-api] Messages requested:', {
+      count: data.length,
+      total: messages.length,
+      visitorIdFilter: visitorIdFilter || '(none)',
+    });
+  }
   return res.status(200).json({ success: true, data });
 });
 
@@ -483,6 +906,13 @@ app.listen(PORT, () => {
     Object.entries(startupChecklist).forEach(([name, status]) => {
       console.log(`[health-check] ${name}: ${status}`);
     });
+    const chatNotifyTo = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
+      ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
+      : chatNotificationEmailFallback;
+    const chatNotifyFrom = hasValue(process.env.CHAT_NOTIFICATION_FROM)
+      ? process.env.CHAT_NOTIFICATION_FROM.trim()
+      : chatNotificationFromFallback;
+    console.log(`[health-check] Chat email — To: ${chatNotifyTo} | From: ${chatNotifyFrom}`);
 });
 
 

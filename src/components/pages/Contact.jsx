@@ -10,6 +10,7 @@ import { FaQuora } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactPixel from 'react-facebook-pixel';
 import * as visitorTracking from '../../services/visitorTracking';
 import { getApiBaseUrl } from '../../utils/urlHelper';
 
@@ -112,8 +113,13 @@ const Contact = () => {
 const apiBase = getApiBaseUrl();
       const response = await axios.post(`${apiBase}/send-email`, formData);
       if (response.data.success) {
+        ReactPixel.track('Lead');
         setSubmitStatus('success');
         setFormData({ firstname: '', email: '', phone: '', message: '' });
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead'
+        });
       } else {
         setSubmitStatus('error');
       }

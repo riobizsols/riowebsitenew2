@@ -1,4 +1,4 @@
-/* Floating WhatsApp icon only */
+/* Floating chat bot icon only */
 
 .whatsapp-float {
   position: fixed;
@@ -14,9 +14,9 @@
   border-radius: 50%;
   width: 56px;
   height: 56px;
-  background: linear-gradient(145deg, #25d366 0%, #1da851 55%, #128c7e 100%);
+  background: linear-gradient(145deg, #4f46e5 0%, #3b82f6 55%, #06b6d4 100%);
   box-shadow:
-    0 10px 26px rgba(18, 140, 126, 0.38),
+    0 10px 26px rgba(37, 99, 235, 0.38),
     0 3px 10px rgba(0, 0, 0, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -34,7 +34,7 @@
 }
 
 .whatsapp-float:focus-visible {
-  outline: 3px solid rgba(37, 211, 102, 0.35);
+  outline: 3px solid rgba(79, 70, 229, 0.35);
   outline-offset: 3px;
 }
 
@@ -42,7 +42,7 @@
   color: #ffffff;
   transform: translateY(-4px);
   box-shadow:
-    0 14px 38px rgba(18, 140, 126, 0.5),
+    0 14px 38px rgba(37, 99, 235, 0.5),
     0 5px 16px rgba(0, 0, 0, 0.18);
 }
 
@@ -52,11 +52,90 @@
   justify-content: center;
 }
 
-.whatsapp-float-icon {
-  width: 32px;
-  height: 32px;
-  color: #ffffff;
-  display: block;
+.whatsapp-bot-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.28));
+}
+
+.whatsapp-bot-orbit {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transform: rotate(-18deg);
+  animation: whatsapp-bot-orbit-spin 4.8s linear infinite;
+}
+
+.whatsapp-bot-antenna {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.whatsapp-bot-antenna::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.whatsapp-bot-face {
+  position: relative;
+  width: 23px;
+  height: 18px;
+  border: 1.8px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 100%);
+  backdrop-filter: blur(1px);
+  z-index: 2;
+}
+
+.whatsapp-bot-visor {
+  width: 14px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dbeafe 0%, #ffffff 50%, #a5f3fc 100%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.whatsapp-bot-mouth {
+  position: absolute;
+  bottom: 3px;
+  width: 8px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.whatsapp-bot-spark {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
+  animation: whatsapp-bot-spark-pulse 1.7s ease-in-out infinite;
 }
 
 .whatsapp-chat-popup {
@@ -70,6 +149,34 @@
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
   z-index: 9998;
   padding: 12px;
+}
+
+/*
+ * Booking mode: centered sheet with most of the viewport so Calendly’s iframe
+ * is not clipped (Calendly expects roughly full mobile width or ~600px+).
+ */
+.whatsapp-chat-popup--calendly {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  bottom: 88px;
+  top: max(12px, env(safe-area-inset-top, 0px));
+  width: min(720px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  height: auto;
+  max-height: none;
+  z-index: 10050;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  padding-bottom: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
+.whatsapp-chat-popup--calendly .whatsapp-chat-header {
+  flex-shrink: 0;
+  margin-bottom: 6px;
 }
 
 .whatsapp-chat-header {
@@ -106,6 +213,68 @@
   padding-right: 2px;
 }
 
+.whatsapp-chat-messages--compact {
+  max-height: 96px;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.whatsapp-chat-popup--calendly .whatsapp-chat-messages--compact .whatsapp-chat-bubble {
+  max-width: 100%;
+  padding: 7px 10px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.whatsapp-calendly-stack {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.whatsapp-calendly-toolbar {
+  flex-shrink: 0;
+}
+
+.whatsapp-calendly-back {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-calendly-back:hover {
+  border-color: #25d366;
+  background: #f0fdf4;
+}
+
+.whatsapp-calendly-host {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 280px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.whatsapp-calendly-host iframe {
+  border: 0 !important;
+  min-width: 100% !important;
+}
+
 .whatsapp-chat-bubble {
   max-width: 82%;
   padding: 9px 12px;
@@ -113,6 +282,7 @@
   font-size: 14px;
   line-height: 1.4;
   word-break: break-word;
+  white-space: pre-line;
 }
 
 .whatsapp-chat-bubble-support {
@@ -129,9 +299,31 @@
   border-top-right-radius: 4px;
 }
 
+.whatsapp-chat-link {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.whatsapp-chat-link:hover {
+  background: #1fa856;
+  color: #ffffff;
+}
+
 .whatsapp-chat-input-row {
   display: flex;
   gap: 8px;
+}
+
+.whatsapp-chat-input-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b7280;
 }
 
 .whatsapp-chat-input {
@@ -158,6 +350,45 @@
   cursor: pointer;
 }
 
+.whatsapp-chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.whatsapp-chat-option-button {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  padding: 9px 11px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-chat-option-button:hover:not(:disabled) {
+  border-color: #25d366;
+  background: #f0fdf4;
+}
+
+.whatsapp-chat-option-button:focus-visible {
+  outline: 2px solid rgba(37, 211, 102, 0.4);
+  outline-offset: 2px;
+}
+
+.whatsapp-chat-option-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.whatsapp-chat-option-button-secondary {
+  font-weight: 500;
+}
+
 @media (max-width: 576px) {
   .whatsapp-float {
     right: 14px;
@@ -166,14 +397,24 @@
     height: 52px;
   }
 
-  .whatsapp-float-icon {
-    width: 28px;
-    height: 28px;
+  .whatsapp-bot-icon {
+    width: 27px;
+    height: 27px;
   }
 
   .whatsapp-chat-popup {
     right: 14px;
     bottom: 76px;
+  }
+
+  .whatsapp-chat-popup--calendly {
+    left: 10px;
+    right: 10px;
+    transform: none;
+    width: auto;
+    max-width: none;
+    bottom: 78px;
+    top: max(8px, env(safe-area-inset-top, 0px));
   }
 }
 
@@ -181,19 +422,40 @@
   0% {
     transform: translateY(0);
     box-shadow:
-      0 10px 26px rgba(18, 140, 126, 0.38),
+      0 10px 26px rgba(37, 99, 235, 0.38),
       0 3px 10px rgba(0, 0, 0, 0.14);
   }
   50% {
     transform: translateY(-3px);
     box-shadow:
-      0 12px 30px rgba(18, 140, 126, 0.44),
+      0 12px 30px rgba(37, 99, 235, 0.44),
       0 4px 12px rgba(0, 0, 0, 0.16);
   }
   100% {
     transform: translateY(0);
     box-shadow:
-      0 10px 26px rgba(18, 140, 126, 0.38),
+      0 10px 26px rgba(37, 99, 235, 0.38),
       0 3px 10px rgba(0, 0, 0, 0.14);
+  }
+}
+
+@keyframes whatsapp-bot-orbit-spin {
+  0% {
+    transform: rotate(-18deg);
+  }
+  100% {
+    transform: rotate(342deg);
+  }
+}
+
+@keyframes whatsapp-bot-spark-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
   }
 }

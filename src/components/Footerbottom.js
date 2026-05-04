@@ -11,12 +11,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { FaWhatsapp } from 'react-icons/fa';
 import US from '../assets/images/US.jpg';
 import India from '../assets/images/India.jpg';
-import { FaQuora } from "react-icons/fa6";
 
  function Footerbottom() {
   const whatsappPhone = '918884910777';
   const whatsappText = encodeURIComponent('Hi RIO BizSols, I would like to know more.');
-  const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${whatsappText}`;
+  // api.whatsapp.com is WhatsApp’s alternate click-to-chat URL (same as wa.me); some networks block wa.me DNS.
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${whatsappText}`;
 
   return (
     <div>
