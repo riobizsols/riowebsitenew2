@@ -8204,5 +8204,66 @@
     },
     "lastActivity": "2026-03-14T16:43:12.216Z",
     "createdAt": "2026-03-13T16:00:16.244Z"
+  },
+  {
+    "visitorId": "visitor_1777948472609_guehu4g77",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:43:14.167Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:43:14.169Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:47:17.547Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:47:17.548Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:47:37.948Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T07:47:37.949Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T08:18:36.036Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T08:18:36.037Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T10:57:02.149Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T10:57:02.163Z",
+          "data": {
+            "url": "http://localhost:3000/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [
+        "Web Development"
+      ],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 30132,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "lastActivity": "2026-05-05T10:57:02.163Z",
+    "createdAt": "2026-05-05T10:57:03.760Z"
   }
 ]
