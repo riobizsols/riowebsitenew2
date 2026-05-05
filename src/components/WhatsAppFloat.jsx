@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { FiSend } from 'react-icons/fi';
 import './WhatsAppFloat.css';
 import { getApiBaseUrl } from '../utils/urlHelper';
 
@@ -41,7 +42,7 @@ const DEMO_BOOKING_THANK_YOU_MESSAGE =
   'Thank you for booking! We look forward to speaking with you.';
 
 /** RIO Biz Solutions — demo / consultation scheduling */
-const RIO_CALENDLY_URL = 'https://calendly.com/bizsolsrio/riobizsols-demo-consultation';
+const RIO_CALENDLY_URL = 'https://calendly.com/bizsolsrio/riobizsols-demo?hide_event_type_details=1&hide_gdpr_banner=1';
 
 /**
  * After a Calendly booking, send users back to the site with this query so we reopen chat.
@@ -154,14 +155,58 @@ function renderMessageWithLinks(text) {
   return parts.map((part, index) => {
     if (/^https?:\/\//.test(part)) {
       const isPdfLink = /\.pdf(\?|#|$)/i.test(part);
+      const handlePdfDownloadClick = async (event) => {
+        if (!isPdfLink || typeof document === 'undefined' || typeof window === 'undefined') return;
+        event.preventDefault();
+        try {
+          const parsedUrl = new URL(part, window.location.origin);
+          const candidateUrls = [];
+          const isPdfPath = parsedUrl.pathname.toLowerCase().startsWith('/pdfs/');
+          // In local/dev, configured production URLs can fail CORS. Prefer same-origin mirror path first.
+          if (isPdfPath && parsedUrl.origin !== window.location.origin) {
+            candidateUrls.push(`${window.location.origin}${parsedUrl.pathname}${parsedUrl.search}`);
+          }
+          candidateUrls.push(parsedUrl.toString());
+
+          let response = null;
+          for (const candidateUrl of candidateUrls) {
+            try {
+              const res = await fetch(candidateUrl, { credentials: 'same-origin' });
+              if (res.ok) {
+                response = res;
+                break;
+              }
+            } catch {
+              // Try next candidate URL.
+            }
+          }
+          if (!response) throw new Error('Download source unavailable');
+
+          const blob = await response.blob();
+          const blobUrl = window.URL.createObjectURL(blob);
+          const fileName = parsedUrl.pathname.split('/').pop()?.split('?')[0] || 'rio-services.pdf';
+
+          const tempLink = document.createElement('a');
+          tempLink.href = blobUrl;
+          tempLink.download = fileName;
+          tempLink.style.display = 'none';
+          document.body.appendChild(tempLink);
+          tempLink.click();
+          document.body.removeChild(tempLink);
+          window.URL.revokeObjectURL(blobUrl);
+        } catch (downloadError) {
+          console.warn('PDF direct download failed:', downloadError);
+        }
+      };
       return (
         <a
           key={`msg-link-${index}`}
           href={part}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={isPdfLink ? undefined : '_blank'}
+          rel={isPdfLink ? undefined : 'noopener noreferrer'}
           className="whatsapp-chat-link"
           download={isPdfLink}
+          onClick={handlePdfDownloadClick}
         >
           {isPdfLink ? 'Download PDF' : 'Open link'}
         </a>
@@ -247,10 +292,31 @@ export default function WhatsAppFloat() {
   /** Inline Calendly embed after “Request a Demo / Consultation” */
   const [showCalendlyEmbed, setShowCalendlyEmbed] = useState(false);
   const calendlyHostRef = useRef(null);
+  const chatMessagesRef = useRef(null);
+  const shouldAutoScrollRef = useRef(true);
+  const prevMessagesCountRef = useRef(1);
   /** Avoid duplicate thank-you + menu when Calendly fires more than once */
   const demoBookingCompleteHandledRef = useRef(false);
 
   const [messages, setMessages] = useState([DEFAULT_SUPPORT_MESSAGE]);
+
+  const scrollChatToLatest = useCallback((behavior = 'auto') => {
+    const messagesContainer = chatMessagesRef.current;
+    if (!messagesContainer) return;
+    messagesContainer.scrollTo({
+      top: messagesContainer.scrollHeight,
+      behavior,
+    });
+  }, []);
+
+  const updateAutoScrollPreference = useCallback(() => {
+    const messagesContainer = chatMessagesRef.current;
+    if (!messagesContainer) return;
+    const distanceFromBottom =
+      messagesContainer.scrollHeight - messagesContainer.scrollTop - messagesContainer.clientHeight;
+    // Keep sticky behavior when user is close to latest messages.
+    shouldAutoScrollRef.current = distanceFromBottom <= 48;
+  }, []);
 
   const normalizeChatMessage = (m) => {
     if (!m) return null;
@@ -322,6 +388,68 @@ export default function WhatsAppFloat() {
 
     return () => clearInterval(intervalId);
   }, [isChatOpen, visitorId, fetchMessages]);
+
+  useEffect(() => {
+    const messagesContainer = chatMessagesRef.current;
+    if (!isChatOpen || !messagesContainer) return undefined;
+
+    const handleScroll = () => {
+      updateAutoScrollPreference();
+    };
+    messagesContainer.addEventListener('scroll', handleScroll, { passive: true });
+    updateAutoScrollPreference();
+
+    return () => {
+      messagesContainer.removeEventListener('scroll', handleScroll);
+    };
+  }, [isChatOpen, updateAutoScrollPreference]);
+
+  useEffect(() => {
+    if (!isChatOpen) return;
+
+    const isInitialOpen = prevMessagesCountRef.current === 0;
+    const hasNewMessages = messages.length > prevMessagesCountRef.current;
+    const shouldSnap = isInitialOpen || hasNewMessages;
+    const shouldScroll = shouldAutoScrollRef.current || shouldSnap;
+
+    const timer = window.setTimeout(() => {
+      if (shouldScroll) {
+        scrollChatToLatest(shouldSnap ? 'smooth' : 'auto');
+      }
+      prevMessagesCountRef.current = messages.length;
+      updateAutoScrollPreference();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [isChatOpen, messages, scrollChatToLatest, updateAutoScrollPreference]);
+
+  useEffect(() => {
+    if (!isChatOpen) return;
+    if (!shouldAutoScrollRef.current) return;
+
+    const timer = window.setTimeout(() => {
+      scrollChatToLatest('auto');
+      updateAutoScrollPreference();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [
+    isChatOpen,
+    showInitialOptions,
+    showServicePdfOptions,
+    enquiryStep,
+    error,
+    isLoadingMessages,
+    scrollChatToLatest,
+    updateAutoScrollPreference,
+  ]);
+
+  useEffect(() => {
+    if (!isChatOpen) return;
+    // On opening chat, behave like WhatsApp and land at latest.
+    shouldAutoScrollRef.current = true;
+    prevMessagesCountRef.current = 0;
+  }, [isChatOpen]);
 
   /** Re-open chat when user returns from Calendly with ?rio_chat=open */
   useEffect(() => {
@@ -406,31 +534,6 @@ export default function WhatsAppFloat() {
     }
   }, [showCalendlyEmbed]);
 
-  useEffect(() => {
-    if (!showCalendlyEmbed || !visitorId) return undefined;
-
-    const onMessage = (event) => {
-      if (!isCalendlyEventScheduled(event)) return;
-      if (demoBookingCompleteHandledRef.current) return;
-      demoBookingCompleteHandledRef.current = true;
-
-      void (async () => {
-        try {
-          await sendSupportMessage(DEMO_BOOKING_THANK_YOU_MESSAGE);
-          await sendSupportMessage(POST_ENQUIRY_MAIN_MENU_MESSAGE);
-        } catch (err) {
-          console.warn('Post-booking chat messages failed:', err);
-        } finally {
-          setShowCalendlyEmbed(false);
-          setShowInitialOptions(true);
-        }
-      })();
-    };
-
-    window.addEventListener('message', onMessage);
-    return () => window.removeEventListener('message', onMessage);
-  }, [showCalendlyEmbed, visitorId, sendSupportMessage]);
-
   const notifyDemoBookingInterest = useCallback(async () => {
     if (!visitorId) return;
     const sourcePage =
@@ -452,6 +555,32 @@ export default function WhatsAppFloat() {
       console.warn('Demo booking notify call failed:', err);
     }
   }, [visitorId]);
+
+  useEffect(() => {
+    if (!showCalendlyEmbed || !visitorId) return undefined;
+
+    const onMessage = (event) => {
+      if (!isCalendlyEventScheduled(event)) return;
+      if (demoBookingCompleteHandledRef.current) return;
+      demoBookingCompleteHandledRef.current = true;
+
+      void (async () => {
+        try {
+          await notifyDemoBookingInterest();
+          await sendSupportMessage(DEMO_BOOKING_THANK_YOU_MESSAGE);
+          await sendSupportMessage(POST_ENQUIRY_MAIN_MENU_MESSAGE);
+        } catch (err) {
+          console.warn('Post-booking chat messages failed:', err);
+        } finally {
+          setShowCalendlyEmbed(false);
+          setShowInitialOptions(true);
+        }
+      })();
+    };
+
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [showCalendlyEmbed, visitorId, sendSupportMessage, notifyDemoBookingInterest]);
 
   const startExploreServicesFlow = useCallback(async () => {
     await sendSupportMessage(EXPLORE_INTRO_MESSAGE);
@@ -477,13 +606,27 @@ export default function WhatsAppFloat() {
       });
       if (!trackingRes.ok) throw new Error(`Failed to track download (${trackingRes.status})`);
       const trackingData = await trackingRes.json();
-      const downloadUrl = trackingData?.data?.downloadUrl || 'https://riobizsols.com';
+      const fallbackPathByAsset = {
+        'alm-services-pdf': '/pdfs/alm-services.pdf',
+        'assist-services-pdf': '/pdfs/assist-services.pdf',
+        'mems-services-pdf': '/pdfs/mems-services.pdf',
+      };
+      const fallbackPdfPath = fallbackPathByAsset[serviceOption.assetName] || '/pdfs/services-overview.pdf';
+      const fallbackDownloadUrl =
+        typeof window !== 'undefined'
+          ? `${window.location.origin}${fallbackPdfPath}`
+          : `https://riobizsols.com${fallbackPdfPath}`;
+      const downloadUrl = trackingData?.data?.downloadUrl || fallbackDownloadUrl;
 
-      await sendSupportMessage(
-        `Great! Here is your ${serviceOption.label} PDF:\n` +
-          `${downloadUrl}\n\n` +
-          'Thank you for downloading.\n\nPlease choose an option from the main menu below.'
-      );
+      await sendSupportMessage(`Great! Here is your ${serviceOption.label} PDF:\n${downloadUrl}`);
+      // Keep the PDF link as the latest visible message before follow-up text.
+      await new Promise((resolve) => window.setTimeout(resolve, 4000));
+      await sendSupportMessage('Thank you for downloading.');
+      await sendSupportMessage('We offer end-to-end business solutions.\n\nPlease choose an option from the menu below.');
+      // Let users see the confirmation messages before showing menu buttons.
+      await new Promise((resolve) => window.setTimeout(resolve, 800));
+      // User just selected an option; keep chat pinned to latest response and menu.
+      shouldAutoScrollRef.current = true;
       setShowServicePdfOptions(false);
       setShowInitialOptions(true);
     } catch (err) {
@@ -511,7 +654,6 @@ export default function WhatsAppFloat() {
         await startExploreServicesFlow();
       } else if (optionLabel === 'Request a Demo / Consultation') {
         await fetchMessages({ silent: true });
-        void notifyDemoBookingInterest();
         await sendSupportMessage(
           "Awesome! We'd love to show you how our solutions can help your business 🚀\n\n" +
             'Pick a date and time in the calendar below.'
@@ -702,6 +844,7 @@ export default function WhatsAppFloat() {
           </div>
 
           <div
+            ref={chatMessagesRef}
             className={`whatsapp-chat-messages${showCalendlyEmbed ? ' whatsapp-chat-messages--compact' : ''}`}
             aria-live="polite"
           >
@@ -804,7 +947,8 @@ export default function WhatsAppFloat() {
                 onClick={handleSend}
                 disabled={isSending || enquiryStep === 'channel'}
               >
-                Send
+                <FiSend className="whatsapp-chat-send-icon" aria-hidden="true" />
+                <span>Send</span>
               </button>
             </div>
           )}

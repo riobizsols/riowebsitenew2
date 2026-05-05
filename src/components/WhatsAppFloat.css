@@ -159,12 +159,12 @@
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  bottom: 88px;
-  top: max(12px, env(safe-area-inset-top, 0px));
+  bottom: 12px;
+  top: auto;
   width: min(720px, calc(100vw - 24px));
   max-width: calc(100vw - 24px);
   height: auto;
-  max-height: none;
+  max-height: calc(100dvh - 24px - env(safe-area-inset-top, 0px));
   z-index: 10050;
   display: flex;
   flex-direction: column;
@@ -214,9 +214,9 @@
 }
 
 .whatsapp-chat-messages--compact {
-  max-height: 96px;
+  max-height: 72px;
   flex-shrink: 0;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-size: 13px;
 }
 
@@ -261,7 +261,9 @@
 .whatsapp-calendly-host {
   flex: 1 1 auto;
   min-width: 0;
-  min-height: 280px;
+  min-height: 0;
+  height: 620px;
+  max-height: calc(100dvh - 220px);
   width: 100%;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
@@ -348,6 +350,24 @@
   font-weight: 600;
   padding: 0 14px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.whatsapp-chat-send:hover:not(:disabled) {
+  background: #1fa856;
+  transform: translateY(-1px);
+}
+
+.whatsapp-chat-send:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.whatsapp-chat-send-icon {
+  font-size: 15px;
 }
 
 .whatsapp-chat-options {
@@ -413,8 +433,16 @@
     transform: none;
     width: auto;
     max-width: none;
-    bottom: 78px;
-    top: max(8px, env(safe-area-inset-top, 0px));
+    bottom: 8px;
+    top: auto;
+    height: auto;
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px));
+    overflow: hidden;
+  }
+
+  .whatsapp-calendly-host {
+    height: 540px;
+    max-height: calc(100dvh - 180px);
   }
 }
 
