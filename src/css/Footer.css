@@ -24,7 +24,7 @@
 
 /* Nudge the Products column slightly to the right without affecting layout */
 .footer-right-col:first-child {
-    margin-left: 150px;
+    margin-left: 0;
 }
 
 /* Match "Our Locations" (h1) size – same as banner/locations heading */

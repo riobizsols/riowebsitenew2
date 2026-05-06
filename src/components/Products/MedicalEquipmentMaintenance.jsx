@@ -75,7 +75,7 @@ const MedicalEquipmentMaintenance = () => {
 
   const outcomes = [
     {
-      title: 'Higher Clinical Equipment Uptime',
+      title: 'Higher Equipment Uptime',
       description:
         'Reduce unplanned downtime for critical care equipment through structured PPM and faster breakdown response.'
     },
@@ -186,7 +186,7 @@ const MedicalEquipmentMaintenance = () => {
                 to="/products/medical-equipment-maintenance/contact"
                 className="btn btn-primary"
               >
-                Book Healthcare Demo
+                Book MEMS Demo
               </Link>
               <Link
                 to="/products/medical-equipment-maintenance/features"
@@ -243,18 +243,22 @@ const MedicalEquipmentMaintenance = () => {
             <h2 className="section-title">
               What is RIO MEMS?
             </h2>
-            <p className="section-text">
-              RIO MEMS is a specialized configuration of RIO ALM dedicated to hospital
-              and healthcare environments, focusing on biomedical equipment
-              lifecycle – from installation and commissioning to maintenance,
-              calibration, and replacement.
-            </p>
-            <p className="section-text">
-              Instead of generic asset tracking, it speaks the language of
-              hospitals: departments like ICU, OT, Cath Lab, Dialysis, CSSD; risk
-              classes; calibration cycles; NABH / JCI documentation; and
-              biomedical engineering workflows.
-            </p>
+            <ul className="section-text">
+              <li>
+                RIO MEMS is a specialized configuration of RIO ALM dedicated to hospital
+                and healthcare environments.
+              </li>
+              <li>
+                It focuses on biomedical equipment lifecycle – from installation and commissioning
+                to maintenance, calibration, and replacement.
+              </li>
+              <li>
+                It speaks the language of hospitals: departments like ICU, OT, Cath Lab, Dialysis, CSSD.
+              </li>
+              <li>
+                It includes risk classes, calibration cycles, NABH / JCI documentation, and biomedical engineering workflows.
+              </li>
+            </ul>
 
             <h3 className="subsection-title">
               Typical Lifecycle of a Medical Device in the System
@@ -337,7 +341,7 @@ const MedicalEquipmentMaintenance = () => {
             <div className="step-divider"></div>
             <div className="step-item">
               <div className="step-circle">3</div>
-              <h3>User Training by Role</h3>
+              <h3>Role-Based Staff Training</h3>
               <p>
                 Train biomedical engineers, maintenance, nursing supervisors, and
                 admins on role-specific screens and workflows.
@@ -416,9 +420,9 @@ const MedicalEquipmentMaintenance = () => {
 
       {/* Final CTA */}
       <CTABanner
-        title="See the Medical Equipment Maintenance System in Action"
+        title="See MEMS in Action"
         subtitle="Schedule a walkthrough tailored to your hospital or healthcare network and explore how we can support your biomedical and maintenance teams."
-        ctaText="Book Healthcare Demo"
+        ctaText="Book MEMS Demo"
         ctaLink="/products/rio-alm/contact"
       />
       </div>

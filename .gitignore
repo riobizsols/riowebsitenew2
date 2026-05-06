@@ -14,11 +14,17 @@
 
 # production
 /build
+Backend/build
+Backend/*.zip
+
+# runtime / local data (chatbot_downloads is stats; SQLite is local DB)
+Backend/data/chatbot_downloads.json
+Backend/data/*.db
+Backend/data/*.db-shm
+Backend/data/*.db-wal
 
 # misc
 .DS_Store
-.env
-Backend/.env
 .env.local
 .env.development.local
 .env.test.local

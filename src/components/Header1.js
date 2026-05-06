@@ -45,7 +45,7 @@ export default function Header1() {
             Intellectual Property Rights
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="/blogs">Blogs</Nav.Link>
+          <Nav.Link href="/blog">Blog</Nav.Link>
           <Nav.Link href="/contact">Contact us</Nav.Link>
         </Nav>
        

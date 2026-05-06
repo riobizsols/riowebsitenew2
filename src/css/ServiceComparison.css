@@ -305,8 +305,10 @@
 /* Old table styles kept for backward compatibility */
 .matrix-wrapper {
   overflow-x: auto;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch;
 }
 
 .comparison-matrix {
@@ -945,6 +947,7 @@
 
   .comparison-matrix {
     font-size: 0.75rem;
+    min-width: 720px;
   }
 
   .comparison-matrix th,

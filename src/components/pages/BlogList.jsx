@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FiCalendar, FiUser, FiArrowRight, FiSearch } from 'react-icons/fi';
 import '../../css/BlogList.css';
@@ -110,6 +110,7 @@ const blogPosts = [
 const BlogList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const navigate = useNavigate();
 
   // Get unique categories
   const categories = ['All', ...new Set(blogPosts.map(post => post.category))];
@@ -182,7 +183,20 @@ const BlogList = () => {
         <div className="blog-container">
           <div className="blog-posts-grid">
             {filteredPosts.map((post) => (
-              <div key={post.id} className="blog-card">
+              <div
+                key={post.id}
+                className="blog-card"
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate(`/blog/${post.id}`)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    navigate(`/blog/${post.id}`);
+                  }
+                }}
+                aria-label={`Open blog: ${post.title}`}
+              >
                 <div className="blog-card-image">
                   <LazyImage src={post.image} alt={post.title} width={400} height={250} />
                   <span className="blog-category-badge">{post.category}</span>
@@ -214,7 +228,11 @@ const BlogList = () => {
                     </div>
                   )}
 
-                  <Link to={`/blog/${post.id}`} className="blog-read-more">
+                  <Link
+                    to={`/blog/${post.id}`}
+                    className="blog-read-more"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     Read More
                     <FiArrowRight className="arrow-icon" />
                   </Link>

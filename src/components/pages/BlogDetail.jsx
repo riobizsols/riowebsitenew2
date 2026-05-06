@@ -26,14 +26,17 @@ In today's competitive landscape, organizations of all sizes struggle with asset
       },
       {
         title: 'Key Challenges RIO ALM Addresses',
-        content: `Organizations face critical asset management challenges:
-• Downtime costs: Unplanned equipment failures result in millions in lost revenue
-• Compliance gaps: Audit trails are scattered across multiple systems
-• Maintenance inefficiency: Reactive approaches instead of preventive strategies
-• Vendor management complexity: Multiple contracts and AMC/CMC tracking across teams
-• Asset visibility: No single source of truth for asset data across locations
-
-RIO ALM centralizes all this information into an intuitive platform.`
+        content:
+          'Organizations face critical asset management challenges:',
+        bullets: [
+          'Downtime costs: Unplanned equipment failures result in millions in lost revenue',
+          'Compliance gaps: Audit trails are scattered across multiple systems',
+          'Maintenance inefficiency: Reactive approaches instead of preventive strategies',
+          'Vendor management complexity: Multiple contracts and AMC/CMC tracking across teams',
+          'Asset visibility: No single source of truth for asset data across locations'
+        ],
+        summary:
+          'RIO ALM centralizes all this information into an intuitive platform.'
       },
       {
         title: 'Core Features of RIO ALM',
@@ -605,6 +608,14 @@ const BlogDetail = () => {
                 <section key={index} className="article-section">
                   <h2 className="section-title">{section.title}</h2>
                   <p className="section-content">{section.content}</p>
+                  {section.bullets && section.bullets.length > 0 && (
+                    <ul className="section-content">
+                      {section.bullets.map((item, bulletIndex) => (
+                        <li key={bulletIndex}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.summary && <p className="section-content">{section.summary}</p>}
                 </section>
               ))}
             </div>
