@@ -90,7 +90,7 @@ function CbeDigitalMarketing() {
       <div className='container'>
         <div className="container_digital_ser">
           <div className="images-column">
-            <img src={digital2} alt="Image 1" className="image-item" />
+            <img src={digital2} alt="Digital marketing illustration" className="image-item" />
           </div>
 
           <div className="text-column">
@@ -164,7 +164,7 @@ cutting-edge, creative problem-solving digital tools.</p>
       <div className="digital-service-bg">
        <div className="container_digital_ser1">
           <div className="text-column">
-          <img src={service} alt="Image 1" className="digital-ser-img" />
+          <img src={service} alt="Digital services overview" className="digital-ser-img" />
           <div className="digital-progress"> 
             <div className="progress-bar">
 

@@ -5,8 +5,6 @@ import { trackCTAClick } from '../../services/visitorTracking';
 
 const DISMISS_KEY = 'exitIntentLastDismissed';
 const COOLDOWN_MS = 1000 * 60 * 60 * 6; // 6 hours
-const MIN_TIME_ON_PAGE_MS = 3000; // 3 seconds
-
 const getDismissKey = (variantKey) => `${DISMISS_KEY}_${variantKey}`;
 
 const contentVariants = [
@@ -144,7 +142,7 @@ const ExitIntentPopup = () => {
     if (debug) console.log('exit-intent timer: setting', { timeoutMs, variant: content.key });
     
     const timer = setTimeout(() => {
-      if (debug) console.log('exit-intent timer: fired!', { openedRef: openedRef.current, isOpen });
+      if (debug) console.log('exit-intent timer: fired!', { openedRef: openedRef.current });
       
       if (openedRef.current) {
         if (debug) console.log('  -> blocked (already open ref)');

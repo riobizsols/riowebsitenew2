@@ -8211,43 +8211,43 @@
       "pagesVisited": [
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:43:14.167Z"
+          "timestamp": "2026-05-06T09:43:09.264Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:43:14.169Z"
+          "timestamp": "2026-05-06T09:43:09.266Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:47:17.547Z"
+          "timestamp": "2026-05-06T09:43:16.061Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:47:17.548Z"
+          "timestamp": "2026-05-06T09:43:16.062Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:47:37.948Z"
+          "timestamp": "2026-05-06T09:43:18.923Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T07:47:37.949Z"
+          "timestamp": "2026-05-06T09:43:18.924Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T08:18:36.036Z"
+          "timestamp": "2026-05-06T09:43:33.879Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T08:18:36.037Z"
+          "timestamp": "2026-05-06T09:43:33.880Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T10:57:02.149Z"
+          "timestamp": "2026-05-06T10:10:05.037Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-05T10:57:02.163Z",
+          "timestamp": "2026-05-06T10:10:05.057Z",
           "data": {
             "url": "http://localhost:3000/",
             "title": "End-to-End Business Services | RioBizSols"
@@ -8259,11 +8259,464 @@
       ],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 30132,
+      "timeOnSite": 113729,
       "formSubmitted": false,
       "ctaClicked": []
     },
-    "lastActivity": "2026-05-05T10:57:02.163Z",
+    "lastActivity": "2026-05-06T10:10:05.057Z",
     "createdAt": "2026-05-05T10:57:03.760Z"
+  },
+  {
+    "visitorId": "visitor_1777986703084_n7awplb2o",
+    "sessionId": "session_1777986703084_m09vsljna",
+    "timestamp": "2026-05-05T13:11:47.160Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "147",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:b47c:20d8:561c:c460",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:11:47.839Z",
+          "data": {
+            "url": "http://localhost:3001/",
+            "title": "Digital Solutions for Business Growth | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-05T13:11:47.583Z",
+    "lastActivity": "2026-05-05T13:11:47.839Z",
+    "createdAt": "2026-05-05T13:11:47.796Z"
+  },
+  {
+    "visitorId": "visitor_1777986703087_lcvclr4cl",
+    "sessionId": "session_1777986703084_m09vsljna",
+    "timestamp": "2026-05-05T13:11:48.060Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "147",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:b47c:20d8:561c:c460",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:18:36.282Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:18:36.283Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:22:45.480Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:22:45.487Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:32:58.248Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:32:58.256Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:41:28.656Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:41:28.658Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T15:35:35.550Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T15:35:35.554Z",
+          "data": {
+            "url": "http://localhost:3001/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 8590,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-05T13:11:48.060Z",
+    "lastActivity": "2026-05-05T15:35:35.554Z",
+    "createdAt": "2026-05-05T13:11:48.092Z"
+  },
+  {
+    "visitorId": "visitor_1777988400845_g9d2rcuep",
+    "sessionId": "session_1777988400845_bxi4j0yao",
+    "timestamp": "2026-05-05T13:40:05.112Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.2.21 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:b47c:20d8:561c:c460",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-05T13:40:06.469Z",
+    "lastActivity": "2026-05-05T13:40:06.469Z",
+    "createdAt": "2026-05-05T13:40:07.399Z"
+  },
+  {
+    "visitorId": "visitor_1777988400892_se7t6u7v9",
+    "sessionId": "session_1777988400845_bxi4j0yao",
+    "timestamp": "2026-05-05T13:40:06.506Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.2.21 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:b47c:20d8:561c:c460",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:07.566Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:07.568Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:36.170Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:36.171Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:57.627Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:40:57.630Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:41:01.019Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-05T13:41:01.021Z",
+          "data": {
+            "url": "http://localhost:3001/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 83,
+      "timeOnSite": 49,
+      "formSubmitted": false,
+      "ctaClicked": [
+        {
+          "cta": "exit_intent_primary_default",
+          "timestamp": "2026-05-05T13:40:29.079Z"
+        }
+      ]
+    },
+    "firstVisit": "2026-05-05T13:40:06.506Z",
+    "lastActivity": "2026-05-05T13:41:01.021Z",
+    "createdAt": "2026-05-05T13:40:07.544Z"
+  },
+  {
+    "visitorId": "visitor_1778046210516_1sj03si55",
+    "sessionId": "session_1778046210516_taecciw10",
+    "timestamp": "2026-05-06T05:43:32.319Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.2.21 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:de5:da5c:226c:cd48",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-06T05:43:32.355Z",
+    "lastActivity": "2026-05-06T05:43:32.355Z",
+    "createdAt": "2026-05-06T05:43:32.402Z"
+  },
+  {
+    "visitorId": "visitor_1778046210535_l5wq5ucze",
+    "sessionId": "session_1778046210516_taecciw10",
+    "timestamp": "2026-05-06T05:43:32.359Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.2.21 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2406:7400:ff03:77de:de5:da5c:226c:cd48",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Atria Convergence Technologies Ltd.",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T05:43:32.653Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T05:43:32.796Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T05:55:47.158Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T05:55:47.200Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:27:27.043Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:27:27.046Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:42:34.818Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:42:34.820Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:59:46.205Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-06T07:59:46.206Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software",
+            "title": "Asset Maintenance Management Software | RIO ALM"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 8164,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-06T05:43:32.359Z",
+    "lastActivity": "2026-05-06T07:59:46.206Z",
+    "createdAt": "2026-05-06T05:43:32.423Z"
   }
 ]
