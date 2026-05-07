@@ -42,7 +42,7 @@ const DEMO_BOOKING_THANK_YOU_MESSAGE =
   'Thank you for booking! We look forward to speaking with you.';
 
 /** RIO Biz Solutions — demo / consultation scheduling */
-const RIO_CALENDLY_URL = 'https://calendly.com/bizsolsrio/riobizsols-demo?hide_event_type_details=1&hide_gdpr_banner=1';
+const RIO_CALENDLY_URL = 'https://calendly.com/tony-rozario-vs6w/30min';
 
 /**
  * After a Calendly booking, send users back to the site with this query so we reopen chat.
@@ -534,7 +534,11 @@ export default function WhatsAppFloat() {
     }
   }, [showCalendlyEmbed]);
 
-  const notifyDemoBookingInterest = useCallback(async () => {
+  const notifyDemoBookingInterest = useCallback(async ({
+    bookingStage = 'request_submitted',
+    selectedSlot = 'Pending host approval',
+    calendlyEventPayload = null,
+  } = {}) => {
     if (!visitorId) return;
     const sourcePage =
       typeof window !== 'undefined' && window.location
@@ -546,9 +550,12 @@ export default function WhatsAppFloat() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           visitorId,
-          selectedService: 'Demo / Consultation (chatbot request)',
-          selectedSlot: 'Inline scheduler opened in chat',
+          selectedService: 'Demo / Consultation (Calendly)',
+          selectedSlot,
           sourcePage,
+          bookingStage,
+          calendlyUrl: RIO_CALENDLY_URL,
+          calendlyEventPayload,
         }),
       });
     } catch (err) {
@@ -566,7 +573,11 @@ export default function WhatsAppFloat() {
 
       void (async () => {
         try {
-          await notifyDemoBookingInterest();
+          await notifyDemoBookingInterest({
+            bookingStage: 'confirmed',
+            selectedSlot: 'Calendly confirmed and scheduled',
+            calendlyEventPayload: event?.data?.payload || null,
+          });
           await sendSupportMessage(DEMO_BOOKING_THANK_YOU_MESSAGE);
           await sendSupportMessage(POST_ENQUIRY_MAIN_MENU_MESSAGE);
         } catch (err) {

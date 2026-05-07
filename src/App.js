@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { useEffect } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
 import Home from './components/pages/Home';
 import Footerbottom from './components/Footerbottom';
@@ -98,7 +99,13 @@ const options = {
 ReactPixel.init('2112408199250636', options);
 ReactPixel.pageView();
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
+  const isAlmLandingPage =
+    normalizedPath === '/uk/asset-maintenance-management-software' ||
+    normalizedPath === '/asset-maintenance-management-software';
+
   // Initialize visitor tracking on app mount
   useEffect(() => {
     const initTracking = async () => {
@@ -139,14 +146,13 @@ function App() {
 
     initTracking();
   }, []);
-  return ( 
-  <Router>
-<div className="App">
-<CanonicalLink baseUrl="https://riobizsols.com/"/>
-<SchemaMarkup/>
- <Header />
- <ScrollToTop/> 
-  <Routes>
+  return (
+    <div className="App">
+      <CanonicalLink baseUrl="https://riobizsols.com/" />
+      <SchemaMarkup />
+      {!isAlmLandingPage && <Header />}
+      <ScrollToTop />
+      <Routes>
     <Route path='/' element={<Home />} />
     <Route path='/our-service' element={<MainServices/>} />
     <Route path='/blog' element={<BlogList/>}/>
@@ -242,55 +248,15 @@ function App() {
      <Route path='/industry/saas' element={<SaasIndustry/>}/>
      <Route path='/admin/chat' element={<AdminChat/>}/>
 
-    </Routes> 
-    <ExitIntentPopup />
-    <WhatsAppFloat />
-    <Footerbottom/>    
+      </Routes>
+      {!isAlmLandingPage && <ExitIntentPopup />}
+      {!isAlmLandingPage && <WhatsAppFloat />}
+      {!isAlmLandingPage && <Footerbottom />}
     </div>
   );
 }
 
 function App() {
-  // Initialize visitor tracking on app mount
-  useEffect(() => {
-    const initTracking = async () => {
-      try {
-        // Initialize Web Vitals monitoring
-        webVitalsMonitor.init();
-
-        // Initialize visitor tracking
-        const profile = await visitorTracking.getVisitorProfile();
-        console.log('✓ Visitor tracking initialized:', profile.visitorId);
-
-        // Track page view on route change
-        visitorTracking.trackPageView('App Load', {
-          url: window.location.href,
-          title: document.title
-        });
-
-        // Track scroll depth on scroll
-        const handleScroll = () => {
-          visitorTracking.trackScrollDepth();
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        // Track time on site periodically
-        const timeInterval = setInterval(() => {
-          visitorTracking.trackTimeOnSite();
-        }, 10000); // Every 10 seconds
-
-        // Cleanup
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-          clearInterval(timeInterval);
-        };
-      } catch (error) {
-        console.warn('Error initializing visitor tracking:', error);
-      }
-    };
-
-    initTracking();
-  }, []);
   return (
     <Router>
       <AppContent />

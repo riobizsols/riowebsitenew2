@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiActivity, FiAlertCircle, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDatabase, FiFileText, FiGrid, FiLayers, FiMapPin, FiMonitor, FiSettings, FiShield, FiSmartphone, FiTool, FiTruck, FiUsers } from 'react-icons/fi';
 import './RioALMGenericLanding.css';
+import { getApiBaseUrl } from '../../utils/urlHelper';
 
 const featureCards = [
   {
@@ -45,9 +46,11 @@ const featureCards = [
 const RioALMGenericLanding = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isPricingSubmitted, setIsPricingSubmitted] = useState(false);
+  const [isPricingSubmitting, setIsPricingSubmitting] = useState(false);
+  const [pricingError, setPricingError] = useState('');
   const calendlyUrl =
     process.env.REACT_APP_CALENDLY_URL ||
-    'https://calendly.com/bizsolsrio/riobizsols-demo?embed_domain=www.riobizsols%E2%80%A6%2Fwww.riobizsols.com%2Fproducts%2Frio-alm%3Frio_chat%3Dopen&month=2026-05';
+    'https://calendly.com/tony-rozario-vs6w/30min';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -182,31 +185,37 @@ const RioALMGenericLanding = () => {
     window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
   };
 
-  const handlePricingFormSubmit = (event) => {
+  const handlePricingFormSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    if (isPricingSubmitting) return;
+
+    const formEl = event.currentTarget;
+    const formData = new FormData(formEl);
     const payload = Object.fromEntries(formData.entries());
-    const subject = `Pricing Request - ${payload.company2 || 'RIO ALM'}`;
-    const bodyLines = [
-      'New pricing enquiry from landing page:',
-      '',
-      `Full Name: ${payload.fullName2 || ''}`,
-      `Company Name: ${payload.company2 || ''}`,
-      `Work Email: ${payload.email2 || ''}`,
-      `Phone Number: ${payload.phone2 || ''}`,
-      `Country: ${payload.country2 || ''}`,
-      `Industry: ${payload.industry || ''}`,
-      `Number of Sites: ${payload.sites || ''}`,
-      `Approximate Asset Count: ${payload.assets || ''}`,
-      '',
-      'Message / Requirement:',
-      `${payload.message || ''}`
-    ];
-    const mailtoUrl = `mailto:tony.rozario@riobizsols.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-      bodyLines.join('\n')
-    )}`;
-    window.location.href = mailtoUrl;
-    setIsPricingSubmitted(true);
+    const apiBase = getApiBaseUrl();
+
+    setPricingError('');
+    setIsPricingSubmitting(true);
+
+    try {
+      const response = await fetch(`${apiBase}/api/pricing-request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Pricing request failed');
+      }
+
+      setIsPricingSubmitted(true);
+      formEl.reset();
+    } catch (error) {
+      console.error('Error submitting pricing request:', error);
+      setPricingError('Unable to send pricing request right now. Please try again in a moment.');
+    } finally {
+      setIsPricingSubmitting(false);
+    }
   };
 
   return (
@@ -528,8 +537,7 @@ const RioALMGenericLanding = () => {
           <form className="lead-form lead-form-bottom" onSubmit={handlePricingFormSubmit}>
             {isPricingSubmitted ? (
               <p className="form-success">
-                Thank you. Your email draft to tony.rozario@riobizsols.com has been prepared. Please click send in your email
-                app.
+                Thank you. Your pricing request has been sent to tony.rozario@riobizsols.com.
               </p>
             ) : (
               <div className="bottom-form-grid">
@@ -590,14 +598,14 @@ const RioALMGenericLanding = () => {
                   <textarea id="message" name="message" rows="4" />
                 </div>
                 <div className="full-width">
-                  <button className="btn-primary-uk full-btn" type="submit">Send Pricing Request</button>
+                  {pricingError && <p className="form-error">{pricingError}</p>}
+                  <button className="btn-primary-uk full-btn" type="submit" disabled={isPricingSubmitting}>
+                    {isPricingSubmitting ? 'Sending...' : 'Send Pricing Request'}
+                  </button>
                 </div>
               </div>
             )}
           </form>
-          <p className="integration-note">
-            Ready to connect later with Odoo CRM, Email API, webhook, Google Sheet, or backend endpoint.
-          </p>
         </div>
       </section>
 
@@ -639,10 +647,13 @@ const RioALMGenericLanding = () => {
                 a: 'Pricing depends on the number of locations, asset volume, modules, deployment model, implementation scope, and support needs. Visitors can request pricing through the form.'
               }
             ].map((faq) => (
-              <article className="faq-item" key={faq.q}>
-                <h3>{faq.q}</h3>
+              <details className="faq-item" key={faq.q}>
+                <summary>
+                  <span>{faq.q}</span>
+                  <span className="faq-icon" aria-hidden="true">+</span>
+                </summary>
                 <p>{faq.a}</p>
-              </article>
+              </details>
             ))}
           </div>
         </div>

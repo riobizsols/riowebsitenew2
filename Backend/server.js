@@ -236,10 +236,11 @@ const conversationKey = (m) => {
 
 // Constant product owner email
 const productOwnerEmail = 'info@riobizsols.com';  // Replace with actual product owner email
+const pricingRequestRecipient = 'tony.rozario@riobizsols.com';
 const chatNotificationEmailFallback = 'info@riobizsols.com';
 /** Default From for floating-chat emails when CHAT_NOTIFICATION_FROM is unset (use Gmail account that matches EMAIL_USER). */
 const chatNotificationFromFallback = 'bizsolsrio@gmail.com';
-const demoBookingRecipientsFallback = ['tony.rozario@riobizsols.com', 'shilpa@riobizsols.com'];
+const demoBookingRecipientsFallback = ['muthukumaran1052005@gmail.com'];
 
 function createSmtpTransporter() {
   const pass =
@@ -300,6 +301,80 @@ function formatChatEmailReceivedAtIST(isoOrString) {
   return `${inIst} IST`;
 }
 
+function normalizeCalendlyApiUri(uriOrPath) {
+  if (!hasValue(uriOrPath)) return '';
+  const value = String(uriOrPath).trim();
+  if (!value) return '';
+  if (/^https?:\/\//i.test(value)) return value;
+  if (value.startsWith('/')) return `https://api.calendly.com${value}`;
+  return `https://api.calendly.com/${value}`;
+}
+
+async function fetchCalendlyResource(uriOrPath) {
+  const token = hasValue(process.env.CALENDLY_API_TOKEN) ? process.env.CALENDLY_API_TOKEN.trim() : '';
+  const url = normalizeCalendlyApiUri(uriOrPath);
+  if (!token || !url) return null;
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      timeout: 10000,
+    });
+    return response?.data?.resource || null;
+  } catch (error) {
+    console.warn('[calendly-api] Failed to fetch resource:', {
+      url,
+      status: error?.response?.status,
+      message: error?.message,
+    });
+    return null;
+  }
+}
+
+async function resolveCalendlyMeetingStartTime(payload) {
+  const safePayload = payload && typeof payload === 'object' ? payload : {};
+  const eventObj = safePayload?.event && typeof safePayload.event === 'object' ? safePayload.event : {};
+  const inviteeObj = safePayload?.invitee && typeof safePayload.invitee === 'object' ? safePayload.invitee : {};
+
+  const directStartTime =
+    eventObj.start_time ||
+    eventObj.startTime ||
+    inviteeObj.start_time ||
+    inviteeObj.startTime ||
+    '';
+  if (hasValue(directStartTime)) return String(directStartTime).trim();
+
+  const inviteeUri = inviteeObj.uri || inviteeObj.resource_uri || '';
+  const eventUri = eventObj.uri || eventObj.resource_uri || '';
+
+  const inviteeResource = await fetchCalendlyResource(inviteeUri);
+  if (inviteeResource) {
+    const fromInvitee =
+      inviteeResource.start_time ||
+      inviteeResource.startTime ||
+      inviteeResource.scheduled_at ||
+      '';
+    if (hasValue(fromInvitee)) return String(fromInvitee).trim();
+  }
+
+  const resolvedEventUri =
+    (inviteeResource && (inviteeResource.event || inviteeResource.event_uri || inviteeResource.eventUri)) ||
+    eventUri;
+  const eventResource = await fetchCalendlyResource(resolvedEventUri);
+  if (eventResource) {
+    const fromEvent =
+      eventResource.start_time ||
+      eventResource.startTime ||
+      eventResource.scheduled_at ||
+      '';
+    if (hasValue(fromEvent)) return String(fromEvent).trim();
+  }
+
+  return '';
+}
+
 async function sendWebsiteChatNotificationEmail({ visitorId, messageText, timestamp, req }) {
   if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
     console.warn('[chat-email] Skipped notification: EMAIL_USER/EMAIL_PASS missing');
@@ -350,6 +425,9 @@ async function sendDemoBookingNotificationEmail({
   selectedSlot,
   selectedService,
   sourcePage,
+  bookingStage,
+  calendlyUrl,
+  calendlyEventPayload,
   req,
 }) {
   if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
@@ -363,7 +441,36 @@ async function sendDemoBookingNotificationEmail({
   const safeVisitorId = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
   const safeSlot = hasValue(selectedSlot) ? String(selectedSlot).trim() : 'Not provided';
   const safeService = hasValue(selectedService) ? String(selectedService).trim() : 'General service';
-  const safeSourcePage = hasValue(sourcePage) ? String(sourcePage).trim() : 'unknown';
+  const safeStage = hasValue(bookingStage) ? String(bookingStage).trim().toLowerCase() : 'request_submitted';
+  const isConfirmed = safeStage === 'confirmed';
+  // Send only one email after Calendly confirmation to avoid duplicate/unwanted emails.
+  if (!isConfirmed) {
+    console.log('[chatbot-demo-email] Skipped non-confirmed stage:', safeStage);
+    return;
+  }
+  const payload = (calendlyEventPayload && typeof calendlyEventPayload === 'object') ? calendlyEventPayload : {};
+  const payloadEvent = payload?.event && typeof payload.event === 'object' ? payload.event : {};
+  const payloadInvitee = payload?.invitee && typeof payload.invitee === 'object' ? payload.invitee : {};
+  const payloadMeetingDateTime =
+    payloadEvent.start_time ||
+    payloadEvent.startTime ||
+    payloadEvent.scheduled_at ||
+    payloadInvitee.start_time ||
+    payloadInvitee.startTime ||
+    payloadInvitee.scheduled_at ||
+    '';
+  const rawMeetingDateTime = hasValue(payloadMeetingDateTime)
+    ? String(payloadMeetingDateTime).trim()
+    : await resolveCalendlyMeetingStartTime(payload);
+  const safeMeetingDateTime = hasValue(rawMeetingDateTime)
+    ? formatChatEmailReceivedAtIST(rawMeetingDateTime)
+    : 'Not available from Calendly payload/API';
+  const safeMeetingDate = safeMeetingDateTime.includes(' IST')
+    ? safeMeetingDateTime.replace(/\s+\d{1,2}:\d{2}:\d{2}\s[AP]M IST$/, '')
+    : safeMeetingDateTime;
+  const safeMeetingTime = safeMeetingDateTime.includes(' IST')
+    ? safeMeetingDateTime.replace(/^.*?,\s*/, '').replace(/^.*\s(\d{1,2}:\d{2}:\d{2}\s[AP]M IST)$/, '$1')
+    : safeMeetingDateTime;
   const receivedAtIst = formatChatEmailReceivedAtIST(new Date().toISOString());
   const recipients = hasValue(process.env.DEMO_BOOKING_NOTIFICATION_EMAILS)
     ? process.env.DEMO_BOOKING_NOTIFICATION_EMAILS
@@ -377,22 +484,43 @@ async function sendDemoBookingNotificationEmail({
       ? process.env.CHAT_NOTIFICATION_FROM.trim()
       : chatNotificationFromFallback,
     to: recipients.join(','),
-    subject: `Demo booking interest from website chat - ${safeVisitorId}`,
+    subject: isConfirmed
+      ? `Demo meeting confirmed - ${safeVisitorId}`
+      : `Demo meeting request received - ${safeVisitorId}`,
     text:
       `Hello Team,\n\n` +
-      `A website visitor requested a demo via chatbot flow.\n\n` +
+      (isConfirmed
+        ? 'A website visitor completed Calendly booking and the meeting is now scheduled.\n\n'
+        : 'A website visitor submitted a demo request via Calendly flow.\n\n') +
       `Visitor Details\n` +
       `- Visitor ID: ${safeVisitorId}\n` +
+      `- Booking Status: ${isConfirmed ? 'Confirmed / scheduled' : 'Request submitted (awaiting host confirmation)'}\n` +
       `- Selected Service: ${safeService}\n` +
       `- Selected Slot: ${safeSlot}\n` +
-      `- Source Page: ${safeSourcePage}\n` +
+      `- Meeting Date: ${safeMeetingDate}\n` +
+      `- Meeting Time: ${safeMeetingTime}\n` +
       `- Received At (IST): ${receivedAtIst}\n` +
       `- IP Address: ${senderIp}\n` +
       `- Browser: ${senderUserAgent}\n\n` +
       `Recommended Action\n` +
-      `Please follow up with the visitor on the confirmed date/time.\n\n` +
+      (isConfirmed
+        ? 'Please prepare for the scheduled meeting. Calendly has already blocked the host calendar.\n\n'
+        : 'Please review and accept the Calendly request to finalize the host calendar invite.\n\n') +
       `Regards,\n` +
       `Rio Website Chatbot`,
+    html:
+      `<p>Hello Team,</p>` +
+      `<p>${isConfirmed ? 'A meeting has been confirmed in Calendly.' : 'A new meeting request was submitted in Calendly.'}</p>` +
+      `<table border="1" cellspacing="0" cellpadding="8" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">` +
+      `<tr><td><strong>Visitor ID</strong></td><td>${safeVisitorId}</td></tr>` +
+      `<tr><td><strong>Status</strong></td><td>${isConfirmed ? 'Confirmed / scheduled' : 'Request submitted (awaiting host confirmation)'}</td></tr>` +
+      `<tr><td><strong>Meeting Date</strong></td><td>${safeMeetingDate}</td></tr>` +
+      `<tr><td><strong>Meeting Time</strong></td><td>${safeMeetingTime}</td></tr>` +
+      `<tr><td><strong>Service</strong></td><td>${safeService}</td></tr>` +
+      `<tr><td><strong>Selected Slot</strong></td><td>${safeSlot}</td></tr>` +
+      `<tr><td><strong>Received At (IST)</strong></td><td>${receivedAtIst}</td></tr>` +
+      `</table>` +
+      `<p style="margin-top:12px;">Regards,<br/>Rio Website Chatbot</p>`,
   };
 
   const info = await transporter.sendMail(mailOptions);
@@ -451,6 +579,76 @@ app.post('/send-email', (req, res) => {
         console.log('[send-email] Sent successfully:', info.messageId);
         res.status(200).json({ success: true, message: 'Email sent successfully!' });
     });
+});
+
+app.post('/api/pricing-request', async (req, res) => {
+  const {
+    fullName2 = '',
+    company2 = '',
+    email2 = '',
+    phone2 = '',
+    country2 = '',
+    industry = '',
+    sites = '',
+    assets = '',
+    message = '',
+  } = req.body || {};
+
+  if (!email2 || !fullName2 || !company2) {
+    return res.status(400).json({
+      success: false,
+      message: 'Missing required fields',
+    });
+  }
+
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('[pricing-request] Missing EMAIL_USER or EMAIL_PASS in .env');
+    return res.status(500).json({
+      success: false,
+      message: 'Server email config missing',
+    });
+  }
+
+  try {
+    const transporter = createSmtpTransporter();
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: pricingRequestRecipient,
+      replyTo: email2,
+      subject: `Pricing Request - ${company2}`,
+      text:
+        `New pricing request from RIO ALM landing page\n\n` +
+        `Full Name: ${fullName2}\n` +
+        `Company Name: ${company2}\n` +
+        `Work Email: ${email2}\n` +
+        `Phone Number: ${phone2}\n` +
+        `Country: ${country2}\n` +
+        `Industry: ${industry}\n` +
+        `Number of Sites: ${sites}\n` +
+        `Approximate Asset Count: ${assets}\n\n` +
+        `Message / Requirement:\n${message || '-'}\n`,
+      html:
+        `<h3>New pricing request from RIO ALM landing page</h3>` +
+        `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
+        `<tr><td><strong>Full Name</strong></td><td>${String(fullName2)}</td></tr>` +
+        `<tr><td><strong>Company Name</strong></td><td>${String(company2)}</td></tr>` +
+        `<tr><td><strong>Work Email</strong></td><td>${String(email2)}</td></tr>` +
+        `<tr><td><strong>Phone Number</strong></td><td>${String(phone2)}</td></tr>` +
+        `<tr><td><strong>Country</strong></td><td>${String(country2)}</td></tr>` +
+        `<tr><td><strong>Industry</strong></td><td>${String(industry)}</td></tr>` +
+        `<tr><td><strong>Number of Sites</strong></td><td>${String(sites)}</td></tr>` +
+        `<tr><td><strong>Approximate Asset Count</strong></td><td>${String(assets)}</td></tr>` +
+        `<tr><td><strong>Message / Requirement</strong></td><td>${String(message || '-')}</td></tr>` +
+        `</table>`,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('[pricing-request] Sent successfully:', info.messageId);
+    return res.status(200).json({ success: true, message: 'Pricing request sent successfully' });
+  } catch (error) {
+    console.error('[pricing-request] Error sending email:', error.message);
+    return res.status(500).json({ success: false, message: 'Error sending pricing request email' });
+  }
 });
 
 // Use visitor tracking routes
@@ -552,13 +750,16 @@ app.get('/api/chatbot/download-stats', requireAdminChatAuth, (req, res) => {
 });
 
 app.post('/api/chatbot/demo-booking-notify', async (req, res) => {
-  const { visitorId, selectedSlot, selectedService, sourcePage } = req.body || {};
+  const { visitorId, selectedSlot, selectedService, sourcePage, bookingStage, calendlyUrl, calendlyEventPayload } = req.body || {};
   try {
     await sendDemoBookingNotificationEmail({
       visitorId,
       selectedSlot,
       selectedService,
       sourcePage,
+      bookingStage,
+      calendlyUrl,
+      calendlyEventPayload,
       req,
     });
     return res.status(200).json({
@@ -622,19 +823,8 @@ app.post('/api/chat/send', async (req, res) => {
     timestamp: chatMessage.timestamp,
   });
 
-  // Send email notification only for website visitor messages.
-  // Do not await SMTP — it blocks the HTTP response and makes the chat widget feel slow.
-  const isWebsiteVisitorMessage = String(normalizedSender).toLowerCase() === 'user';
-  if (isWebsiteVisitorMessage) {
-    void sendWebsiteChatNotificationEmail({
-      visitorId: visitorId || LEGACY_VISITOR_KEY,
-      messageText: trimmedMessage,
-      timestamp: chatMessage.timestamp,
-      req,
-    }).catch((emailError) => {
-      console.error('[chat-email] Failed to send notification:', emailError.message);
-    });
-  }
+  // Chat inquiry email notifications are intentionally disabled.
+  // We only send the structured demo-booking confirmation mail.
 
   const {
     WHATSAPP_TOKEN,
