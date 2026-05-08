@@ -78,6 +78,7 @@ import RioMEMSIndustries from './components/Products/RioMEMSIndustries';
 import RioMEMSPricing from './components/Products/RioMEMSPricing';
 import AissistLanding from './components/Products/AissistLanding';
 import RioALMGenericLanding from './components/Products/RioALMGenericLanding';
+import RioALMLandingV2 from './components/Products/RioALMLandingV2';
 import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import StaffingComparison from './components/ServiceComparison/StaffingComparison';
@@ -104,7 +105,8 @@ function AppContent() {
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isAlmLandingPage =
     normalizedPath === '/uk/asset-maintenance-management-software' ||
-    normalizedPath === '/asset-maintenance-management-software';
+    normalizedPath === '/asset-maintenance-management-software' ||
+    normalizedPath === '/asset-maintenance-management-software-v2';
 
   // Initialize visitor tracking on app mount
   useEffect(() => {
@@ -233,6 +235,7 @@ function AppContent() {
          <Route path='/products/aissist' element={<AissistLanding/>}/>
          <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
+         <Route path='/asset-maintenance-management-software-v2' element={<RioALMLandingV2/>}/>
 
          {/* Service Comparison Routes */}
          <Route path='/compare/staffing' element={<StaffingComparison/>}/>

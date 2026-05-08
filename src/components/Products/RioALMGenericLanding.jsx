@@ -43,11 +43,21 @@ const featureCards = [
   }
 ];
 
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+const UTM_STORAGE_KEY = 'rio_alm_landing_utm';
+
 const RioALMGenericLanding = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isPricingSubmitted, setIsPricingSubmitted] = useState(false);
   const [isPricingSubmitting, setIsPricingSubmitting] = useState(false);
   const [pricingError, setPricingError] = useState('');
+  const [utmParams, setUtmParams] = useState({
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: '',
+  });
   const calendlyUrl =
     process.env.REACT_APP_CALENDLY_URL ||
     'https://calendly.com/tony-rozario-vs6w/30min';
@@ -60,6 +70,43 @@ const RioALMGenericLanding = () => {
       script.async = true;
       script.setAttribute('data-calendly-widget', 'true');
       document.body.appendChild(script);
+    }
+
+    // Capture UTM parameters from the current URL and persist them so the
+    // values survive scroll / form-fill / page reload during the same session.
+    try {
+      const search = typeof window !== 'undefined' ? window.location.search : '';
+      const params = new URLSearchParams(search);
+      const fromUrl = {};
+      UTM_KEYS.forEach((key) => {
+        const value = params.get(key);
+        if (value) fromUrl[key] = value;
+      });
+
+      const stored = (() => {
+        try {
+          const raw = window.sessionStorage.getItem(UTM_STORAGE_KEY);
+          return raw ? JSON.parse(raw) : {};
+        } catch {
+          return {};
+        }
+      })();
+
+      const merged = UTM_KEYS.reduce((acc, key) => {
+        acc[key] = fromUrl[key] || stored[key] || '';
+        return acc;
+      }, {});
+
+      setUtmParams(merged);
+
+      const hasAny = Object.values(fromUrl).some(Boolean);
+      if (hasAny) {
+        try {
+          window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(merged));
+        } catch {}
+      }
+    } catch (error) {
+      console.warn('UTM capture failed:', error?.message || error);
     }
   }, []);
 
@@ -178,11 +225,24 @@ const RioALMGenericLanding = () => {
   };
 
   const openCalendlyDemo = () => {
+    // Append captured UTM parameters so Calendly tracking and the
+    // confirmation email retain campaign attribution end-to-end.
+    let urlWithUtm = calendlyUrl;
+    try {
+      const u = new URL(calendlyUrl);
+      UTM_KEYS.forEach((key) => {
+        if (utmParams[key]) u.searchParams.set(key, utmParams[key]);
+      });
+      urlWithUtm = u.toString();
+    } catch {
+      urlWithUtm = calendlyUrl;
+    }
+
     if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-      window.Calendly.initPopupWidget({ url: calendlyUrl });
+      window.Calendly.initPopupWidget({ url: urlWithUtm });
       return;
     }
-    window.open(calendlyUrl, '_blank', 'noopener,noreferrer');
+    window.open(urlWithUtm, '_blank', 'noopener,noreferrer');
   };
 
   const handlePricingFormSubmit = async (event) => {
@@ -191,7 +251,12 @@ const RioALMGenericLanding = () => {
 
     const formEl = event.currentTarget;
     const formData = new FormData(formEl);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      ...utmParams,
+      landing_page: typeof window !== 'undefined' ? window.location.href : '',
+      referrer: typeof document !== 'undefined' ? document.referrer : '',
+    };
     const apiBase = getApiBaseUrl();
 
     setPricingError('');
@@ -237,6 +302,12 @@ const RioALMGenericLanding = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.riobizsols.com/asset-maintenance-management-software" />
+        <meta property="og:image" content="https://www.riobizsols.com/alm-dashboard-user.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="RIO ALM - Asset Lifecycle & Maintenance Management Software" />
+        <meta name="twitter:description" content="Centralize asset records, automate maintenance, track calibration, manage vendors, and keep audit-ready records with RIO ALM." />
+        <meta name="twitter:image" content="https://www.riobizsols.com/alm-dashboard-user.png" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://www.riobizsols.com/asset-maintenance-management-software" />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
@@ -267,7 +338,7 @@ const RioALMGenericLanding = () => {
         <div className="uk-container uk-grid-hero">
           <div className="hero-content">
             <p className="uk-tag">Asset Lifecycle Management & Maintenance Management</p>
-            <h1>Asset &amp; Maintenance Management Software for Operations Teams</h1>
+            <h1>Asset &amp; Maintenance Management Software for UK Operations Teams</h1>
             <p className="hero-subcopy">
               RIO ALM helps organizations track assets, automate maintenance, manage inspections, store documents, and
               maintain audit-ready records from one central system.
@@ -597,6 +668,9 @@ const RioALMGenericLanding = () => {
                   <label htmlFor="message">Message / Requirement</label>
                   <textarea id="message" name="message" rows="4" />
                 </div>
+                {UTM_KEYS.map((key) => (
+                  <input key={key} type="hidden" name={key} value={utmParams[key] || ''} readOnly />
+                ))}
                 <div className="full-width">
                   {pricingError && <p className="form-error">{pricingError}</p>}
                   <button className="btn-primary-uk full-btn" type="submit" disabled={isPricingSubmitting}>

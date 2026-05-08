@@ -9,6 +9,7 @@ require('dotenv').config({ path: path.join(__dirname, '.env'), override: true })
 
 // Import visitor tracking routes
 const visitorRoutes = require('./routes/visitors');
+const { renderAlmLandingHtml } = require('./almLandingPrerender');
 
 const app = express();
 const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
@@ -592,6 +593,13 @@ app.post('/api/pricing-request', async (req, res) => {
     sites = '',
     assets = '',
     message = '',
+    utm_source = '',
+    utm_medium = '',
+    utm_campaign = '',
+    utm_term = '',
+    utm_content = '',
+    landing_page = '',
+    referrer = '',
   } = req.body || {};
 
   if (!email2 || !fullName2 || !company2) {
@@ -626,7 +634,15 @@ app.post('/api/pricing-request', async (req, res) => {
         `Industry: ${industry}\n` +
         `Number of Sites: ${sites}\n` +
         `Approximate Asset Count: ${assets}\n\n` +
-        `Message / Requirement:\n${message || '-'}\n`,
+        `Message / Requirement:\n${message || '-'}\n\n` +
+        `--- Campaign Tracking ---\n` +
+        `Landing Page: ${landing_page || '-'}\n` +
+        `Referrer: ${referrer || '-'}\n` +
+        `utm_source: ${utm_source || '-'}\n` +
+        `utm_medium: ${utm_medium || '-'}\n` +
+        `utm_campaign: ${utm_campaign || '-'}\n` +
+        `utm_term: ${utm_term || '-'}\n` +
+        `utm_content: ${utm_content || '-'}\n`,
       html:
         `<h3>New pricing request from RIO ALM landing page</h3>` +
         `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
@@ -639,6 +655,14 @@ app.post('/api/pricing-request', async (req, res) => {
         `<tr><td><strong>Number of Sites</strong></td><td>${String(sites)}</td></tr>` +
         `<tr><td><strong>Approximate Asset Count</strong></td><td>${String(assets)}</td></tr>` +
         `<tr><td><strong>Message / Requirement</strong></td><td>${String(message || '-')}</td></tr>` +
+        `<tr><td colspan="2" style="background:#f3f6fc;"><strong>Campaign Tracking</strong></td></tr>` +
+        `<tr><td><strong>Landing Page</strong></td><td>${String(landing_page || '-')}</td></tr>` +
+        `<tr><td><strong>Referrer</strong></td><td>${String(referrer || '-')}</td></tr>` +
+        `<tr><td><strong>utm_source</strong></td><td>${String(utm_source || '-')}</td></tr>` +
+        `<tr><td><strong>utm_medium</strong></td><td>${String(utm_medium || '-')}</td></tr>` +
+        `<tr><td><strong>utm_campaign</strong></td><td>${String(utm_campaign || '-')}</td></tr>` +
+        `<tr><td><strong>utm_term</strong></td><td>${String(utm_term || '-')}</td></tr>` +
+        `<tr><td><strong>utm_content</strong></td><td>${String(utm_content || '-')}</td></tr>` +
         `</table>`,
     };
 
@@ -1069,6 +1093,32 @@ const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || p
 
 if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
   app.use(express.static(buildPath));
+
+  // SEO/Ads-crawler ready prerender for the RIO ALM landing page.
+  // Returns fully-rendered HTML (H1, content, FAQs, schema, OG tags) so
+  // Google AdsBot, Microsoft Ads crawler, PageSpeed and similar tools can
+  // parse the page without executing JavaScript. The React bundle still
+  // loads inside #root, so users keep the interactive experience.
+  const almLandingPaths = [
+    '/asset-maintenance-management-software',
+    '/uk/asset-maintenance-management-software',
+    '/asset-maintenance-management-software-v2',
+  ];
+  almLandingPaths.forEach((routePath) => {
+    app.get(routePath, (req, res) => {
+      try {
+        const html = renderAlmLandingHtml(buildPath, { pathname: routePath });
+        res.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+        res.set('X-Robots-Tag', 'index, follow');
+        res.set('Content-Type', 'text/html; charset=utf-8');
+        return res.status(200).send(html);
+      } catch (error) {
+        console.error('[alm-prerender] Failed to render landing HTML:', error.message);
+        return res.sendFile(path.join(buildPath, 'index.html'));
+      }
+    });
+  });
+
   app.get('*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
   });
