@@ -2963,393 +2963,45 @@
       "pagesVisited": [
         {
           "page": "App Load",
-          "timestamp": "2026-03-13T09:50:13.853Z",
+          "timestamp": "2026-03-16T07:22:40.759Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-16T07:22:40.760Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-16T07:23:00.479Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-16T07:23:00.479Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:12:42.713Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:12:42.716Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:13:04.356Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:13:04.356Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:13:20.184Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-23T12:13:20.185Z",
           "data": {
             "url": "http://localhost:3000/",
-            "title": "Digital Solutions for Business Growth | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T09:50:16.665Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T09:50:16.665Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T10:00:35.151Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T10:00:35.152Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T10:05:20.980Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T10:05:20.981Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:57:22.507Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:57:22.514Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:59:28.529Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:59:28.529Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:59:56.255Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T11:59:56.255Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:00:11.115Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:00:11.115Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:01:55.928Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:01:55.929Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:02:38.690Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:02:38.691Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:06:41.218Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:06:41.219Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:24.080Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:24.081Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:35.633Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:35.634Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:37.516Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:07:37.517Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:09:16.860Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:09:16.861Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:10:20.149Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:10:20.150Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:10:33.353Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:10:33.357Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:21:27.923Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:21:27.923Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:14.192Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:14.192Z",
-          "data": {
-            "url": "http://localhost:3000/contact",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:18.792Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:18.792Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:55.144Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-13T12:43:55.145Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:21:52.159Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:21:52.159Z",
-          "data": {
-            "url": "http://localhost:3000/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:22:23.815Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm/pricing",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:22:23.815Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm/pricing",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:22:40.759Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm/deployment",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:22:40.760Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm/deployment",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:23:00.479Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-16T07:23:00.479Z",
-          "data": {
-            "url": "http://localhost:3000/products/rio-alm",
             "title": "End-to-End Business Services | RioBizSols"
           }
         }
@@ -3357,16 +3009,20 @@
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 250356,
+      "timeOnSite": 872580,
       "formSubmitted": true,
       "ctaClicked": [
         {
           "cta": "exit_intent_dismiss_default",
           "timestamp": "2026-03-13T09:50:26.759Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-23T12:12:57.440Z"
         }
       ]
     },
-    "lastActivity": "2026-03-16T07:23:00.479Z",
+    "lastActivity": "2026-03-23T12:13:20.185Z",
     "createdAt": "2026-03-13T12:06:41.308Z"
   },
   {
