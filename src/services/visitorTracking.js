@@ -349,7 +349,7 @@ export const trackFormSubmission = (formType, formData = {}) => {
   }
 };
 
-export default {
+const visitorTrackingService = {
   initializeVisitorProfile,
   getVisitorProfile,
   trackPageView,
@@ -359,3 +359,5 @@ export default {
   trackTimeOnSite,
   trackFormSubmission,
 };
+
+export default visitorTrackingService;

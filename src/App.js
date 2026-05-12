@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { useEffect } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
 import Home from './components/pages/Home';
 import Footerbottom from './components/Footerbottom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import ScrollToTop from "./ScrollToTop/ScrollToTop";
 import { MainServices } from './components/pages';
 import Contact from './components/pages/Contact';
@@ -61,7 +62,6 @@ import PrivacyPolicy from './components/pages/PrivatePolicy';
 import CalDigitalMarketing from './components/Cal/CalDigitalMarketing';
 import CalWebDevelopment from './components/Cal/CalWebDevelopment';
 import CalStaffing from './components/Cal/CalStaffing';
-import ReactPixel from 'react-facebook-pixel';
 import CanonicalLink from './Canonical';
 import SchemaMarkup from './components/SchemeMarkup';
 import BlogList from './components/pages/BlogList';
@@ -77,6 +77,8 @@ import RioMEMSFeatures from './components/Products/RioMEMSFeatures';
 import RioMEMSIndustries from './components/Products/RioMEMSIndustries';
 import RioMEMSPricing from './components/Products/RioMEMSPricing';
 import AissistLanding from './components/Products/AissistLanding';
+import RioALMGenericLanding from './components/Products/RioALMGenericLanding';
+import RioALMLandingV2 from './components/Products/RioALMLandingV2';
 import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
 import WhatsAppFloat from './components/WhatsAppFloat';
 import StaffingComparison from './components/ServiceComparison/StaffingComparison';
@@ -88,19 +90,24 @@ import EcommerceIndustry from './components/Industries/EcommerceIndustry';
 import ManufacturingIndustry from './components/Industries/ManufacturingIndustry';
 import HealthcareIndustry from './components/Industries/HealthcareIndustry';
 import SaasIndustry from './components/Industries/SaasIndustry';
-
-
+import AdminChat from './components/pages/AdminChat';
 
 const options = {
-  autoConfig: true, 
-  debug: false,     
+  autoConfig: true,
+  debug: false,
 };
 
-
 ReactPixel.init('2112408199250636', options);
-ReactPixel.pageView(); 
+ReactPixel.pageView();
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
+  const isAlmLandingPage =
+    normalizedPath === '/uk/asset-maintenance-management-software' ||
+    normalizedPath === '/asset-maintenance-management-software' ||
+    normalizedPath === '/asset-maintenance-management-software-v2';
+
   // Initialize visitor tracking on app mount
   useEffect(() => {
     const initTracking = async () => {
@@ -141,14 +148,13 @@ function App() {
 
     initTracking();
   }, []);
-  return ( 
-  <Router>
-<div className="App">
-<CanonicalLink baseUrl="https://riobizsols.com/"/>
-<SchemaMarkup/>
- <Header />
- <ScrollToTop/> 
-  <Routes>
+  return (
+    <div className="App">
+      <CanonicalLink baseUrl="https://riobizsols.com/" />
+      <SchemaMarkup />
+      {!isAlmLandingPage && <Header />}
+      <ScrollToTop />
+      <Routes>
     <Route path='/' element={<Home />} />
     <Route path='/our-service' element={<MainServices/>} />
     <Route path='/blog' element={<BlogList/>}/>
@@ -210,29 +216,32 @@ function App() {
      <Route path='/blr/our-service/web-development' element={<BlrWebDevelopment/>}/>
      <Route path='/blr/our-service/digital-marketing' element={<BlrDigitalMarketing/>}/>
 
-    {/* Product Routes */}
-     <Route path='/products/rio-alm' element={<RioALMLanding/>}/>
-     <Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
-     <Route path='/products/rio-alm/features' element={<RioALMFeatures/>}/>
-     <Route path='/products/rio-alm/industries' element={<RioALMIndustries/>}/>
-     <Route path='/products/rio-alm/deployment' element={<RioALMDeployment/>}/>
-     <Route path='/products/rio-alm/contact' element={<RioALMContact/>}/>
+        {/* Product Routes */}
+         <Route path='/products/rio-alm' element={<RioALMLanding/>}/>
+         <Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
+         <Route path='/products/rio-alm/features' element={<RioALMFeatures/>}/>
+         <Route path='/products/rio-alm/industries' element={<RioALMIndustries/>}/>
+         <Route path='/products/rio-alm/deployment' element={<RioALMDeployment/>}/>
+         <Route path='/products/rio-alm/contact' element={<RioALMContact/>}/>
 
-     {/* RIO MEMS Product Routes */}
-     <Route path='/products/medical-equipment-maintenance' element={<MedicalEquipmentMaintenance/>}/>
-     <Route path='/products/medical-equipment-maintenance/features' element={<RioMEMSFeatures/>}/>
-     <Route path='/products/medical-equipment-maintenance/industries' element={<RioMEMSIndustries/>}/>
-     <Route path='/products/medical-equipment-maintenance/pricing' element={<RioMEMSPricing/>}/>
-     <Route path='/products/medical-equipment-maintenance/contact' element={<RioALMContact/>}/>
+         {/* RIO MEMS Product Routes */}
+         <Route path='/products/medical-equipment-maintenance' element={<MedicalEquipmentMaintenance/>}/>
+         <Route path='/products/medical-equipment-maintenance/features' element={<RioMEMSFeatures/>}/>
+         <Route path='/products/medical-equipment-maintenance/industries' element={<RioMEMSIndustries/>}/>
+         <Route path='/products/medical-equipment-maintenance/pricing' element={<RioMEMSPricing/>}/>
+         <Route path='/products/medical-equipment-maintenance/contact' element={<RioALMContact/>}/>
 
-     {/* AIssist Product Route */}
-     <Route path='/products/aissist' element={<AissistLanding/>}/>
+         {/* AIssist Product Route */}
+         <Route path='/products/aissist' element={<AissistLanding/>}/>
+         <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
+         <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
+         <Route path='/asset-maintenance-management-software-v2' element={<RioALMLandingV2/>}/>
 
-     {/* Service Comparison Routes */}
-     <Route path='/compare/staffing' element={<StaffingComparison/>}/>
-     <Route path='/compare/web-development' element={<WebDevComparison/>}/>
-     <Route path='/compare/digital-marketing' element={<DigitalMarketingComparison/>}/>
-     <Route path='/compare/app-development' element={<AppDevComparison/>}/>
+         {/* Service Comparison Routes */}
+         <Route path='/compare/staffing' element={<StaffingComparison/>}/>
+         <Route path='/compare/web-development' element={<WebDevComparison/>}/>
+         <Route path='/compare/digital-marketing' element={<DigitalMarketingComparison/>}/>
+         <Route path='/compare/app-development' element={<AppDevComparison/>}/>
 
      {/* Industry-Specific Landing Pages */}
      <Route path='/industry/tech-startup' element={<TechStartupIndustry/>}/>
@@ -240,15 +249,21 @@ function App() {
      <Route path='/industry/manufacturing' element={<ManufacturingIndustry/>}/>
      <Route path='/industry/healthcare' element={<HealthcareIndustry/>}/>
      <Route path='/industry/saas' element={<SaasIndustry/>}/>
+     <Route path='/admin/chat' element={<AdminChat/>}/>
 
-    </Routes> 
-    <ExitIntentPopup />
-    <WhatsAppFloat />
-    <Footerbottom/>    
+      </Routes>
+      {!isAlmLandingPage && <ExitIntentPopup />}
+      {!isAlmLandingPage && <WhatsAppFloat />}
+      {!isAlmLandingPage && <Footerbottom />}
     </div>
-    </Router>
+  );
+}
 
-   
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

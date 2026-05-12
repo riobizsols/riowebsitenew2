@@ -924,6 +924,76 @@
   color: #003d82;
 }
 
+/* AIssist page alignment improvements */
+.aissist-page .outcomes-grid,
+.aissist-page .industries-grid {
+  align-items: stretch;
+}
+
+.aissist-page .outcome-card,
+.aissist-page .industry-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.aissist-page .outcome-description,
+.aissist-page .industry-benefits-single {
+  margin-top: auto;
+}
+
+.aissist-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.aissist-feature-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.aissist-feature-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0052cc;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.aissist-feature-title {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.aissist-page .aissist-feature-card .security-features li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.aissist-page .hero-ctas,
+.aissist-page .alm-comparison .container {
+  position: relative;
+  z-index: 2;
+}
+
+.aissist-pricing-link {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
 @media (max-width: 1200px) {
   .blog-cards {
     grid-template-columns: repeat(2, 1fr);
@@ -1019,6 +1089,10 @@
   }
 
   .nav-links {
+    grid-template-columns: 1fr;
+  }
+
+  .aissist-features-grid {
     grid-template-columns: 1fr;
   }
 }

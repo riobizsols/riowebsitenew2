@@ -41,6 +41,23 @@
 .industry-detail {
   margin-bottom: 40px;
   padding-bottom: 40px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.industry-detail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 16px 16px 0 0;
+  background: #0052cc;
 }
 
 .industry-header {
@@ -66,18 +83,32 @@
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin-bottom: 28px;
+  align-items: stretch;
 }
 
 .industry-section {
   display: flex;
   flex-direction: column;
+  background: #f8fbff;
+  border: 1px solid #e1ebfb;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 100%;
 }
 
 .industry-section .section-title {
   font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
+  margin: 0 0 14px 0;
+}
+
+.section-title-challenges {
+  color: #b42318;
+}
+
+.section-title-solutions {
+  color: #0052cc;
 }
 
 .challenges-list,
@@ -116,13 +147,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  padding-top: 24px;
+  margin-top: 20px;
+  padding-top: 36px;
   border-top: 1px solid #e8e8e8;
 }
 
 .modules-section {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .modules-tags {
@@ -143,6 +176,7 @@
 .kpis-section {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .kpis-list {
@@ -165,10 +199,66 @@
 }
 
 .industry-divider {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-bottom: 1px solid #e8e8e8;
+  margin-top: 24px;
+  border-bottom: 1px dashed #d8e0ec;
 }
+
+/* Per-industry differentiation */
+.industry-1::before { background: linear-gradient(90deg, #0066cc, #22a6f2); }
+.industry-2::before { background: linear-gradient(90deg, #6a11cb, #2575fc); }
+.industry-3::before { background: linear-gradient(90deg, #0f9b0f, #38ef7d); }
+.industry-4::before { background: linear-gradient(90deg, #f7971e, #ffd200); }
+.industry-5::before { background: linear-gradient(90deg, #8e2de2, #4a00e0); }
+.industry-6::before { background: linear-gradient(90deg, #11998e, #38ef7d); }
+
+.industry-1 .industry-name { color: #0b63b6; }
+.industry-2 .industry-name { color: #3d4ec9; }
+.industry-3 .industry-name { color: #148a4a; }
+.industry-4 .industry-name { color: #b86a00; }
+.industry-5 .industry-name { color: #5b2ab3; }
+.industry-6 .industry-name { color: #147b72; }
+
+.industry-1 .module-tag { background: #e8f4ff; color: #0b63b6; }
+.industry-2 .module-tag { background: #f0ecff; color: #4f46e5; }
+.industry-3 .module-tag { background: #eafaf1; color: #15803d; }
+.industry-4 .module-tag { background: #fff7e8; color: #b45309; }
+.industry-5 .module-tag { background: #f5efff; color: #6d28d9; }
+.industry-6 .module-tag { background: #e9fbf8; color: #0f766e; }
+
+.industry-1 .kpi-icon { color: #0b63b6; }
+.industry-2 .kpi-icon { color: #4f46e5; }
+.industry-3 .kpi-icon { color: #15803d; }
+.industry-4 .kpi-icon { color: #b45309; }
+.industry-5 .kpi-icon { color: #6d28d9; }
+.industry-6 .kpi-icon { color: #0f766e; }
+
+.industry-1 .section-title-solutions { color: #0b63b6; }
+.industry-2 .section-title-solutions { color: #4f46e5; }
+.industry-3 .section-title-solutions { color: #15803d; }
+.industry-4 .section-title-solutions { color: #b45309; }
+.industry-5 .section-title-solutions { color: #6d28d9; }
+.industry-6 .section-title-solutions { color: #0f766e; }
+
+.industry-1 .solutions-list li::before { color: #0b63b6; }
+.industry-2 .solutions-list li::before { color: #4f46e5; }
+.industry-3 .solutions-list li::before { color: #15803d; }
+.industry-4 .solutions-list li::before { color: #b45309; }
+.industry-5 .solutions-list li::before { color: #6d28d9; }
+.industry-6 .solutions-list li::before { color: #0f766e; }
+
+.industry-1 .industry-section { background: #f8fbff; }
+.industry-2 .industry-section { background: #faf9ff; }
+.industry-3 .industry-section { background: #f7fcf9; }
+.industry-4 .industry-section { background: #fffaf2; }
+.industry-5 .industry-section { background: #faf7ff; }
+.industry-6 .industry-section { background: #f5fcfb; }
+
+.industry-1 .industry-section { border-color: #dcebff; }
+.industry-2 .industry-section { border-color: #e2dcff; }
+.industry-3 .industry-section { border-color: #d9f3e4; }
+.industry-4 .industry-section { border-color: #f8e7c2; }
+.industry-5 .industry-section { border-color: #eadfff; }
+.industry-6 .industry-section { border-color: #d8f4ef; }
 
 /* Why Choose Section */
 .why-choose-section {
@@ -290,6 +380,7 @@
   .industry-detail {
     margin-bottom: 32px;
     padding-bottom: 32px;
+    padding: 20px;
   }
 
   .industry-divider {

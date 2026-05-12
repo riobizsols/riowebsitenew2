@@ -62,7 +62,7 @@ export default function Header() {
             </NavDropdown>
           </NavDropdown>
           </div>
-          <Nav.Link href="/blog">Blogs</Nav.Link>
+          <Nav.Link href="/blog">Blog</Nav.Link>
         </Nav>
         <Nav className="ms-auto">
           <Nav.Link href="/contact" className="contact-us-btn">Contact Us</Nav.Link>

@@ -281,15 +281,6 @@ class WebVitalsMonitor {
       return;
     }
 
-    // Send to Google Analytics
-    if (window.gtag) {
-      window.gtag('event', `web_vital_${name}`, {
-        value: Math.round(data.value),
-        rating: data.rating,
-        timestamp: data.timestamp
-      });
-    }
-
     // Send to custom backend
     const analytics = window.__analytics || {};
     if (analytics.trackEvent) {

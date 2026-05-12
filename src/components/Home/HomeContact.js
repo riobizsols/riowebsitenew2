@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/Contact.css';
 import axios from 'axios';
+import ReactPixel from 'react-facebook-pixel';
 import * as visitorTracking from '../../services/visitorTracking';
 import { getApiBaseUrl } from '../../utils/urlHelper';
 
@@ -102,8 +103,13 @@ const [formData, setFormData] = useState({
       const apiBase = getApiBaseUrl();
       const response = await axios.post(`${apiBase}/send-email`, formData);
       if (response.data.success) {
+        ReactPixel.track('Lead');
         setSubmitStatus('success');
         setFormData({ firstname: '', email: '', phone: '', message: '' });
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead'
+        });
       } else {
         setSubmitStatus('error');
       }

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import ClientLogohead from '../../Home/ClientLogohead'
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import { Link } from 'react-router-dom'
-import Accordion_web from '../../Accordion/AccordionWeb';
+import AccordionWeb from '../../Accordion/AccordionWeb';
 import ContactFrom from '../../Services/ContactFrom'
 import Slider from 'react-slick';
 
@@ -89,7 +89,7 @@ const WebUIUX = () => {
                <div className="text-column">
                 <h2 className='digital_ser_wapp_title'>Why invest in UI/UX Web Design Services?</h2>
                 <p className='digit-ser-para1'>Having a well-designed website is more critical than ever in today’s evolving digital landscape. Here's why UX/UI web design services are essential.</p>
-                <Accordion_web items={accordionItems} />
+                <AccordionWeb items={accordionItems} />
                 </div>
                </section>
              </div>
