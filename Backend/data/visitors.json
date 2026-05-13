@@ -59,5 +59,85 @@
     },
     "lastActivity": "2026-05-07T13:42:44.278Z",
     "createdAt": "2026-05-06T10:50:06.511Z"
+  },
+  {
+    "visitorId": "visitor_1773395413187_wcxdu9wds",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:34:28.011Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:34:28.013Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:02.815Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:02.816Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:08.797Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:08.798Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:35.048Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:35.048Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:37:09.255Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:37:09.256Z",
+          "data": {
+            "url": "http://localhost:3000/products/la-law/account-deletion/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 5276811,
+      "formSubmitted": true,
+      "ctaClicked": [
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-13T09:50:26.759Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-23T12:12:57.440Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-05-12T11:46:09.415Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-05-12T11:49:16.200Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-05-13T11:36:25.185Z"
+        }
+      ]
+    },
+    "lastActivity": "2026-05-13T11:37:09.256Z",
+    "createdAt": "2026-05-12T11:46:31.381Z"
   }
 ]

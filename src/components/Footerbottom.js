@@ -43,6 +43,7 @@ import India from '../assets/images/India.jpg';
                <li><Link to='/products/rio-alm' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM</Link></li>
                <li><Link to='/products/medical-equipment-maintenance' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS (Medical Equipment Maintenance)</Link></li>
                <li><Link to='/products/aissist' style={{textDecoration:'none', color:'#BDBBBB'}}>AIssist – LinkedIn Assistant</Link></li>
+               <li><Link to='/products/la-law' style={{textDecoration:'none', color:'#BDBBBB'}}>La Law</Link></li>
                <li><Link to='/products/rio-alm/features' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Features</Link></li>
                <li><Link to='/products/rio-alm/industries' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Industries</Link></li>
                <li><Link to='/products/rio-alm/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Deployment</Link></li>

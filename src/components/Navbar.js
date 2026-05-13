@@ -7,7 +7,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../css/Header.css'
 import Logo from '../assets/images/RIO-Logo.png'
-import {Link} from 'react-router-dom'
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -59,6 +58,10 @@ export default function Header() {
               <NavDropdown.Item href="/products/aissist">Overview</NavDropdown.Item>
               <NavDropdown.Item href="https://oneaissist.com/pricing" target="_blank" rel="noopener noreferrer">Pricing</NavDropdown.Item>
               <NavDropdown.Item href="https://chromewebstore.google.com/detail/aissist-connect-comment-e/pncjbdpggmlfclmaifflmbidojgokban" target="_blank" rel="noopener noreferrer">Add to Chrome</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown drop="end" title="La Law" id="products-lalaw-dropdown">
+              <NavDropdown.Item href="/products/la-law">Overview</NavDropdown.Item>
+              <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
             </NavDropdown>
           </NavDropdown>
           </div>

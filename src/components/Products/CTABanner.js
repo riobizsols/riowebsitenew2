@@ -1,13 +1,14 @@
 import React from 'react';
 import './CTABanner.css';
 
-// Use an internal route so it works on localhost and on the deployed site
-const CONTACT_URL = "/products/rio-alm/contact";
+// Default: RIO ALM demo request. Override with `contactPath` for other products (e.g. La Law → /contact).
+const DEFAULT_CONTACT_PATH = "/products/rio-alm/contact";
 
-const CTABanner = ({ 
+const CTABanner = ({
   title = "Ready to Transform Your Asset Management?",
   subtitle = "Get a personalized demo and discover how RIO ALM can streamline your operations.",
-  ctaText = "Request a Demo"
+  ctaText = "Request a Demo",
+  contactPath = DEFAULT_CONTACT_PATH,
 }) => {
   return (
     <section className="cta-banner">
@@ -15,10 +16,10 @@ const CTABanner = ({
         <h2 className="cta-title">{title}</h2>
         <p className="cta-subtitle">{subtitle}</p>
         <div className="cta-buttons">
-          <a href={CONTACT_URL} className="cta-btn cta-btn-primary">
+          <a href={contactPath} className="cta-btn cta-btn-primary">
             {ctaText}
           </a>
-          <a href={CONTACT_URL} className="cta-btn cta-btn-secondary">
+          <a href={contactPath} className="cta-btn cta-btn-secondary">
             Get a Proposal
           </a>
         </div>

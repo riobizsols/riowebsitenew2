@@ -77,6 +77,9 @@ import RioMEMSFeatures from './components/Products/RioMEMSFeatures';
 import RioMEMSIndustries from './components/Products/RioMEMSIndustries';
 import RioMEMSPricing from './components/Products/RioMEMSPricing';
 import AissistLanding from './components/Products/AissistLanding';
+import LaLawLanding from './components/Products/LaLawLanding';
+import LaLawAccountDeletion from './components/Products/LaLawAccountDeletion';
+import LaLawAccountDeletionForm from './components/Products/LaLawAccountDeletionForm';
 import RioALMGenericLanding from './components/Products/RioALMGenericLanding';
 import RioALMLandingV2 from './components/Products/RioALMLandingV2';
 import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
@@ -233,6 +236,11 @@ function AppContent() {
 
          {/* AIssist Product Route */}
          <Route path='/products/aissist' element={<AissistLanding/>}/>
+
+         {/* La Law Product Route */}
+         <Route path='/products/la-law/account-deletion/request' element={<LaLawAccountDeletionForm/>}/>
+         <Route path='/products/la-law/account-deletion' element={<LaLawAccountDeletion/>}/>
+         <Route path='/products/la-law' element={<LaLawLanding/>}/>
          <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/asset-maintenance-management-software-v2' element={<RioALMLandingV2/>}/>
