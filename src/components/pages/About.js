@@ -11,14 +11,14 @@ const About = () => {
     <div>
       <Helmet>
         <title>About RioBizSols | Digital Solutions & Business Transformation Partner</title>
-        <meta name="description" content="Learn about RioBizSols - your trusted partner for staffing, digital marketing, web/app development, Odoo ERP, and RIO ALM solutions. Meet our expert team committed to your business success." />
+        <meta name="description" content="Learn about RioBizSols - your trusted partner for staffing, digital marketing, web/app development, Odoo ERP, and RIO EAM solutions. Meet our expert team committed to your business success." />
         <meta name="keywords" content="about RioBizSols, business consulting, digital transformation, staffing solutions, software development, enterprise ERP, team" />
         <meta name="author" content="RioBizSols" />
         
         {/* Open Graph Tags for Social Sharing */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="About RioBizSols | Digital Solutions & Business Transformation Partner" />
-        <meta property="og:description" content="Learn about RioBizSols - your trusted partner for staffing, digital marketing, web/app development, Odoo ERP, and RIO ALM solutions." />
+        <meta property="og:description" content="Learn about RioBizSols - your trusted partner for staffing, digital marketing, web/app development, Odoo ERP, and RIO EAM solutions." />
         <meta property="og:url" content="https://riobizsols.com/about" />
         <meta property="og:image" content="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599892/rio_main_website/rzllor2rlfpunfelj6o0.jpg" />
         <meta property="og:image:alt" content="RioBizSols Team - Digital Business Solutions" />
@@ -27,7 +27,7 @@ const About = () => {
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About RioBizSols | Digital Solutions & Business Transformation Partner" />
-        <meta name="twitter:description" content="Meet the RioBizSols team - experts in staffing, digital marketing, web/app development, Odoo ERP, and RIO ALM." />
+        <meta name="twitter:description" content="Meet the RioBizSols team - experts in staffing, digital marketing, web/app development, Odoo ERP, and RIO EAM." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599892/rio_main_website/rzllor2rlfpunfelj6o0.jpg" />
         
         {/* Canonical Link */}
@@ -40,7 +40,7 @@ const About = () => {
             "@type": "Organization",
             "name": "RioBizSols",
             "url": "https://riobizsols.com",
-            "description": "End-to-end business solutions provider offering staffing, digital marketing, web & app development, Odoo ERP, and RIO ALM.",
+            "description": "End-to-end business solutions provider offering staffing, digital marketing, web & app development, Odoo ERP, and RIO EAM.",
             "image": "https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599892/rio_main_website/rzllor2rlfpunfelj6o0.jpg",
             "sameAs": [
               "https://www.linkedin.com/company/riobizsols",

@@ -1,11 +1,11 @@
-# RIO ALM Pricing Page - Testing Guide
+# RIO EAM Pricing Page - Testing Guide
 
 ## Pre-Launch Testing Checklist
 
 ### ✅ Functional Testing
 
 #### Region Detection & Toggle
-- [ ] **Auto-detect on first load**: Open `/products/rio-alm/pricing` in an incognito/private window
+- [ ] **Auto-detect on first load**: Open `/products/rio-eam/pricing` in an incognito/private window
   - Expected: INR prices shown if visitor appears to be in India; USD if elsewhere
   - If geolocation fails: Should fallback to USD without errors
   
@@ -28,7 +28,7 @@
   - Check: Shows "What's Included" bullets and additional site pricing
 
 #### Buttons & Links
-- [ ] **"Book a Demo" buttons**: All point to `/products/rio-alm/contact`
+- [ ] **"Book a Demo" buttons**: All point to `/products/rio-eam/contact`
 - [ ] **"Get a Proposal" buttons**: All point to email mailto link
   - Test: Click → Opens email client with correct recipient
 - [ ] **"Contact Our Team" link**: Opens mailto link
@@ -250,7 +250,7 @@ Check:
 ### ✅ Integration Testing
 
 #### With App.js
-- [ ] Route `/products/rio-alm/pricing` works
+- [ ] Route `/products/rio-eam/pricing` works
 - [ ] Component imports without errors
 - [ ] Header/Navbar displays
 - [ ] Footer displays
@@ -320,7 +320,7 @@ Check:
 ## Test Scenarios
 
 ### Scenario 1: First-Time Visitor (India)
-1. Visit `/products/rio-alm/pricing` from India
+1. Visit `/products/rio-eam/pricing` from India
 2. INR prices should auto-display
 3. LocalStorage shows `rioAlmRegion: 'inr'`
 4. ✅ Success: User sees India pricing immediately
@@ -360,7 +360,7 @@ Check:
 
 ### Scenario 6: Slow Network (Fast 3G)
 1. Throttle network to "Fast 3G" in DevTools
-2. Load `/products/rio-alm/pricing`
+2. Load `/products/rio-eam/pricing`
 3. Page loads and becomes interactive < 3 seconds
 4. All content eventually visible
 5. ✅ Success: Acceptable performance on slow connection
@@ -393,7 +393,7 @@ Check:
 ## Test Report Template
 
 ```markdown
-# RIO ALM Pricing Page - Test Report
+# RIO EAM Pricing Page - Test Report
 
 **Date:** [Date]
 **Tester:** [Name]

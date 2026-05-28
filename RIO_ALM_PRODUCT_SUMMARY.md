@@ -1,8 +1,8 @@
-# RIO ALM Product Launch - Executive Summary
+# RIO EAM Product Launch - Executive Summary
 
 ## What Was Built
 
-A complete **B2B SaaS-style product website** for **RIO ALM (Asset Lifecycle Management)** has been integrated into your existing React application.
+A complete **B2B SaaS-style product website** for **RIO EAM (Enterprise Asset Managment)** has been integrated into your existing React application.
 
 ---
 
@@ -10,11 +10,11 @@ A complete **B2B SaaS-style product website** for **RIO ALM (Asset Lifecycle Man
 
 | Page | URL |
 |------|-----|
-| **Landing Page** | `/products/rio-alm` |
-| **Features** | `/products/rio-alm/features` |
-| **Industries** | `/products/rio-alm/industries` |
-| **Deployment** | `/products/rio-alm/deployment` |
-| **Contact/Demo** | `/products/rio-alm/contact` |
+| **Landing Page** | `/products/rio-eam` |
+| **Features** | `/products/rio-eam/features` |
+| **Industries** | `/products/rio-eam/industries` |
+| **Deployment** | `/products/rio-eam/deployment` |
+| **Contact/Demo** | `/products/rio-eam/contact` |
 
 **Navigation**: All pages are accessible via the new **Products** dropdown in the main navbar.
 
@@ -47,7 +47,7 @@ A complete **B2B SaaS-style product website** for **RIO ALM (Asset Lifecycle Man
 
 ## Content Coverage
 
-### RIO ALM Core Capabilities Highlighted
+### RIO EAM Core Capabilities Highlighted
 - Centralized Asset Repository
 - Preventive & Breakdown Maintenance Scheduling
 - Work Order Management
@@ -106,7 +106,7 @@ npm start
 ```
 
 ### 2. **View the Pages**
-- Open browser and navigate to: http://localhost:3000/products/rio-alm
+- Open browser and navigate to: http://localhost:3000/products/rio-eam
 - Try all pages from the Products menu in navbar
 - Test on mobile (use browser DevTools)
 
@@ -258,7 +258,7 @@ Success: #4caf50
   icon={<FiPackage />}
   title="Asset Registry"
   description="Centralized tracking of all equipment"
-  link="/products/rio-alm/features"
+  link="/products/rio-eam/features"
 />
 ```
 
@@ -277,7 +277,7 @@ Success: #4caf50
   title="Ready to Get Started?"
   subtitle="Request a demo today"
   ctaText="Schedule Demo"
-  ctaLink="/products/rio-alm/contact"
+  ctaLink="/products/rio-eam/contact"
 />
 ```
 
@@ -305,9 +305,9 @@ Success: #4caf50
 
 ## Conclusion
 
-✅ **Complete Product section for RIO ALM is ready for deployment**
+✅ **Complete Product section for RIO EAM is ready for deployment**
 
-The website now has a professional, enterprise-grade product experience that effectively communicates RIO ALM's value proposition across multiple dimensions (features, industries, deployment options, and clear path to engagement).
+The website now has a professional, enterprise-grade product experience that effectively communicates RIO EAM's value proposition across multiple dimensions (features, industries, deployment options, and clear path to engagement).
 
 All pages are production-ready, mobile-responsive, SEO-optimized, and follow your existing design system.
 

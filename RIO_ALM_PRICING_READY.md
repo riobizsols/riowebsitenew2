@@ -1,8 +1,8 @@
-# ✅ RIO ALM Pricing Page - DELIVERY COMPLETE
+# ✅ RIO EAM Pricing Page - DELIVERY COMPLETE
 
 ## 🎉 Summary: Everything is Ready
 
-You now have a **complete, production-ready pricing page** for RIO ALM with:
+You now have a **complete, production-ready pricing page** for RIO EAM with:
 - ✅ Modern design (gradient hero, smooth animations)
 - ✅ Region-based pricing (India INR vs International USD)
 - ✅ All 9 required sections
@@ -60,14 +60,14 @@ Replace WhatsApp: `+91 88884910777`
 ### 3. Test Locally (2 min)
 ```bash
 npm start
-# Visit: http://localhost:3000/products/rio-alm/pricing
+# Visit: http://localhost:3000/products/rio-eam/pricing
 # Check: Prices show, region toggle works, no errors
 ```
 ✅ Done!
 
 ### 4. Deploy (1 min)
 Push your code and deploy as usual
-Page available at: `/products/rio-alm/pricing`
+Page available at: `/products/rio-eam/pricing`
 ✅ Done!
 
 ---
@@ -263,7 +263,7 @@ Your page is successful when:
 
 ## 📞 Quick Reference
 
-**Page Route:** `/products/rio-alm/pricing`
+**Page Route:** `/products/rio-eam/pricing`
 **Component File:** `src/components/Products/RioALMPricing.js`
 **Style File:** `src/components/Products/RioALMPricing.css`
 **Pricing Config:** Lines 1-60 in RioALMPricing.js
@@ -362,6 +362,6 @@ All guides included in the delivery package.
 
 ---
 
-**Happy pricing! Your RIO ALM pricing page is ready to convert. 🚀**
+**Happy pricing! Your RIO EAM pricing page is ready to convert. 🚀**
 
 Start with Step 1 above and you'll be live in 5 minutes.

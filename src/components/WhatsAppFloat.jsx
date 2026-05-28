@@ -18,7 +18,7 @@ const INITIAL_CHAT_OPTIONS = [
 ];
 
 const SERVICE_PDF_OPTIONS = [
-  { id: 'service_pdf_alm', label: 'Asset Lifecycle Management (ALM)', assetName: 'alm-services-pdf' },
+  { id: 'service_pdf_alm', label: 'Enterprise Asset Managment (EAM)', assetName: 'alm-services-pdf' },
   { id: 'service_pdf_assist', label: 'Assist', assetName: 'assist-services-pdf' },
   { id: 'service_pdf_mems', label: 'MEMS', assetName: 'mems-services-pdf' },
 ];

@@ -5,7 +5,7 @@ import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
 import Home from './components/pages/Home';
 import Footerbottom from './components/Footerbottom';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ScrollToTop from "./ScrollToTop/ScrollToTop";
 import { MainServices } from './components/pages';
 import Contact from './components/pages/Contact';
@@ -220,12 +220,20 @@ function AppContent() {
      <Route path='/blr/our-service/digital-marketing' element={<BlrDigitalMarketing/>}/>
 
         {/* Product Routes */}
-         <Route path='/products/rio-alm' element={<RioALMLanding/>}/>
-         <Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
-         <Route path='/products/rio-alm/features' element={<RioALMFeatures/>}/>
-         <Route path='/products/rio-alm/industries' element={<RioALMIndustries/>}/>
-         <Route path='/products/rio-alm/deployment' element={<RioALMDeployment/>}/>
-         <Route path='/products/rio-alm/contact' element={<RioALMContact/>}/>
+         <Route path='/products/rio-eam' element={<RioALMLanding/>}/>
+         <Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>
+         <Route path='/products/rio-eam/features' element={<RioALMFeatures/>}/>
+         <Route path='/products/rio-eam/industries' element={<RioALMIndustries/>}/>
+         <Route path='/products/rio-eam/deployment' element={<RioALMDeployment/>}/>
+         <Route path='/products/rio-eam/contact' element={<RioALMContact/>}/>
+
+         {/* Legacy RIO ALM URLs - redirected to RIO EAM */}
+         <Route path='/products/rio-alm' element={<Navigate to='/products/rio-eam' replace />}/>
+         <Route path='/products/rio-alm/pricing' element={<Navigate to='/products/rio-eam/pricing' replace />}/>
+         <Route path='/products/rio-alm/features' element={<Navigate to='/products/rio-eam/features' replace />}/>
+         <Route path='/products/rio-alm/industries' element={<Navigate to='/products/rio-eam/industries' replace />}/>
+         <Route path='/products/rio-alm/deployment' element={<Navigate to='/products/rio-eam/deployment' replace />}/>
+         <Route path='/products/rio-alm/contact' element={<Navigate to='/products/rio-eam/contact' replace />}/>
 
          {/* RIO MEMS Product Routes */}
          <Route path='/products/medical-equipment-maintenance' element={<MedicalEquipmentMaintenance/>}/>

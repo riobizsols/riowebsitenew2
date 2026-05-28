@@ -123,8 +123,8 @@ const RioALMIndustries = () => {
   return (
     <>
       <Helmet>
-        <title>RIO ALM by Industry | Sector-Specific Asset Management Solutions</title>
-        <meta name="description" content="Explore how RIO ALM serves healthcare, automotive, manufacturing, hospitality, education, and facilities management with tailored asset lifecycle management solutions." />
+        <title>RIO EAM by Industry | Sector-Specific Asset Management Solutions</title>
+        <meta name="description" content="Explore how RIO EAM serves healthcare, automotive, manufacturing, hospitality, education, and facilities management with tailored enterprise asset managment solutions." />
       </Helmet>
 
       {/* Hero Section */}
@@ -132,7 +132,7 @@ const RioALMIndustries = () => {
         <div className="container">
           <h1 className="hero-title">Industry-Specific Solutions</h1>
           <p className="hero-subtitle">
-            RIO ALM is trusted by organizations across diverse sectors to manage critical assets
+            RIO EAM is trusted by organizations across diverse sectors to manage critical assets
           </p>
         </div>
       </section>
@@ -158,7 +158,7 @@ const RioALMIndustries = () => {
                 </div>
 
                 <div className="industry-section">
-                  <h3 className="section-title section-title-solutions">RIO ALM Solutions</h3>
+                  <h3 className="section-title section-title-solutions">RIO EAM Solutions</h3>
                   <ul className="solutions-list">
                     {industry.solutions.map((solution, i) => (
                       <li key={i}>{solution}</li>
@@ -199,7 +199,7 @@ const RioALMIndustries = () => {
       {/* Why Choose Section */}
       <section className="why-choose-section">
         <div className="container">
-          <h2 className="section-title">Why Industries Trust RIO ALM</h2>
+          <h2 className="section-title">Why Industries Trust RIO EAM</h2>
           <div className="why-choose-grid">
             <div className="why-card">
               <FiCheckCircle className="why-icon" />
@@ -227,7 +227,7 @@ const RioALMIndustries = () => {
 
       {/* CTA */}
       <CTABanner
-        title="See How RIO ALM Works for Your Industry"
+        title="See How RIO EAM Works for Your Industry"
         subtitle="Get a personalized demo tailored to your industry's specific challenges and requirements."
         ctaText="Schedule Industry-Specific Demo"
       />

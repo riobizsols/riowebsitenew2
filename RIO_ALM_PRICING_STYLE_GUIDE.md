@@ -1,4 +1,4 @@
-# 🎨 RIO ALM Pricing Page - Visual & Style Reference
+# 🎨 RIO EAM Pricing Page - Visual & Style Reference
 
 ## Color Palette
 

@@ -1,14 +1,14 @@
-# RIO ALM Product Launch Implementation Guide
+# RIO EAM Product Launch Implementation Guide
 
 ## Overview
 
-A complete **Product section** for **RIO ALM (Asset Lifecycle Management)** has been added to your React-based website. This implementation includes a professional B2B SaaS-style product experience with landing page, features, industries, deployment, and contact sections.
+A complete **Product section** for **RIO EAM (Enterprise Asset Managment)** has been added to your React-based website. This implementation includes a professional B2B SaaS-style product experience with landing page, features, industries, deployment, and contact sections.
 
 ---
 
 ## Directory Structure
 
-All RIO ALM components are located in:
+All RIO EAM components are located in:
 ```
 src/components/Products/
 ├── RioALMLanding.jsx          # Main landing page
@@ -38,11 +38,11 @@ src/components/Products/
 Five new routes have been added to `src/App.js`:
 
 ```javascript
-<Route path='/products/rio-alm' element={<RioALMLanding/>}/>
-<Route path='/products/rio-alm/features' element={<RioALMFeatures/>}/>
-<Route path='/products/rio-alm/industries' element={<RioALMIndustries/>}/>
-<Route path='/products/rio-alm/deployment' element={<RioALMDeployment/>}/>
-<Route path='/products/rio-alm/contact' element={<RioALMContact/>}/>
+<Route path='/products/rio-eam' element={<RioALMLanding/>}/>
+<Route path='/products/rio-eam/features' element={<RioALMFeatures/>}/>
+<Route path='/products/rio-eam/industries' element={<RioALMIndustries/>}/>
+<Route path='/products/rio-eam/deployment' element={<RioALMDeployment/>}/>
+<Route path='/products/rio-eam/contact' element={<RioALMContact/>}/>
 ```
 
 ---
@@ -53,7 +53,7 @@ The **Navbar** (`src/components/Navbar.js`) has been updated with a new **Produc
 
 ```
 Products
-├── RIO ALM (Main landing)
+├── RIO EAM (Main landing)
 ├── Features
 ├── Industries
 └── Deployment
@@ -63,28 +63,28 @@ Products
 
 ## Page Structure & Content
 
-### 1. **RIO ALM Landing Page** (`/products/rio-alm`)
+### 1. **RIO EAM Landing Page** (`/products/rio-eam`)
 - **Hero Section**: Clear value proposition, deployment info, CTAs
 - **Outcomes Section**: 6 outcome tiles (reduce downtime, audit-ready, etc.)
-- **What is RIO ALM**: Overview + asset lifecycle diagram
+- **What is RIO EAM**: Overview + asset lifecycle diagram
 - **Key Modules**: 8 core capability cards
 - **How It Works**: 5-step implementation process
 - **Deployment Options**: On-prem, private cloud, managed hosting
 - **Security & Access Control**: Enterprise security features
 - **Industries Section**: 6 industry cards with use cases
-- **Spreadsheets Comparison**: Why RIO ALM vs spreadsheets table
+- **Spreadsheets Comparison**: Why RIO EAM vs spreadsheets table
 - **FAQ**: 8 common questions about SaaS, deployment, etc.
 - **Final CTA Banner**: "Ready to Transform Your Asset Management?"
 - **Navigation Cards**: Quick links to Features, Industries, Deployment, Contact
 
 **SEO:**
-- Title: "RIO ALM - Asset Lifecycle Management Software"
-- Meta: "RIO ALM is an enterprise asset lifecycle management platform for organizations..."
+- Title: "RIO EAM - Enterprise Asset Managment Software"
+- Meta: "RIO EAM is an enterprise enterprise asset managment platform for organizations..."
 - H1: "Complete Control Over Your Assets"
 
 ---
 
-### 2. **Features Page** (`/products/rio-alm/features`)
+### 2. **Features Page** (`/products/rio-eam/features`)
 - **Hero**: "Comprehensive Feature Set"
 - **Features by Category** (8 groups):
   1. **Asset Management** (4 features)
@@ -98,18 +98,18 @@ Products
   9. **Additional Capabilities** (4 features)
 
 - **Integration Capabilities**: 4 integration cards
-- **Why Choose RIO ALM**: 6 comparison cards
+- **Why Choose RIO EAM**: 6 comparison cards
 - **CTA Banner**
 
 **32+ features across all categories**, each with icon, title, and description.
 
 **SEO:**
-- Title: "RIO ALM Features | Comprehensive Asset Lifecycle Management"
-- Meta: "Explore all features of RIO ALM: asset tracking, maintenance, vendor management..."
+- Title: "RIO EAM Features | Comprehensive Enterprise Asset Managment"
+- Meta: "Explore all features of RIO EAM: asset tracking, maintenance, vendor management..."
 
 ---
 
-### 3. **Industries Page** (`/products/rio-alm/industries`)
+### 3. **Industries Page** (`/products/rio-eam/industries`)
 - **Hero**: "Industry-Specific Solutions"
 - **6 Industry Cards**:
   1. **Healthcare** (Hospitals, Clinics, Diagnostics)
@@ -121,20 +121,20 @@ Products
 
 Each industry card includes:
 - Key challenges (4 bullets)
-- RIO ALM solutions (4 bullets)
+- RIO EAM solutions (4 bullets)
 - Key modules (3-4 tags)
 - Success metrics (4 KPIs)
 
-- **Why Industries Trust RIO ALM**: 4 cards (expertise, deployment, results, support)
+- **Why Industries Trust RIO EAM**: 4 cards (expertise, deployment, results, support)
 - **CTA Banner**
 
 **SEO:**
-- Title: "RIO ALM by Industry | Sector-Specific Asset Management Solutions"
-- Meta: "Explore how RIO ALM serves healthcare, automotive, manufacturing..."
+- Title: "RIO EAM by Industry | Sector-Specific Asset Management Solutions"
+- Meta: "Explore how RIO EAM serves healthcare, automotive, manufacturing..."
 
 ---
 
-### 4. **Deployment Page** (`/products/rio-alm/deployment`)
+### 4. **Deployment Page** (`/products/rio-eam/deployment`)
 - **Hero**: "Flexible Deployment Options"
 - **3 Deployment Options**:
   1. **On-Premises** (full control, no external dependencies)
@@ -149,12 +149,12 @@ Each with benefits and requirements.
 - **CTA Banner**
 
 **SEO:**
-- Title: "RIO ALM Deployment Options | On-Premises, Private Cloud, Managed"
-- Meta: "Choose your RIO ALM deployment: on-premises, private cloud, or managed hosting..."
+- Title: "RIO EAM Deployment Options | On-Premises, Private Cloud, Managed"
+- Meta: "Choose your RIO EAM deployment: on-premises, private cloud, or managed hosting..."
 
 ---
 
-### 5. **Contact Page** (`/products/rio-alm/contact`)
+### 5. **Contact Page** (`/products/rio-eam/contact`)
 - **Hero**: "Get in Touch"
 - **Contact Form** (left column):
   - Name, Email, Phone, Company fields
@@ -176,8 +176,8 @@ Each with benefits and requirements.
   - Implementation timeline
 
 **SEO:**
-- Title: "Contact RIO ALM | Request Demo or Proposal"
-- Meta: "Get in touch with RIO ALM team..."
+- Title: "Contact RIO EAM | Request Demo or Proposal"
+- Meta: "Get in touch with RIO EAM team..."
 
 ---
 
@@ -319,11 +319,11 @@ Each with benefits and requirements.
    ```
 
 3. **Navigate to**:
-   - http://localhost:3000/products/rio-alm (main landing)
-   - http://localhost:3000/products/rio-alm/features (features)
-   - http://localhost:3000/products/rio-alm/industries (industries)
-   - http://localhost:3000/products/rio-alm/deployment (deployment)
-   - http://localhost:3000/products/rio-alm/contact (contact/demo request)
+   - http://localhost:3000/products/rio-eam (main landing)
+   - http://localhost:3000/products/rio-eam/features (features)
+   - http://localhost:3000/products/rio-eam/industries (industries)
+   - http://localhost:3000/products/rio-eam/deployment (deployment)
+   - http://localhost:3000/products/rio-eam/contact (contact/demo request)
 
 4. **Products menu** in navigation bar includes all pages
 
@@ -355,7 +355,7 @@ Create new pages in `src/components/Products/` following the same structure:
 
 ## Next Steps
 
-1. **Add Homepage Teaser**: Create a Products section on homepage with RIO ALM teaser
+1. **Add Homepage Teaser**: Create a Products section on homepage with RIO EAM teaser
 2. **Product Demo Page**: Add live demo environment link
 3. **Case Studies**: Add case studies section with customer testimonials
 4. **Blog Integration**: Link to ALM-related blog posts
@@ -391,4 +391,4 @@ All components are self-contained and can be reused or modified independently.
 
 **Implementation Complete!** 🎉
 
-Your website now has a professional, enterprise-grade Product section for RIO ALM ready for immediate deployment.
+Your website now has a professional, enterprise-grade Product section for RIO EAM ready for immediate deployment.

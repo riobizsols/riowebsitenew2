@@ -1,10 +1,10 @@
-# RIO ALM Pricing Page - Implementation Guide
+# RIO EAM Pricing Page - Implementation Guide
 
 ## Overview
 
-A modern, high-converting pricing page for RIO ALM (Asset Lifecycle Management) with region-based pricing (India INR vs International USD), responsive design, and complete feature transparency.
+A modern, high-converting pricing page for RIO EAM (Enterprise Asset Managment) with region-based pricing (India INR vs International USD), responsive design, and complete feature transparency.
 
-**Live Route:** `/products/rio-alm/pricing`
+**Live Route:** `/products/rio-eam/pricing`
 
 ---
 
@@ -278,9 +278,9 @@ The page includes:
 ```javascript
 // In parent layout or Helmet
 <Helmet>
-  <title>RIO ALM Pricing - Per-Site Licensing | RIO BizSols</title>
-  <meta name="description" content="Transparent, flexible RIO ALM pricing. Per-site licensing with unlimited users and assets. Region-based pricing (India INR, International USD)." />
-  <meta name="keywords" content="RIO ALM pricing, asset lifecycle management, per-site licensing, India, international" />
+  <title>RIO EAM Pricing - Per-Site Licensing | RIO BizSols</title>
+  <meta name="description" content="Transparent, flexible RIO EAM pricing. Per-site licensing with unlimited users and assets. Region-based pricing (India INR, International USD)." />
+  <meta name="keywords" content="RIO EAM pricing, enterprise asset managment, per-site licensing, India, international" />
 </Helmet>
 ```
 
@@ -292,12 +292,12 @@ The page includes:
 ```javascript
 import RioALMPricing from './components/Products/RioALMPricing';
 
-<Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
+<Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>
 ```
 
 ### Link to Pricing Page
 ```javascript
-<a href="/products/rio-alm/pricing">View Pricing</a>
+<a href="/products/rio-eam/pricing">View Pricing</a>
 ```
 
 ### From Navbar
@@ -413,7 +413,7 @@ Ideas for future versions:
 
 1. **Custom Quote Tool** - Users input sites/users, get estimated cost
 2. **Comparison Matrix** - Side-by-side plan comparison table
-3. **ROI Calculator** - Compare RIO ALM vs manual asset management
+3. **ROI Calculator** - Compare RIO EAM vs manual asset management
 4. **Testimonials** - Add customer quotes below TCO section
 5. **Video Demo** - Embed product demo video in pricing cards
 6. **Form Integration** - "Get a Proposal" form with pre-fill
@@ -426,7 +426,7 @@ Ideas for future versions:
 
 - **Primary Contact**: tony.rozario@riobizsols.com
 - **WhatsApp**: +91 88884910777
-- **Product Website**: https://www.riobizsols.com/products/rio-alm
+- **Product Website**: https://www.riobizsols.com/products/rio-eam
 
 ---
 

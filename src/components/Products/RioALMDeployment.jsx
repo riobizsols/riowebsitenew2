@@ -13,8 +13,8 @@ const RioALMDeployment = () => {
   return (
     <>
       <Helmet>
-        <title>RIO ALM Deployment Options | On-Premises, Private Cloud, Managed</title>
-        <meta name="description" content="Choose your RIO ALM deployment: on-premises, private cloud, or managed hosting. Full data ownership and flexibility." />
+        <title>RIO EAM Deployment Options | On-Premises, Private Cloud, Managed</title>
+        <meta name="description" content="Choose your RIO EAM deployment: on-premises, private cloud, or managed hosting. Full data ownership and flexibility." />
       </Helmet>
 
       {/* Hero Section */}
@@ -38,7 +38,7 @@ const RioALMDeployment = () => {
                 <h2 className="option-title">On-Premises</h2>
               </div>
               <p className="option-description">
-                Deploy RIO ALM on your own infrastructure and maintain complete control over your system.
+                Deploy RIO EAM on your own infrastructure and maintain complete control over your system.
               </p>
               <h3 className="benefits-title">Benefits</h3>
               <ul className="benefits-list">
@@ -209,7 +209,7 @@ const RioALMDeployment = () => {
               <div className="security-heading-underline" aria-hidden="true" />
             </div>
             <p className="security-text">
-              <span className="security-text-line">RIO ALM protects your asset and maintenance data with enterprise-grade controls,</span>
+              <span className="security-text-line">RIO EAM protects your asset and maintenance data with enterprise-grade controls,</span>
               <span className="security-text-line">whether you deploy it on-premises, in your own cloud, or via our managed hosting.</span>
             </p>
             <div className="security-bottom-left">

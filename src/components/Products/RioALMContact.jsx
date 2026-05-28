@@ -71,8 +71,8 @@ const RioALMContact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact RIO ALM | Request Demo or Proposal</title>
-        <meta name="description" content="Get in touch with RIO ALM team. Request a demo, get a proposal, or ask questions about our asset lifecycle management platform." />
+        <title>Contact RIO EAM | Request Demo or Proposal</title>
+        <meta name="description" content="Get in touch with RIO EAM team. Request a demo, get a proposal, or ask questions about our enterprise asset managment platform." />
       </Helmet>
 
       {/* Hero Section */}
@@ -245,13 +245,13 @@ const RioALMContact = () => {
               <div className="quick-contact">
                 <h3 className="info-title">Quick Links</h3>
                 <div className="quick-links">
-                  <a href="/products/rio-alm/features" className="quick-link">
+                  <a href="/products/rio-eam/features" className="quick-link">
                     View All Features →
                   </a>
-                  <a href="/products/rio-alm/industries" className="quick-link">
+                  <a href="/products/rio-eam/industries" className="quick-link">
                     Explore Industries →
                   </a>
-                  <a href="/products/rio-alm/deployment" className="quick-link">
+                  <a href="/products/rio-eam/deployment" className="quick-link">
                     Deployment Options →
                   </a>
                 </div>

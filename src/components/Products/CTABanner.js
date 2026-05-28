@@ -1,12 +1,12 @@
 import React from 'react';
 import './CTABanner.css';
 
-// Default: RIO ALM demo request. Override with `contactPath` for other products (e.g. La Law → /contact).
-const DEFAULT_CONTACT_PATH = "/products/rio-alm/contact";
+// Default: RIO EAM demo request. Override with `contactPath` for other products (e.g. La Law → /contact).
+const DEFAULT_CONTACT_PATH = "/products/rio-eam/contact";
 
 const CTABanner = ({
   title = "Ready to Transform Your Asset Management?",
-  subtitle = "Get a personalized demo and discover how RIO ALM can streamline your operations.",
+  subtitle = "Get a personalized demo and discover how RIO EAM can streamline your operations.",
   ctaText = "Request a Demo",
   contactPath = DEFAULT_CONTACT_PATH,
 }) => {

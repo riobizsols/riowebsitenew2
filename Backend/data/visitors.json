@@ -44,7 +44,7 @@
           "timestamp": "2026-05-07T13:42:44.278Z",
           "data": {
             "url": "http://localhost:3000/asset-maintenance-management-software-v2",
-            "title": "Asset Lifecycle Management Software | RIO ALM"
+            "title": "Enterprise Asset Managment Software | RIO EAM"
           }
         }
       ],
@@ -139,5 +139,321 @@
     },
     "lastActivity": "2026-05-13T11:37:09.256Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
+  },
+  {
+    "visitorId": "visitor_1779952059425_mhfdlyeuo",
+    "sessionId": "session_1779952059425_48ae2d0hq",
+    "timestamp": "2026-05-28T07:07:39.753Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:07:39.982Z",
+          "data": {
+            "url": "http://localhost:3000/",
+            "title": "Digital Solutions for Business Growth | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:07:39.762Z",
+    "lastActivity": "2026-05-28T07:07:39.982Z",
+    "createdAt": "2026-05-28T07:07:39.978Z"
+  },
+  {
+    "visitorId": "visitor_1779952059426_8c0hhrxy9",
+    "sessionId": "session_1779952059425_48ae2d0hq",
+    "timestamp": "2026-05-28T07:07:39.993Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:31:46.161Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:46.234Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:55.231Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.224Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.226Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:57.222Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:10:05.580Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:10:05.581Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:10:10.504Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:10:10.505Z",
+          "data": {
+            "url": "http://localhost:3000/products/rio-eam",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 3743,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:07:39.993Z",
+    "lastActivity": "2026-05-28T08:10:10.505Z",
+    "createdAt": "2026-05-28T07:07:40.000Z"
+  },
+  {
+    "visitorId": "visitor_1779952519596_tb1i5uk3c",
+    "sessionId": "session_1779952519596_lkygkbnn5",
+    "timestamp": "2026-05-28T07:15:19.882Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.5.38 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:15:19.901Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
+            "title": "Enterprise Asset Management Software | RIO EAM"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:15:19.896Z",
+    "lastActivity": "2026-05-28T07:15:19.901Z",
+    "createdAt": "2026-05-28T07:15:19.899Z"
+  },
+  {
+    "visitorId": "visitor_1779952519597_dzeuooizc",
+    "sessionId": "session_1779952519596_lkygkbnn5",
+    "timestamp": "2026-05-28T07:15:20.125Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.5.38 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:28:51.017Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:28:51.017Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:46.078Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:54.906Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:47:14.550Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:47:14.550Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.498Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.656Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.657Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:56.035Z",
+          "data": {
+            "url": "http://localhost:3000/products/rio-eam",
+            "title": "RIO EAM - Enterprise Asset Managment Software Solution"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 66,
+      "timeOnSite": 2253,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:15:20.125Z",
+    "lastActivity": "2026-05-28T07:52:56.035Z",
+    "createdAt": "2026-05-28T07:15:20.126Z"
   }
 ]

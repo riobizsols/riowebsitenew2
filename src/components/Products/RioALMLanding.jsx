@@ -90,8 +90,8 @@ const RioALMLanding = () => {
 
   const faqs = [
     {
-      question: "Is RIO ALM cloud-based or on-premises?",
-      answer: "RIO ALM offers flexible deployment options. You can deploy it on-premises for complete data ownership, in a private cloud environment, or opt for a managed hosting solution. Choose the option that best fits your organization's security and infrastructure requirements."
+      question: "Is RIO EAM cloud-based or on-premises?",
+      answer: "RIO EAM offers flexible deployment options. You can deploy it on-premises for complete data ownership, in a private cloud environment, or opt for a managed hosting solution. Choose the option that best fits your organization's security and infrastructure requirements."
     },
     {
       question: "How long does implementation typically take?",
@@ -99,60 +99,60 @@ const RioALMLanding = () => {
     },
     {
       question: "Can you help migrate data from spreadsheets or legacy systems?",
-      answer: "Yes, we provide comprehensive data migration support. Our team helps map existing data, clean and validate records, and import them into RIO ALM with minimal disruption to your operations."
+      answer: "Yes, we provide comprehensive data migration support. Our team helps map existing data, clean and validate records, and import them into RIO EAM with minimal disruption to your operations."
     },
     {
       question: "Is mobile scanning included?",
-      answer: "Yes, RIO ALM includes mobile scanning capabilities with QR code and barcode support. Field teams can update asset status, log maintenance activities, and capture evidence directly from their mobile devices."
+      answer: "Yes, RIO EAM includes mobile scanning capabilities with QR code and barcode support. Field teams can update asset status, log maintenance activities, and capture evidence directly from their mobile devices."
     },
     {
       question: "Can I manage multiple branches in a single deployment?",
-      answer: "Absolutely. RIO ALM is built for multi-location organizations. You can manage assets, workflows, and access controls across multiple branches, departments, and facilities from a single system."
+      answer: "Absolutely. RIO EAM is built for multi-location organizations. You can manage assets, workflows, and access controls across multiple branches, departments, and facilities from a single system."
     },
     {
       question: "How customizable are the workflows?",
-      answer: "RIO ALM offers highly configurable workflows and approval processes. You can set up multi-level approvals, define different rules for asset types, departments, or maintenance categories, without requiring code changes."
+      answer: "RIO EAM offers highly configurable workflows and approval processes. You can set up multi-level approvals, define different rules for asset types, departments, or maintenance categories, without requiring code changes."
     },
     {
       question: "What is the pricing model?",
-      answer: "RIO ALM operates on a one-time implementation and licensing model, not strictly SaaS. Pricing depends on deployment scope, asset volume, and number of users. Optional annual support and maintenance packages are available from year 2 onwards."
+      answer: "RIO EAM operates on a one-time implementation and licensing model, not strictly SaaS. Pricing depends on deployment scope, asset volume, and number of users. Optional annual support and maintenance packages are available from year 2 onwards."
     },
     {
-      question: "Does RIO ALM integrate with other systems like ERP or HMS?",
-      answer: "Yes, RIO ALM offers API-based integration capabilities with ERP systems, HMIS, and other enterprise applications. Integration scope and requirements are discussed during the implementation planning phase."
+      question: "Does RIO EAM integrate with other systems like ERP or HMS?",
+      answer: "Yes, RIO EAM offers API-based integration capabilities with ERP systems, HMIS, and other enterprise applications. Integration scope and requirements are discussed during the implementation planning phase."
     }
   ];
 
   return (
     <div className="rio-alm-overview-page">
       <Helmet>
-        <title>RIO ALM - Enterprise Asset Lifecycle Management Software Solution</title>
-        <meta name="description" content="RIO ALM is an enterprise asset lifecycle management platform providing complete visibility from procurement to maintenance, compliance, and depreciation reporting. Deploy on-premises, cloud, or hybrid." />
-        <meta name="keywords" content="asset management software, ALM, asset lifecycle management, maintenance management, preventive maintenance, compliance management, asset depreciation, work order management" />
+        <title>RIO EAM - Enterprise Asset Managment Software Solution</title>
+        <meta name="description" content="RIO EAM is an enterprise enterprise asset managment platform providing complete visibility from procurement to maintenance, compliance, and depreciation reporting. Deploy on-premises, cloud, or hybrid." />
+        <meta name="keywords" content="asset management software, EAM, enterprise asset managment, maintenance management, preventive maintenance, compliance management, asset depreciation, work order management" />
         <meta name="author" content="RioBizSols" />
         
         {/* Open Graph Tags for Social Sharing */}
         <meta property="og:type" content="product" />
-        <meta property="og:title" content="RIO ALM - Enterprise Asset Lifecycle Management Software" />
+        <meta property="og:title" content="RIO EAM - Enterprise Asset Managment Software" />
         <meta property="og:description" content="Complete visibility and control over asset lifecycle from procurement to compliance to depreciation reporting. On-premises, cloud, or managed hosting." />
-        <meta property="og:url" content="https://riobizsols.com/products/rio-alm" />
+        <meta property="og:url" content="https://riobizsols.com/products/rio-eam" />
         <meta property="og:site_name" content="RioBizSols" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="RIO ALM - Enterprise Asset Lifecycle Management" />
+        <meta name="twitter:title" content="RIO EAM - Enterprise Asset Managment" />
         <meta name="twitter:description" content="End-to-end asset management with maintenance scheduling, compliance, and depreciation reporting." />
         
         {/* Canonical Link */}
-        <link rel="canonical" href="https://riobizsols.com/products/rio-alm" />
+        <link rel="canonical" href="https://riobizsols.com/products/rio-eam" />
         
         {/* Schema.org Product & SoftwareApplication Markup */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["Product", "SoftwareApplication"],
-            "name": "RIO ALM",
-            "description": "Enterprise Asset Lifecycle Management Platform",
+            "name": "RIO EAM",
+            "description": "Enterprise Asset Managment Platform",
             "manufacturer": {
               "@type": "Organization",
               "name": "RioBizSols",
@@ -186,17 +186,17 @@ const RioALMLanding = () => {
           <div className="hero-content">
             <h1 className="hero-title">Complete Control Over Your Assets</h1>
             <p className="hero-subtitle">
-              RIO ALM gives you end-to-end visibility and control over asset lifecycle—from procurement 
+              RIO EAM gives you end-to-end visibility and control over asset lifecycle—from procurement 
               and maintenance to compliance and depreciation reporting.
             </p>
             <p className="hero-subtext">
               On-premises, private cloud, or managed hosting. Highly configurable workflows. Your data, your control.
             </p>
             <div className="hero-ctas">
-              <Link to="/products/rio-alm/contact" className="btn btn-primary">
+              <Link to="/products/rio-eam/contact" className="btn btn-primary">
                 Request a Demo
               </Link>
-              <Link to="/products/rio-alm/features" className="btn btn-secondary">
+              <Link to="/products/rio-eam/features" className="btn btn-secondary">
                 Explore Features
               </Link>
             </div>
@@ -206,7 +206,7 @@ const RioALMLanding = () => {
               <div className="placeholder-header">Dashboard Preview</div>
               <img
                 src={RioAlmDashboard}
-                alt="RIO ALM dashboard preview"
+                alt="RIO EAM dashboard preview"
                 className="hero-dashboard-image"
               />
             </div>
@@ -217,7 +217,7 @@ const RioALMLanding = () => {
       {/* Outcomes Section */}
       <section className="alm-outcomes">
         <div className="container">
-          <h2 className="section-title">Why Organizations Choose RIO ALM</h2>
+          <h2 className="section-title">Why Organizations Choose RIO EAM</h2>
           <p className="section-subtitle">
             Measurable outcomes that impact your bottom line
           </p>
@@ -233,18 +233,18 @@ const RioALMLanding = () => {
         </div>
       </section>
 
-      {/* What is RIO ALM */}
+      {/* What is RIO EAM */}
       <section className="alm-overview">
         <div className="container">
           <div className="overview-content">
-            <h2 className="section-title">What is RIO ALM?</h2>
+            <h2 className="section-title">What is RIO EAM?</h2>
             <p className="section-text">
-              RIO ALM is an enterprise Asset Lifecycle Management platform designed for organizations 
+              RIO EAM is an enterprise Enterprise Asset Managment platform designed for organizations 
               that need comprehensive control over physical assets—from procurement through retirement.
             </p>
             <p className="section-text">
               Whether managing biomedical equipment in hospitals, service equipment in dealerships, 
-              machinery in manufacturing plants, or facilities in educational institutions, RIO ALM 
+              machinery in manufacturing plants, or facilities in educational institutions, RIO EAM 
               provides the visibility, control, and compliance readiness your organization needs.
             </p>
             
@@ -316,7 +316,7 @@ const RioALMLanding = () => {
             <div className="step-item">
               <div className="step-circle">2</div>
               <h3>Configuration & Setup</h3>
-              <p>Configure RIO ALM workflows, approval rules, and access controls tailored to your organization.</p>
+              <p>Configure RIO EAM workflows, approval rules, and access controls tailored to your organization.</p>
             </div>
             <div className="step-divider"></div>
             <div className="step-item">
@@ -351,7 +351,7 @@ const RioALMLanding = () => {
             <div className="deployment-card">
               <h3 className="deployment-title">On-Premises</h3>
               <p className="deployment-description">
-                Deploy RIO ALM on your own infrastructure. Maintain complete control and data ownership. 
+                Deploy RIO EAM on your own infrastructure. Maintain complete control and data ownership. 
                 Ideal for organizations with strict data residency requirements or existing IT infrastructure.
               </p>
               <ul className="deployment-benefits">
@@ -433,7 +433,7 @@ const RioALMLanding = () => {
         <div className="container">
           <h2 className="section-title">Industries We Serve</h2>
           <p className="section-subtitle">
-            RIO ALM is trusted by organizations across diverse sectors
+            RIO EAM is trusted by organizations across diverse sectors
           </p>
           <div className="industries-grid">
             <div className="industry-card">
@@ -505,13 +505,13 @@ const RioALMLanding = () => {
         <div className="container">
           <h2 className="section-title">Why Not Just Use Spreadsheets?</h2>
           <p className="section-subtitle">
-            Spreadsheets create operational risk. RIO ALM provides enterprise control.
+            Spreadsheets create operational risk. RIO EAM provides enterprise control.
           </p>
           <div className="comparison-table">
             <div className="comparison-header">
               <div className="comparison-col">Capability</div>
               <div className="comparison-col">Spreadsheets</div>
-              <div className="comparison-col">RIO ALM</div>
+              <div className="comparison-col">RIO EAM</div>
             </div>
             <div className="comparison-row">
               <div className="comparison-col"><strong>Data Validation</strong></div>
@@ -568,36 +568,36 @@ const RioALMLanding = () => {
       {/* Final CTA */}
       <CTABanner 
         title="Ready to Transform Your Asset Management?"
-        subtitle="Get a personalized demo and see how RIO ALM can streamline your operations, reduce downtime, and ensure compliance."
+        subtitle="Get a personalized demo and see how RIO EAM can streamline your operations, reduce downtime, and ensure compliance."
         ctaText="Schedule Your Demo"
       />
 
       {/* Blog Section */}
       <section className="alm-blog-section">
         <div className="container">
-          <h2 className="section-title">Learn More: RIO ALM Insights & Best Practices</h2>
+          <h2 className="section-title">Learn More: RIO EAM Insights & Best Practices</h2>
           <p className="section-subtitle" style={{ marginBottom: '40px', textAlign: 'center' }}>
             Explore industry insights, implementation guides, and asset management best practices
           </p>
           <div className="blog-cards">
             <Link to="/blog/3" className="blog-card-link">
               <div className="blog-card-small">
-                <h4>Transform Your Asset Lifecycle Management</h4>
-                <p>Discover how RIO ALM reduces downtime, ensures compliance, and optimizes asset operations</p>
+                <h4>Transform Your Enterprise Asset Managment</h4>
+                <p>Discover how RIO EAM reduces downtime, ensures compliance, and optimizes asset operations</p>
                 <span className="read-more">Read Article →</span>
               </div>
             </Link>
             <Link to="/blog/4" className="blog-card-link">
               <div className="blog-card-small">
                 <h4>Five Key Benefits of Enterprise Asset Management</h4>
-                <p>Understand the measurable business value of comprehensive asset lifecycle management solutions</p>
+                <p>Understand the measurable business value of comprehensive enterprise asset managment solutions</p>
                 <span className="read-more">Read Article →</span>
               </div>
             </Link>
             <Link to="/blog/5" className="blog-card-link">
               <div className="blog-card-small">
                 <h4>Ensuring Compliance and Audit Readiness</h4>
-                <p>Learn how RIO ALM maintains audit trails and compliance documentation automatically</p>
+                <p>Learn how RIO EAM maintains audit trails and compliance documentation automatically</p>
                 <span className="read-more">Read Article →</span>
               </div>
             </Link>
@@ -614,25 +614,25 @@ const RioALMLanding = () => {
       <section className="alm-nav-section">
         <div className="container">
           <h3 className="section-subtitle" style={{ marginBottom: '40px', textAlign: 'center' }}>
-            Explore More About RIO ALM
+            Explore More About RIO EAM
           </h3>
           <div className="nav-links">
-            <Link to="/products/rio-alm/features" className="nav-link-card">
+            <Link to="/products/rio-eam/features" className="nav-link-card">
               <h4>Features</h4>
               <p>Detailed breakdown of all capabilities</p>
               <span>→</span>
             </Link>
-            <Link to="/products/rio-alm/industries" className="nav-link-card">
+            <Link to="/products/rio-eam/industries" className="nav-link-card">
               <h4>Industries</h4>
-              <p>How RIO ALM serves your sector</p>
+              <p>How RIO EAM serves your sector</p>
               <span>→</span>
             </Link>
-            <Link to="/products/rio-alm/deployment" className="nav-link-card">
+            <Link to="/products/rio-eam/deployment" className="nav-link-card">
               <h4>Deployment</h4>
               <p>Hosting and implementation options</p>
               <span>→</span>
             </Link>
-            <Link to="/products/rio-alm/contact" className="nav-link-card">
+            <Link to="/products/rio-eam/contact" className="nav-link-card">
               <h4>Contact Us</h4>
               <p>Request a demo or proposal</p>
               <span>→</span>

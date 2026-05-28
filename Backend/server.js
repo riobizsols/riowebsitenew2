@@ -643,7 +643,7 @@ app.post('/api/pricing-request', async (req, res) => {
       replyTo: email2,
       subject: `Pricing Request - ${company2}`,
       text:
-        `New pricing request from RIO ALM landing page\n\n` +
+        `New pricing request from RIO EAM landing page\n\n` +
         `Full Name: ${fullName2}\n` +
         `Company Name: ${company2}\n` +
         `Work Email: ${email2}\n` +
@@ -662,7 +662,7 @@ app.post('/api/pricing-request', async (req, res) => {
         `utm_term: ${utm_term || '-'}\n` +
         `utm_content: ${utm_content || '-'}\n`,
       html:
-        `<h3>New pricing request from RIO ALM landing page</h3>` +
+        `<h3>New pricing request from RIO EAM landing page</h3>` +
         `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
         `<tr><td><strong>Full Name</strong></td><td>${String(fullName2)}</td></tr>` +
         `<tr><td><strong>Company Name</strong></td><td>${String(company2)}</td></tr>` +
@@ -1203,7 +1203,7 @@ const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || p
 if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
   app.use(express.static(buildPath));
 
-  // SEO/Ads-crawler ready prerender for the RIO ALM landing page.
+  // SEO/Ads-crawler ready prerender for the RIO EAM landing page.
   // Returns fully-rendered HTML (H1, content, FAQs, schema, OG tags) so
   // Google AdsBot, Microsoft Ads crawler, PageSpeed and similar tools can
   // parse the page without executing JavaScript. The React bundle still

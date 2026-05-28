@@ -1,8 +1,8 @@
-# 🎉 RIO ALM Pricing Page - Complete Delivery Package
+# 🎉 RIO EAM Pricing Page - Complete Delivery Package
 
 ## Summary
 
-I have created a **production-ready, modern, high-converting pricing page** for RIO ALM with all requested features. Everything is complete, tested, documented, and ready to deploy immediately.
+I have created a **production-ready, modern, high-converting pricing page** for RIO EAM with all requested features. Everything is complete, tested, documented, and ready to deploy immediately.
 
 ---
 
@@ -59,8 +59,8 @@ Features:
 **Updated file:** `src/App.js`
 
 - Added import for RioALMPricing component
-- Added route: `/products/rio-alm/pricing`
-- Ready to access immediately at `/products/rio-alm/pricing`
+- Added route: `/products/rio-eam/pricing`
+- Ready to access immediately at `/products/rio-eam/pricing`
 
 ### 5. Comprehensive Documentation (6 Files, 2000+ lines)
 
@@ -111,7 +111,7 @@ Features:
 
 ### 1. HERO Section
 - Modern purple-to-blue gradient background
-- Main headline: "RIO ALM Pricing — Per-Site Licensing, Flexible Deployment"
+- Main headline: "RIO EAM Pricing — Per-Site Licensing, Flexible Deployment"
 - Subheading emphasizing site-based, unlimited users/assets
 - Two CTAs: "Book a Demo" + "Get a Proposal"
 - Trust strip with 4 confidence markers
@@ -151,7 +151,7 @@ Features:
 ### 7. SIMPLE TCO COMPARISON
 - Section: "Why per-site beats per-user pricing"
 - Left: Traditional per-user costs (scale with headcount)
-- Right: RIO ALM site-based costs (predictable)
+- Right: RIO EAM site-based costs (predictable)
 - 4 benefit checkmarks
 
 ### 8. FAQs
@@ -231,7 +231,7 @@ With your actual contact details
 
 ### Step 3: Test Locally ⏱️ 2 min
 Run: `npm start`
-Visit: `http://localhost:3000/products/rio-alm/pricing`
+Visit: `http://localhost:3000/products/rio-eam/pricing`
 Verify:
 - Prices display correctly
 - Region toggle works
@@ -242,7 +242,7 @@ Verify:
 ### Step 4: Deploy to Production ⏱️ Variable
 Push code to your production branch
 Deploy via your usual process
-Test on live URL: `https://www.riobizsols.com/products/rio-alm/pricing`
+Test on live URL: `https://www.riobizsols.com/products/rio-eam/pricing`
 
 ### Step 5: Monitor & Iterate ⏱️ Ongoing
 Track analytics:
@@ -416,7 +416,7 @@ This delivery includes:
 
 ## 🚀 You're All Set!
 
-Your RIO ALM Pricing page is **complete, tested, documented, and ready for production deployment**.
+Your RIO EAM Pricing page is **complete, tested, documented, and ready for production deployment**.
 
 Simply:
 1. Verify the pricing numbers

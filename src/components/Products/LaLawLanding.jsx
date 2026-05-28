@@ -691,7 +691,7 @@ const LaLawLanding = () => {
           <div className="blog-cards">
             <Link to="/blog/3" className="blog-card-link">
               <div className="blog-card-small">
-                <h4>Transform Your Asset Lifecycle Management</h4>
+                <h4>Transform Your Enterprise Asset Managment</h4>
                 <p>Disciplined processes, fewer surprises, and clearer accountability across the enterprise</p>
                 <span className="read-more">Read Article →</span>
               </div>

@@ -126,22 +126,22 @@ function Services() {
 
               </div>
               <div className="col-lg-4 col-md-6">
-                {/* MODIFIED: Replaced ERP Software with RIO ALM Product (2026-01-18) */}
+                {/* MODIFIED: Replaced ERP Software with RIO EAM Product (2026-01-18) */}
               <div className='card'>
-              <Link to='/products/rio-alm' style={{textDecoration:'none', color:'White'}}>
+              <Link to='/products/rio-eam' style={{textDecoration:'none', color:'White'}}>
 
-              <LazyImage src={ALM} alt="RIO ALM" width={300} height={300}/></Link>
+              <LazyImage src={ALM} alt="RIO EAM" width={300} height={300}/></Link>
                 <div className='info'>
-                <Link to='/products/rio-alm' style={{textDecoration:'none', color:'White'}}>
+                <Link to='/products/rio-eam' style={{textDecoration:'none', color:'White'}}>
 
                     <h1 className='title_head'>
-                    RIO ALM
+                    RIO EAM
                     </h1></Link>
-                    <p className='descrip_para'>Asset Lifecycle Management solution designed for enterprises. 
-                      Track, manage, and optimize your assets throughout their entire lifecycle with RIO ALM's 
+                    <p className='descrip_para'>Enterprise Asset Managment solution designed for enterprises. 
+                      Track, manage, and optimize your assets throughout their entire lifecycle with RIO EAM's 
                       comprehensive platform for maintenance, depreciation, and compliance.</p>
                       <Divider style={{ background: 'white', width:'95%', margin: '10px auto'}}/>
-                      <Link to='/products/rio-alm' style={{textDecoration:'none', color:'White'}}>
+                      <Link to='/products/rio-eam' style={{textDecoration:'none', color:'White'}}>
 
                       <h4 className='title_head1'>To Known More</h4></Link>
                 </div>

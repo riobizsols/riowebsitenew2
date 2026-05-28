@@ -1,4 +1,4 @@
-# RIO ALM Pricing Page - Quick Reference
+# RIO EAM Pricing Page - Quick Reference
 
 ## 🚀 Get Started in 5 Minutes
 
@@ -42,7 +42,7 @@ const PRICING_CONFIG = {
 ### 2. Access the Page
 
 ```
-URL: /products/rio-alm/pricing
+URL: /products/rio-eam/pricing
 ```
 
 Already integrated in App.js routes.
@@ -51,7 +51,7 @@ Already integrated in App.js routes.
 
 ### 3. Test It
 
-- [ ] Visit `/products/rio-alm/pricing`
+- [ ] Visit `/products/rio-eam/pricing`
 - [ ] Verify prices display correctly
 - [ ] Toggle region (India ↔ International)
 - [ ] Click "Plan Details" to expand
@@ -151,7 +151,7 @@ Find this section in the render method:
   },
   {
     q: "Does pricing include unlimited users and assets?",
-    a: "Yes! Every RIO ALM license includes unlimited users..."
+    a: "Yes! Every RIO EAM license includes unlimited users..."
   },
   // Add more FAQs here
 ].map((faq, idx) => (
@@ -258,12 +258,12 @@ Already added to App.js:
 ```javascript
 import RioALMPricing from './components/Products/RioALMPricing';
 
-<Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
+<Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>
 ```
 
 Just add link in navigation:
 ```javascript
-<a href="/products/rio-alm/pricing">RIO ALM Pricing</a>
+<a href="/products/rio-eam/pricing">RIO EAM Pricing</a>
 ```
 
 ---

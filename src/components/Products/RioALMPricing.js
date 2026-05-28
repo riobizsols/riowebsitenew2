@@ -229,7 +229,7 @@ const DEPLOYMENT_OPTIONS = [
 ];
 
 // ============================================================================
-// RIO ALM PRICING COMPONENT
+// RIO EAM PRICING COMPONENT
 // ============================================================================
 export default function RioALMPricing() {
   const [region, setRegion] = useState(null);
@@ -283,14 +283,14 @@ export default function RioALMPricing() {
           <div className="pricing-hero-container">
             <div className="pricing-hero-left">
               <h1 className="pricing-hero-title">
-                RIO ALM Pricing<br />
+                RIO EAM Pricing<br />
                 <span className="subtitle-small">Per-Site Licensing, Flexible Deployment</span>
               </h1>
               <div className="pricing-hero-ctas">
-                <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
+                <Link to="/products/rio-eam/contact" className="btn btn-primary-large">
                   Book a Demo
                 </Link>
-                <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
+                <Link to="/products/rio-eam/contact" className="btn btn-secondary-large">
                   Get a Proposal
                 </Link>
               </div>
@@ -376,10 +376,10 @@ export default function RioALMPricing() {
                 </div>
 
                 <div className="card-ctas">
-                  <Link to="/products/rio-alm/contact" className="btn btn-primary">
+                  <Link to="/products/rio-eam/contact" className="btn btn-primary">
                     Book Demo
                   </Link>
-                  <Link to="/products/rio-alm/contact" className="btn btn-outline">
+                  <Link to="/products/rio-eam/contact" className="btn btn-outline">
                     Get Proposal
                   </Link>
                 </div>
@@ -435,7 +435,7 @@ export default function RioALMPricing() {
           <div className="whats-heading-row">
             <h2 className="section-title">What's Included in All Plans</h2>
             <p className="section-subtitle">
-              Every RIO ALM license includes unlimited users, unlimited assets, and all core features.
+              Every RIO EAM license includes unlimited users, unlimited assets, and all core features.
             </p>
           </div>
 
@@ -608,7 +608,7 @@ export default function RioALMPricing() {
             </div>
 
             <div className="tco-right">
-              <h3 style={{ color: '#2563eb' }}>RIO ALM Site-Based Pricing</h3>
+              <h3 style={{ color: '#2563eb' }}>RIO EAM Site-Based Pricing</h3>
               <p>
                 One flat price per site, regardless of team size. Unlimited users, unlimited assets—your costs stay predictable as you scale.
               </p>
@@ -620,7 +620,7 @@ export default function RioALMPricing() {
           </div>
 
           <div className="tco-benefit">
-            <h4>The RIO ALM Advantage</h4>
+            <h4>The RIO EAM Advantage</h4>
             <ul>
               <li><FaCheckCircle /> <strong>Predictable costs:</strong> No surprises as your team grows</li>
               <li><FaCheckCircle /> <strong>Unlimited collaboration:</strong> All users included, no seat limits</li>
@@ -644,11 +644,11 @@ export default function RioALMPricing() {
               },
               {
                 q: "Does pricing include unlimited users and assets?",
-                a: "Yes! Every RIO ALM license includes unlimited users, unlimited assets, and unlimited work orders. No per-user or per-asset surcharges."
+                a: "Yes! Every RIO EAM license includes unlimited users, unlimited assets, and unlimited work orders. No per-user or per-asset surcharges."
               },
               {
                 q: "Can we host on our own server or private cloud?",
-                a: "Absolutely. RIO ALM supports on-premise deployment (your server/VM) and private cloud (AWS, Azure, GCP in your account). We provide implementation and support; you maintain control."
+                a: "Absolutely. RIO EAM supports on-premise deployment (your server/VM) and private cloud (AWS, Azure, GCP in your account). We provide implementation and support; you maintain control."
               },
               {
                 q: "What is AMC and what does it cover?",
@@ -676,7 +676,7 @@ export default function RioALMPricing() {
               },
               {
                 q: "Do you offer a free trial or demo?",
-                a: "Yes! Book a personalized demo to see RIO ALM in action. We'll walk you through features, answer questions, and discuss your specific use case."
+                a: "Yes! Book a personalized demo to see RIO EAM in action. We'll walk you through features, answer questions, and discuss your specific use case."
               }
             ].map((faq, idx) => (
               <div key={idx} className="faq-item">
@@ -710,14 +710,14 @@ export default function RioALMPricing() {
           </h2>
 
           <p className="cta-subline">
-            Start your RIO ALM journey today. Quick demos, flexible deployment, predictable pricing.
+            Start your RIO EAM journey today. Quick demos, flexible deployment, predictable pricing.
           </p>
 
           <div className="final-ctas">
-            <Link to="/products/rio-alm/contact" className="btn btn-primary-large">
+            <Link to="/products/rio-eam/contact" className="btn btn-primary-large">
               Book a Demo
             </Link>
-            <Link to="/products/rio-alm/contact" className="btn btn-secondary-large">
+            <Link to="/products/rio-eam/contact" className="btn btn-secondary-large">
               Get a Proposal
             </Link>
           </div>

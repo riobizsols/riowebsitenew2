@@ -10,17 +10,17 @@ const getDismissKey = (variantKey) => `${DISMISS_KEY}_${variantKey}`;
 const contentVariants = [
   {
     key: 'rio_alm',
-    match: (path) => path.startsWith('/products/rio-alm'),
-    badge: 'Rio ALM',
-    title: 'Talk to an ALM specialist',
+    match: (path) => path.startsWith('/products/rio-eam'),
+    badge: 'Rio EAM',
+    title: 'Talk to an EAM specialist',
     body: 'We will map your approval flows, SLAs, and integrations into a live demo.',
     bullets: [
       'Process walkthrough tailored to your industry',
       'Integration plan for your stack',
       'Migration and rollout options'
     ],
-    primaryLabel: 'Schedule ALM consult',
-    primaryHref: '/products/rio-alm/contact'
+    primaryLabel: 'Schedule EAM consult',
+    primaryHref: '/products/rio-eam/contact'
   },
   {
     key: 'staffing',

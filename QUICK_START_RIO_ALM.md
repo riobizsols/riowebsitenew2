@@ -1,8 +1,8 @@
-# 🚀 RIO ALM Quick Start Guide
+# 🚀 RIO EAM Quick Start Guide
 
 ## What Was Just Built
 
-A complete **enterprise-grade Product section** for **RIO ALM (Asset Lifecycle Management)** with:
+A complete **enterprise-grade Product section** for **RIO EAM (Enterprise Asset Managment)** with:
 - ✅ 5 professional pages
 - ✅ 32+ documented features
 - ✅ 6 industry-specific solutions
@@ -19,24 +19,24 @@ A complete **enterprise-grade Product section** for **RIO ALM (Asset Lifecycle M
 
 ```
 🏠 Landing Page
-   http://localhost:3000/products/rio-alm
+   http://localhost:3000/products/rio-eam
 
 ⚙️ Features
-   http://localhost:3000/products/rio-alm/features
+   http://localhost:3000/products/rio-eam/features
 
 🏢 Industries
-   http://localhost:3000/products/rio-alm/industries
+   http://localhost:3000/products/rio-eam/industries
 
 🖥️ Deployment
-   http://localhost:3000/products/rio-alm/deployment
+   http://localhost:3000/products/rio-eam/deployment
 
 📞 Contact/Demo
-   http://localhost:3000/products/rio-alm/contact
+   http://localhost:3000/products/rio-eam/contact
 ```
 
 ### Or Use the Navigation Menu
 
-Look for **"Products"** dropdown in the main navbar → **"RIO ALM"**
+Look for **"Products"** dropdown in the main navbar → **"RIO EAM"**
 
 ---
 
@@ -77,7 +77,7 @@ Sector-specific solutions for:
 
 Each with:
 - Key challenges
-- RIO ALM solutions
+- RIO EAM solutions
 - Key modules
 - Success metrics (KPIs)
 
@@ -213,7 +213,7 @@ Before going live:
 ### Local Testing
 ```bash
 npm start
-# Visit http://localhost:3000/products/rio-alm
+# Visit http://localhost:3000/products/rio-eam
 ```
 
 ### Production Build
@@ -281,11 +281,11 @@ Same process as your existing deployment
 |----------|----------|
 | Implementation Guide | `RIO_ALM_IMPLEMENTATION_GUIDE.md` |
 | Executive Summary | `RIO_ALM_PRODUCT_SUMMARY.md` |
-| Main Landing Page | `/products/rio-alm` |
-| Features Details | `/products/rio-alm/features` |
-| Industry Solutions | `/products/rio-alm/industries` |
-| Deployment Info | `/products/rio-alm/deployment` |
-| Contact/Demo Form | `/products/rio-alm/contact` |
+| Main Landing Page | `/products/rio-eam` |
+| Features Details | `/products/rio-eam/features` |
+| Industry Solutions | `/products/rio-eam/industries` |
+| Deployment Info | `/products/rio-eam/deployment` |
+| Contact/Demo Form | `/products/rio-eam/contact` |
 
 ---
 
@@ -336,7 +336,7 @@ Refer to individual file comments for specific questions.
 
 ## 🎉 Summary
 
-**You now have a complete, professional, enterprise-grade Product section for RIO ALM!**
+**You now have a complete, professional, enterprise-grade Product section for RIO EAM!**
 
 Everything is:
 - ✅ Production-ready
