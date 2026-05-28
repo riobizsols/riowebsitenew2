@@ -16,7 +16,11 @@ export default function CtaStrip({ onBookDemo }) {
             <button className="v2-btn-primary v2-btn-light-on-dark" type="button" onClick={onBookDemo}>
               Book a Demo
             </button>
-            <button className="v2-btn-outline-white" type="button">
+            <button
+              className="v2-btn-outline-white"
+              type="button"
+              onClick={() => window.open("https://riobizsols.com/contact", "_blank", "noopener,noreferrer")}
+            >
               Talk to Us
             </button>
           </div>

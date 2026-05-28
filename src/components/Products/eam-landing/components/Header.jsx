@@ -38,17 +38,21 @@ export default function Header({ onBookDemo, onRequestPricing }) {
             className="v2-btn-header v2-btn-header--primary"
             type="button"
             onClick={onBookDemo}
+            aria-label="Book a 20-minute Demo"
+            title="Book a 20-minute Demo"
           >
             <CalendarIcon />
-            Book a 20-minute Demo
+            <span className="v2-btn-header-label">Book a 20-minute Demo</span>
           </button>
           <button
             className="v2-btn-header v2-btn-header--outline"
             type="button"
             onClick={onRequestPricing}
+            aria-label="Get Pricing"
+            title="Get Pricing"
           >
             <TagIcon />
-            Get Pricing
+            <span className="v2-btn-header-label">Get Pricing</span>
           </button>
           <WhatsAppButton iconOnly className="v2-topbar-wa" source="header" />
         </div>
