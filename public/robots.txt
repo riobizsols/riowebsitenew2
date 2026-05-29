@@ -1,14 +1,18 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
 
-# Google Search Console verification
 User-agent: Googlebot
-Disallow:
+Allow: /
 
-# Bing Verification
+User-agent: AdsBot-Google
+Allow: /
+
 User-agent: Bingbot
-Disallow:
+Allow: /
+
+User-agent: msnbot
+Allow: /
 
 # Sitemap
 Sitemap: https://riobizsols.com/sitemap.xml

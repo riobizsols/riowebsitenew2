@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.181b9b55.css",
-    "main.js": "/static/js/main.71728ca3.js",
+    "main.css": "/static/css/main.3ffcbd52.css",
+    "main.js": "/static/js/main.0f9cbecf.js",
     "static/media/lateimg3.gif": "/static/media/lateimg3.e254fded673c7461154e.gif",
     "static/media/lateimg5.gif": "/static/media/lateimg5.b5e824390a3be06baaec.gif",
     "static/media/mems compliance.png": "/static/media/mems compliance.008d5d0fe98844777bc7.png",
+    "static/media/login_background.png": "/static/media/login_background.615181087f75bfadb909.png",
     "static/media/logo.png": "/static/media/logo.ae41fc1ba21a666a2a6f.png",
     "static/media/riologo.png": "/static/media/riologo.ae41fc1ba21a666a2a6f.png",
     "static/media/enterprise-security.png": "/static/media/enterprise-security.144f56f2786f7d045d83.png",
@@ -216,11 +217,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.181b9b55.css.map": "/static/css/main.181b9b55.css.map",
-    "main.71728ca3.js.map": "/static/js/main.71728ca3.js.map"
+    "main.3ffcbd52.css.map": "/static/css/main.3ffcbd52.css.map",
+    "main.0f9cbecf.js.map": "/static/js/main.0f9cbecf.js.map"
   },
   "entrypoints": [
-    "static/css/main.181b9b55.css",
-    "static/js/main.71728ca3.js"
+    "static/css/main.3ffcbd52.css",
+    "static/js/main.0f9cbecf.js"
   ]
 }
