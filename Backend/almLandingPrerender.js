@@ -109,13 +109,25 @@ function escapeHtml(str = '') {
     .replace(/'/g, '&#39;');
 }
 
-function buildSeoHead({ pageUrl = DEFAULT_PAGE_URL, title = PAGE_TITLE, description = PAGE_DESCRIPTION, ogTitle = OG_TITLE, ogDescription = OG_DESCRIPTION } = {}) {
+function buildSeoHead({
+  pageUrl = DEFAULT_PAGE_URL,
+  title = PAGE_TITLE,
+  description = PAGE_DESCRIPTION,
+  ogTitle = OG_TITLE,
+  ogDescription = OG_DESCRIPTION,
+  preloadLcpImage = '',
+} = {}) {
+  const preloadLink = preloadLcpImage
+    ? `<link rel="preload" as="image" href="${escapeHtml(preloadLcpImage)}" fetchpriority="high" />`
+    : '';
+
   return [
     `<title>${escapeHtml(title)}</title>`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
     `<meta name="keywords" content="asset management software, asset maintenance software, CMMS software, EAM software, preventive maintenance software, planned preventive maintenance software, equipment maintenance software, enterprise asset managment software, maintenance tracking software, work order management software, calibration management software" />`,
     `<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />`,
     `<link rel="canonical" href="${pageUrl}" />`,
+    preloadLink,
     `<meta property="og:title" content="${escapeHtml(ogTitle)}" />`,
     `<meta property="og:description" content="${escapeHtml(ogDescription)}" />`,
     `<meta property="og:type" content="website" />`,
@@ -325,6 +337,7 @@ function renderAlmLandingHtml(buildPath, options = {}) {
     description: isV2 ? PAGE_DESCRIPTION_V2 : PAGE_DESCRIPTION,
     ogTitle: isV2 ? 'RIO EAM - Enterprise Asset Managment Software' : OG_TITLE,
     ogDescription: isV2 ? OG_DESCRIPTION_V2 : OG_DESCRIPTION,
+    preloadLcpImage: isV2 ? `${SITE_BASE_URL}/alm-dashboard-user.png` : '',
   });
   const prerenderedBody = buildPrerenderedBody();
   const prerenderStyles = buildPrerenderStyles();

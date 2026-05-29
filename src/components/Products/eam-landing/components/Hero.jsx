@@ -1,4 +1,3 @@
-import { FiCheckCircle } from "react-icons/fi";
 import { ASSETS } from "../assets";
 import WhatsAppButton from "./WhatsAppButton";
 
@@ -30,9 +29,27 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
             <WhatsAppButton className="v2-hero-wa" source="hero" />
           </div>
           <ul className="v2-trust-row">
-            <li><FiCheckCircle size={15} aria-hidden="true" /> Preventive maintenance</li>
-            <li><FiCheckCircle size={15} aria-hidden="true" /> Work orders &amp; breakdowns</li>
-            <li><FiCheckCircle size={15} aria-hidden="true" /> Audit-ready records</li>
+            <li>
+              <svg className="v2-trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Preventive maintenance
+            </li>
+            <li>
+              <svg className="v2-trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Work orders &amp; breakdowns
+            </li>
+            <li>
+              <svg className="v2-trust-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Audit-ready records
+            </li>
           </ul>
         </div>
 
@@ -42,7 +59,11 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
               src={ASSETS.dashboardDesktop}
               alt="RIO EAM dashboard with asset and maintenance metrics"
               className="v2-hero-dashboard-img"
+              width={900}
+              height={520}
               loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
           <div className="v2-phone-mock" aria-hidden="true">
@@ -51,7 +72,10 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
                 src={ASSETS.dashboardMobile}
                 alt=""
                 className="v2-hero-mobile-img"
-                loading="eager"
+                width={360}
+                height={780}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

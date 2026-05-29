@@ -270,7 +270,10 @@
 .v2-trust-row li { align-items: center; display: inline-flex; gap: 7px; }
 .v2-trust-row svg { color: var(--v2-primary); flex-shrink: 0; }
 
-.v2-hero-visual { position: relative; }
+.v2-hero-visual {
+  min-height: 300px;
+  position: relative;
+}
 
 .v2-hero-dashboard-wrap {
   background: #fff;

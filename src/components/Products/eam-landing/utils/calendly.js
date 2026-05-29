@@ -5,6 +5,41 @@ import { getOrCreateVisitorId } from "./visitor";
 
 let bookingListenerAttached = false;
 let bookingHandled = false;
+let calendlyAssetsPromise = null;
+
+function ensureCalendlyAssets() {
+  if (calendlyAssetsPromise) return calendlyAssetsPromise;
+
+  calendlyAssetsPromise = new Promise((resolve) => {
+    if (!document.querySelector('link[data-calendly-css="true"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.setAttribute('data-calendly-css', 'true');
+      document.head.appendChild(link);
+    }
+
+    const existingScript = document.querySelector('script[data-calendly-widget="true"]');
+    if (existingScript) {
+      if (window.Calendly?.initPopupWidget) {
+        resolve(true);
+        return;
+      }
+      existingScript.addEventListener('load', () => resolve(true), { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.setAttribute('data-calendly-widget', 'true');
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+
+  return calendlyAssetsPromise;
+}
 
 function waitForCalendly(maxMs = 5000) {
   return new Promise((resolve) => {
@@ -94,6 +129,7 @@ export function initCalendlyBookingListener() {
 export async function openCalendlyPopup(utmParams = {}, url = CONTACT.calendly) {
   bookingHandled = false;
   const urlWithUtm = buildCalendlyUrl(url, utmParams);
+  await ensureCalendlyAssets();
   const ready = await waitForCalendly();
 
   if (ready) {

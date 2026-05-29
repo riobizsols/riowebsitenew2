@@ -2,16 +2,18 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import PainPoints from "./components/PainPoints";
-import Features from "./components/Features";
-import WhyRioAlm from "./components/WhyRioAlm";
-import Industries from "./components/Industries";
-import CtaStrip from "./components/CtaStrip";
-import LeadForm from "./components/LeadForm";
-import Footer from "./components/Footer";
+import LazyWhenVisible from "./components/LazyWhenVisible";
 import MobileStickyCta from "./components/MobileStickyCta";
 import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly";
 import { captureUtmParams } from "./utils/utm";
+
+const loadPainPoints = () => import("./components/PainPoints");
+const loadFeatures = () => import("./components/Features");
+const loadWhyRioAlm = () => import("./components/WhyRioAlm");
+const loadIndustries = () => import("./components/Industries");
+const loadCtaStrip = () => import("./components/CtaStrip");
+const loadLeadForm = () => import("./components/LeadForm");
+const loadFooter = () => import("./components/Footer");
 
 export default function App() {
   const pricingRef = useRef(null);
@@ -21,14 +23,6 @@ export default function App() {
     window.scrollTo(0, 0);
     setUtmParams(captureUtmParams());
     initCalendlyBookingListener();
-
-    if (!document.querySelector('script[data-calendly-widget="true"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.setAttribute('data-calendly-widget', 'true');
-      document.body.appendChild(script);
-    }
   }, []);
 
   const scrollToPricing = useCallback(() => {
@@ -43,21 +37,23 @@ export default function App() {
     scrollToPricing();
   }, [scrollToPricing]);
 
+  const ctaStripProps = { onBookDemo };
+
   return (
     <div className="rio-v2-landing">
       <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
       <main>
         <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
-        <PainPoints />
-        <Features />
-        <WhyRioAlm />
-        <Industries />
-        <CtaStrip onBookDemo={onBookDemo} />
+        <LazyWhenVisible loader={loadPainPoints} minHeight={280} />
+        <LazyWhenVisible loader={loadFeatures} minHeight={360} />
+        <LazyWhenVisible loader={loadWhyRioAlm} minHeight={320} />
+        <LazyWhenVisible loader={loadIndustries} minHeight={400} />
+        <LazyWhenVisible loader={loadCtaStrip} minHeight={120} componentProps={ctaStripProps} />
         <div ref={pricingRef}>
-          <LeadForm />
+          <LazyWhenVisible loader={loadLeadForm} minHeight={480} />
         </div>
       </main>
-      <Footer />
+      <LazyWhenVisible loader={loadFooter} minHeight={200} />
       <MobileStickyCta onBookDemo={onBookDemo} />
     </div>
   );

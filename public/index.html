@@ -26,13 +26,34 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>End-to-End Business Services | RioBizSols</title>
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (deferred on ALM/EAM ad landings for faster LCP) -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-KNTZ9KWB');
+      (function () {
+        function loadGtm() {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0];
+            var j = d.createElement(s);
+            var dl = l !== 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-KNTZ9KWB');
+        }
+
+        var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
+        var isAlmLanding =
+          path === '/uk/asset-maintenance-management-software' ||
+          path === '/asset-maintenance-management-software' ||
+          path === '/asset-maintenance-management-software-v2';
+
+        if (isAlmLanding) {
+          window.addEventListener('load', loadGtm, { once: true });
+        } else {
+          loadGtm();
+        }
+      })();
     </script>
     <!-- End Google Tag Manager -->
   </head>

@@ -1,24 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import reportWebVitals from './reportwebvitals';
-import { HelmetProvider } from 'react-helmet-async';
+import { isEamAdsLandingPath } from './utils/almLandingPaths';
 
+const bootstrap = isEamAdsLandingPath(window.location.pathname)
+  ? import('./landing-entry').then((m) => m.startLanding())
+  : import('./site-entry').then((m) => m.startSite());
 
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>
-);
-
-reportWebVitals();
-
-
+bootstrap.catch((error) => {
+  console.error('Failed to start app:', error);
+});

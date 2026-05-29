@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import EamLandingApp from './eam-landing/EamLandingApp';
+import { ASSETS } from './eam-landing/assets';
 import './eam-landing/App.css';
 
-const RioALMLandingV2 = () => (
+const OUTFIT_FONT_URL =
+  'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap';
+
+const RioALMLandingV2 = () => {
+  useEffect(() => {
+    const id = 'eam-outfit-font';
+    if (document.getElementById(id)) return undefined;
+
+    const link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.href = OUTFIT_FONT_URL;
+    link.media = 'print';
+    link.onload = () => {
+      link.media = 'all';
+    };
+    document.head.appendChild(link);
+
+    return () => {
+      link.remove();
+    };
+  }, []);
+
+  return (
   <>
     <Helmet>
       <title>Enterprise Asset Management Software | RIO EAM</title>
@@ -41,17 +65,18 @@ const RioALMLandingV2 = () => (
         rel="canonical"
         href="https://www.riobizsols.com/asset-maintenance-management-software-v2"
       />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link
-        href="https://assets.calendly.com/assets/external/widget.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
+        rel="preload"
+        as="image"
+        href={ASSETS.dashboardDesktop}
+        fetchPriority="high"
       />
     </Helmet>
     <EamLandingApp />
   </>
-);
+  );
+};
 
 export default RioALMLandingV2;

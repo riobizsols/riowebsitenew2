@@ -86,8 +86,8 @@ body=$(curl -sS -A "AdsBot-Google" --max-time 25 "$URL" 2>/dev/null) || body=""
 if [ -z "$body" ]; then
   body=$(curl -sS --http1.1 -A "AdsBot-Google" --max-time 25 "$URL" 2>/dev/null) || body=""
 fi
-if echo "$body" | grep -qi '<title>.*RIO ALM'; then
-  echo "PASS  HTML contains RIO ALM title"
+if echo "$body" | grep -qiE '<title>.*(RIO ALM|RIO EAM)'; then
+  echo "PASS  HTML contains expected page title"
   PASS=$((PASS + 1))
 else
   echo "FAIL  HTML missing expected <title>"

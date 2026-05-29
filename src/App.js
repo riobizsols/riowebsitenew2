@@ -1,148 +1,83 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
-import Home from './components/pages/Home';
 import Footerbottom from './components/Footerbottom';
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import ScrollToTop from "./ScrollToTop/ScrollToTop";
-import { MainServices } from './components/pages';
-import Contact from './components/pages/Contact';
-import * as visitorTracking from './services/visitorTracking';
-import webVitalsMonitor from './services/webVitalsMonitor';
-import Staffing from './components/Services/Staffing';
-import Longterm from './components/sub_pages/Staffing/Longterm';
-import Shortterm from './components/sub_pages/Staffing/Shortterm';
-import Hire from './components/sub_pages/Staffing/Hire';
-import Freshhire from './components/sub_pages/Staffing/Freshhire';
-import Lateral from './components/sub_pages/Staffing/Lateral';
-import Executive from './components/sub_pages/Staffing/Executive';
-import Digitalmarketing from './components/Services/Digitalmarketing';
-import Ipr from './components/Services/Ipr';
-import Odoo from './components/Services/Odoo';
-import Website from './components/sub_pages/Odoo/Website'
-import SaleManagement from './components/sub_pages/Odoo/SaleManagement'
-import Branding from './components/sub_pages/DigitalMarketing/Branding'
-import AppDevelopmentNew from './components/Services/AppDevelopmentNew';
-import { ContentMarketing } from './components/sub_pages/DigitalMarketing/ContentMarketing';
-import PayPerClick from './components/sub_pages/DigitalMarketing/PayPerClick';
-import SocialMediaMarketing from './components/sub_pages/DigitalMarketing/SocialMediaMarketing';
-import Seo from './components/sub_pages/DigitalMarketing/Seo';
-import WebDevelopment from './components/Services/WebDevelopment';
-import FinanceManagement from './components/sub_pages/Odoo/FinanceManagement';
-import InventoryManufacturing from './components/sub_pages/Odoo/InventoryManufacturing';
-import HumanResource from './components/sub_pages/Odoo/HumanResource';
-import Marketing from './components/sub_pages/Odoo/Marketing';
-import OdooServices from './components/sub_pages/Odoo/OdooServices';
-import Productivity from './components/sub_pages/Odoo/Productivity';
-import Customization from './components/sub_pages/Odoo/Customization';
-import Iosapp from './components/sub_pages/AppDevelopment/Iosapp';
-import CrossPlatformAppDevelopment from './components/sub_pages/AppDevelopment/CrossPlatformAppDevelopment';
-import Uiux from './components/sub_pages/AppDevelopment/Uiux';
-import ConsultingPrototyping from './components/sub_pages/AppDevelopment/ConsultingPrototyping';
-import Maintenance from './components/sub_pages/AppDevelopment/Maintenance';
-import About from './components/pages/About';
-import Contractual from './components/sub_pages/Staffing/Contractual';
-import WebUIUX from './components/sub_pages/WebDevelopment/WebUIUX';
-import Temp from './components/sub_pages/Staffing/Temp'
-import WebDevelopSub from './components/sub_pages/WebDevelopment/WebDevelopSub';
-import WebMainten from './components/sub_pages/WebDevelopment/WebMainten';
-import WebAnalytics from './components/sub_pages/WebDevelopment/WebAnalytics';
-import WebHostingService from './components/sub_pages/WebDevelopment/WebHostingService';
-import CbeAppDevelopment from './components/Cbe/CbeAppdevelopment';
-import CbeStaffing from './components/Cbe/CbeStaffing';
-import CbeOdoo from './components/Cbe/CbeOdoo';
-import CbeWebDevelopment from './components/Cbe/CbeWebDevelopment';
-import CbeDigitalMarketing from './components/Cbe/CbeDigitalMarketing';
-import BlrStaffing from './components/Blr/BlrStaffing';
-import BlrWebDevelopment from './components/Blr/BlrWebDevelopmaent';
-import BlrDigitalMarketing from './components/Blr/BlrDigitalMarketing';
-import PrivacyPolicy from './components/pages/PrivatePolicy';
-import CalDigitalMarketing from './components/Cal/CalDigitalMarketing';
-import CalWebDevelopment from './components/Cal/CalWebDevelopment';
-import CalStaffing from './components/Cal/CalStaffing';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 import CanonicalLink from './Canonical';
 import SchemaMarkup from './components/SchemeMarkup';
-import BlogList from './components/pages/BlogList';
-import BlogDetail from './components/pages/BlogDetail';
-import RioALMLanding from './components/Products/RioALMLanding';
-import RioALMFeatures from './components/Products/RioALMFeatures';
-import RioALMIndustries from './components/Products/RioALMIndustries';
-import RioALMDeployment from './components/Products/RioALMDeployment';
-import RioALMContact from './components/Products/RioALMContact';
-import RioALMPricing from './components/Products/RioALMPricing';
-import MedicalEquipmentMaintenance from './components/Products/MedicalEquipmentMaintenance';
-import RioMEMSFeatures from './components/Products/RioMEMSFeatures';
-import RioMEMSIndustries from './components/Products/RioMEMSIndustries';
-import RioMEMSPricing from './components/Products/RioMEMSPricing';
-import AissistLanding from './components/Products/AissistLanding';
-import LaLawLanding from './components/Products/LaLawLanding';
-import LaLawAccountDeletion from './components/Products/LaLawAccountDeletion';
-import LaLawAccountDeletionForm from './components/Products/LaLawAccountDeletionForm';
-import RioALMGenericLanding from './components/Products/RioALMGenericLanding';
-import RioALMLandingV2 from './components/Products/RioALMLandingV2';
+import EamAdsLandingReload from './components/Products/EamAdsLandingReload';
 import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import StaffingComparison from './components/ServiceComparison/StaffingComparison';
-import WebDevComparison from './components/ServiceComparison/WebDevComparison';
-import DigitalMarketingComparison from './components/ServiceComparison/DigitalMarketingComparison';
-import AppDevComparison from './components/ServiceComparison/AppDevComparison';
-import TechStartupIndustry from './components/Industries/TechStartupIndustry';
-import EcommerceIndustry from './components/Industries/EcommerceIndustry';
-import ManufacturingIndustry from './components/Industries/ManufacturingIndustry';
-import HealthcareIndustry from './components/Industries/HealthcareIndustry';
-import SaasIndustry from './components/Industries/SaasIndustry';
-import AdminChat from './components/pages/AdminChat';
+import { isAlmLandingPath } from './utils/almLandingPaths';
+import * as Lazy from './lazyRoutes';
 
-const options = {
-  autoConfig: true,
-  debug: false,
-};
+const pixelOptions = { autoConfig: true, debug: false };
+const PIXEL_ID = '2112408199250636';
+let marketingPixelInitialized = false;
 
-ReactPixel.init('2112408199250636', options);
-ReactPixel.pageView();
+function RouteLoadingFallback() {
+  return null;
+}
 
 function AppContent() {
   const location = useLocation();
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
-  const isAlmLandingPage =
-    normalizedPath === '/uk/asset-maintenance-management-software' ||
-    normalizedPath === '/asset-maintenance-management-software' ||
-    normalizedPath === '/asset-maintenance-management-software-v2';
+  const isAlmLandingPage = isAlmLandingPath(normalizedPath);
 
-  // Initialize visitor tracking on app mount
   useEffect(() => {
+    const initPixel = () => {
+      if (marketingPixelInitialized) return;
+      marketingPixelInitialized = true;
+      ReactPixel.init(PIXEL_ID, pixelOptions);
+      ReactPixel.pageView();
+    };
+
+    if (isAlmLandingPage) {
+      if (window.requestIdleCallback) {
+        const id = window.requestIdleCallback(initPixel, { timeout: 5000 });
+        return () => window.cancelIdleCallback(id);
+      }
+      const timeoutId = window.setTimeout(initPixel, 3000);
+      return () => window.clearTimeout(timeoutId);
+    }
+
+    initPixel();
+    return undefined;
+  }, [isAlmLandingPage]);
+
+  useEffect(() => {
+    if (isAlmLandingPage) return undefined;
+
+    let cancelled = false;
+    let cleanupTracking = () => {};
+
     const initTracking = async () => {
       try {
-        // Initialize Web Vitals monitoring
+        const [{ default: webVitalsMonitor }, visitorTracking] = await Promise.all([
+          import('./services/webVitalsMonitor'),
+          import('./services/visitorTracking'),
+        ]);
+        if (cancelled) return;
+
         webVitalsMonitor.init();
-
-        // Initialize visitor tracking
         const profile = await visitorTracking.getVisitorProfile();
-        console.log('✓ Visitor tracking initialized:', profile.visitorId);
+        if (cancelled) return;
 
-        // Track page view on route change
+        console.log('✓ Visitor tracking initialized:', profile.visitorId);
         visitorTracking.trackPageView('App Load', {
           url: window.location.href,
-          title: document.title
+          title: document.title,
         });
 
-        // Track scroll depth on scroll
-        const handleScroll = () => {
-          visitorTracking.trackScrollDepth();
-        };
+        const handleScroll = () => visitorTracking.trackScrollDepth();
         window.addEventListener('scroll', handleScroll, { passive: true });
+        const timeInterval = window.setInterval(() => visitorTracking.trackTimeOnSite(), 10000);
 
-        // Track time on site periodically
-        const timeInterval = setInterval(() => {
-          visitorTracking.trackTimeOnSite();
-        }, 10000); // Every 10 seconds
-
-        // Cleanup
-        return () => {
+        cleanupTracking = () => {
           window.removeEventListener('scroll', handleScroll);
-          clearInterval(timeInterval);
+          window.clearInterval(timeInterval);
         };
       } catch (error) {
         console.warn('Error initializing visitor tracking:', error);
@@ -150,124 +85,118 @@ function AppContent() {
     };
 
     initTracking();
-  }, []);
+    return () => {
+      cancelled = true;
+      cleanupTracking();
+    };
+  }, [isAlmLandingPage]);
+
   return (
     <div className="App">
-      <CanonicalLink baseUrl="https://riobizsols.com/" />
-      <SchemaMarkup />
+      {!isAlmLandingPage && <CanonicalLink baseUrl="https://riobizsols.com/" />}
+      {!isAlmLandingPage && <SchemaMarkup />}
       {!isAlmLandingPage && <Header />}
       <ScrollToTop />
-      <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/our-service' element={<MainServices/>} />
-    <Route path='/blog' element={<BlogList/>}/>
-    <Route path='/blog/:id' element={<BlogDetail/>} />
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/about' element={<About/>}/>
-    <Route path='/our-service/staffing' element={<Staffing/>}/>
-    <Route path='/our-service/staffing/short-term-staffing' element={<Shortterm/>}/>
-    <Route path='/our-service/staffing/long-term-staffing' element={<Longterm/>}/>
-    <Route path='/our-service/staffing/temp-to-hire' element={<Temp/>}/>
-    <Route path='/our-service/staffing/directhire' element={<Hire/>}/>
-    {/* <Route path='/our-service/staffing/freshers-hiring' element={<Freshhire/>}/> */}
-    <Route path='/our-service/staffing/lateral-hiring' element={<Lateral/>}/>
-    {/* <Route path='/our-service/staffing/contractual-staffing' element={<Contractual/>}/> */}
-    <Route path='/our-service/staffing/executive-hiring' element={<Executive/>}/>
-    <Route path='/our-service/digital-marketing' element={<Digitalmarketing/>}/>
-    <Route path='/our-service/app-development' element={<AppDevelopmentNew/>}/>
-    <Route path='/our-service/web-development' element={<WebDevelopment/>}/>
-    <Route path='/our-service/ipr/' element={<Ipr/>}/>
-    <Route path='/our-service/odoo/' element={<Odoo/>}/>
-     <Route path ='/our-service/digital-marketing/branding' element={<Branding/>}/>
-     <Route path ='/our-service/digital-marketing/content-marketing' element={<ContentMarketing/>}/>
-     <Route path ='/our-service/digital-marketing/pay-per-click' element={<PayPerClick/>}/>
-     <Route path ='/our-service/digital-marketing/social-media-marketing' element={<SocialMediaMarketing/>}/>
-     <Route path ='/our-service/digital-marketing/seo' element={<Seo/>}/>
-     <Route path='/our-service/web-development/web-ui-ux' element={<WebUIUX/>}/>
-     <Route path='/our-service/web-development/web-development-sub' element={<WebDevelopSub/>}/>
-     <Route path='/our-service/web-development/web-maintenance' element={<WebMainten/>}/>
-     <Route path='/our-service/web-development/web-analytics' element={<WebAnalytics/>}/>
-     <Route path='/our-service/web-development/web-hosting-service' element={<WebHostingService/>}/>
-     <Route path ='/our-service/odoo/website' element={<Website/>}/>
-     <Route path ='/our-service/odoo/sale-management' element={<SaleManagement/>}/>
-     <Route path ='/our-service/odoo/finance-management' element={<FinanceManagement/>}/>
-      <Route path = '/our-service/odoo/inventory-manfacturing' element={<InventoryManufacturing/>}/>
-      <Route path = '/our-service/odoo/human-resource' element={<HumanResource/>}/>
-      <Route path = '/our-service/odoo/marketing' element={<Marketing/>}/>
-      <Route path = '/our-service/odoo/services' element={<OdooServices/>}/>
-      <Route path = '/our-service/odoo/productivity' element={<Productivity/>}/>
-      <Route path = '/our-service/odoo/customization' element={<Customization/>}/>
-      <Route path ='/our-service/app-development/custom-ios-android-app-development' element={<Iosapp/>}/>
-      <Route path ='/our-service/app-development/cross-plat-form-app-development' element={<CrossPlatformAppDevelopment/>}/>
-      <Route path ='/our-service/app-development/uiux-design' element={<Uiux/>}/>
-      <Route path ='/our-service/app-development/consulting-prototyping' element={<ConsultingPrototyping/>}/>
-      <Route path ='/our-service/app-development/maintenance-post-warranty-support' element={<Maintenance/>}/>
-      <Route path = '/about' element={<About/>}/>
-      <Route path ='/our-service/staffing/contractual' element={<Contractual/>}/>
-      {/* <Route path ='/our-service/staffing/executive' element={<Executive/>}/> */}
-      <Route path ='/our-service/staffing/freshhire' element={<Freshhire/>}/>
-      <Route path='/cbe/our-service/app-development' element={<CbeAppDevelopment/>}/>
-     <Route path='/cbe/our-service/staffing' element={<CbeStaffing/>}/>
-     <Route path='/cbe/our-service/odoo' element={<CbeOdoo/>}/>
-     <Route path='/cbe/our-service/web-development' element={<CbeWebDevelopment/>}/>
-     <Route path='/cbe/our-service/digital-marketing' element={<CbeDigitalMarketing/>}/>
-     <Route path="/privacy-policy"  element={<PrivacyPolicy/>}/>
-     <Route path='/cal/our-service/digital-marketing'  element={<CalDigitalMarketing/>}/>
-     <Route path='/cal/our-service/web-development'  element={<CalWebDevelopment/>}/>
-     <Route path='/cal/our-service/staffing'  element={<CalStaffing/>}/>
-     <Route path='/blr/our-service/staffing' element={<BlrStaffing/>}/>
-     <Route path='/blr/our-service/web-development' element={<BlrWebDevelopment/>}/>
-     <Route path='/blr/our-service/digital-marketing' element={<BlrDigitalMarketing/>}/>
+      <Suspense fallback={<RouteLoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<Lazy.Home />} />
+          <Route path="/our-service" element={<Lazy.MainServices />} />
+          <Route path="/blog" element={<Lazy.BlogList />} />
+          <Route path="/blog/:id" element={<Lazy.BlogDetail />} />
+          <Route path="/contact" element={<Lazy.Contact />} />
+          <Route path="/about" element={<Lazy.About />} />
+          <Route path="/our-service/staffing" element={<Lazy.Staffing />} />
+          <Route path="/our-service/staffing/short-term-staffing" element={<Lazy.Shortterm />} />
+          <Route path="/our-service/staffing/long-term-staffing" element={<Lazy.Longterm />} />
+          <Route path="/our-service/staffing/temp-to-hire" element={<Lazy.Temp />} />
+          <Route path="/our-service/staffing/directhire" element={<Lazy.Hire />} />
+          <Route path="/our-service/staffing/lateral-hiring" element={<Lazy.Lateral />} />
+          <Route path="/our-service/staffing/executive-hiring" element={<Lazy.Executive />} />
+          <Route path="/our-service/digital-marketing" element={<Lazy.Digitalmarketing />} />
+          <Route path="/our-service/app-development" element={<Lazy.AppDevelopmentNew />} />
+          <Route path="/our-service/web-development" element={<Lazy.WebDevelopment />} />
+          <Route path="/our-service/ipr/" element={<Lazy.Ipr />} />
+          <Route path="/our-service/odoo/" element={<Lazy.Odoo />} />
+          <Route path="/our-service/digital-marketing/branding" element={<Lazy.Branding />} />
+          <Route path="/our-service/digital-marketing/content-marketing" element={<Lazy.ContentMarketing />} />
+          <Route path="/our-service/digital-marketing/pay-per-click" element={<Lazy.PayPerClick />} />
+          <Route path="/our-service/digital-marketing/social-media-marketing" element={<Lazy.SocialMediaMarketing />} />
+          <Route path="/our-service/digital-marketing/seo" element={<Lazy.Seo />} />
+          <Route path="/our-service/web-development/web-ui-ux" element={<Lazy.WebUIUX />} />
+          <Route path="/our-service/web-development/web-development-sub" element={<Lazy.WebDevelopSub />} />
+          <Route path="/our-service/web-development/web-maintenance" element={<Lazy.WebMainten />} />
+          <Route path="/our-service/web-development/web-analytics" element={<Lazy.WebAnalytics />} />
+          <Route path="/our-service/web-development/web-hosting-service" element={<Lazy.WebHostingService />} />
+          <Route path="/our-service/odoo/website" element={<Lazy.Website />} />
+          <Route path="/our-service/odoo/sale-management" element={<Lazy.SaleManagement />} />
+          <Route path="/our-service/odoo/finance-management" element={<Lazy.FinanceManagement />} />
+          <Route path="/our-service/odoo/inventory-manfacturing" element={<Lazy.InventoryManufacturing />} />
+          <Route path="/our-service/odoo/human-resource" element={<Lazy.HumanResource />} />
+          <Route path="/our-service/odoo/marketing" element={<Lazy.Marketing />} />
+          <Route path="/our-service/odoo/services" element={<Lazy.OdooServices />} />
+          <Route path="/our-service/odoo/productivity" element={<Lazy.Productivity />} />
+          <Route path="/our-service/odoo/customization" element={<Lazy.Customization />} />
+          <Route path="/our-service/app-development/custom-ios-android-app-development" element={<Lazy.Iosapp />} />
+          <Route path="/our-service/app-development/cross-plat-form-app-development" element={<Lazy.CrossPlatformAppDevelopment />} />
+          <Route path="/our-service/app-development/uiux-design" element={<Lazy.Uiux />} />
+          <Route path="/our-service/app-development/consulting-prototyping" element={<Lazy.ConsultingPrototyping />} />
+          <Route path="/our-service/app-development/maintenance-post-warranty-support" element={<Lazy.Maintenance />} />
+          <Route path="/our-service/staffing/contractual" element={<Lazy.Contractual />} />
+          <Route path="/our-service/staffing/freshhire" element={<Lazy.Freshhire />} />
+          <Route path="/cbe/our-service/app-development" element={<Lazy.CbeAppDevelopment />} />
+          <Route path="/cbe/our-service/staffing" element={<Lazy.CbeStaffing />} />
+          <Route path="/cbe/our-service/odoo" element={<Lazy.CbeOdoo />} />
+          <Route path="/cbe/our-service/web-development" element={<Lazy.CbeWebDevelopment />} />
+          <Route path="/cbe/our-service/digital-marketing" element={<Lazy.CbeDigitalMarketing />} />
+          <Route path="/privacy-policy" element={<Lazy.PrivacyPolicy />} />
+          <Route path="/cal/our-service/digital-marketing" element={<Lazy.CalDigitalMarketing />} />
+          <Route path="/cal/our-service/web-development" element={<Lazy.CalWebDevelopment />} />
+          <Route path="/cal/our-service/staffing" element={<Lazy.CalStaffing />} />
+          <Route path="/blr/our-service/staffing" element={<Lazy.BlrStaffing />} />
+          <Route path="/blr/our-service/web-development" element={<Lazy.BlrWebDevelopment />} />
+          <Route path="/blr/our-service/digital-marketing" element={<Lazy.BlrDigitalMarketing />} />
 
-        {/* Product Routes */}
-         <Route path='/products/rio-eam' element={<RioALMLanding/>}/>
-         <Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>
-         <Route path='/products/rio-eam/features' element={<RioALMFeatures/>}/>
-         <Route path='/products/rio-eam/industries' element={<RioALMIndustries/>}/>
-         <Route path='/products/rio-eam/deployment' element={<RioALMDeployment/>}/>
-         <Route path='/products/rio-eam/contact' element={<RioALMContact/>}/>
+          <Route path="/products/rio-eam" element={<Lazy.RioALMLanding />} />
+          <Route path="/products/rio-eam/pricing" element={<Lazy.RioALMPricing />} />
+          <Route path="/products/rio-eam/features" element={<Lazy.RioALMFeatures />} />
+          <Route path="/products/rio-eam/industries" element={<Lazy.RioALMIndustries />} />
+          <Route path="/products/rio-eam/deployment" element={<Lazy.RioALMDeployment />} />
+          <Route path="/products/rio-eam/contact" element={<Lazy.RioALMContact />} />
 
-         {/* Legacy RIO ALM URLs - redirected to RIO EAM */}
-         <Route path='/products/rio-alm' element={<Navigate to='/products/rio-eam' replace />}/>
-         <Route path='/products/rio-alm/pricing' element={<Navigate to='/products/rio-eam/pricing' replace />}/>
-         <Route path='/products/rio-alm/features' element={<Navigate to='/products/rio-eam/features' replace />}/>
-         <Route path='/products/rio-alm/industries' element={<Navigate to='/products/rio-eam/industries' replace />}/>
-         <Route path='/products/rio-alm/deployment' element={<Navigate to='/products/rio-eam/deployment' replace />}/>
-         <Route path='/products/rio-alm/contact' element={<Navigate to='/products/rio-eam/contact' replace />}/>
+          <Route path="/products/rio-alm" element={<Navigate to="/products/rio-eam" replace />} />
+          <Route path="/products/rio-alm/pricing" element={<Navigate to="/products/rio-eam/pricing" replace />} />
+          <Route path="/products/rio-alm/features" element={<Navigate to="/products/rio-eam/features" replace />} />
+          <Route path="/products/rio-alm/industries" element={<Navigate to="/products/rio-eam/industries" replace />} />
+          <Route path="/products/rio-alm/deployment" element={<Navigate to="/products/rio-eam/deployment" replace />} />
+          <Route path="/products/rio-alm/contact" element={<Navigate to="/products/rio-eam/contact" replace />} />
 
-         {/* RIO MEMS Product Routes */}
-         <Route path='/products/medical-equipment-maintenance' element={<MedicalEquipmentMaintenance/>}/>
-         <Route path='/products/medical-equipment-maintenance/features' element={<RioMEMSFeatures/>}/>
-         <Route path='/products/medical-equipment-maintenance/industries' element={<RioMEMSIndustries/>}/>
-         <Route path='/products/medical-equipment-maintenance/pricing' element={<RioMEMSPricing/>}/>
-         <Route path='/products/medical-equipment-maintenance/contact' element={<RioALMContact/>}/>
+          <Route path="/products/medical-equipment-maintenance" element={<Lazy.MedicalEquipmentMaintenance />} />
+          <Route path="/products/medical-equipment-maintenance/features" element={<Lazy.RioMEMSFeatures />} />
+          <Route path="/products/medical-equipment-maintenance/industries" element={<Lazy.RioMEMSIndustries />} />
+          <Route path="/products/medical-equipment-maintenance/pricing" element={<Lazy.RioMEMSPricing />} />
+          <Route path="/products/medical-equipment-maintenance/contact" element={<Lazy.RioALMContact />} />
 
-         {/* AIssist Product Route */}
-         <Route path='/products/aissist' element={<AissistLanding/>}/>
+          <Route path="/products/aissist" element={<Lazy.AissistLanding />} />
+          <Route path="/products/la-law/account-deletion/request" element={<Lazy.LaLawAccountDeletionForm />} />
+          <Route path="/products/la-law/account-deletion" element={<Lazy.LaLawAccountDeletion />} />
+          <Route path="/products/la-law" element={<Lazy.LaLawLanding />} />
+          <Route path="/uk/asset-maintenance-management-software" element={<Lazy.RioALMGenericLanding />} />
+          <Route path="/asset-maintenance-management-software" element={<Lazy.RioALMGenericLanding />} />
+          <Route path="/asset-maintenance-management-software-v2" element={<EamAdsLandingReload />} />
 
-         {/* La Law Product Route */}
-         <Route path='/products/la-law/account-deletion/request' element={<LaLawAccountDeletionForm/>}/>
-         <Route path='/products/la-law/account-deletion' element={<LaLawAccountDeletion/>}/>
-         <Route path='/products/la-law' element={<LaLawLanding/>}/>
-         <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
-         <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
-         <Route path='/asset-maintenance-management-software-v2' element={<RioALMLandingV2/>}/>
+          <Route path="/compare/staffing" element={<Lazy.StaffingComparison />} />
+          <Route path="/compare/web-development" element={<Lazy.WebDevComparison />} />
+          <Route path="/compare/digital-marketing" element={<Lazy.DigitalMarketingComparison />} />
+          <Route path="/compare/app-development" element={<Lazy.AppDevComparison />} />
 
-         {/* Service Comparison Routes */}
-         <Route path='/compare/staffing' element={<StaffingComparison/>}/>
-         <Route path='/compare/web-development' element={<WebDevComparison/>}/>
-         <Route path='/compare/digital-marketing' element={<DigitalMarketingComparison/>}/>
-         <Route path='/compare/app-development' element={<AppDevComparison/>}/>
-
-     {/* Industry-Specific Landing Pages */}
-     <Route path='/industry/tech-startup' element={<TechStartupIndustry/>}/>
-     <Route path='/industry/ecommerce' element={<EcommerceIndustry/>}/>
-     <Route path='/industry/manufacturing' element={<ManufacturingIndustry/>}/>
-     <Route path='/industry/healthcare' element={<HealthcareIndustry/>}/>
-     <Route path='/industry/saas' element={<SaasIndustry/>}/>
-     <Route path='/admin/chat' element={<AdminChat/>}/>
-
-      </Routes>
+          <Route path="/industry/tech-startup" element={<Lazy.TechStartupIndustry />} />
+          <Route path="/industry/ecommerce" element={<Lazy.EcommerceIndustry />} />
+          <Route path="/industry/manufacturing" element={<Lazy.ManufacturingIndustry />} />
+          <Route path="/industry/healthcare" element={<Lazy.HealthcareIndustry />} />
+          <Route path="/industry/saas" element={<Lazy.SaasIndustry />} />
+          <Route path="/admin/chat" element={<Lazy.AdminChat />} />
+        </Routes>
+      </Suspense>
       {!isAlmLandingPage && <ExitIntentPopup />}
       {!isAlmLandingPage && <WhatsAppFloat />}
       {!isAlmLandingPage && <Footerbottom />}
