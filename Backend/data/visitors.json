@@ -139,5 +139,73 @@
     },
     "lastActivity": "2026-05-13T11:37:09.256Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
+  },
+  {
+    "visitorId": "visitor_1773062357702_53yyu8aor",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:19:19.521Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:19:19.662Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:22:42.762Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:22:42.762Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:23:26.492Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-03-09T13:23:26.492Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:31:34.298Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:31:34.298Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:32:52.257Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:32:52.258Z",
+          "data": {
+            "url": "http://localhost:3000/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 6992005,
+      "formSubmitted": false,
+      "ctaClicked": [
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-09T13:19:31.561Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-03-09T13:23:11.653Z"
+        }
+      ]
+    },
+    "lastActivity": "2026-05-29T11:32:52.258Z",
+    "createdAt": "2026-05-29T11:31:34.345Z"
   }
 ]
