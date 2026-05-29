@@ -6,10 +6,10 @@ import './eam-landing/App.css';
 const RioALMLandingV2 = () => (
   <>
     <Helmet>
-      <title>Enterprise Asset Management Software | RIO EAM</title>
+      <title>CMMS &amp; Maintenance Management Software | RIO BizSols</title>
       <meta
         name="description"
-        content="RIO EAM helps organizations track assets, automate maintenance, manage inspections, and maintain audit-ready records from one central system."
+        content="RIO CMMS helps maintenance teams move beyond Excel — plan preventive maintenance, manage breakdowns, assign work orders, and maintain audit-ready records in one system."
       />
       <meta
         name="keywords"
@@ -46,7 +46,7 @@ const RioALMLandingV2 = () => (
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
       />
     </Helmet>

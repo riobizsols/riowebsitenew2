@@ -1,20 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import PainPoints from "./components/PainPoints";
 import Features from "./components/Features";
-import WhyRioAlm from "./components/WhyRioAlm";
+import StructuredOperations from "./components/StructuredOperations";
 import Industries from "./components/Industries";
 import CtaStrip from "./components/CtaStrip";
-import LeadForm from "./components/LeadForm";
-import Footer from "./components/Footer";
 import MobileStickyCta from "./components/MobileStickyCta";
 import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly";
 import { captureUtmParams } from "./utils/utm";
 
-export default function App() {
-  const pricingRef = useRef(null);
+export default function EamLandingApp() {
   const [utmParams, setUtmParams] = useState(() => captureUtmParams());
 
   useEffect(() => {
@@ -23,16 +20,16 @@ export default function App() {
     initCalendlyBookingListener();
 
     if (!document.querySelector('script[data-calendly-widget="true"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
-      script.setAttribute('data-calendly-widget', 'true');
+      script.setAttribute("data-calendly-widget", "true");
       document.body.appendChild(script);
     }
   }, []);
 
-  const scrollToPricing = useCallback(() => {
-    pricingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToForm = useCallback(() => {
+    document.getElementById("demo-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   const onBookDemo = useCallback(() => {
@@ -40,24 +37,22 @@ export default function App() {
   }, [utmParams]);
 
   const onRequestPricing = useCallback(() => {
-    scrollToPricing();
-  }, [scrollToPricing]);
+    scrollToForm();
+  }, [scrollToForm]);
 
   return (
     <div className="rio-v2-landing">
-      <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+      <Header />
       <main>
-        <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+        <section className="v2-hero-wrap">
+          <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+        </section>
         <PainPoints />
         <Features />
-        <WhyRioAlm />
+        <StructuredOperations />
         <Industries />
-        <CtaStrip onBookDemo={onBookDemo} />
-        <div ref={pricingRef}>
-          <LeadForm />
-        </div>
+        <CtaStrip onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
       </main>
-      <Footer />
       <MobileStickyCta onBookDemo={onBookDemo} />
     </div>
   );

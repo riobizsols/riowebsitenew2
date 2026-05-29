@@ -44,7 +44,7 @@ export default function WhatsAppButton({
       onClick={handleClick}
     >
       <WhatsAppIcon />
-      {!iconOnly && "Chat with us on WhatsApp"}
+      {!iconOnly && "Chat on WhatsApp"}
     </a>
   );
 }

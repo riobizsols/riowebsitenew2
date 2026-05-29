@@ -2,173 +2,210 @@ import {
   FiAlertTriangle,
   FiBarChart2,
   FiCalendar,
-  FiCheckCircle,
   FiClipboard,
   FiFileText,
+  FiGlobe,
+  FiZap,
   FiLayers,
   FiMapPin,
+  FiSettings,
   FiShield,
   FiSmartphone,
   FiTool,
   FiUsers,
+  FiBookOpen,
+  FiHome,
+  FiTruck,
 } from "react-icons/fi";
+
+export const heroHighlights = [
+  { icon: FiCalendar, line1: "Preventive", line2: "Maintenance" },
+  { icon: FiClipboard, line1: "Work", line2: "Orders" },
+  { icon: FiZap, line1: "Breakdown", line2: "Tracking" },
+  { icon: FiFileText, line1: "Service", line2: "History" },
+  { icon: FiSmartphone, line1: "Mobile", line2: "App" },
+  { icon: FiGlobe, line1: "Multilingual", line2: "Support" },
+];
 
 export const painPoints = [
   {
     icon: FiCalendar,
-    text: "Missed preventive maintenance",
-    desc: "Schedules are missed or tracked in spreadsheets.",
+    text: "Reduce missed preventive maintenance",
+    desc: "Automated PM schedules replace spreadsheet reminders and missed due dates.",
   },
   {
     icon: FiAlertTriangle,
-    text: "Reactive breakdown handling",
-    desc: "Breakdowns are fixed reactively, increasing downtime and cost.",
+    text: "Respond faster to breakdowns",
+    desc: "Log breakdowns instantly, assign technicians, and track resolution in real time.",
   },
   {
     icon: FiClipboard,
-    text: "No clear work order visibility",
-    desc: "Work orders are untracked or hard to prioritize.",
+    text: "Improve work order visibility",
+    desc: "See open, in-progress, and completed work orders across teams and locations.",
   },
   {
     icon: FiFileText,
-    text: "Equipment history spread across files",
-    desc: "Service history is scattered across emails, notes, and folders.",
+    text: "Access complete equipment service history",
+    desc: "Every repair, part, cost, and vendor note stored against each asset.",
   },
   {
-    icon: FiMapPin,
-    text: "Calibration records difficult to trace",
-    desc: "Calibration due dates are missed, causing compliance risks.",
+    icon: FiShield,
+    text: "Track calibration & inspection compliance",
+    desc: "Never miss calibration or inspection due dates with alerts and audit trails.",
   },
   {
     icon: FiUsers,
-    text: "Vendor updates scattered across teams",
-    desc: "No single view of vendor performance and service history.",
+    text: "Manage vendor service records efficiently",
+    desc: "Centralize vendor contracts, SLAs, and service performance in one place.",
   },
 ];
 
 export const features = [
   {
-    icon: FiCalendar,
-    title: "Preventive Maintenance Scheduling",
-    desc: "Create PM plans, set recurrence, and stay ahead of failures.",
+    icon: FiLayers,
+    title: "Centralized Equipment Repository",
+    desc: "Register assets with location, category, warranty, and lifecycle details.",
   },
   {
-    icon: FiTool,
-    title: "Breakdown Maintenance Tracking",
-    desc: "Log breakdowns, capture root cause, and improve MTTR.",
+    icon: FiCalendar,
+    title: "Preventive & Breakdown Scheduling",
+    desc: "Plan PM routines and capture breakdown jobs from one maintenance calendar.",
   },
   {
     icon: FiClipboard,
     title: "Work Order Management",
-    desc: "Create, prioritize, and track work orders from request to closure.",
+    desc: "Create, prioritize, assign, and close work orders with full status tracking.",
   },
   {
     icon: FiUsers,
-    title: "Technician Assignment",
-    desc: "Assign the right technician, track time, and measure performance.",
+    title: "Technician Assignment & Tracking",
+    desc: "Assign the right technician and measure response time and completion rates.",
   },
   {
     icon: FiFileText,
     title: "Equipment Service History",
-    desc: "Complete history of services, repairs, parts, and costs in one place.",
+    desc: "Complete history of services, repairs, parts used, and maintenance costs.",
   },
   {
     icon: FiSmartphone,
     title: "Mobile Maintenance Updates",
-    desc: "Technicians can update work orders, attach photos, and close on the go.",
+    desc: "Technicians update jobs, attach photos, and close work orders from mobile.",
   },
   {
-    icon: FiCheckCircle,
+    icon: FiShield,
     title: "Calibration & Inspection Tracking",
-    desc: "Track calibration, inspections, alerts, and compliance in one system.",
+    desc: "Schedule calibrations and inspections with compliance-ready documentation.",
   },
   {
-    icon: FiBarChart2,
-    title: "Vendor Service Records",
-    desc: "Manage vendors, contracts, service history, and performance.",
+    icon: FiFileText,
+    title: "Audit Logs & Digital Approvals",
+    desc: "Maintain compliance with full audit trails and approval workflows.",
+  },
+];
+
+export const structuredOperations = [
+  {
+    icon: FiMapPin,
+    title: "Multi-location asset tracking",
+    desc: "Track assets and maintenance across plants, sites, and branches from one view.",
+  },
+  {
+    icon: FiSettings,
+    title: "Configurable workflows",
+    desc: "Adapt statuses, approvals, and forms to match how your team works.",
+  },
+  {
+    icon: FiLayers,
+    title: "Asset-type specific fields",
+    desc: "Capture the right data for machines, vehicles, facilities, and equipment types.",
+  },
+  {
+    icon: FiClipboard,
+    title: "Smart grouping of assets",
+    desc: "Organize assets by location, department, category, or custom groups.",
   },
 ];
 
 export const industries = [
   {
     title: "Manufacturing Plants",
-    imageKey: "industryManufacturing",
+    icon: FiTool,
     items: [
-      "Reduce unplanned downtime",
-      "Improve asset reliability",
-      "Control maintenance costs",
+      "Reduce unplanned machine downtime",
+      "Track PM for production equipment",
+      "Improve asset reliability & uptime",
     ],
   },
   {
     title: "Hospitals & Clinics",
-    imageKey: "industryHealthcare",
+    icon: FiShield,
     items: [
-      "Ensure critical equipment uptime",
+      "Ensure critical medical equipment uptime",
       "Track calibration & compliance",
-      "Maintain audit-ready records",
+      "Maintain audit-ready maintenance records",
+    ],
+  },
+  {
+    title: "Hotels & Resorts",
+    icon: FiHome,
+    items: [
+      "Manage HVAC, kitchen & facility assets",
+      "Schedule preventive maintenance",
+      "Improve guest experience with fewer breakdowns",
+    ],
+  },
+  {
+    title: "Educational Institutions",
+    icon: FiBookOpen,
+    items: [
+      "Track lab, IT & campus facility assets",
+      "Plan maintenance across buildings",
+      "Control maintenance budgets centrally",
     ],
   },
   {
     title: "Facilities Management",
-    imageKey: "industryFacilities",
+    icon: FiLayers,
     items: [
-      "Manage multi-site assets",
-      "Streamline work orders",
-      "Optimize vendor performance",
+      "Manage multi-site client portfolios",
+      "Streamline work orders & vendor coordination",
+      "Deliver SLA-compliant maintenance services",
     ],
   },
   {
-    title: "Hotels & Institutions",
-    imageKey: "industryHospitality",
+    title: "Equipment Rental / Service Companies",
+    icon: FiTruck,
     items: [
-      "Track assets & preventive maintenance",
-      "Improve guest experience",
-      "Reduce maintenance costs",
-    ],
-  },
-  {
-    title: "Multi-site Businesses",
-    imageKey: "industryManufacturing",
-    items: [
-      "Centralize asset data",
-      "Standardize maintenance processes",
-      "Get real-time visibility",
+      "Track rented equipment service history",
+      "Schedule inspections before dispatch",
+      "Reduce repair turnaround time",
     ],
   },
 ];
 
-export const faqs = [
-  {
-    q: "What is RIO EAM?",
-    a: "RIO EAM is Enterprise Asset Management software that helps organizations manage assets, maintenance, inspections, calibration, vendor contracts, documents, depreciation, and asset lifecycle records from one platform.",
-  },
-  {
-    q: "Is RIO EAM the same as CMMS?",
-    a: "RIO EAM includes CMMS-style maintenance management features, but it also covers wider asset lifecycle functions such as asset registry, document tracking, vendor contracts, depreciation, expiry, and scrap management.",
-  },
-  {
-    q: "Can it integrate with ERP or SAP PM?",
-    a: "Yes, integration can be planned based on the customer system landscape. RIO EAM can work alongside SAP PM or ERP for selected asset, maintenance, document, and workflow processes.",
-  },
-  {
-    q: "Is on-prem deployment available?",
-    a: "Yes. RIO EAM can be deployed on cloud, private cloud, or on-prem depending on customer IT policy.",
-  },
-  {
-    q: "How do we get pricing?",
-    a: "Pricing depends on the number of locations, asset volume, modules, deployment model, implementation scope, and support needs. Use the pricing form on this page.",
-  },
+export const trustBarItems = [
+  "Easy to Use",
+  "Secure & Reliable",
+  "Quick Implementation",
+  "Accessible on Web & Mobile",
+  "Multilingual Support",
 ];
 
 export const formOptions = {
   industries: [
     "Manufacturing",
-    "Healthcare / Clinics",
-    "Facilities Management",
-    "Hospitality",
+    "Healthcare / Hospitals",
+    "Hospitality / Hotels",
     "Education",
+    "Facilities Management",
+    "Equipment Rental / Service",
     "Other",
   ],
-  sites: ["1", "2-5", "6-20", "20+"],
-  assetCounts: ["Below 500", "500-2,000", "2,000-10,000", "10,000+"],
+  countryCodes: [
+    { code: "+91", label: "IN +91" },
+    { code: "+1", label: "US +1" },
+    { code: "+44", label: "UK +44" },
+    { code: "+971", label: "UAE +971" },
+    { code: "+65", label: "SG +65" },
+  ],
 };
