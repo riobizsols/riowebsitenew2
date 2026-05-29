@@ -1,4 +1,4 @@
-# 📋 RIO ALM Pricing Page - Complete Index
+# 📋 RIO EAM Pricing Page - Complete Index
 
 ## 📁 Files Created
 
@@ -73,7 +73,7 @@
 
 1. **App.js**
    - Added import: `import RioALMPricing from './components/Products/RioALMPricing';`
-   - Added route: `<Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>`
+   - Added route: `<Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>`
 
 ---
 
@@ -136,16 +136,16 @@
 
 ### Page Route
 ```
-http://www.riobizsols.com/products/rio-alm/pricing
+http://www.riobizsols.com/products/rio-eam/pricing
 ```
 
 ### Route in Code
 ```javascript
-<Route path='/products/rio-alm/pricing' element={<RioALMPricing/>}/>
+<Route path='/products/rio-eam/pricing' element={<RioALMPricing/>}/>
 ```
 
 ### Internal Links
-- Book a Demo → `/products/rio-alm/contact`
+- Book a Demo → `/products/rio-eam/contact`
 - Get a Proposal → Email form
 
 ### External Links
@@ -253,7 +253,7 @@ Update email and WhatsApp number.
 
 ### Step 3: Test Locally
 Run your dev server: `npm start`
-Navigate to: `http://localhost:3000/products/rio-alm/pricing`
+Navigate to: `http://localhost:3000/products/rio-eam/pricing`
 Verify pricing displays correctly.
 
 ### Step 4: Check Mobile
@@ -263,7 +263,7 @@ Verify region toggle works.
 
 ### Step 5: Deploy
 When ready, deploy to production.
-Page is now live at `/products/rio-alm/pricing`
+Page is now live at `/products/rio-eam/pricing`
 
 ---
 
@@ -471,8 +471,8 @@ RIOBizSols/
 ├── RIO_ALM_PRICING_STYLE_GUIDE.md . Design specifications
 └── RIO_ALM_PRICING_DELIVERY_SUMMARY.md ... Project overview
 
-Route: /products/rio-alm/pricing
-URL: https://www.riobizsols.com/products/rio-alm/pricing
+Route: /products/rio-eam/pricing
+URL: https://www.riobizsols.com/products/rio-eam/pricing
 ```
 
 ---

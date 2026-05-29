@@ -1,5 +1,5 @@
 /**
- * RIO ALM image assets.
+ * RIO EAM image assets.
  * Import images here and re-export for use across the app.
  * Using src assets lets the bundler optimize and serve them with better quality.
  */

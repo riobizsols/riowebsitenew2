@@ -40,14 +40,14 @@ import India from '../assets/images/India.jpg';
                 <div className="footer-right-col">
                 <h5 className='footer_title1'>Products</h5>
              <ul className='footer_menu'>
-               <li><Link to='/products/rio-alm' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM</Link></li>
+               <li><Link to='/products/rio-eam' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM</Link></li>
                <li><Link to='/products/medical-equipment-maintenance' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS (Medical Equipment Maintenance)</Link></li>
                <li><Link to='/products/aissist' style={{textDecoration:'none', color:'#BDBBBB'}}>AIssist – LinkedIn Assistant</Link></li>
                <li><Link to='/products/la-law' style={{textDecoration:'none', color:'#BDBBBB'}}>La Law</Link></li>
-               <li><Link to='/products/rio-alm/features' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Features</Link></li>
-               <li><Link to='/products/rio-alm/industries' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Industries</Link></li>
-               <li><Link to='/products/rio-alm/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Deployment</Link></li>
-               <li><Link to='/products/rio-alm/contact' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO ALM Demo Request</Link></li>
+               <li><Link to='/products/rio-eam/features' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Features</Link></li>
+               <li><Link to='/products/rio-eam/industries' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Industries</Link></li>
+               <li><Link to='/products/rio-eam/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Deployment</Link></li>
+               <li><Link to='/products/rio-eam/contact' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Demo Request</Link></li>
                <li><Link to='/products/medical-equipment-maintenance/pricing' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS Pricing</Link></li>
              </ul>
                 </div>

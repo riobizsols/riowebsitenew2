@@ -135,7 +135,7 @@ Sitemap: https://riobizsols.com/sitemap-blog.xml
 - ❌ **BreadcrumbList** schema (navigation)
 - ❌ **FAQPage** schema (pages with FAQ accordions)
 - ❌ **AggregateRating** schema (testimonials)
-- ❌ **Product** schema (RIO ALM product pages)
+- ❌ **Product** schema (RIO EAM product pages)
 - ❌ **HowTo** schema (service process pages)
 
 **Recommendation:** Add structured data to enhance rich snippets.
@@ -539,7 +539,7 @@ H3: Individual service cards
    - LocalBusiness for location pages
    - BreadcrumbList for navigation
    - FAQPage for accordion sections
-   - Product for RIO ALM
+   - Product for RIO EAM
 
 6. **Fix Heading Hierarchy**
    - Ensure one H1 per page
@@ -723,7 +723,7 @@ H3: Individual service cards
    - Add maps
    - Add local testimonials
 
-4. **RIO ALM Product Pages**
+4. **RIO EAM Product Pages**
    - Add Product schema
    - Add AggregateRating
    - Add more screenshots with alt tags

@@ -39,13 +39,13 @@ export default function Header() {
             show={productsOpen}
             onToggle={setProductsOpen}
           >
-            <NavDropdown drop="end" title="RIO ALM" id="products-alm-dropdown">
-              <NavDropdown.Item href="/products/rio-alm">Overview</NavDropdown.Item>
-              <NavDropdown.Item href="/products/rio-alm/pricing">Pricing</NavDropdown.Item>
-              <NavDropdown.Item href="/products/rio-alm/features">Features</NavDropdown.Item>
-              <NavDropdown.Item href="/products/rio-alm/industries">Industries</NavDropdown.Item>
-              <NavDropdown.Item href="/products/rio-alm/deployment">Deployment</NavDropdown.Item>
-              <NavDropdown.Item href="/products/rio-alm/contact">Contact / Demo</NavDropdown.Item>
+            <NavDropdown drop="end" title="RIO EAM" id="products-alm-dropdown">
+              <NavDropdown.Item href="/products/rio-eam">Overview</NavDropdown.Item>
+              <NavDropdown.Item href="/products/rio-eam/pricing">Pricing</NavDropdown.Item>
+              <NavDropdown.Item href="/products/rio-eam/features">Features</NavDropdown.Item>
+              <NavDropdown.Item href="/products/rio-eam/industries">Industries</NavDropdown.Item>
+              <NavDropdown.Item href="/products/rio-eam/deployment">Deployment</NavDropdown.Item>
+              <NavDropdown.Item href="/products/rio-eam/contact">Contact / Demo</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown drop="end" title="RIO MEMS" id="products-mems-dropdown">
               <NavDropdown.Item href="/products/medical-equipment-maintenance">Overview</NavDropdown.Item>

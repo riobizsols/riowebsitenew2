@@ -1,5 +1,5 @@
 /* ============================================================================
-   RIO ALM PRICING PAGE - RESPONSIVE STYLES
+   RIO EAM PRICING PAGE - RESPONSIVE STYLES
    ============================================================================ */
 
 :root {
@@ -1325,7 +1325,7 @@
     transform: scale(1);
   }
 
-  /* ALM pricing: stack all pricing cards in one column on small screens */
+  /* EAM pricing: stack all pricing cards in one column on small screens */
   .pricing-cards-grid {
     grid-template-columns: 1fr;
   }

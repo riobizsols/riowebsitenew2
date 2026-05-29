@@ -1,157 +1,8 @@
 [
   {
-    "visitorId": "visitor_1777948472609_guehu4g77",
-    "behavior": {
-      "pagesVisited": [
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:08:18.985Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:08:18.987Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:23:27.448Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:23:27.448Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:33:46.797Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:33:46.822Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:33:50.992Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:33:50.993Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:42:44.276Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-07T13:42:44.278Z",
-          "data": {
-            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
-            "title": "Asset Lifecycle Management Software | RIO ALM"
-          }
-        }
-      ],
-      "servicesInterested": [
-        "Web Development"
-      ],
-      "engagementScore": 0,
-      "scrollDepth": 100,
-      "timeOnSite": 212866,
-      "formSubmitted": false,
-      "ctaClicked": []
-    },
-    "lastActivity": "2026-05-07T13:42:44.278Z",
-    "createdAt": "2026-05-06T10:50:06.511Z"
-  },
-  {
-    "visitorId": "visitor_1773395413187_wcxdu9wds",
-    "behavior": {
-      "pagesVisited": [
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:34:28.011Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:34:28.013Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:02.815Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:02.816Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:08.797Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:08.798Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:35.048Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:35.048Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:37:09.255Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:37:09.256Z",
-          "data": {
-            "url": "http://localhost:3000/products/la-law/account-deletion/",
-            "title": "End-to-End Business Services | RioBizSols"
-          }
-        }
-      ],
-      "servicesInterested": [],
-      "engagementScore": 0,
-      "scrollDepth": 100,
-      "timeOnSite": 5276811,
-      "formSubmitted": true,
-      "ctaClicked": [
-        {
-          "cta": "exit_intent_dismiss_default",
-          "timestamp": "2026-03-13T09:50:26.759Z"
-        },
-        {
-          "cta": "exit_intent_dismiss_default",
-          "timestamp": "2026-03-23T12:12:57.440Z"
-        },
-        {
-          "cta": "exit_intent_dismiss_default",
-          "timestamp": "2026-05-12T11:46:09.415Z"
-        },
-        {
-          "cta": "exit_intent_dismiss_rio_alm",
-          "timestamp": "2026-05-12T11:49:16.200Z"
-        },
-        {
-          "cta": "exit_intent_dismiss_rio_alm",
-          "timestamp": "2026-05-13T11:36:25.185Z"
-        }
-      ]
-    },
-    "lastActivity": "2026-05-13T11:37:09.256Z",
-    "createdAt": "2026-05-12T11:46:31.381Z"
-  },
-  {
     "visitorId": "visitor_1773062357702_53yyu8aor",
     "behavior": {
       "pagesVisited": [
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-09T13:19:19.521Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-03-09T13:19:19.662Z"
-        },
         {
           "page": "App Load",
           "timestamp": "2026-03-09T13:22:42.762Z"
@@ -182,7 +33,15 @@
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T11:32:52.258Z",
+          "timestamp": "2026-05-29T11:32:52.258Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:33:23.805Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:33:23.805Z",
           "data": {
             "url": "http://localhost:3000/",
             "title": "End-to-End Business Services | RioBizSols"
@@ -192,7 +51,7 @@
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 6992005,
+      "timeOnSite": 6992033,
       "formSubmitted": false,
       "ctaClicked": [
         {
@@ -205,7 +64,7 @@
         }
       ]
     },
-    "lastActivity": "2026-05-29T11:32:52.258Z",
-    "createdAt": "2026-05-29T11:31:34.345Z"
+    "lastActivity": "2026-05-29T11:33:23.805Z",
+    "createdAt": "2026-05-29T11:33:23.841Z"
   }
 ]

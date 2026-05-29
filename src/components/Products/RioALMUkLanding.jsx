@@ -57,23 +57,23 @@ const RioALMUkLanding = () => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What is RIO ALM?',
+          name: 'What is RIO EAM?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'RIO ALM is Asset Lifecycle Management software that helps organizations manage assets, maintenance, inspections, calibration, vendor contracts, documents, depreciation, and asset lifecycle records from one platform.'
+            text: 'RIO EAM is Enterprise Asset Managment software that helps organizations manage assets, maintenance, inspections, calibration, vendor contracts, documents, depreciation, and asset lifecycle records from one platform.'
           }
         },
         {
           '@type': 'Question',
-          name: 'Is RIO ALM the same as CMMS?',
+          name: 'Is RIO EAM the same as CMMS?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'RIO ALM includes CMMS-style maintenance management features, but it also covers wider asset lifecycle functions such as asset registry, document tracking, vendor contracts, depreciation, expiry, and scrap management.'
+            text: 'RIO EAM includes CMMS-style maintenance management features, but it also covers wider asset lifecycle functions such as asset registry, document tracking, vendor contracts, depreciation, expiry, and scrap management.'
           }
         },
         {
           '@type': 'Question',
-          name: 'Can RIO ALM be used by manufacturing companies?',
+          name: 'Can RIO EAM be used by manufacturing companies?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Yes. Manufacturing companies can use it for plant equipment tracking, preventive maintenance, breakdown management, engineer assignments, inspections, and maintenance history.'
@@ -89,10 +89,10 @@ const RioALMUkLanding = () => {
         },
         {
           '@type': 'Question',
-          name: 'Can RIO ALM integrate with SAP PM or ERP?',
+          name: 'Can RIO EAM integrate with SAP PM or ERP?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes, integration can be planned based on the customer system landscape. RIO ALM can work alongside SAP PM or ERP for selected asset, maintenance, document, and workflow processes.'
+            text: 'Yes, integration can be planned based on the customer system landscape. RIO EAM can work alongside SAP PM or ERP for selected asset, maintenance, document, and workflow processes.'
           }
         },
         {
@@ -100,7 +100,7 @@ const RioALMUkLanding = () => {
           name: 'Is on-prem deployment available?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. RIO ALM can be deployed on cloud, private cloud, or on-prem depending on customer IT policy.'
+            text: 'Yes. RIO EAM can be deployed on cloud, private cloud, or on-prem depending on customer IT policy.'
           }
         },
         {
@@ -108,7 +108,7 @@ const RioALMUkLanding = () => {
           name: 'Is the system suitable for multi-location companies?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. RIO ALM supports branch, department, floor, location, and role-based asset tracking.'
+            text: 'Yes. RIO EAM supports branch, department, floor, location, and role-based asset tracking.'
           }
         },
         {
@@ -128,7 +128,7 @@ const RioALMUkLanding = () => {
     () => ({
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
-      name: 'RIO ALM - Asset Lifecycle Management Software',
+      name: 'RIO EAM - Enterprise Asset Managment Software',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       offers: {
@@ -143,7 +143,7 @@ const RioALMUkLanding = () => {
         url: 'https://www.riobizsols.com/'
       },
       description:
-        'RIO ALM helps organizations manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records.'
+        'RIO EAM helps organizations manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records.'
     }),
     []
   );
@@ -168,19 +168,19 @@ const RioALMUkLanding = () => {
   return (
     <div className="rio-uk-landing">
       <Helmet>
-        <title>Asset Maintenance Management Software | RIO ALM</title>
+        <title>Asset Maintenance Management Software | RIO EAM</title>
         <meta
           name="description"
-          content="RIO ALM helps organizations manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records."
+          content="RIO EAM helps organizations manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records."
         />
         <meta
           name="keywords"
-          content="asset management software, asset maintenance software, CMMS software, EAM software, preventive maintenance software, planned preventive maintenance software, equipment maintenance software, asset lifecycle management software, maintenance tracking software, work order management software, calibration management software"
+          content="asset management software, asset maintenance software, CMMS software, EAM software, preventive maintenance software, planned preventive maintenance software, equipment maintenance software, enterprise asset managment software, maintenance tracking software, work order management software, calibration management software"
         />
-        <meta property="og:title" content="RIO ALM - Asset Lifecycle & Maintenance Management Software" />
+        <meta property="og:title" content="RIO EAM - Asset Lifecycle & Maintenance Management Software" />
         <meta
           property="og:description"
-          content="Centralize asset records, automate maintenance, track calibration, manage vendors, and keep audit-ready records with RIO ALM."
+          content="Centralize asset records, automate maintenance, track calibration, manage vendors, and keep audit-ready records with RIO EAM."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.riobizsols.com/asset-maintenance-management-software" />
@@ -205,17 +205,17 @@ const RioALMUkLanding = () => {
       <section className="lp-topbar">
         <div className="uk-container lp-topbar-inner">
           <strong>RIO BizSols Pvt Ltd</strong>
-          <span>Asset Lifecycle Management Demo Enquiries</span>
+          <span>Enterprise Asset Managment Demo Enquiries</span>
         </div>
       </section>
 
       <section className="uk-hero section-space">
         <div className="uk-container uk-grid-hero">
           <div className="hero-content">
-            <p className="uk-tag">Asset Lifecycle Management & Maintenance Management</p>
+            <p className="uk-tag">Enterprise Asset Managment & Maintenance Management</p>
             <h1>Asset &amp; Maintenance Management Software for Operations Teams</h1>
             <p className="hero-subcopy">
-              RIO ALM helps organizations track assets, automate maintenance, manage inspections, store documents, and
+              RIO EAM helps organizations track assets, automate maintenance, manage inspections, store documents, and
               maintain audit-ready records from one central system.
             </p>
             <p>
@@ -325,10 +325,10 @@ const RioALMUkLanding = () => {
 
       <section className="section-space alt-bg">
         <div className="uk-container">
-          <h2>RIO ALM brings your asset lifecycle into one controlled system</h2>
+          <h2>RIO EAM brings your asset lifecycle into one controlled system</h2>
           <p>
             From asset purchase to maintenance, inspection, calibration, vendor service, depreciation, and scrap, RIO
-            ALM helps teams manage the full asset lifecycle with better visibility and accountability.
+            EAM helps teams manage the full asset lifecycle with better visibility and accountability.
           </p>
           <div className="card-grid three-col">
             {featureCards.map((feature) => (
@@ -344,7 +344,7 @@ const RioALMUkLanding = () => {
 
       <section className="section-space">
         <div className="uk-container">
-          <h2>RIO ALM in action across desktop and mobile workflows</h2>
+          <h2>RIO EAM in action across desktop and mobile workflows</h2>
           <p>
             Track assets, monitor maintenance status, and update work orders with a practical interface built for both
             operations teams and field users.
@@ -427,7 +427,7 @@ const RioALMUkLanding = () => {
         <div className="uk-container">
           <h2>Can work alongside SAP PM, ERP, or your existing systems</h2>
           <p>
-            For companies already using SAP PM, ERP, or other internal systems, RIO ALM can act as a front-end or
+            For companies already using SAP PM, ERP, or other internal systems, RIO EAM can act as a front-end or
             extension layer for selected asset and maintenance workflows.
           </p>
           <div className="card-grid two-col">
@@ -447,7 +447,7 @@ const RioALMUkLanding = () => {
             ))}
           </div>
           <p className="note-line">
-            RIO ALM can be positioned as a flexible operational layer around SAP PM or ERP, depending on the
+            RIO EAM can be positioned as a flexible operational layer around SAP PM or ERP, depending on the
             customer&apos;s architecture and integration needs.
           </p>
         </div>
@@ -479,7 +479,7 @@ const RioALMUkLanding = () => {
 
       <section className="section-space">
         <div className="uk-container">
-          <h2>Why companies choose RIO ALM</h2>
+          <h2>Why companies choose RIO EAM</h2>
           <div className="card-grid three-col">
             {[
               'Practical workflows for asset-heavy teams',
@@ -496,7 +496,7 @@ const RioALMUkLanding = () => {
             ))}
           </div>
           <p className="note-line">
-            Unlike generic asset registers, RIO ALM is built to manage the complete asset lifecycle from procurement to
+            Unlike generic asset registers, RIO EAM is built to manage the complete asset lifecycle from procurement to
             maintenance, compliance records, depreciation, expiry, and scrap.
           </p>
         </div>
@@ -504,7 +504,7 @@ const RioALMUkLanding = () => {
 
       <section className="section-space cta-strip">
         <div className="uk-container center">
-          <h2>See how RIO ALM can fit your operation</h2>
+          <h2>See how RIO EAM can fit your operation</h2>
           <p>
             Book a short demo and we&apos;ll show how your team can manage assets, maintenance, calibration, vendors,
             documents, and audit records in one system.
@@ -606,15 +606,15 @@ const RioALMUkLanding = () => {
           <div className="faq-list">
             {[
               {
-                q: 'What is RIO ALM?',
-                a: 'RIO ALM is Asset Lifecycle Management software that helps organizations manage assets, maintenance, inspections, calibration, vendor contracts, documents, depreciation, and asset lifecycle records from one platform.'
+                q: 'What is RIO EAM?',
+                a: 'RIO EAM is Enterprise Asset Managment software that helps organizations manage assets, maintenance, inspections, calibration, vendor contracts, documents, depreciation, and asset lifecycle records from one platform.'
               },
               {
-                q: 'Is RIO ALM the same as CMMS?',
-                a: 'RIO ALM includes CMMS-style maintenance management features, but it also covers wider asset lifecycle functions such as asset registry, document tracking, vendor contracts, depreciation, expiry, and scrap management.'
+                q: 'Is RIO EAM the same as CMMS?',
+                a: 'RIO EAM includes CMMS-style maintenance management features, but it also covers wider asset lifecycle functions such as asset registry, document tracking, vendor contracts, depreciation, expiry, and scrap management.'
               },
               {
-                q: 'Can RIO ALM be used by manufacturing companies?',
+                q: 'Can RIO EAM be used by manufacturing companies?',
                 a: 'Yes. Manufacturing companies can use it for plant equipment tracking, preventive maintenance, breakdown management, engineer assignments, inspections, and maintenance history.'
               },
               {
@@ -622,16 +622,16 @@ const RioALMUkLanding = () => {
                 a: 'Yes. It can help healthcare and clinic teams track equipment, service schedules, calibration records, vendor service reports, and audit-ready maintenance documentation.'
               },
               {
-                q: 'Can RIO ALM integrate with SAP PM or ERP?',
-                a: 'Yes, integration can be planned based on the customer’s system landscape. RIO ALM can work alongside SAP PM or ERP for selected asset, maintenance, document, and workflow processes.'
+                q: 'Can RIO EAM integrate with SAP PM or ERP?',
+                a: 'Yes, integration can be planned based on the customer’s system landscape. RIO EAM can work alongside SAP PM or ERP for selected asset, maintenance, document, and workflow processes.'
               },
               {
                 q: 'Is on-prem deployment available?',
-                a: 'Yes. RIO ALM can be deployed on cloud, private cloud, or on-prem depending on customer IT policy.'
+                a: 'Yes. RIO EAM can be deployed on cloud, private cloud, or on-prem depending on customer IT policy.'
               },
               {
                 q: 'Is the system suitable for multi-location companies?',
-                a: 'Yes. RIO ALM supports branch, department, floor, location, and role-based asset tracking.'
+                a: 'Yes. RIO EAM supports branch, department, floor, location, and role-based asset tracking.'
               },
               {
                 q: 'How do we get pricing?',
@@ -654,7 +654,7 @@ const RioALMUkLanding = () => {
             Book a Demo
           </button>
           <p className="small-footer-text">
-            RIO BizSols Pvt Ltd | Asset Lifecycle Management Software | Demo Enquiries
+            RIO BizSols Pvt Ltd | Enterprise Asset Managment Software | Demo Enquiries
           </p>
         </div>
       </section>

@@ -8,24 +8,24 @@ import LazyImage from '../LazyImage';
 const blogPosts = [
   {
     id: 1, 
-    title: 'RIO ALM: Transform Your Asset Lifecycle Management',
+    title: 'RIO EAM: Transform Your Enterprise Asset Managment',
     date: '2025-01-15',
     author: 'Admin',
-    category: 'RIO ALM',
+    category: 'RIO EAM',
     tags: ['alm', 'asset-management', 'enterprise'],
     readTime: 7,
-    excerpt: 'Discover how RIO Asset Lifecycle Management transforms asset operations, reduces downtime, and ensures compliance across your enterprise.',
+    excerpt: 'Discover how RIO Enterprise Asset Managment transforms asset operations, reduces downtime, and ensures compliance across your enterprise.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599940/rio_main_website/zsmbw34rfoookdmgmcpv.png',
-    content: `Asset Lifecycle Management (ALM) is transforming how enterprises manage their critical assets. RIO ALM provides a comprehensive solution that reduces downtime, ensures compliance, and optimizes asset operations across your organization.
+    content: `Enterprise Asset Managment (EAM) is transforming how enterprises manage their critical assets. RIO EAM provides a comprehensive solution that reduces downtime, ensures compliance, and optimizes asset operations across your organization.
 
-In today's competitive landscape, organizations of all sizes struggle with asset visibility, maintenance scheduling, and compliance audits. RIO ALM solves these challenges with a unified platform designed for modern asset operations.`,
+In today's competitive landscape, organizations of all sizes struggle with asset visibility, maintenance scheduling, and compliance audits. RIO EAM solves these challenges with a unified platform designed for modern asset operations.`,
     sections: [
       {
-        title: 'What is Asset Lifecycle Management?',
-        content: 'Asset Lifecycle Management encompasses the complete journey of an asset—from procurement and deployment to maintenance, optimization, and retirement. A comprehensive ALM system provides visibility into all stages, enabling data-driven decisions that reduce costs and extend asset life.'
+        title: 'What is Enterprise Asset Managment?',
+        content: 'Enterprise Asset Managment encompasses the complete journey of an asset—from procurement and deployment to maintenance, optimization, and retirement. A comprehensive EAM system provides visibility into all stages, enabling data-driven decisions that reduce costs and extend asset life.'
       },
       {
-        title: 'Key Challenges RIO ALM Addresses',
+        title: 'Key Challenges RIO EAM Addresses',
         content:
           'Organizations face critical asset management challenges:',
         bullets: [
@@ -36,64 +36,64 @@ In today's competitive landscape, organizations of all sizes struggle with asset
           'Asset visibility: No single source of truth for asset data across locations'
         ],
         summary:
-          'RIO ALM centralizes all this information into an intuitive platform.'
+          'RIO EAM centralizes all this information into an intuitive platform.'
       },
       {
-        title: 'Core Features of RIO ALM',
-        content: 'RIO ALM includes asset tracking and identification, automated preventive maintenance scheduling, comprehensive compliance documentation, contract and vendor management, multi-location and multi-user support, mobile-enabled workflows, detailed reporting and analytics, and integration capabilities with existing systems.'
+        title: 'Core Features of RIO EAM',
+        content: 'RIO EAM includes asset tracking and identification, automated preventive maintenance scheduling, comprehensive compliance documentation, contract and vendor management, multi-location and multi-user support, mobile-enabled workflows, detailed reporting and analytics, and integration capabilities with existing systems.'
       },
       {
-        title: 'Reducing Downtime with RIO ALM',
-        content: 'Downtime is expensive. RIO ALM enables preventive maintenance by automatically scheduling maintenance based on time, usage, or condition. Real-time alerts notify teams of pending work orders, ensuring no critical equipment is overlooked. Mobile technicians can access asset history, maintenance procedures, and spare parts information on-site, reducing troubleshooting time.'
+        title: 'Reducing Downtime with RIO EAM',
+        content: 'Downtime is expensive. RIO EAM enables preventive maintenance by automatically scheduling maintenance based on time, usage, or condition. Real-time alerts notify teams of pending work orders, ensuring no critical equipment is overlooked. Mobile technicians can access asset history, maintenance procedures, and spare parts information on-site, reducing troubleshooting time.'
       },
       {
         title: 'Ensuring Compliance and Audit Readiness',
-        content: 'Regulatory compliance requires comprehensive documentation and audit trails. RIO ALM maintains complete service histories with timestamps, responsible technicians, parts used, and vendor details. Automated compliance workflows ensure all required inspections and certifications are completed on schedule. When audit time comes, you have auditable records and analytics to demonstrate compliance.'
+        content: 'Regulatory compliance requires comprehensive documentation and audit trails. RIO EAM maintains complete service histories with timestamps, responsible technicians, parts used, and vendor details. Automated compliance workflows ensure all required inspections and certifications are completed on schedule. When audit time comes, you have auditable records and analytics to demonstrate compliance.'
       },
       {
         title: 'Contract and Vendor Management',
-        content: 'Managing AMC (Annual Maintenance Contracts) and CMC (Comprehensive Maintenance Contracts) across multiple assets and vendors is complex. RIO ALM tracks all contracts, sends renewal alerts before expiration, monitors vendor SLAs, and maintains comprehensive service records. This ensures you never miss coverage gaps and negotiate better terms based on performance data.'
+        content: 'Managing AMC (Annual Maintenance Contracts) and CMC (Comprehensive Maintenance Contracts) across multiple assets and vendors is complex. RIO EAM tracks all contracts, sends renewal alerts before expiration, monitors vendor SLAs, and maintains comprehensive service records. This ensures you never miss coverage gaps and negotiate better terms based on performance data.'
       },
       {
         title: 'Deployment Flexibility',
-        content: 'RIO ALM offers three deployment options: On-Premises for maximum control, Private Cloud for scalability without infrastructure management, or Managed Hosting for hands-off operations. Choose the model that aligns with your organization\'s security and operational requirements.'
+        content: 'RIO EAM offers three deployment options: On-Premises for maximum control, Private Cloud for scalability without infrastructure management, or Managed Hosting for hands-off operations. Choose the model that aligns with your organization\'s security and operational requirements.'
       },
       {
         title: 'Real-World Impact',
-        content: 'Organizations implementing RIO ALM report: 40-60% reduction in unplanned downtime, 25-35% improvement in compliance readiness, 30% reduction in maintenance costs through preventive scheduling, 20+ hours saved per week in administrative work, and improved asset lifecycle decisions based on comprehensive data.'
+        content: 'Organizations implementing RIO EAM report: 40-60% reduction in unplanned downtime, 25-35% improvement in compliance readiness, 30% reduction in maintenance costs through preventive scheduling, 20+ hours saved per week in administrative work, and improved asset lifecycle decisions based on comprehensive data.'
       }
     ],
-    conclusion: 'RIO ALM transforms asset lifecycle management from a cost center into a strategic advantage. By providing visibility, automating maintenance, ensuring compliance, and enabling data-driven decisions, RIO ALM helps organizations reduce downtime, optimize costs, and extend asset life. Whether you\'re managing healthcare equipment, manufacturing assets, hospitality facilities, or infrastructure, RIO ALM provides the control and insights you need.'
+    conclusion: 'RIO EAM transforms enterprise asset managment from a cost center into a strategic advantage. By providing visibility, automating maintenance, ensuring compliance, and enabling data-driven decisions, RIO EAM helps organizations reduce downtime, optimize costs, and extend asset life. Whether you\'re managing healthcare equipment, manufacturing assets, hospitality facilities, or infrastructure, RIO EAM provides the control and insights you need.'
   },
   {
     id: 2,
     title: 'Five Key Benefits of Enterprise Asset Management Solutions',
     date: '2025-01-12',
     author: 'Admin',
-    category: 'RIO ALM',
+    category: 'RIO EAM',
     tags: ['alm', 'benefits', 'enterprise'],
     readTime: 5,
-    excerpt: 'Uncover the five critical benefits of implementing a comprehensive asset lifecycle management system in your organization.',
+    excerpt: 'Uncover the five critical benefits of implementing a comprehensive enterprise asset managment system in your organization.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/m4cliid7bj5sx10flesg.png',
-    content: `Enterprise Asset Management (EAM) solutions like RIO ALM deliver measurable value across operations. Understanding these key benefits helps organizations justify investment and maximize ROI.
+    content: `Enterprise Asset Management (EAM) solutions like RIO EAM deliver measurable value across operations. Understanding these key benefits helps organizations justify investment and maximize ROI.
 
 An enterprise asset management system is more than just a database—it's a strategic tool that transforms how organizations operate and make decisions about their critical assets.`,
     sections: [
       {
         title: 'Benefit 1: Dramatic Reduction in Unplanned Downtime',
-        content: 'Unplanned equipment failures are costly. RIO ALM enables predictive and preventive maintenance by analyzing asset performance data and automatically scheduling maintenance before failures occur. Organizations typically see 40-60% reduction in unplanned downtime, translating to significant revenue protection and improved operational continuity.'
+        content: 'Unplanned equipment failures are costly. RIO EAM enables predictive and preventive maintenance by analyzing asset performance data and automatically scheduling maintenance before failures occur. Organizations typically see 40-60% reduction in unplanned downtime, translating to significant revenue protection and improved operational continuity.'
       },
       {
         title: 'Benefit 2: Optimized Maintenance Spending',
-        content: 'Maintenance budgets often lack visibility into actual needs. RIO ALM provides data-driven maintenance scheduling, eliminating over-maintenance and under-maintenance scenarios. By optimizing PM schedules based on asset conditions and usage patterns, organizations reduce maintenance costs by 25-35% while improving equipment reliability.'
+        content: 'Maintenance budgets often lack visibility into actual needs. RIO EAM provides data-driven maintenance scheduling, eliminating over-maintenance and under-maintenance scenarios. By optimizing PM schedules based on asset conditions and usage patterns, organizations reduce maintenance costs by 25-35% while improving equipment reliability.'
       },
       {
         title: 'Benefit 3: Enhanced Regulatory Compliance',
-        content: 'Maintaining compliance across multiple locations and regulatory frameworks is challenging. RIO ALM automates compliance workflows, maintains complete audit trails, and generates regulatory reports on demand. Organizations achieve faster audit readiness, reduced compliance violations, and peace of mind that documentation is always current and accessible.'
+        content: 'Maintaining compliance across multiple locations and regulatory frameworks is challenging. RIO EAM automates compliance workflows, maintains complete audit trails, and generates regulatory reports on demand. Organizations achieve faster audit readiness, reduced compliance violations, and peace of mind that documentation is always current and accessible.'
       },
       {
         title: 'Benefit 4: Improved Asset Lifecycle Decisions',
-        content: 'Data-driven asset management enables better capital planning. RIO ALM tracks depreciation, repair history, and lifecycle costs for every asset. When replacement decisions arise, leadership has comprehensive data: maintenance costs, reliability trends, and total cost of ownership analysis. This leads to smarter capital allocation and better asset retirement timing.'
+        content: 'Data-driven asset management enables better capital planning. RIO EAM tracks depreciation, repair history, and lifecycle costs for every asset. When replacement decisions arise, leadership has comprehensive data: maintenance costs, reliability trends, and total cost of ownership analysis. This leads to smarter capital allocation and better asset retirement timing.'
       },
       {
         title: 'Benefit 5: Increased Team Productivity and Accountability',
@@ -108,76 +108,76 @@ An enterprise asset management system is more than just a database—it's a stra
         content: 'Most organizations see measurable ROI within 6-9 months of EAM implementation. Early wins include reduced unplanned downtime, compliance improvements, and labor productivity gains. Longer-term benefits compound as teams optimize workflows and data quality improves.'
       }
     ],
-    conclusion: 'Enterprise Asset Management solutions deliver quantifiable business value. By reducing downtime, optimizing maintenance spending, ensuring compliance, improving decision-making, and increasing team productivity, EAM systems transform asset management from a reactive function into a strategic competitive advantage. RIO ALM brings these benefits within reach for organizations of all sizes.'
+    conclusion: 'Enterprise Asset Management solutions deliver quantifiable business value. By reducing downtime, optimizing maintenance spending, ensuring compliance, improving decision-making, and increasing team productivity, EAM systems transform asset management from a reactive function into a strategic competitive advantage. RIO EAM brings these benefits within reach for organizations of all sizes.'
   },
   {
     id: 3,
-    title: 'How RIO ALM Ensures Compliance and Audit Readiness',
+    title: 'How RIO EAM Ensures Compliance and Audit Readiness',
     date: '2025-01-10',
     author: 'Admin',
-    category: 'RIO ALM',
+    category: 'RIO EAM',
     tags: ['alm', 'compliance', 'audit'],
     readTime: 6,
-    excerpt: 'Learn how RIO ALM maintains comprehensive audit trails, automates compliance workflows, and keeps your organization audit-ready.',
+    excerpt: 'Learn how RIO EAM maintains comprehensive audit trails, automates compliance workflows, and keeps your organization audit-ready.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599940/rio_main_website/zsmbw34rfoookdmgmcpv.png',
-    content: `Regulatory compliance is non-negotiable in industries like healthcare, manufacturing, and infrastructure. RIO ALM provides the documentation, workflows, and audit trails needed to maintain compliance across your organization.
+    content: `Regulatory compliance is non-negotiable in industries like healthcare, manufacturing, and infrastructure. RIO EAM provides the documentation, workflows, and audit trails needed to maintain compliance across your organization.
 
 Compliance isn't just about following rules—it's about protecting your organization from penalties, maintaining customer trust, and enabling confident operations.`,
     sections: [
       {
         title: 'Understanding Compliance Requirements in Asset Management',
-        content: 'Different industries have different compliance requirements: Healthcare needs biomedical equipment certifications and maintenance records, Manufacturing requires equipment safety and calibration documentation, Infrastructure demands facility inspections and maintenance logs, Finance requires asset depreciation and disposal records. RIO ALM supports all these requirements through configurable workflows and documentation standards.'
+        content: 'Different industries have different compliance requirements: Healthcare needs biomedical equipment certifications and maintenance records, Manufacturing requires equipment safety and calibration documentation, Infrastructure demands facility inspections and maintenance logs, Finance requires asset depreciation and disposal records. RIO EAM supports all these requirements through configurable workflows and documentation standards.'
       },
       {
         title: 'Complete Audit Trail Capability',
-        content: 'A critical compliance requirement is comprehensive audit trails. RIO ALM records: Who performed each action, When it was performed, What changes were made, Why the action was taken. Every maintenance record, status change, and approval is timestamped and attributed. When auditors request documentation, you have complete, irrefutable records.'
+        content: 'A critical compliance requirement is comprehensive audit trails. RIO EAM records: Who performed each action, When it was performed, What changes were made, Why the action was taken. Every maintenance record, status change, and approval is timestamped and attributed. When auditors request documentation, you have complete, irrefutable records.'
       },
       {
         title: 'Automated Compliance Workflows',
-        content: 'Manual compliance processes are error-prone. RIO ALM automates compliance workflows: Scheduled inspections trigger automatically, Required approvals route to designated personnel, Overdue certifications generate alerts, Compliance reports generate on demand. This eliminates the human error that often causes compliance failures.'
+        content: 'Manual compliance processes are error-prone. RIO EAM automates compliance workflows: Scheduled inspections trigger automatically, Required approvals route to designated personnel, Overdue certifications generate alerts, Compliance reports generate on demand. This eliminates the human error that often causes compliance failures.'
       },
       {
         title: 'Inspection and Certification Management',
-        content: 'Critical assets require regular inspections and certifications. RIO ALM maintains a certification matrix: Which assets need inspection, How often inspections are required, Who is authorized to conduct inspections, What standards apply. Automated alerts trigger before certification expires, ensuring no lapses in compliance coverage.'
+        content: 'Critical assets require regular inspections and certifications. RIO EAM maintains a certification matrix: Which assets need inspection, How often inspections are required, Who is authorized to conduct inspections, What standards apply. Automated alerts trigger before certification expires, ensuring no lapses in compliance coverage.'
       },
       {
         title: 'Service History and Maintenance Documentation',
-        content: 'Compliance audits require detailed service histories. RIO ALM maintains comprehensive records: Maintenance performed on each asset, Parts and materials used, Technician credentials, Service provider details, Service dates and duration. This documentation satisfies auditor requirements and enables root cause analysis if issues arise.'
+        content: 'Compliance audits require detailed service histories. RIO EAM maintains comprehensive records: Maintenance performed on each asset, Parts and materials used, Technician credentials, Service provider details, Service dates and duration. This documentation satisfies auditor requirements and enables root cause analysis if issues arise.'
       },
       {
         title: 'Multi-Location Compliance Coordination',
-        content: 'Multi-location organizations face coordination challenges. RIO ALM provides: Centralized compliance reporting across all locations, Standardized workflows while allowing regional variations, Compliance dashboards highlighting status at each location, Automated alerts for compliance gaps. Leadership has complete visibility into compliance status enterprise-wide.'
+        content: 'Multi-location organizations face coordination challenges. RIO EAM provides: Centralized compliance reporting across all locations, Standardized workflows while allowing regional variations, Compliance dashboards highlighting status at each location, Automated alerts for compliance gaps. Leadership has complete visibility into compliance status enterprise-wide.'
       },
       {
         title: 'Evidence Collection and Documentation',
-        content: 'Modern audits require evidence. RIO ALM captures: Photographic documentation of inspections and maintenance, Digital signatures for authorized personnel, Scanned certificates and compliance documents, GPS location data for service verification. All evidence is date-stamped and linked to asset records.'
+        content: 'Modern audits require evidence. RIO EAM captures: Photographic documentation of inspections and maintenance, Digital signatures for authorized personnel, Scanned certificates and compliance documents, GPS location data for service verification. All evidence is date-stamped and linked to asset records.'
       },
       {
         title: 'Compliance Reporting and Analytics',
-        content: 'Auditors expect comprehensive reporting. RIO ALM generates: Compliance status reports by asset type or location, Inspection history reports with trends, Certification expiration reports, Non-compliance incident reports, Remediation action tracking. Reports are audit-ready and require minimal additional documentation.'
+        content: 'Auditors expect comprehensive reporting. RIO EAM generates: Compliance status reports by asset type or location, Inspection history reports with trends, Certification expiration reports, Non-compliance incident reports, Remediation action tracking. Reports are audit-ready and require minimal additional documentation.'
       },
       {
         title: 'Regulatory Standard Support',
-        content: 'RIO ALM supports compliance with major standards: ISO 9001 (Quality Management), ISO 14001 (Environmental Management), FDA 21 CFR Part 11 (Electronic Records), HIPAA (Healthcare), OSHA (Occupational Safety), and industry-specific standards. The platform is configured to meet these requirements out of the box.'
+        content: 'RIO EAM supports compliance with major standards: ISO 9001 (Quality Management), ISO 14001 (Environmental Management), FDA 21 CFR Part 11 (Electronic Records), HIPAA (Healthcare), OSHA (Occupational Safety), and industry-specific standards. The platform is configured to meet these requirements out of the box.'
       },
       {
         title: 'Pre-Audit Preparation',
-        content: 'Before an audit arrives, RIO ALM provides audit-readiness tools: Generate comprehensive compliance reports on demand, Identify any documentation gaps or missing records, Validate that all required approvals are in place, Review audit trails for any irregularities. This preparation ensures smooth audits and minimal surprises.'
+        content: 'Before an audit arrives, RIO EAM provides audit-readiness tools: Generate comprehensive compliance reports on demand, Identify any documentation gaps or missing records, Validate that all required approvals are in place, Review audit trails for any irregularities. This preparation ensures smooth audits and minimal surprises.'
       }
     ],
-    conclusion: 'Compliance and audit readiness are critical competitive advantages. RIO ALM transforms compliance from a stressful reactive scramble into a structured, automated process. With complete audit trails, automated workflows, comprehensive documentation, and multi-location coordination, organizations maintain compliance confidence while reducing administrative burden and audit risk.'
+    conclusion: 'Compliance and audit readiness are critical competitive advantages. RIO EAM transforms compliance from a stressful reactive scramble into a structured, automated process. With complete audit trails, automated workflows, comprehensive documentation, and multi-location coordination, organizations maintain compliance confidence while reducing administrative burden and audit risk.'
   },
   {
     id: 4,
     title: 'Asset Maintenance Best Practices: A Complete Guide',
     date: '2025-01-08',
     author: 'Admin',
-    category: 'RIO ALM',
+    category: 'RIO EAM',
     tags: ['alm', 'maintenance', 'best-practices'],
     readTime: 9,
-    excerpt: 'Explore industry best practices for preventive maintenance, work order management, and asset tracking using modern ALM solutions.',
+    excerpt: 'Explore industry best practices for preventive maintenance, work order management, and asset tracking using modern EAM solutions.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/m4cliid7bj5sx10flesg.png',
-    content: `Effective asset maintenance is the foundation of operational excellence. This guide covers best practices for preventive maintenance, work order management, and asset tracking that organizations can implement or enhance with RIO ALM.
+    content: `Effective asset maintenance is the foundation of operational excellence. This guide covers best practices for preventive maintenance, work order management, and asset tracking that organizations can implement or enhance with RIO EAM.
 
 The difference between world-class asset operations and struggling operations often comes down to discipline in maintenance practices.`,
     sections: [
@@ -197,7 +197,7 @@ A balanced maintenance portfolio uses all strategies appropriately for different
       },
       {
         title: 'Establishing Preventive Maintenance Schedules',
-        content: 'Creating effective PM schedules requires: Understanding manufacturer recommendations for each asset type, Analyzing failure history to identify patterns, Considering operating conditions that accelerate wear, Grouping similar assets for efficient scheduling, Building flexibility for emergency work. RIO ALM supports all of these by storing manufacturer data, tracking failure history, and optimizing scheduling algorithms.'
+        content: 'Creating effective PM schedules requires: Understanding manufacturer recommendations for each asset type, Analyzing failure history to identify patterns, Considering operating conditions that accelerate wear, Grouping similar assets for efficient scheduling, Building flexibility for emergency work. RIO EAM supports all of these by storing manufacturer data, tracking failure history, and optimizing scheduling algorithms.'
       },
       {
         title: 'Work Order Management Excellence',
@@ -245,23 +245,23 @@ These metrics drive continuous improvement and highlight where optimization is n
         content: 'Asset maintenance excellence requires continuous improvement. Best practices: Hold regular team meetings to discuss challenges and solutions, Implement suggestions from technicians in the field, Conduct post-failure analysis to prevent recurrence, Share best practices across teams and locations, Invest in new maintenance technologies, Celebrate improvements. A culture of continuous improvement drives sustained excellence.'
       }
     ],
-    conclusion: 'Asset maintenance excellence doesn\'t happen by accident—it results from disciplined practices, complete data, skilled teams, and continuous improvement. Whether you\'re maintaining healthcare equipment, manufacturing assets, or facility infrastructure, following these best practices ensures maximum reliability, minimal downtime, and optimal asset lifecycle value. RIO ALM provides the platform to implement these practices systematically across your organization.'
+    conclusion: 'Asset maintenance excellence doesn\'t happen by accident—it results from disciplined practices, complete data, skilled teams, and continuous improvement. Whether you\'re maintaining healthcare equipment, manufacturing assets, or facility infrastructure, following these best practices ensures maximum reliability, minimal downtime, and optimal asset lifecycle value. RIO EAM provides the platform to implement these practices systematically across your organization.'
   },
   {
     id: 5,
-    title: 'From Excel to Enterprise — A Practical ALM Roadmap for Multi-Location Businesses',
+    title: 'From Excel to Enterprise — A Practical EAM Roadmap for Multi-Location Businesses',
     date: '2024-11-15',
     author: 'Admin',
-    category: 'RIO ALM',
+    category: 'RIO EAM',
     tags: ['alm', 'migration', 'multi-location'],
     readTime: 10,
-    excerpt: 'A practical roadmap for moving from Excel-based asset tracking to a full ALM platform across multiple locations without operational chaos.',
+    excerpt: 'A practical roadmap for moving from Excel-based asset tracking to a full EAM platform across multiple locations without operational chaos.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/m4cliid7bj5sx10flesg.png',
     content: `Still tracking assets in Excel across multiple branches? Here's the challenge: Excel simply happens. One branch starts a sheet. Another branch copies it and tweaks a few columns. Someone adds a new tab for "AMC". A technician updates maintenance dates from their phone... later. Then a machine fails, you scramble to find service history, and the sheet has three versions—each claiming to be the latest.
 
 If you're managing multiple locations (branches, plants, campuses, properties, showrooms, hospitals, hotels), the problem isn't that Excel is "bad." The problem is that Excel can't enforce a system.
 
-Here's a practical, step-by-step roadmap for migrating to a full ALM platform without operational chaos.`,
+Here's a practical, step-by-step roadmap for migrating to a full EAM platform without operational chaos.`,
     sections: [
       {
         title: 'Why Excel Breaks First in Multi-Location Setups',
@@ -307,7 +307,7 @@ A clean taxonomy includes:
 - **Criticality:** Critical / Medium / Low
 - **Location Hierarchy:** Region → Branch → Department → Sub-location
 
-When classification is consistent, your ALM system produces meaningful insights: breakdown trends by asset type, preventive schedules by category, budget planning by branch, contract coverage gaps.`
+When classification is consistent, your EAM system produces meaningful insights: breakdown trends by asset type, preventive schedules by category, budget planning by branch, contract coverage gaps.`
       },
       {
         title: 'Step 4: Plan the Tagging Strategy (Barcode / QR) from Day 1',
@@ -321,11 +321,11 @@ A practical plan:
 
 Even if you don't tag every asset immediately, starting with critical assets gives instant benefits: accurate identification, faster service history access, better audits, fewer "which unit is this?" moments.
 
-RIO ALM supports mobile-enabled workflows where scanning pulls up asset details and maintenance history instantly.`
+RIO EAM supports mobile-enabled workflows where scanning pulls up asset details and maintenance history instantly.`
       },
       {
         title: 'Step 5: Define Maintenance Rules the Way Your Team Works',
-        content: `This is where an ALM system starts paying for itself.
+        content: `This is where an EAM system starts paying for itself.
 
 Instead of "we do service once in 6 months," define maintenance types:
 - **Time-based:** every 30/90/180 days
@@ -345,7 +345,7 @@ Then define: Who raises the request, Who approves it, Who executes it, What evid
 - Vendor contact information
 - Linked assets (which assets are covered)
 
-Once in ALM, set alerts for: upcoming renewals, expired coverage, vendor response delays, assets repeatedly failing under the same vendor.`
+Once in EAM, set alerts for: upcoming renewals, expired coverage, vendor response delays, assets repeatedly failing under the same vendor.`
       },
       {
         title: 'Step 7: Pilot First, Then Roll Out',
@@ -353,18 +353,18 @@ Once in ALM, set alerts for: upcoming renewals, expired coverage, vendor respons
 
 Measure what improves: time to find asset history, preventive compliance rate, downtime reduction, response time tracking, audit readiness.
 
-Once stable, scale in phases: branch-by-branch or category-by-category (HVAC first, then IT, then electrical). This is how multi-location ALM deployments avoid chaos.`
+Once stable, scale in phases: branch-by-branch or category-by-category (HVAC first, then IT, then electrical). This is how multi-location EAM deployments avoid chaos.`
       },
       {
         title: 'The "People Side" of Migration (What Actually Makes It Stick)',
-        content: `Systems fail when adoption fails. A simple way to make ALM adoption smooth:
+        content: `Systems fail when adoption fails. A simple way to make EAM adoption smooth:
 - Keep daily workflows easy (scan → update → close)
 - Don't force long data entry during field work
 - Give branch heads basic dashboards (status, pending tasks, overdue PM)
 - Recognise teams for compliance improvement
 - Create a routine: weekly review + monthly audit trail check
 
-The best ALM system is the one your technicians and branch teams can use without friction.`
+The best EAM system is the one your technicians and branch teams can use without friction.`
       },
       {
         title: 'Common Migration Mistakes to Avoid',
@@ -376,7 +376,7 @@ The best ALM system is the one your technicians and branch teams can use without
 
 4. **No ownership** — Assign one person (or small team) to own data governance.
 
-5. **Ignoring workflow differences** — What works in a hospital OT won't match a hotel kitchen. ALM should adapt.`
+5. **Ignoring workflow differences** — What works in a hospital OT won't match a hotel kitchen. EAM should adapt.`
       },
       {
         title: 'What You\'ll Get After Migration (The Real Payoff)',
@@ -391,7 +391,7 @@ The best ALM system is the one your technicians and branch teams can use without
 It's not just a "new tool." It becomes a control system for your assets.`
       }
     ],
-    conclusion: 'If you\'re currently managing assets across multiple locations in Excel (or multiple disconnected sheets), the fastest way forward is to: define your pilot scope, standardise asset taxonomy, migrate clean data, tag critical assets, and go live with maintenance workflows. RIO ALM is built for multi-location operations and supports flexible workflows, on-prem/private hosting options, mobile updates, role-based access, and structured reporting—without forcing a rigid "one-size-fits-all" process.'
+    conclusion: 'If you\'re currently managing assets across multiple locations in Excel (or multiple disconnected sheets), the fastest way forward is to: define your pilot scope, standardise asset taxonomy, migrate clean data, tag critical assets, and go live with maintenance workflows. RIO EAM is built for multi-location operations and supports flexible workflows, on-prem/private hosting options, mobile updates, role-based access, and structured reporting—without forcing a rigid "one-size-fits-all" process.'
   },
   {
     id: 6,
@@ -430,7 +430,7 @@ It's not just a "new tool." It becomes a control system for your assets.`
     readTime: 7,
     excerpt: 'Discover how RIO MEMS (Medical Equipment Maintenance System) helps healthcare organizations track, maintain, and comply with medical device regulations.',
     image: 'https://res.cloudinary.com/dhzg3dnfc/image/upload/v1732599928/rio_main_website/m4cliid7bj5sx10flesg.png',
-    content: `RIO MEMS (Medical Equipment Maintenance System) brings the same discipline and visibility that RIO ALM provides for general assets to the healthcare sector. From procurement and installation to calibration, maintenance, and retirement, RIO MEMS helps biomedical and clinical engineering teams manage the full lifecycle of medical devices.`,
+    content: `RIO MEMS (Medical Equipment Maintenance System) brings the same discipline and visibility that RIO EAM provides for general assets to the healthcare sector. From procurement and installation to calibration, maintenance, and retirement, RIO MEMS helps biomedical and clinical engineering teams manage the full lifecycle of medical devices.`,
     sections: [
       {
         title: 'Asset Registry and Identification',
@@ -630,11 +630,11 @@ const BlogDetail = () => {
 
           {/* CTA Section */}
           <div className="blog-cta-section">
-            {blog.category === 'RIO ALM' ? (
+            {blog.category === 'RIO EAM' ? (
               <>
                 <h3>Ready to optimize your asset management?</h3>
-                <p>Discover how RIO ALM can reduce downtime, ensure compliance, and maximize your asset lifecycle value.</p>
-                <Link to="/products/rio-alm" className="cta-button">Explore RIO ALM</Link>
+                <p>Discover how RIO EAM can reduce downtime, ensure compliance, and maximize your asset lifecycle value.</p>
+                <Link to="/products/rio-eam" className="cta-button">Explore RIO EAM</Link>
               </>
             ) : blog.category === 'RIO MEMS' ? (
               <>

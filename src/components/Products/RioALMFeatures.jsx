@@ -254,8 +254,8 @@ const RioALMFeatures = () => {
   return (
     <>
       <Helmet>
-        <title>RIO ALM Features | Comprehensive Asset Lifecycle Management</title>
-        <meta name="description" content="Explore all features of RIO ALM: asset tracking, maintenance scheduling, vendor management, compliance, workflows, mobile scanning, and multi-location support." />
+        <title>RIO EAM Features | Comprehensive Enterprise Asset Managment</title>
+        <meta name="description" content="Explore all features of RIO EAM: asset tracking, maintenance scheduling, vendor management, compliance, workflows, mobile scanning, and multi-location support." />
       </Helmet>
 
       {/* Hero Section */}
@@ -296,7 +296,7 @@ const RioALMFeatures = () => {
         <div className="container">
           <h2 className="section-title">Integration Capabilities</h2>
           <p className="section-subtitle">
-            RIO ALM connects with your existing business systems
+            RIO EAM connects with your existing business systems
           </p>
           <div className="integration-grid">
             <div className="integration-card">
@@ -322,7 +322,7 @@ const RioALMFeatures = () => {
       {/* Feature Comparison */}
       <section className="feature-comparison">
         <div className="container">
-          <h2 className="section-title">Why Choose RIO ALM</h2>
+          <h2 className="section-title">Why Choose RIO EAM</h2>
           <p className="section-subtitle">
             Advanced capabilities designed for enterprise asset management
           </p>
@@ -357,10 +357,10 @@ const RioALMFeatures = () => {
 
       {/* CTA Section */}
       <CTABanner
-        title="Ready to Experience RIO ALM?"
+        title="Ready to Experience RIO EAM?"
         subtitle="Schedule a personalized demo and see how these features can transform your asset management."
         ctaText="Schedule a Demo"
-        ctaLink="/products/rio-alm/contact"
+        ctaLink="/products/rio-eam/contact"
       />
     </>
   );

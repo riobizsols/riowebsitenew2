@@ -31,7 +31,7 @@ function parseAllowedOriginsFromEnv() {
 }
 
 const allowedOrigins = parseAllowedOriginsFromEnv();
-const localDevOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000'];
+const localDevOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
 
 const corsOptions = {
   origin(origin, callback) {
@@ -242,6 +242,24 @@ const chatNotificationEmailFallback = 'info@riobizsols.com';
 /** Default From for floating-chat emails when CHAT_NOTIFICATION_FROM is unset (use Gmail account that matches EMAIL_USER). */
 const chatNotificationFromFallback = 'bizsolsrio@gmail.com';
 const demoBookingRecipientsFallback = ['muthukumaran1052005@gmail.com'];
+const whatsappClickPhoneDefault = '918884910777';
+const whatsappClickMessageDefault =
+  'Hi RIO BizSols, I would like to know more about RIO EAM';
+
+function buildWhatsAppClickUrl() {
+  const phone = hasValue(process.env.WHATSAPP_CLICK_PHONE)
+    ? process.env.WHATSAPP_CLICK_PHONE.trim().replace(/\D/g, '')
+    : whatsappClickPhoneDefault;
+  const text = hasValue(process.env.WHATSAPP_CLICK_MESSAGE)
+    ? process.env.WHATSAPP_CLICK_MESSAGE.trim()
+    : whatsappClickMessageDefault;
+  const encodedText = encodeURIComponent(text);
+  return {
+    phone,
+    url: `https://wa.me/${phone}?text=${encodedText}`,
+    altUrl: `https://api.whatsapp.com/send?phone=${phone}&text=${encodedText}`,
+  };
+}
 
 function createSmtpTransporter() {
   const pass =
@@ -625,7 +643,7 @@ app.post('/api/pricing-request', async (req, res) => {
       replyTo: email2,
       subject: `Pricing Request - ${company2}`,
       text:
-        `New pricing request from RIO ALM landing page\n\n` +
+        `New pricing request from RIO EAM landing page\n\n` +
         `Full Name: ${fullName2}\n` +
         `Company Name: ${company2}\n` +
         `Work Email: ${email2}\n` +
@@ -644,7 +662,7 @@ app.post('/api/pricing-request', async (req, res) => {
         `utm_term: ${utm_term || '-'}\n` +
         `utm_content: ${utm_content || '-'}\n`,
       html:
-        `<h3>New pricing request from RIO ALM landing page</h3>` +
+        `<h3>New pricing request from RIO EAM landing page</h3>` +
         `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
         `<tr><td><strong>Full Name</strong></td><td>${String(fullName2)}</td></tr>` +
         `<tr><td><strong>Company Name</strong></td><td>${String(company2)}</td></tr>` +
@@ -672,6 +690,97 @@ app.post('/api/pricing-request', async (req, res) => {
   } catch (error) {
     console.error('[pricing-request] Error sending email:', error.message);
     return res.status(500).json({ success: false, message: 'Error sending pricing request email' });
+  }
+});
+
+app.get('/api/whatsapp/config', (req, res) => {
+  const links = buildWhatsAppClickUrl();
+  return res.status(200).json({
+    success: true,
+    phone: links.phone,
+    url: links.url,
+    altUrl: links.altUrl,
+  });
+});
+
+app.post('/api/whatsapp/click-notify', async (req, res) => {
+  const {
+    visitorId = '',
+    source = 'landing_page',
+    sourcePage = '',
+    referrer = '',
+  } = req.body || {};
+
+  const safeVisitorId = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
+  const safeSource = hasValue(source) ? String(source).trim() : 'landing_page';
+  const safeSourcePage = hasValue(sourcePage) ? String(sourcePage).trim() : '-';
+  const safeReferrer = hasValue(referrer) ? String(referrer).trim() : '-';
+  const senderIp = getClientIpForChatEmail(req);
+  const senderUserAgent = req.headers['user-agent'] || 'unknown';
+  const receivedAtIst = formatChatEmailReceivedAtIST(new Date().toISOString());
+  const links = buildWhatsAppClickUrl();
+
+  console.log('[whatsapp-click] CTA clicked', {
+    visitorId: safeVisitorId,
+    source: safeSource,
+    sourcePage: safeSourcePage,
+    phone: links.phone,
+  });
+
+  if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
+    return res.status(200).json({
+      success: true,
+      message: 'WhatsApp click logged (email notification skipped: SMTP not configured).',
+      url: links.url,
+    });
+  }
+
+  try {
+    const transporter = createSmtpTransporter();
+    const notificationTo = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
+      ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
+      : chatNotificationEmailFallback;
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: notificationTo,
+      subject: `WhatsApp CTA clicked - ${safeVisitorId}`,
+      text:
+        `A visitor clicked the WhatsApp button on the website.\n\n` +
+        `Visitor ID: ${safeVisitorId}\n` +
+        `Source: ${safeSource}\n` +
+        `Page: ${safeSourcePage}\n` +
+        `Referrer: ${safeReferrer}\n` +
+        `WhatsApp Number: +${links.phone}\n` +
+        `Received At (IST): ${receivedAtIst}\n` +
+        `IP Address: ${senderIp}\n` +
+        `Browser: ${senderUserAgent}\n`,
+      html:
+        `<h3>WhatsApp CTA clicked</h3>` +
+        `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
+        `<tr><td><strong>Visitor ID</strong></td><td>${safeVisitorId}</td></tr>` +
+        `<tr><td><strong>Source</strong></td><td>${safeSource}</td></tr>` +
+        `<tr><td><strong>Page</strong></td><td>${safeSourcePage}</td></tr>` +
+        `<tr><td><strong>Referrer</strong></td><td>${safeReferrer}</td></tr>` +
+        `<tr><td><strong>WhatsApp Number</strong></td><td>+${links.phone}</td></tr>` +
+        `<tr><td><strong>Received At (IST)</strong></td><td>${receivedAtIst}</td></tr>` +
+        `<tr><td><strong>IP Address</strong></td><td>${senderIp}</td></tr>` +
+        `<tr><td><strong>Browser</strong></td><td>${senderUserAgent}</td></tr>` +
+        `</table>`,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'WhatsApp click notification sent.',
+      url: links.url,
+    });
+  } catch (error) {
+    console.error('[whatsapp-click] Failed to send notification:', error.message);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send WhatsApp click notification.',
+      url: links.url,
+    });
   }
 });
 
@@ -1094,7 +1203,7 @@ const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || p
 if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
   app.use(express.static(buildPath));
 
-  // SEO/Ads-crawler ready prerender for the RIO ALM landing page.
+  // SEO/Ads-crawler ready prerender for the RIO EAM landing page.
   // Returns fully-rendered HTML (H1, content, FAQs, schema, OG tags) so
   // Google AdsBot, Microsoft Ads crawler, PageSpeed and similar tools can
   // parse the page without executing JavaScript. The React bundle still

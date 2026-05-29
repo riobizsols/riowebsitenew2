@@ -103,9 +103,9 @@ const MedicalEquipmentMaintenance = () => {
 
   const faqs = [
     {
-      question: 'Is RIO MEMS different from RIO ALM?',
+      question: 'Is RIO MEMS different from RIO EAM?',
       answer:
-        'Yes. RIO ALM is a generic asset lifecycle platform across industries. RIO MEMS (Medical Equipment Maintenance System) is a focused configuration and content pack of RIO ALM tailored specifically for hospitals and healthcare providers.'
+        'Yes. RIO EAM is a generic asset lifecycle platform across industries. RIO MEMS (Medical Equipment Maintenance System) is a focused configuration and content pack of RIO EAM tailored specifically for hospitals and healthcare providers.'
     },
     {
       question: 'Which hospital teams use RIO MEMS?',
@@ -135,7 +135,7 @@ const MedicalEquipmentMaintenance = () => {
         <title>RIO MEMS - Medical Equipment Maintenance System for Hospitals | RIO</title>
         <meta
           name="description"
-          content="RIO MEMS is a Medical Equipment Maintenance System built on RIO ALM for hospitals and healthcare providers. Track biomedical assets, PPM, calibration, incidents, and compliance for NABH/JCI."
+          content="RIO MEMS is a Medical Equipment Maintenance System built on RIO EAM for hospitals and healthcare providers. Track biomedical assets, PPM, calibration, incidents, and compliance for NABH/JCI."
         />
         <meta
           name="keywords"
@@ -177,7 +177,7 @@ const MedicalEquipmentMaintenance = () => {
               patient care – from ICU and OT to diagnostics and wards.
             </p>
             <p className="hero-subtext">
-              Built on the RIO ALM platform and tailored for healthcare workflows,
+              Built on the RIO EAM platform and tailored for healthcare workflows,
               this solution gives biomedical and clinical engineering teams
               complete control over devices, maintenance, and audits.
             </p>
@@ -245,7 +245,7 @@ const MedicalEquipmentMaintenance = () => {
             </h2>
             <ul className="section-text">
               <li>
-                RIO MEMS is a specialized configuration of RIO ALM dedicated to hospital
+                RIO MEMS is a specialized configuration of RIO EAM dedicated to hospital
                 and healthcare environments.
               </li>
               <li>
@@ -423,7 +423,7 @@ const MedicalEquipmentMaintenance = () => {
         title="See MEMS in Action"
         subtitle="Schedule a walkthrough tailored to your hospital or healthcare network and explore how we can support your biomedical and maintenance teams."
         ctaText="Book MEMS Demo"
-        ctaLink="/products/rio-alm/contact"
+        ctaLink="/products/rio-eam/contact"
       />
       </div>
     </>

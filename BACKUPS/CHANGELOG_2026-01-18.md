@@ -1,6 +1,6 @@
 # CHANGE LOG - Home Page Modifications
 **Date:** 2026-01-18  
-**Purpose:** Remove IPR and ERP Software services, add RIO ALM product  
+**Purpose:** Remove IPR and ERP Software services, add RIO EAM product  
 **Author:** System
 
 ---
@@ -11,7 +11,7 @@
 **Changes Made:**
 - ❌ **Removed:** ERP Software service card (5th card)
 - ❌ **Removed:** Intellectual Property Rights service card (6th card)
-- ✅ **Added:** RIO ALM product card (5th position, replacing ERP)
+- ✅ **Added:** RIO EAM product card (5th position, replacing ERP)
 - ✅ **Updated:** Removed ERP and IP image imports
 - ✅ **Updated:** Added ALM image URL from Cloudinary
 
@@ -19,14 +19,14 @@
 - Line 7: MODIFIED note for imports
 - Line 14: MODIFIED note for URLs
 - Line 24: NEW note for ALM
-- Line 31: MODIFIED comment marking ERP replacement with RIO ALM
+- Line 31: MODIFIED comment marking ERP replacement with RIO EAM
 
 **Service Grid Structure (NEW):**
 1. Digital Marketing
 2. Web Development
 3. App Development
 4. Staffing
-5. **RIO ALM** (NEW - replaces ERP Software)
+5. **RIO EAM** (NEW - replaces ERP Software)
 
 ---
 
@@ -43,7 +43,7 @@
 
 **New Meta Description:**
 ```
-"Explore Riobizsols for digital marketing, staffing, web & app development, and RIO ALM product solutions..."
+"Explore Riobizsols for digital marketing, staffing, web & app development, and RIO EAM product solutions..."
 ```
 
 ---
@@ -66,7 +66,7 @@ All original files backed up to `/BACKUPS/` directory:
 | 2 | Web Development | Service | `/our-service/web-development` |
 | 3 | App Development | Service | `/our-service/app-development` |
 | 4 | Staffing | Service | `/our-service/staffing` |
-| 5 | RIO ALM | **Product** | `/products/rio-alm` |
+| 5 | RIO EAM | **Product** | `/products/rio-eam` |
 
 ---
 
@@ -76,7 +76,7 @@ All original files backed up to `/BACKUPS/` directory:
 - **IPR Removed Completely:** No longer available anywhere on site
 - **ALM Positioning:** Featured as 5th service card, positioning it as key product offering
 - **Icon:** Using package/development icon for ALM (can be updated to custom ALM icon when available)
-- **Description:** Focuses on asset lifecycle management features for enterprise customers
+- **Description:** Focuses on enterprise asset managment features for enterprise customers
 
 ---
 
@@ -85,8 +85,8 @@ All original files backed up to `/BACKUPS/` directory:
 - [ ] Homepage displays 5 service cards (not 6)
 - [ ] ERP Software card no longer visible
 - [ ] IPR card no longer visible
-- [ ] RIO ALM card appears as 5th card
-- [ ] RIO ALM "To Know More" link navigates to `/products/rio-alm`
+- [ ] RIO EAM card appears as 5th card
+- [ ] RIO EAM "To Know More" link navigates to `/products/rio-eam`
 - [ ] Meta description updated in page source
 - [ ] All other services work normally
 

@@ -4,7 +4,7 @@
  * Works correctly in both localhost and production environments
  */
 export const getContactUrl = () => {
-  return '/products/rio-alm/contact';
+  return '/products/rio-eam/contact';
 };
 
 /**

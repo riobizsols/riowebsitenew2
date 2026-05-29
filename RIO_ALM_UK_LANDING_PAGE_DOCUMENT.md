@@ -1,8 +1,8 @@
-# RIO ALM UK Landing Page Document
+# RIO EAM UK Landing Page Document
 
 ## Page Overview
 
-- **Page Name:** RIO ALM UK Paid Ads Landing Page
+- **Page Name:** RIO EAM UK Paid Ads Landing Page
 - **Primary URL:** `/uk/asset-maintenance-management-software`
 - **Live URL (Production):** `https://www.riobizsols.com/uk/asset-maintenance-management-software`
 - **Primary Goal:** Convert UK paid-ads visitors into demo and pricing enquiries
@@ -17,7 +17,7 @@ It is designed for Google Ads and Microsoft Ads traffic with strong conversion i
 - Book a **20-minute demo**
 - Request **UK pricing**
 
-The page messaging explicitly uses **Asset Lifecycle Management** and **Maintenance Management** wording to avoid confusion with other ALM meanings (Application Lifecycle Management / Asset Liability Management).
+The page messaging explicitly uses **Enterprise Asset Managment** and **Maintenance Management** wording to avoid confusion with other ALM meanings (Application Lifecycle Management / Asset Liability Management).
 
 ## Target Industries
 
@@ -28,7 +28,7 @@ The page messaging explicitly uses **Asset Lifecycle Management** and **Maintena
 
 ## Core Value Proposition
 
-RIO ALM helps UK teams centralize asset records and maintenance workflows in one controlled system, including:
+RIO EAM helps UK teams centralize asset records and maintenance workflows in one controlled system, including:
 
 - Asset register
 - Preventive and breakdown maintenance
@@ -58,7 +58,7 @@ CTA placements:
 5. Compliance/audit readiness section
 6. SAP PM/ERP compatibility section
 7. Deployment options section (Cloud / Private Cloud / On-Prem)
-8. Why RIO ALM section
+8. Why RIO EAM section
 9. Demo CTA section
 10. Detailed lead capture form section
 11. FAQ section (8 FAQs)
@@ -66,8 +66,8 @@ CTA placements:
 
 ## SEO and Metadata
 
-- **Meta Title:** Asset Maintenance Management Software UK | RIO ALM
-- **Meta Description:** RIO ALM helps UK manufacturing, healthcare, facility and multi-site teams manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records.
+- **Meta Title:** Asset Maintenance Management Software UK | RIO EAM
+- **Meta Description:** RIO EAM helps UK manufacturing, healthcare, facility and multi-site teams manage assets, preventive maintenance, breakdowns, calibration, vendors, documents and audit-ready records.
 - **H1:** Asset & Maintenance Management Software for UK Operations Teams
 - Open Graph title and description included
 - Canonical URL included

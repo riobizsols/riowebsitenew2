@@ -1,4 +1,4 @@
-# RIO ALM Pricing Page - Delivery Summary
+# RIO EAM Pricing Page - Delivery Summary
 
 ## 📦 What's Included
 
@@ -20,7 +20,7 @@
 
 3. **App.js** (Updated)
    - Added import for RioALMPricing
-   - Added route: `/products/rio-alm/pricing`
+   - Added route: `/products/rio-eam/pricing`
 
 ### ✅ Documentation Files
 
@@ -52,7 +52,7 @@
 
 ### Section 1: HERO ✅
 - Modern gradient background (purple → blue)
-- Main headline: "RIO ALM Pricing — Per-Site Licensing, Flexible Deployment"
+- Main headline: "RIO EAM Pricing — Per-Site Licensing, Flexible Deployment"
 - Subheadline emphasizing site-based, unlimited users/assets
 - Two CTAs: "Book a Demo" + "Get a Proposal"
 - Trust strip: "Unlimited Users • Unlimited Assets • Role-Based Access • Audit-Ready"
@@ -155,7 +155,7 @@ Each item has icon + title + description
 
 Compares:
 - **Left**: Traditional Per-User Pricing (costs multiply with headcount)
-- **Right**: RIO ALM Site-Based Pricing (predictable, unlimited users)
+- **Right**: RIO EAM Site-Based Pricing (predictable, unlimited users)
 - **Benefits**: 4 checkmark advantages
   - Predictable costs: No surprises as your team grows
   - Unlimited collaboration: All users included, no seat limits
@@ -179,7 +179,7 @@ Each FAQ expandable via accordion click.
 
 ### Section 9: FINAL CTA ✅
 - Strong headline: "Ready to bring control, compliance, and uptime to your assets?"
-- Subline: "Start your RIO ALM journey today. Quick demos, flexible deployment, predictable pricing."
+- Subline: "Start your RIO EAM journey today. Quick demos, flexible deployment, predictable pricing."
 - Two CTAs: "Book a Demo" + "Get a Proposal"
 - Contact section:
   - Email: tony.rozario@riobizsols.com
@@ -369,11 +369,11 @@ Content animates in/out with slideDown keyframe
 
 ### Page Route
 ```
-/products/rio-alm/pricing
+/products/rio-eam/pricing
 ```
 
 ### Internal Links
-- Book a Demo: `/products/rio-alm/contact`
+- Book a Demo: `/products/rio-eam/contact`
 - Get a Proposal: `mailto:tony.rozario@riobizsols.com`
 
 ### External Links
@@ -442,7 +442,7 @@ Content animates in/out with slideDown keyframe
 ```
 Email: tony.rozario@riobizsols.com
 WhatsApp/Phone: +91 88884910777
-Website: https://www.riobizsols.com/products/rio-alm
+Website: https://www.riobizsols.com/products/rio-eam
 ```
 
 ---

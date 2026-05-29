@@ -1,4 +1,4 @@
-# ✅ RIO ALM Pricing Page - Final Verification Checklist
+# ✅ RIO EAM Pricing Page - Final Verification Checklist
 
 ## 📦 Deliverables Verification
 
@@ -17,7 +17,7 @@
 
 - [x] **App.js** updated with:
   - Import statement added
-  - Route `/products/rio-alm/pricing` added
+  - Route `/products/rio-eam/pricing` added
 
 ### Documentation Files ✅
 - [x] **RIO_ALM_PRICING_QUICK_REF.md** (200 lines)
@@ -299,7 +299,7 @@
 
 ### Routing ✅
 - [x] Route imported in App.js
-- [x] Route path configured: `/products/rio-alm/pricing`
+- [x] Route path configured: `/products/rio-eam/pricing`
 - [x] Component properly integrated
 - [x] No routing conflicts
 
