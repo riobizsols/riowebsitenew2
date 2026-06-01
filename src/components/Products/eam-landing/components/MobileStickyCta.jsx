@@ -1,6 +1,6 @@
 import WhatsAppButton from "./WhatsAppButton";
 
-export default function MobileStickyCta({ onBookDemo, onRequestPricing }) {
+export default function MobileStickyCta({ onBookDemo }) {
   return (
     <div className="v2-mobile-sticky-cta" role="region" aria-label="Quick actions">
       <div className="v2-mobile-sticky-cta-inner">
@@ -9,14 +9,7 @@ export default function MobileStickyCta({ onBookDemo, onRequestPricing }) {
           className="v2-sticky-btn v2-sticky-btn--book"
           onClick={onBookDemo}
         >
-          Book
-        </button>
-        <button
-          type="button"
-          className="v2-sticky-btn v2-sticky-btn--pricing"
-          onClick={onRequestPricing}
-        >
-          Get Pricing
+          Book a meeting
         </button>
         <WhatsAppButton
           className="v2-sticky-btn v2-sticky-btn--wa"

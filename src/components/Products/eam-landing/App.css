@@ -1538,13 +1538,6 @@
   color: #fff;
 }
 
-.v2-mobile-sticky-cta .v2-sticky-btn--pricing {
-  background: #fff;
-  border: 1.5px solid var(--v2-primary);
-  color: var(--v2-primary);
-  white-space: normal;
-}
-
 .v2-mobile-sticky-cta .v2-sticky-btn--wa.v2-btn-whatsapp {
   background: #25d366;
   border: none;
