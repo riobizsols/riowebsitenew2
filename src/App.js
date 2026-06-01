@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
 import Home from './components/pages/Home';
@@ -10,6 +10,7 @@ import ScrollToTop from "./ScrollToTop/ScrollToTop";
 import { MainServices } from './components/pages';
 import Contact from './components/pages/Contact';
 import * as visitorTracking from './services/visitorTracking';
+import { assertSingleGoogleTag, trackVirtualPageView } from './utils/gtm';
 import webVitalsMonitor from './services/webVitalsMonitor';
 import Staffing from './components/Services/Staffing';
 import Longterm from './components/sub_pages/Staffing/Longterm';
@@ -105,11 +106,16 @@ ReactPixel.pageView();
 
 function AppContent() {
   const location = useLocation();
+  const isInitialRoute = useRef(true);
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isAlmLandingPage =
     normalizedPath === '/uk/asset-maintenance-management-software' ||
     normalizedPath === '/asset-maintenance-management-software' ||
     normalizedPath === '/asset-maintenance-management-software-v2';
+
+  useEffect(() => {
+    assertSingleGoogleTag();
+  }, []);
 
   // Initialize visitor tracking on app mount
   useEffect(() => {
@@ -121,12 +127,6 @@ function AppContent() {
         // Initialize visitor tracking
         const profile = await visitorTracking.getVisitorProfile();
         console.log('✓ Visitor tracking initialized:', profile.visitorId);
-
-        // Track page view on route change
-        visitorTracking.trackPageView('App Load', {
-          url: window.location.href,
-          title: document.title
-        });
 
         // Track scroll depth on scroll
         const handleScroll = () => {
@@ -151,6 +151,33 @@ function AppContent() {
 
     initTracking();
   }, []);
+
+  useEffect(() => {
+    const pagePath = `${location.pathname}${location.search}${location.hash}`;
+
+    const trackRoute = () => {
+      visitorTracking.trackPageView(document.title, {
+        url: window.location.href,
+        title: document.title,
+      });
+
+      if (isInitialRoute.current) {
+        isInitialRoute.current = false;
+        return;
+      }
+
+      trackVirtualPageView({
+        page_path: pagePath,
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+      ReactPixel.pageView();
+    };
+
+    const timer = window.setTimeout(trackRoute, 100);
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, location.search, location.hash]);
+
   return (
     <div className="App">
       <CanonicalLink baseUrl="https://riobizsols.com/" />

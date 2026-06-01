@@ -1,21 +1,21 @@
 import { heroHighlights } from "../data";
+import ProductShowcase from "./ProductShowcase";
 import WhatsAppButton from "./WhatsAppButton";
 import HeroLeadForm from "./HeroLeadForm";
-import ProductShowcase from "./ProductShowcase";
 
 export default function Hero({ onBookDemo, onRequestPricing }) {
   return (
     <section className="v2-hero" id="top">
-      <div className="v2-container v2-hero-grid">
-        <div className="v2-hero-text">
+      <div className="v2-container v2-hero-layout">
+        <div className="v2-hero-intro">
           <p className="v2-eyebrow">CMMS &amp; Maintenance Management Software</p>
           <h1>
             Still tracking maintenance, breakdowns, and work orders in Excel?
           </h1>
           <p className="v2-hero-sub">
-            RIO CMMS helps maintenance teams plan preventive maintenance, manage
-            breakdowns, assign work orders, track service history, and maintain
-            audit-ready records — all from one connected system.
+            Our CMMS software helps maintenance teams plan preventive maintenance,
+            manage breakdowns, assign technicians, track work orders, store service
+            history, and keep maintenance records organized in one system.
           </p>
           <div className="v2-hero-ctas">
             <button className="v2-btn-primary" type="button" onClick={onBookDemo}>
@@ -38,20 +38,24 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
             </button>
             <WhatsAppButton className="v2-hero-wa-inline" source="hero" />
           </div>
-          <ul className="v2-hero-highlights">
-            {heroHighlights.map(({ icon: Icon, line1, line2 }) => (
-              <li key={`${line1}-${line2}`}>
-                <span className="v2-hero-highlight-icon" aria-hidden="true">
-                  <Icon size={24} strokeWidth={1.5} />
-                </span>
-                <span className="v2-hero-highlight-text">
-                  <span>{line1}</span>
-                  <span>{line2}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <ProductShowcase />
+        </div>
+
+        <ul className="v2-hero-highlights">
+          {heroHighlights.map(({ icon: Icon, line1, line2 }) => (
+            <li key={`${line1}-${line2}`}>
+              <span className="v2-hero-highlight-icon" aria-hidden="true">
+                <Icon size={24} strokeWidth={1.5} />
+              </span>
+              <span className="v2-hero-highlight-text">
+                <span>{line1}</span>
+                <span>{line2}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="v2-hero-showcase-wrap">
+          <ProductShowcase inline />
         </div>
 
         <div className="v2-hero-aside">

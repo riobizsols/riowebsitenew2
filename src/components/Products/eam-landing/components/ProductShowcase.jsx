@@ -1,9 +1,14 @@
 import { ASSETS } from "../assets";
 
-export default function ProductShowcase() {
+export default function ProductShowcase({ inline = false }) {
+  const Root = inline ? "div" : "section";
+
   return (
-    <div className="v2-showcase" aria-label="Product screenshots">
-      <div className="v2-showcase-stage">
+    <Root
+      className={`v2-showcase${inline ? " v2-showcase--inline" : ""}`}
+      aria-label="Product screenshots"
+    >
+      <div className={inline ? "v2-showcase-inner" : "v2-container v2-showcase-inner"}>
         <div className="v2-showcase-laptop">
           <img
             src={ASSETS.dashboardDesktop}
@@ -25,6 +30,6 @@ export default function ProductShowcase() {
           </div>
         </div>
       </div>
-    </div>
+    </Root>
   );
 }

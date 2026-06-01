@@ -53,7 +53,10 @@ export default function EamLandingApp() {
         <Industries />
         <CtaStrip onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
       </main>
-      <MobileStickyCta onBookDemo={onBookDemo} />
+      <MobileStickyCta
+        onBookDemo={onBookDemo}
+        onRequestPricing={onRequestPricing}
+      />
     </div>
   );
 }

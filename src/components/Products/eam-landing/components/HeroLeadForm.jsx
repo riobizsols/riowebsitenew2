@@ -3,6 +3,8 @@ import { FiLock } from "react-icons/fi";
 import { formOptions } from "../data";
 import { getApiBaseUrl } from "../utils/api";
 import { captureUtmParams } from "../utils/utm";
+import { trackGenerateLead } from "../../../../utils/gtm";
+import ReactPixel from "react-facebook-pixel";
 
 const initial = {
   fullName2: "",
@@ -65,6 +67,8 @@ export default function HeroLeadForm() {
 
       if (!response.ok) throw new Error("Demo request failed");
 
+      trackGenerateLead("cmms_hero_form", { industry: form.industry });
+      ReactPixel.track("Lead");
       setSuccess(true);
       setForm(initial);
     } catch (submitError) {
@@ -88,12 +92,12 @@ export default function HeroLeadForm() {
           {error && <div className="v2-form-error">{error}</div>}
 
           <div>
-            <label htmlFor="hero-fullName">Full Name</label>
+            <label htmlFor="hero-fullName">Full Name *</label>
             <input
               id="hero-fullName"
               name="fullName2"
               type="text"
-              placeholder="Your name"
+              placeholder="Enter your full name"
               required
               value={form.fullName2}
               onChange={update}
@@ -101,12 +105,12 @@ export default function HeroLeadForm() {
           </div>
 
           <div>
-            <label htmlFor="hero-company">Company Name</label>
+            <label htmlFor="hero-company">Company Name *</label>
             <input
               id="hero-company"
               name="company2"
               type="text"
-              placeholder="Company"
+              placeholder="Enter company name"
               required
               value={form.company2}
               onChange={update}
@@ -114,7 +118,7 @@ export default function HeroLeadForm() {
           </div>
 
           <div>
-            <label htmlFor="hero-phone">Mobile / WhatsApp Number</label>
+            <label htmlFor="hero-phone">Mobile / WhatsApp Number *</label>
             <div className="v2-phone-row">
               <select
                 name="countryCode"
@@ -132,7 +136,7 @@ export default function HeroLeadForm() {
                 id="hero-phone"
                 name="phone2"
                 type="tel"
-                placeholder="Phone number"
+                placeholder="Enter mobile number"
                 value={form.phone2}
                 onChange={update}
               />
@@ -140,12 +144,12 @@ export default function HeroLeadForm() {
           </div>
 
           <div>
-            <label htmlFor="hero-email">Work Email</label>
+            <label htmlFor="hero-email">Work Email *</label>
             <input
               id="hero-email"
               name="email2"
               type="email"
-              placeholder="you@company.com"
+              placeholder="Enter work email"
               required
               value={form.email2}
               onChange={update}
@@ -153,7 +157,7 @@ export default function HeroLeadForm() {
           </div>
 
           <div>
-            <label htmlFor="hero-industry">Industry</label>
+            <label htmlFor="hero-industry">Industry *</label>
             <select
               id="hero-industry"
               name="industry"
@@ -162,7 +166,7 @@ export default function HeroLeadForm() {
               onChange={update}
             >
               <option value="" disabled>
-                Select industry
+                Select your industry
               </option>
               {formOptions.industries.map((o) => (
                 <option key={o} value={o}>
@@ -178,7 +182,7 @@ export default function HeroLeadForm() {
               id="hero-message"
               name="message"
               rows={3}
-              placeholder="Tell us about your maintenance needs"
+              placeholder="Tell us about your requirement"
               value={form.message}
               onChange={update}
             />

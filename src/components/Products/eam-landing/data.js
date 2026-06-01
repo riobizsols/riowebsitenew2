@@ -16,6 +16,7 @@ import {
   FiBookOpen,
   FiHome,
   FiTruck,
+  FiCheckCircle,
 } from "react-icons/fi";
 
 export const heroHighlights = [
@@ -31,32 +32,32 @@ export const painPoints = [
   {
     icon: FiCalendar,
     text: "Reduce missed preventive maintenance",
-    desc: "Automated PM schedules replace spreadsheet reminders and missed due dates.",
+    desc: "Plan recurring maintenance and avoid costly delays and downtime.",
   },
   {
     icon: FiAlertTriangle,
     text: "Respond faster to breakdowns",
-    desc: "Log breakdowns instantly, assign technicians, and track resolution in real time.",
+    desc: "Capture issues quickly, assign responsibility, and resolve faster.",
   },
   {
     icon: FiClipboard,
     text: "Improve work order visibility",
-    desc: "See open, in-progress, and completed work orders across teams and locations.",
+    desc: "Track open, pending, overdue and completed jobs in real time.",
   },
   {
     icon: FiFileText,
-    text: "Access complete equipment service history",
-    desc: "Every repair, part, cost, and vendor note stored against each asset.",
-  },
-  {
-    icon: FiShield,
-    text: "Track calibration & inspection compliance",
-    desc: "Never miss calibration or inspection due dates with alerts and audit trails.",
+    text: "Keep service records organized",
+    desc: "Store maintenance history, technician notes and documents by equipment.",
   },
   {
     icon: FiUsers,
-    text: "Manage vendor service records efficiently",
-    desc: "Centralize vendor contracts, SLAs, and service performance in one place.",
+    text: "Support field technicians",
+    desc: "Enable mobile updates, photos, remarks and job closures on the go.",
+  },
+  {
+    icon: FiCheckCircle,
+    text: "Standardize maintenance",
+    desc: "Use role-based access, multilingual screens & workflows across teams.",
   },
 ];
 
@@ -64,42 +65,42 @@ export const features = [
   {
     icon: FiLayers,
     title: "Centralized Equipment Repository",
-    desc: "Register assets with location, category, warranty, and lifecycle details.",
+    desc: "Maintain all equipment details, location, department, and lifecycle data.",
   },
   {
     icon: FiCalendar,
     title: "Preventive & Breakdown Scheduling",
-    desc: "Plan PM routines and capture breakdown jobs from one maintenance calendar.",
+    desc: "Create plans, log breakdowns, and assign tasks from one calendar.",
   },
   {
     icon: FiClipboard,
     title: "Work Order Management",
-    desc: "Create, prioritize, assign, and close work orders with full status tracking.",
+    desc: "Create, assign, prioritize and monitor work orders end to end.",
   },
   {
-    icon: FiUsers,
-    title: "Technician Assignment & Tracking",
-    desc: "Assign the right technician and measure response time and completion rates.",
+    icon: FiShield,
+    title: "Calibration Tracking",
+    desc: "Track schedules, due dates and maintain records for compliance.",
   },
   {
-    icon: FiFileText,
-    title: "Equipment Service History",
-    desc: "Complete history of services, repairs, parts used, and maintenance costs.",
+    icon: FiBarChart2,
+    title: "Vendor & AMC / CMC Management",
+    desc: "Manage vendors, contracts, and service visits in one place.",
   },
   {
     icon: FiSmartphone,
     title: "Mobile Maintenance Updates",
-    desc: "Technicians update jobs, attach photos, and close work orders from mobile.",
+    desc: "Technicians can scan equipment and update jobs via the mobile app.",
   },
   {
-    icon: FiShield,
-    title: "Calibration & Inspection Tracking",
-    desc: "Schedule calibrations and inspections with compliance-ready documentation.",
+    icon: FiGlobe,
+    title: "Multilingual & Role-Based Access",
+    desc: "Support multiple languages and access levels for every user type.",
   },
   {
     icon: FiFileText,
-    title: "Audit Logs & Digital Approvals",
-    desc: "Maintain compliance with full audit trails and approval workflows.",
+    title: "Audit Logs & Compliance Records",
+    desc: "Maintain audit-ready records and activity logs for every action.",
   },
 ];
 
@@ -107,22 +108,22 @@ export const structuredOperations = [
   {
     icon: FiMapPin,
     title: "Multi-location asset tracking",
-    desc: "Track assets and maintenance across plants, sites, and branches from one view.",
+    desc: "Manage assets across branches, plants, and buildings from one view.",
   },
   {
     icon: FiSettings,
     title: "Configurable workflows",
-    desc: "Adapt statuses, approvals, and forms to match how your team works.",
+    desc: "Set up approval flows and processes that match how your team works.",
   },
   {
     icon: FiLayers,
     title: "Asset-type specific fields",
-    desc: "Capture the right data for machines, vehicles, facilities, and equipment types.",
+    desc: "Custom fields for machines, vehicles, facilities, and equipment types.",
   },
   {
     icon: FiClipboard,
     title: "Smart grouping of assets",
-    desc: "Organize assets by location, department, category, or custom groups.",
+    desc: "Group parent-child or related assets for easier maintenance planning.",
   },
 ];
 
@@ -131,54 +132,54 @@ export const industries = [
     title: "Manufacturing Plants",
     icon: FiTool,
     items: [
-      "Reduce unplanned machine downtime",
-      "Track PM for production equipment",
-      "Improve asset reliability & uptime",
+      "Machine maintenance scheduling",
+      "Breakdown tracking & root cause",
+      "Production equipment PM plans",
     ],
   },
   {
     title: "Hospitals & Clinics",
     icon: FiShield,
     items: [
-      "Ensure critical medical equipment uptime",
-      "Track calibration & compliance",
-      "Maintain audit-ready maintenance records",
+      "Medical equipment maintenance",
+      "Calibration reminders & compliance",
+      "Critical asset uptime tracking",
     ],
   },
   {
     title: "Hotels & Resorts",
     icon: FiHome,
     items: [
-      "Manage HVAC, kitchen & facility assets",
-      "Schedule preventive maintenance",
-      "Improve guest experience with fewer breakdowns",
+      "Room & facility maintenance",
+      "HVAC and kitchen equipment PM",
+      "Guest-facing asset reliability",
     ],
   },
   {
     title: "Educational Institutions",
     icon: FiBookOpen,
     items: [
-      "Track lab, IT & campus facility assets",
-      "Plan maintenance across buildings",
-      "Control maintenance budgets centrally",
+      "Lab equipment maintenance",
+      "Maintenance schedules & checklists",
+      "Campus facility upkeep",
     ],
   },
   {
     title: "Facilities Management",
     icon: FiLayers,
     items: [
-      "Manage multi-site client portfolios",
-      "Streamline work orders & vendor coordination",
-      "Deliver SLA-compliant maintenance services",
+      "Building maintenance workflows",
+      "Contractor tracking & SLAs",
+      "Multi-site work order management",
     ],
   },
   {
     title: "Equipment Rental / Service Companies",
     icon: FiTruck,
     items: [
-      "Track rented equipment service history",
-      "Schedule inspections before dispatch",
-      "Reduce repair turnaround time",
+      "Repair tracking & dispatch",
+      "Field technician updates on site",
+      "Equipment service history records",
     ],
   },
 ];

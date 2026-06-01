@@ -1,6 +1,7 @@
 import { CONTACT } from "../assets";
 import { getApiBaseUrl } from "./api";
 import { getOrCreateVisitorId } from "./visitor";
+import { trackWhatsAppClick } from "../../../../utils/gtm";
 
 let cachedConfig = null;
 
@@ -28,6 +29,8 @@ export async function getWhatsAppConfig() {
 }
 
 export async function notifyWhatsAppClick(source = "landing_page") {
+  trackWhatsAppClick(source);
+
   try {
     await fetch(`${getApiBaseUrl()}/api/whatsapp/click-notify`, {
       method: "POST",

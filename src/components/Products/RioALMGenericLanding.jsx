@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { FiActivity, FiAlertCircle, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDatabase, FiFileText, FiGrid, FiLayers, FiMapPin, FiMonitor, FiSettings, FiShield, FiSmartphone, FiTool, FiTruck, FiUsers } from 'react-icons/fi';
 import './RioALMGenericLanding.css';
 import { getApiBaseUrl } from '../../utils/urlHelper';
+import { trackGenerateLead } from '../../utils/gtm';
+import ReactPixel from 'react-facebook-pixel';
 
 const featureCards = [
   {
@@ -273,6 +275,8 @@ const RioALMGenericLanding = () => {
         throw new Error('Pricing request failed');
       }
 
+      trackGenerateLead('alm_generic_pricing_form');
+      ReactPixel.track('Lead');
       setIsPricingSubmitted(true);
       formEl.reset();
     } catch (error) {
