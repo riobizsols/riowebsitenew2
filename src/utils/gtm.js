@@ -1,29 +1,18 @@
 /**
- * Google Tag (gtag.js) — single tag on the page.
+ * GTM dataLayer helpers.
  *
- * - Loaded once from public/index.html (GOOGLE_TAG_ID).
- * - Link GA4 + Google Ads accounts as "destinations" in Google tag settings
- *   (Tag Assistant then shows one G- ID with AW- / GA4 beneath it).
- * - Do not add GTM or extra gtag('config', 'AW-…') snippets in the app.
+ * - One GTM container is loaded from public/index.html
+ * - GA4 + Google Ads tags are configured inside GTM
+ * - App code pushes events to dataLayer only
  */
 
-export const GOOGLE_TAG_ID =
-  process.env.REACT_APP_GOOGLE_TAG_ID || 'G-TZL33ZKGSQ';
+export const GTM_CONTAINER_ID =
+  process.env.REACT_APP_GTM_ID || 'GTM-KNTZ9KWB';
 
 export function initDataLayer() {
   if (typeof window === 'undefined') return [];
   window.dataLayer = window.dataLayer || [];
   return window.dataLayer;
-}
-
-function gtag(...args) {
-  if (typeof window === 'undefined') return;
-  initDataLayer();
-  if (typeof window.gtag === 'function') {
-    window.gtag(...args);
-  } else {
-    window.dataLayer.push(args);
-  }
 }
 
 export function pushToDataLayer(payload) {
@@ -41,7 +30,8 @@ export function trackVirtualPageView(overrides = {}) {
   const pageTitle = overrides.page_title ?? document.title;
   const pageLocation = overrides.page_location ?? window.location.href;
 
-  gtag('config', GOOGLE_TAG_ID, {
+  pushToDataLayer({
+    event: 'virtual_page_view',
     page_path: pagePath,
     page_title: pageTitle,
     page_location: pageLocation,
@@ -49,20 +39,22 @@ export function trackVirtualPageView(overrides = {}) {
 }
 
 export function trackGenerateLead(source = 'unknown', extra = {}) {
-  gtag('event', 'generate_lead', {
+  pushToDataLayer({
+    event: 'generate_lead',
     lead_source: source,
     ...extra,
   });
 }
 
 export function trackWhatsAppClick(source = 'unknown') {
-  gtag('event', 'whatsapp_click', {
+  pushToDataLayer({
+    event: 'whatsapp_click',
     click_source: source,
   });
 }
 
-/** Dev-only: warn if GTM or duplicate Google tags are present. */
-export function assertSingleGoogleTag() {
+/** Dev-only: warn if gtag or duplicate GTM containers are present. */
+export function assertSingleGtmContainer() {
   if (typeof window === 'undefined' || process.env.NODE_ENV === 'production') {
     return;
   }
@@ -70,32 +62,32 @@ export function assertSingleGoogleTag() {
   const gtmScripts = document.querySelectorAll(
     'script[src*="googletagmanager.com/gtm.js"]'
   );
-  if (gtmScripts.length > 0) {
+  const containerIds = [...gtmScripts]
+    .map((el) => el.src.match(/[?&]id=([^&]+)/)?.[1])
+    .filter(Boolean);
+
+  if (containerIds.length > 1) {
     console.warn(
-      '[Google Tag] GTM is still loaded. Remove GTM from index.html to use a single Google tag.'
+      '[GTM] Multiple GTM containers detected. Use only one:',
+      containerIds
+    );
+  }
+
+  if (containerIds.length === 1 && containerIds[0] !== GTM_CONTAINER_ID) {
+    console.warn(
+      `[GTM] Loaded ${containerIds[0]} but app expects ${GTM_CONTAINER_ID}.`
     );
   }
 
   const gtagScripts = document.querySelectorAll(
     'script[src*="googletagmanager.com/gtag/js"]'
   );
-  const tagIds = [...gtagScripts]
-    .map((el) => el.src.match(/[?&]id=([^&]+)/)?.[1])
-    .filter(Boolean);
-
-  if (tagIds.length > 1) {
+  if (gtagScripts.length > 0) {
     console.warn(
-      '[Google Tag] Multiple gtag.js IDs detected. Use only one Google tag:',
-      tagIds
-    );
-  }
-
-  if (tagIds.length === 1 && tagIds[0] !== GOOGLE_TAG_ID) {
-    console.warn(
-      `[Google Tag] Loaded ${tagIds[0]} but app expects ${GOOGLE_TAG_ID}.`
+      '[GTM] gtag.js detected. Keep GTM-only setup to avoid duplicate tracking.'
     );
   }
 }
 
-/** @deprecated use assertSingleGoogleTag */
-export const assertSingleGtmContainer = assertSingleGoogleTag;
+/** @deprecated kept for compatibility with older imports */
+export const assertSingleGoogleTag = assertSingleGtmContainer;

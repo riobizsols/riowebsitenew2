@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import Header from './components/Navbar';
 import Home from './components/pages/Home';
@@ -96,6 +96,8 @@ import HealthcareIndustry from './components/Industries/HealthcareIndustry';
 import SaasIndustry from './components/Industries/SaasIndustry';
 import AdminChat from './components/pages/AdminChat';
 
+const RioEAMLanding = lazy(() => import('./components/Products/RioEAMLanding'));
+
 const options = {
   autoConfig: true,
   debug: false,
@@ -111,7 +113,8 @@ function AppContent() {
   const isAlmLandingPage =
     normalizedPath === '/uk/asset-maintenance-management-software' ||
     normalizedPath === '/asset-maintenance-management-software' ||
-    normalizedPath === '/asset-maintenance-management-software-v2';
+    normalizedPath === '/eam-maintenance-management-software' ||
+    normalizedPath === '/cmms-maintenance-management-software';
 
   useEffect(() => {
     assertSingleGoogleTag();
@@ -278,7 +281,16 @@ function AppContent() {
          <Route path='/products/la-law' element={<LaLawLanding/>}/>
          <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
-         <Route path='/asset-maintenance-management-software-v2' element={<RioALMLandingV2/>}/>
+         <Route path='/cmms-maintenance-management-software' element={<RioALMLandingV2/>}/>
+         <Route path='/asset-maintenance-management-software-v2' element={<Navigate to='/cmms-maintenance-management-software' replace />}/>
+         <Route
+           path='/eam-maintenance-management-software'
+           element={
+             <Suspense fallback={null}>
+               <RioEAMLanding />
+             </Suspense>
+           }
+         />
 
          {/* Service Comparison Routes */}
          <Route path='/compare/staffing' element={<StaffingComparison/>}/>

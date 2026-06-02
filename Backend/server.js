@@ -1211,6 +1211,8 @@ if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)
   const almLandingPaths = [
     '/asset-maintenance-management-software',
     '/uk/asset-maintenance-management-software',
+    '/eam-maintenance-management-software',
+    '/cmms-maintenance-management-software',
     '/asset-maintenance-management-software-v2',
   ];
   almLandingPaths.forEach((routePath) => {

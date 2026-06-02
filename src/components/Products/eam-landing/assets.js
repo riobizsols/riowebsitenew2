@@ -12,7 +12,7 @@ export const ASSETS = {
 
 export const SITE = {
   home: "https://riobizsols.com/",
-  page: "https://riobizsols.com/asset-maintenance-management-software-v2",
+  page: "https://riobizsols.com/cmms-maintenance-management-software",
 };
 
 export const CONTACT = {

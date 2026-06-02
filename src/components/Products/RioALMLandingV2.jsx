@@ -23,7 +23,7 @@ const RioALMLandingV2 = () => (
       <meta property="og:type" content="website" />
       <meta
         property="og:url"
-        content="https://www.riobizsols.com/asset-maintenance-management-software-v2"
+        content="https://riobizsols.com/cmms-maintenance-management-software"
       />
       <meta property="og:image" content="https://www.riobizsols.com/alm-dashboard-user.png" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +39,7 @@ const RioALMLandingV2 = () => (
       />
       <link
         rel="canonical"
-        href="https://www.riobizsols.com/asset-maintenance-management-software-v2"
+        href="https://riobizsols.com/cmms-maintenance-management-software"
       />
       <link
         href="https://assets.calendly.com/assets/external/widget.css"
