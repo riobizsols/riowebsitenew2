@@ -41,8 +41,8 @@ export default function EamLandingApp() {
   }, [scrollToForm]);
 
   return (
-    <div className="rio-v2-landing">
-      <Header />
+    <div className="rio-cmms-landing rio-v2-landing">
+      <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
       <main>
         <section className="v2-hero-wrap">
           <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
