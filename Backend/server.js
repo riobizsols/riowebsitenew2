@@ -31,7 +31,14 @@ function parseAllowedOriginsFromEnv() {
 }
 
 const allowedOrigins = parseAllowedOriginsFromEnv();
-const localDevOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
+const localDevOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'http://localhost:3001',
+  'http://127.0.0.1:3001',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+];
 
 const corsOptions = {
   origin(origin, callback) {
@@ -40,7 +47,10 @@ const corsOptions = {
     if (!normalizedOrigin) return callback(null, true);
 
     if (allowedOrigins.length > 0) {
-      return callback(null, allowedOrigins.includes(normalizedOrigin));
+      const ok =
+        allowedOrigins.includes(normalizedOrigin) ||
+        localDevOrigins.includes(normalizedOrigin);
+      return callback(null, ok);
     }
 
     if (process.env.NODE_ENV === 'production') {
