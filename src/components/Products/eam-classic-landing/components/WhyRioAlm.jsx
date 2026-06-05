@@ -45,7 +45,7 @@ const rows = [
   },
 ];
 
-export default function WhyRioAlm() {
+export default function WhyRioAlm({ showWhatsApp = true }) {
   return (
     <section className="v2-why-block" id="why-rio">
       <div className="v2-container">
@@ -132,9 +132,11 @@ export default function WhyRioAlm() {
             </tbody>
           </table>
         </div>
-        <div className="v2-compare-cta">
-          <WhatsAppButton />
-        </div>
+        {showWhatsApp && (
+          <div className="v2-compare-cta">
+            <WhatsAppButton />
+          </div>
+        )}
       </div>
     </section>
   );

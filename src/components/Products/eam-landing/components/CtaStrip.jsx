@@ -4,7 +4,7 @@ import WhatsAppButton from "./WhatsAppButton";
 
 const trustIcons = [FiZap, FiShield, FiSettings, FiSmartphone, FiGlobe];
 
-export default function CtaStrip({ onBookDemo, onRequestPricing }) {
+export default function CtaStrip({ onBookDemo, onRequestPricing, showWhatsApp = true }) {
   return (
     <section className="v2-final-cta" id="cta">
       <div className="v2-container">
@@ -33,7 +33,9 @@ export default function CtaStrip({ onBookDemo, onRequestPricing }) {
               </svg>
               Get Pricing / Quote
             </button>
-            <WhatsAppButton className="v2-final-wa v2-btn-cta-whatsapp" source="footer_cta" />
+            {showWhatsApp && (
+              <WhatsAppButton className="v2-final-wa v2-btn-cta-whatsapp" source="footer_cta" />
+            )}
           </div>
         </div>
 

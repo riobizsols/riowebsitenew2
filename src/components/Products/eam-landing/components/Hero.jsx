@@ -3,7 +3,7 @@ import ProductShowcase from "./ProductShowcase";
 import WhatsAppButton from "./WhatsAppButton";
 import HeroLeadForm from "./HeroLeadForm";
 
-export default function Hero({ onBookDemo, onRequestPricing }) {
+export default function Hero({ onBookDemo, onRequestPricing, showWhatsApp = true }) {
   return (
     <section className="v2-hero" id="top">
       <div className="v2-container v2-hero-layout">
@@ -36,7 +36,9 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
               </svg>
               Get Pricing / Quote
             </button>
-            <WhatsAppButton className="v2-hero-wa-inline" source="hero" />
+            {showWhatsApp && (
+              <WhatsAppButton className="v2-hero-wa-inline" source="hero" />
+            )}
           </div>
         </div>
 

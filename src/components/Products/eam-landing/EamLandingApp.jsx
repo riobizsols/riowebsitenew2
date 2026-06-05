@@ -11,7 +11,7 @@ import MobileStickyCta from "./components/MobileStickyCta";
 import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly";
 import { captureUtmParams } from "./utils/utm";
 
-export default function EamLandingApp() {
+export default function EamLandingApp({ showWhatsApp = true }) {
   const [utmParams, setUtmParams] = useState(() => captureUtmParams());
 
   useEffect(() => {
@@ -42,18 +42,30 @@ export default function EamLandingApp() {
 
   return (
     <div className="rio-cmms-landing rio-v2-landing">
-      <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+      <Header
+        onBookDemo={onBookDemo}
+        onRequestPricing={onRequestPricing}
+        showWhatsApp={showWhatsApp}
+      />
       <main>
         <section className="v2-hero-wrap">
-          <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+          <Hero
+            onBookDemo={onBookDemo}
+            onRequestPricing={onRequestPricing}
+            showWhatsApp={showWhatsApp}
+          />
         </section>
         <PainPoints />
         <Features />
         <StructuredOperations />
         <Industries />
-        <CtaStrip onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+        <CtaStrip
+          onBookDemo={onBookDemo}
+          onRequestPricing={onRequestPricing}
+          showWhatsApp={showWhatsApp}
+        />
       </main>
-      <MobileStickyCta onBookDemo={onBookDemo} />
+      <MobileStickyCta onBookDemo={onBookDemo} showWhatsApp={showWhatsApp} />
     </div>
   );
 }

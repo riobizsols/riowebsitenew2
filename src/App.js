@@ -113,7 +113,9 @@ function AppContent() {
   const isAlmLandingPage =
     normalizedPath === '/uk/asset-maintenance-management-software' ||
     normalizedPath === '/asset-maintenance-management-software' ||
+    normalizedPath === '/uk/eam-maintenance-management-software' ||
     normalizedPath === '/eam-maintenance-management-software' ||
+    normalizedPath === '/uk/cmms-maintenance-management-software' ||
     normalizedPath === '/cmms-maintenance-management-software';
 
   useEffect(() => {
@@ -282,12 +284,24 @@ function AppContent() {
          <Route path='/uk/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/asset-maintenance-management-software' element={<RioALMGenericLanding/>}/>
          <Route path='/cmms-maintenance-management-software' element={<RioALMLandingV2/>}/>
+         <Route
+           path='/uk/cmms-maintenance-management-software'
+           element={<RioALMLandingV2 showWhatsApp={false} pagePath='/uk/cmms-maintenance-management-software' />}
+         />
          <Route path='/asset-maintenance-management-software-v2' element={<Navigate to='/cmms-maintenance-management-software' replace />}/>
          <Route
            path='/eam-maintenance-management-software'
            element={
              <Suspense fallback={null}>
                <RioEAMLanding />
+             </Suspense>
+           }
+         />
+         <Route
+           path='/uk/eam-maintenance-management-software'
+           element={
+             <Suspense fallback={null}>
+               <RioEAMLanding showWhatsApp={false} pagePath='/uk/eam-maintenance-management-software' />
              </Suspense>
            }
          />

@@ -13,7 +13,7 @@ import MobileStickyCta from "./components/MobileStickyCta";
 import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly";
 import { captureUtmParams } from "./utils/utm";
 
-export default function EamClassicLandingApp() {
+export default function EamClassicLandingApp({ showWhatsApp = true }) {
   const pricingRef = useRef(null);
   const [utmParams, setUtmParams] = useState(() => captureUtmParams());
 
@@ -49,14 +49,22 @@ export default function EamClassicLandingApp() {
 
   return (
     <div className="rio-eam-classic-landing rio-v2-landing">
-      <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+      <Header
+        onBookDemo={onBookDemo}
+        onRequestPricing={onRequestPricing}
+        showWhatsApp={showWhatsApp}
+      />
       <main>
         <section className="v2-hero-wrap">
-          <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+          <Hero
+            onBookDemo={onBookDemo}
+            onRequestPricing={onRequestPricing}
+            showWhatsApp={showWhatsApp}
+          />
         </section>
         <PainPoints />
         <Features />
-        <WhyRioAlm />
+        <WhyRioAlm showWhatsApp={showWhatsApp} />
         <Industries />
         <CtaStrip onBookDemo={onBookDemo} />
         <div ref={pricingRef}>
@@ -64,7 +72,7 @@ export default function EamClassicLandingApp() {
         </div>
       </main>
       <Footer />
-      <MobileStickyCta onBookDemo={onBookDemo} />
+      <MobileStickyCta onBookDemo={onBookDemo} showWhatsApp={showWhatsApp} />
     </div>
   );
 }

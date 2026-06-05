@@ -3,10 +3,15 @@ import EamClassicLandingApp from "./eam-classic-landing/EamClassicLandingApp";
 import "./eam-landing/App.css";
 import "./eam-classic-landing/App.css";
 
-const PAGE_URL = "https://riobizsols.com/eam-maintenance-management-software";
+const SITE_BASE = "https://riobizsols.com";
 
 /** RIO EAM landing from F:\\Landing page (hero + WhyRioAlm + bottom pricing form). */
-export default function RioEAMLanding() {
+export default function RioEAMLanding({
+  showWhatsApp = true,
+  pagePath = "/eam-maintenance-management-software",
+}) {
+  const pageUrl = `${SITE_BASE}${pagePath}`;
+
   return (
     <>
       <Helmet>
@@ -24,12 +29,12 @@ export default function RioEAMLanding() {
           content="Move beyond Excel — plan preventive maintenance, manage breakdowns, assign work orders, and keep audit-ready records with RIO EAM."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:url" content={pageUrl} />
         <meta
           property="og:image"
           content="https://riobizsols.com/alm-dashboard-user.png"
         />
-        <link rel="canonical" href={PAGE_URL} />
+        <link rel="canonical" href={pageUrl} />
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
@@ -39,7 +44,7 @@ export default function RioEAMLanding() {
           rel="stylesheet"
         />
       </Helmet>
-      <EamClassicLandingApp />
+      <EamClassicLandingApp showWhatsApp={showWhatsApp} />
     </>
   );
 }
