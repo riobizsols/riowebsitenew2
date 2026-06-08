@@ -1,35 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import EamLandingApp from './eam-landing/EamLandingApp';
 import { ASSETS } from './eam-landing/assets';
 import './eam-landing/App.css';
 
-const OUTFIT_FONT_URL =
-  'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap';
+const V2_CRITICAL_CSS = `
+.rio-v2-landing{min-height:100vh}
+.v2-topbar-inner{min-height:76px}
+.v2-hero-visual{min-height:280px}
+.v2-hero-dashboard-wrap{aspect-ratio:900/414}
+`;
 
-const RioALMLandingV2 = () => {
-  useEffect(() => {
-    const id = 'eam-outfit-font';
-    if (document.getElementById(id)) return undefined;
-
-    const link = document.createElement('link');
-    link.id = id;
-    link.rel = 'stylesheet';
-    link.href = OUTFIT_FONT_URL;
-    link.media = 'print';
-    link.onload = () => {
-      link.media = 'all';
-    };
-    document.head.appendChild(link);
-
-    return () => {
-      link.remove();
-    };
-  }, []);
-
-  return (
+const RioALMLandingV2 = () => (
   <>
     <Helmet>
+      <style>{V2_CRITICAL_CSS}</style>
       <title>Enterprise Asset Management Software | RIO EAM</title>
       <meta
         name="description"
@@ -65,18 +50,10 @@ const RioALMLandingV2 = () => {
         rel="canonical"
         href="https://www.riobizsols.com/asset-maintenance-management-software-v2"
       />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        rel="preload"
-        as="image"
-        href={ASSETS.dashboardDesktop}
-        fetchPriority="high"
-      />
+      <link rel="preload" as="image" href={ASSETS.dashboardDesktop} fetchPriority="high" />
     </Helmet>
     <EamLandingApp />
   </>
-  );
-};
+);
 
 export default RioALMLandingV2;

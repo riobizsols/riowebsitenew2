@@ -6,9 +6,9 @@ export const ASSETS = {
   logoFooter: "/rio-logo-footer.png",
   /** Asset lifecycle infinity loop graphic */
   lifecycleLoop: "/lifecycle-loop.png",
-  dashboardDesktop: "/alm-dashboard-user.png",
-  dashboardMobile: "/rio-alm-asset-management-mobile.png",
-  industryManufacturing: "/manufacturing-industrial-rio-alm.png",
+  dashboardDesktop: "/alm-dashboard-user-900.png",
+  dashboardMobile: "/rio-alm-asset-management-mobile-640.png",
+  industryManufacturing: "/manufacturing-industrial-rio-alm-600.png",
   industryHealthcare:
     "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=80",
   industryFacilities:

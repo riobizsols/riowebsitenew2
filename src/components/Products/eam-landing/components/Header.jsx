@@ -30,7 +30,14 @@ export default function Header({ onBookDemo, onRequestPricing }) {
     <header className="v2-topbar">
       <div className="v2-container v2-topbar-inner">
         <a href={SITE.home} className="v2-logo-link" aria-label="RIO BizSols">
-          <img src={ASSETS.logo} alt="RIO BizSols" className="v2-logo" />
+          <img
+            src={ASSETS.logo}
+            alt="RIO BizSols"
+            className="v2-logo"
+            width={150}
+            height={68}
+            decoding="async"
+          />
         </a>
 
         <div className="v2-topbar-cta">

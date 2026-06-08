@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 
-/** Meta Pixel is loaded via GTM on this page — avoid duplicate third-party JS. */
-export async function startLanding() {
-  const { default: RioALMLandingV2 } = await import('./components/Products/RioALMLandingV2');
+export async function startAlmLanding() {
+  const { default: RioALMGenericLanding } = await import('./components/Products/RioALMGenericLanding');
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
   root.render(
     <React.StrictMode>
       <HelmetProvider>
-        <RioALMLandingV2 />
+        <RioALMGenericLanding />
       </HelmetProvider>
     </React.StrictMode>
   );

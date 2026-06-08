@@ -2,12 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import PainPoints from "./components/PainPoints";
 import LazyWhenVisible from "./components/LazyWhenVisible";
 import MobileStickyCta from "./components/MobileStickyCta";
 import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly";
 import { captureUtmParams } from "./utils/utm";
 
-const loadPainPoints = () => import("./components/PainPoints");
 const loadFeatures = () => import("./components/Features");
 const loadWhyRioAlm = () => import("./components/WhyRioAlm");
 const loadIndustries = () => import("./components/Industries");
@@ -44,11 +44,11 @@ export default function App() {
       <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
       <main>
         <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
-        <LazyWhenVisible loader={loadPainPoints} minHeight={280} />
-        <LazyWhenVisible loader={loadFeatures} minHeight={360} />
-        <LazyWhenVisible loader={loadWhyRioAlm} minHeight={320} />
-        <LazyWhenVisible loader={loadIndustries} minHeight={400} />
-        <LazyWhenVisible loader={loadCtaStrip} minHeight={120} componentProps={ctaStripProps} />
+        <PainPoints />
+        <LazyWhenVisible loader={loadFeatures} minHeight={420} rootMargin="0px 0px 80px 0px" />
+        <LazyWhenVisible loader={loadWhyRioAlm} minHeight={360} rootMargin="0px 0px 80px 0px" />
+        <LazyWhenVisible loader={loadIndustries} minHeight={440} rootMargin="0px 0px 80px 0px" />
+        <LazyWhenVisible loader={loadCtaStrip} minHeight={160} rootMargin="0px 0px 80px 0px" componentProps={ctaStripProps} />
         <div ref={pricingRef}>
           <LazyWhenVisible loader={loadLeadForm} minHeight={480} />
         </div>

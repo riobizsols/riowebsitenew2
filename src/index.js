@@ -1,8 +1,15 @@
-import { isEamAdsLandingPath } from './utils/almLandingPaths';
+import { isAlmLandingPath, isEamAdsLandingPath } from './utils/almLandingPaths';
 
-const bootstrap = isEamAdsLandingPath(window.location.pathname)
-  ? import('./landing-entry').then((m) => m.startLanding())
-  : import('./site-entry').then((m) => m.startSite());
+const path = window.location.pathname;
+
+let bootstrap;
+if (isEamAdsLandingPath(path)) {
+  bootstrap = import('./landing-entry').then((m) => m.startLanding());
+} else if (isAlmLandingPath(path)) {
+  bootstrap = import('./alm-landing-entry').then((m) => m.startAlmLanding());
+} else {
+  bootstrap = import('./site-entry').then((m) => m.startSite());
+}
 
 bootstrap.catch((error) => {
   console.error('Failed to start app:', error);

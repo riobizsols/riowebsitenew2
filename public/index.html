@@ -43,15 +43,36 @@
         }
 
         var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
+        var isEamAdsV2 = path === '/asset-maintenance-management-software-v2';
         var isAlmLanding =
           path === '/uk/asset-maintenance-management-software' ||
           path === '/asset-maintenance-management-software' ||
-          path === '/asset-maintenance-management-software-v2';
+          isEamAdsV2;
 
-        if (isAlmLanding) {
-          window.addEventListener('load', loadGtm, { once: true });
+        if (isEamAdsV2) {
+          // PageSpeed / LCP: load tags after engagement (or late fallback for attribution).
+          var gtmStarted = false;
+          function startGtmOnce() {
+            if (gtmStarted) return;
+            gtmStarted = true;
+            loadGtm();
+            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+              window.removeEventListener(ev, startGtmOnce, true);
+            });
+          }
+          ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+            window.addEventListener(ev, startGtmOnce, { capture: true, passive: true });
+          });
+          window.addEventListener(
+            'load',
+            function () {
+              window.setTimeout(startGtmOnce, 12000);
+            },
+            { once: true }
+          );
         } else {
-          loadGtm();
+          // Main site + v1 ALM: defer GTM until after load (lower TBT / faster LCP).
+          window.addEventListener('load', loadGtm, { once: true });
         }
       })();
     </script>

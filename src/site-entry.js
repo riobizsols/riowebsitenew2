@@ -1,22 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { isAlmLandingPath } from './utils/almLandingPaths';
 import reportWebVitals from './reportwebvitals';
 
-async function loadSiteBootstrap() {
-  await import('bootstrap/dist/css/bootstrap.min.css');
-  await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+function deferBootstrapJs() {
+  const load = () => {
+    void import('bootstrap/dist/js/bootstrap.bundle.min.js');
+  };
+  if (document.readyState === 'complete') {
+    load();
+  } else {
+    window.addEventListener('load', load, { once: true });
+  }
 }
 
 export async function startSite() {
   await import('./index.css');
-  if (!isAlmLandingPath(window.location.pathname)) {
-    await loadSiteBootstrap();
-  }
+  await import('bootstrap/dist/css/bootstrap.min.css');
 
   const { default: App } = await import('./App');
   const root = ReactDOM.createRoot(document.getElementById('root'));
+
   root.render(
     <React.StrictMode>
       <HelmetProvider>
@@ -25,5 +29,6 @@ export async function startSite() {
     </React.StrictMode>
   );
 
+  deferBootstrapJs();
   reportWebVitals();
 }

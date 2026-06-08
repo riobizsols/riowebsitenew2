@@ -1,19 +1,17 @@
 import './App.css';
-import { Suspense, useEffect } from 'react';
-import ReactPixel from 'react-facebook-pixel';
+import { lazy, Suspense, useEffect } from 'react';
 import Header from './components/Navbar';
-import Footerbottom from './components/Footerbottom';
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 import CanonicalLink from './Canonical';
-import SchemaMarkup from './components/SchemeMarkup';
 import EamAdsLandingReload from './components/Products/EamAdsLandingReload';
-import ExitIntentPopup from './components/ExitIntent/ExitIntentPopup';
-import WhatsAppFloat from './components/WhatsAppFloat';
-import { isAlmLandingPath } from './utils/almLandingPaths';
+import AlmLandingReload from './components/AlmLandingReload';
+import DeferredSiteWidgets from './components/DeferredSiteWidgets';
+import { isLiteChromePath } from './utils/sitePaths';
 import * as Lazy from './lazyRoutes';
 
-const pixelOptions = { autoConfig: true, debug: false };
+const SchemaMarkup = lazy(() => import('./components/SchemeMarkup'));
+
 const PIXEL_ID = '2112408199250636';
 let marketingPixelInitialized = false;
 
@@ -24,31 +22,35 @@ function RouteLoadingFallback() {
 function AppContent() {
   const location = useLocation();
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
-  const isAlmLandingPage = isAlmLandingPath(normalizedPath);
+  const useLiteChrome = isLiteChromePath(normalizedPath);
 
   useEffect(() => {
-    const initPixel = () => {
+    const initPixel = async () => {
       if (marketingPixelInitialized) return;
       marketingPixelInitialized = true;
-      ReactPixel.init(PIXEL_ID, pixelOptions);
-      ReactPixel.pageView();
+      try {
+        const ReactPixel = (await import('react-facebook-pixel')).default;
+        ReactPixel.init(PIXEL_ID, { autoConfig: true, debug: false });
+        ReactPixel.pageView();
+      } catch (error) {
+        console.warn('Deferred Meta Pixel init failed:', error);
+      }
     };
 
-    if (isAlmLandingPage) {
-      if (window.requestIdleCallback) {
-        const id = window.requestIdleCallback(initPixel, { timeout: 5000 });
-        return () => window.cancelIdleCallback(id);
+    const schedulePixel = () => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(() => initPixel(), { timeout: 5000 });
+      } else {
+        window.setTimeout(() => initPixel(), 3000);
       }
-      const timeoutId = window.setTimeout(initPixel, 3000);
-      return () => window.clearTimeout(timeoutId);
-    }
+    };
 
-    initPixel();
+    schedulePixel();
     return undefined;
-  }, [isAlmLandingPage]);
+  }, []);
 
   useEffect(() => {
-    if (isAlmLandingPage) return undefined;
+    if (useLiteChrome) return undefined;
 
     let cancelled = false;
     let cleanupTracking = () => {};
@@ -65,7 +67,6 @@ function AppContent() {
         const profile = await visitorTracking.getVisitorProfile();
         if (cancelled) return;
 
-        console.log('✓ Visitor tracking initialized:', profile.visitorId);
         visitorTracking.trackPageView('App Load', {
           url: window.location.href,
           title: document.title,
@@ -84,18 +85,32 @@ function AppContent() {
       }
     };
 
-    initTracking();
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(() => initTracking(), { timeout: 6000 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(id);
+        cleanupTracking();
+      };
+    }
+
+    const timeoutId = window.setTimeout(initTracking, 2500);
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
       cleanupTracking();
     };
-  }, [isAlmLandingPage]);
+  }, [useLiteChrome]);
 
   return (
     <div className="App">
-      {!isAlmLandingPage && <CanonicalLink baseUrl="https://riobizsols.com/" />}
-      {!isAlmLandingPage && <SchemaMarkup />}
-      {!isAlmLandingPage && <Header />}
+      {!useLiteChrome && <CanonicalLink baseUrl="https://riobizsols.com/" />}
+      {!useLiteChrome && (
+        <Suspense fallback={null}>
+          <SchemaMarkup />
+        </Suspense>
+      )}
+      {!useLiteChrome && <Header />}
       <ScrollToTop />
       <Suspense fallback={<RouteLoadingFallback />}>
         <Routes>
@@ -180,8 +195,8 @@ function AppContent() {
           <Route path="/products/la-law/account-deletion/request" element={<Lazy.LaLawAccountDeletionForm />} />
           <Route path="/products/la-law/account-deletion" element={<Lazy.LaLawAccountDeletion />} />
           <Route path="/products/la-law" element={<Lazy.LaLawLanding />} />
-          <Route path="/uk/asset-maintenance-management-software" element={<Lazy.RioALMGenericLanding />} />
-          <Route path="/asset-maintenance-management-software" element={<Lazy.RioALMGenericLanding />} />
+          <Route path="/uk/asset-maintenance-management-software" element={<AlmLandingReload />} />
+          <Route path="/asset-maintenance-management-software" element={<AlmLandingReload />} />
           <Route path="/asset-maintenance-management-software-v2" element={<EamAdsLandingReload />} />
 
           <Route path="/compare/staffing" element={<Lazy.StaffingComparison />} />
@@ -197,9 +212,7 @@ function AppContent() {
           <Route path="/admin/chat" element={<Lazy.AdminChat />} />
         </Routes>
       </Suspense>
-      {!isAlmLandingPage && <ExitIntentPopup />}
-      {!isAlmLandingPage && <WhatsAppFloat />}
-      {!isAlmLandingPage && <Footerbottom />}
+      {!useLiteChrome && <DeferredSiteWidgets />}
     </div>
   );
 }

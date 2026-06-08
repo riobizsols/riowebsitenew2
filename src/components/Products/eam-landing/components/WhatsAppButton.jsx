@@ -24,9 +24,19 @@ export default function WhatsAppButton({
   const [href, setHref] = useState(CONTACT.whatsapp);
 
   useEffect(() => {
-    void getWhatsAppConfig().then((config) => {
-      if (config?.url) setHref(config.url);
-    });
+    const loadConfig = () => {
+      void getWhatsAppConfig().then((config) => {
+        if (config?.url) setHref(config.url);
+      });
+    };
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(loadConfig, { timeout: 8000 });
+      return () => window.cancelIdleCallback(id);
+    }
+
+    const timeoutId = window.setTimeout(loadConfig, 4000);
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   const handleClick = () => {

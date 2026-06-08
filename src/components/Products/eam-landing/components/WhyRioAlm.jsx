@@ -56,6 +56,10 @@ export default function WhyRioAlm() {
                 src={ASSETS.lifecycleLoop}
                 alt="Asset lifecycle: plan, procure, operate, maintain, and retire"
                 className="v2-lifecycle-loop-img"
+                width={800}
+                height={358}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="v2-lifecycle-text">

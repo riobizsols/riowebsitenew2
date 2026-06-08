@@ -60,7 +60,7 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
               alt="RIO EAM dashboard with asset and maintenance metrics"
               className="v2-hero-dashboard-img"
               width={900}
-              height={520}
+              height={414}
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -76,6 +76,8 @@ export default function Hero({ onBookDemo, onRequestPricing }) {
                 height={780}
                 loading="lazy"
                 decoding="async"
+                width={178}
+                height={340}
               />
             </div>
           </div>

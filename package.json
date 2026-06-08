@@ -43,7 +43,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "optimize:landing-images": "bash scripts/optimize-landing-images.sh",
+    "build": "bash scripts/optimize-landing-images.sh && react-scripts build",
     "build:prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -52,7 +53,9 @@
     "deploy": "npm run build && npm run deploy:start",
     "verify:alm-crawlers": "bash scripts/verify-alm-landing-crawlers.sh",
     "audit:landing": "bash scripts/audit-landing-page.sh",
-    "audit:landing:local": "BASE_URL=http://127.0.0.1:3003 bash scripts/audit-landing-page.sh"
+    "audit:landing:local": "BASE_URL=http://127.0.0.1:3003 bash scripts/audit-landing-page.sh",
+    "audit:site": "bash scripts/audit-site-pages.sh",
+    "audit:site:local": "BASE_URL=http://127.0.0.1:3456 bash scripts/audit-site-pages.sh"
   },
   "eslintConfig": {
     "extends": [

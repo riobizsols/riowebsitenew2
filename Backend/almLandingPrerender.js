@@ -146,7 +146,8 @@ function buildSeoHead({
   ].join('\n    ');
 }
 
-function buildPrerenderedBody() {
+function buildPrerenderedBody(isV2 = false) {
+  const heroImageSrc = isV2 ? '/alm-dashboard-user-900.png' : '/alm-dashboard-user.png';
   const faqHtml = FAQ_ENTRIES.map(
     (entry) =>
       `<details class="prerender-faq-item"><summary><strong>${escapeHtml(entry.q)}</strong></summary><p>${escapeHtml(entry.a)}</p></details>`
@@ -169,7 +170,7 @@ function buildPrerenderedBody() {
       <p>
         Built for operations teams that need better maintenance discipline, visibility, and service control.
       </p>
-      <img src="/alm-dashboard-user.png" alt="RIO EAM enterprise asset managment dashboard" width="900" height="450" />
+      <img src="${heroImageSrc}" alt="RIO EAM enterprise asset managment dashboard" width="900" height="450" />
       <div class="prerender-cta">
         <a class="prerender-btn-primary" href="#pricing-contact-form">Book a 20-minute Demo</a>
         <a class="prerender-btn-secondary" href="#pricing-contact-form">Request Pricing</a>
@@ -316,13 +317,26 @@ function readBuildIndex(buildPath) {
   }
 }
 
-function injectIntoBuiltIndex(html, seoHead, prerenderedBody, prerenderStyles) {
+/** Inline layout guards while the landing CSS chunk loads (reduces mobile CLS). */
+const V2_CRITICAL_CSS = `
+  .rio-v2-landing{min-height:100vh}
+  .v2-topbar-inner{min-height:76px}
+  .v2-hero-visual{min-height:280px}
+  .v2-hero-dashboard-wrap{aspect-ratio:900/414}
+`;
+
+function injectIntoBuiltIndex(html, seoHead, prerenderedBody, prerenderStyles, options = {}) {
   if (!html) return null;
+  const { criticalCss = '' } = options;
+  const rootReplacement =
+    prerenderedBody.trim().length > 0
+      ? `<div id="root">${prerenderedBody}</div>`
+      : '<div id="root"></div>';
 
   const updated = html
     .replace(/<title>[\s\S]*?<\/title>/i, seoHead)
-    .replace('</head>', `<style>${prerenderStyles}</style></head>`)
-    .replace('<div id="root"></div>', `<div id="root">${prerenderedBody}</div>`);
+    .replace('</head>', `<style>${prerenderStyles}</style>${criticalCss ? `<style>${criticalCss}</style>` : ''}</head>`)
+    .replace('<div id="root"></div>', rootReplacement);
 
   return updated;
 }
@@ -330,6 +344,10 @@ function injectIntoBuiltIndex(html, seoHead, prerenderedBody, prerenderStyles) {
 function renderAlmLandingHtml(buildPath, options = {}) {
   const { pathname = DEFAULT_PAGE_PATH } = options;
   const isV2 = pathname.endsWith('-v2');
+  const isReactAlmLanding =
+    isV2 ||
+    pathname === '/asset-maintenance-management-software' ||
+    pathname === '/uk/asset-maintenance-management-software';
 
   const seoHead = buildSeoHead({
     pageUrl: `${SITE_BASE_URL}${pathname}`,
@@ -337,13 +355,16 @@ function renderAlmLandingHtml(buildPath, options = {}) {
     description: isV2 ? PAGE_DESCRIPTION_V2 : PAGE_DESCRIPTION,
     ogTitle: isV2 ? 'RIO EAM - Enterprise Asset Managment Software' : OG_TITLE,
     ogDescription: isV2 ? OG_DESCRIPTION_V2 : OG_DESCRIPTION,
-    preloadLcpImage: isV2 ? `${SITE_BASE_URL}/alm-dashboard-user.png` : '',
+    preloadLcpImage: isV2 ? `${SITE_BASE_URL}/alm-dashboard-user-900.png` : '',
   });
-  const prerenderedBody = buildPrerenderedBody();
-  const prerenderStyles = buildPrerenderStyles();
+  // React ALM landings: empty #root avoids CLS when the client bundle mounts.
+  const prerenderedBody = isReactAlmLanding ? '' : buildPrerenderedBody(false);
+  const prerenderStyles = isReactAlmLanding ? '' : buildPrerenderStyles();
 
   const builtIndex = readBuildIndex(buildPath);
-  const fromBuild = injectIntoBuiltIndex(builtIndex, seoHead, prerenderedBody, prerenderStyles);
+  const fromBuild = injectIntoBuiltIndex(builtIndex, seoHead, prerenderedBody, prerenderStyles, {
+    criticalCss: isV2 ? V2_CRITICAL_CSS : '',
+  });
   if (fromBuild) return fromBuild;
 
   // Fallback for dev mode where build/index.html does not exist yet.
@@ -353,7 +374,8 @@ function renderAlmLandingHtml(buildPath, options = {}) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     ${seoHead}
-    <style>${prerenderStyles}</style>
+    ${prerenderStyles ? `<style>${prerenderStyles}</style>` : ''}
+    ${isReactAlmLanding && isV2 ? `<style>${V2_CRITICAL_CSS}</style>` : ''}
   </head>
   <body>
     <div id="root">${prerenderedBody}</div>
