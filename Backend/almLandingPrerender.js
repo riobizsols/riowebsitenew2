@@ -21,7 +21,22 @@ const path = require('path');
 
 const SITE_BASE_URL = 'https://www.riobizsols.com';
 const DEFAULT_PAGE_PATH = '/asset-maintenance-management-software';
+const CMMS_PAGE_PATH = '/cmms-maintenance-management-software';
+const EAM_PAGE_PATH = '/eam-maintenance-management-software';
 const DEFAULT_PAGE_URL = `${SITE_BASE_URL}${DEFAULT_PAGE_PATH}`;
+
+function isCmmsLandingPath(pathname = '') {
+  const p = (pathname || '/').replace(/\/+$/, '') || '/';
+  return (
+    p === CMMS_PAGE_PATH ||
+    p === '/uk/cmms-maintenance-management-software' ||
+    p === '/asset-maintenance-management-software-v2'
+  );
+}
+
+function isEamLandingPath(pathname = '') {
+  return pathname === EAM_PAGE_PATH;
+}
 
 const PAGE_TITLE = 'Asset Maintenance Management Software | RIO EAM';
 const PAGE_TITLE_V2 = 'Enterprise Asset Managment Software | RIO EAM';
@@ -343,14 +358,19 @@ function injectIntoBuiltIndex(html, seoHead, prerenderedBody, prerenderStyles, o
 
 function renderAlmLandingHtml(buildPath, options = {}) {
   const { pathname = DEFAULT_PAGE_PATH } = options;
-  const isV2 = pathname.endsWith('-v2');
+  const isV2 = isCmmsLandingPath(pathname);
+  const isEam = isEamLandingPath(pathname) || pathname === '/uk/eam-maintenance-management-software';
   const isReactAlmLanding =
     isV2 ||
+    isEam ||
     pathname === '/asset-maintenance-management-software' ||
     pathname === '/uk/asset-maintenance-management-software';
+  const pageUrl = isEam
+    ? `https://riobizsols.com${pathname}`
+    : `${SITE_BASE_URL}${pathname}`;
 
   const seoHead = buildSeoHead({
-    pageUrl: `${SITE_BASE_URL}${pathname}`,
+    pageUrl,
     title: isV2 ? PAGE_TITLE_V2 : PAGE_TITLE,
     description: isV2 ? PAGE_DESCRIPTION_V2 : PAGE_DESCRIPTION,
     ogTitle: isV2 ? 'RIO EAM - Enterprise Asset Managment Software' : OG_TITLE,

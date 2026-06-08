@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FiSend } from 'react-icons/fi';
 import './WhatsAppFloat.css';
 import { getApiBaseUrl } from '../utils/urlHelper';
+import { trackGenerateLead } from '../utils/gtm';
 
 const DEFAULT_SUPPORT_MESSAGE = {
   id: 'support_welcome',
@@ -508,10 +509,7 @@ export default function WhatsAppFloat() {
         }),
       });
       if (res.ok && sender === 'user') {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'generate_lead'
-        });
+        trackGenerateLead('chat_widget');
       }
       return res.ok;
     },
@@ -802,10 +800,7 @@ export default function WhatsAppFloat() {
       if (!res.ok) {
         throw new Error(`Failed to send message (${res.status})`);
       }
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'generate_lead'
-      });
+      trackGenerateLead('chat_widget_message');
       setInputText('');
       await fetchMessages({ silent: true });
     } catch (err) {

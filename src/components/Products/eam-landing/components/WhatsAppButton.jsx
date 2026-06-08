@@ -20,6 +20,7 @@ export default function WhatsAppButton({
   className = "",
   iconOnly = false,
   source = "landing_page",
+  label = "Chat on WhatsApp",
 }) {
   const [href, setHref] = useState(CONTACT.whatsapp);
 
@@ -54,7 +55,7 @@ export default function WhatsAppButton({
       onClick={handleClick}
     >
       <WhatsAppIcon />
-      {!iconOnly && "Chat with us on WhatsApp"}
+      {!iconOnly && label}
     </a>
   );
 }

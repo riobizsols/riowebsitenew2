@@ -88,7 +88,7 @@ export const criticalCSSMetaTags = `
   <meta name="description" content="Digital Solutions for Business Growth">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://res.cloudinary.com">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 `;
 
 /**
@@ -112,7 +112,7 @@ export const preloadResources = () => {
 
   // Prefetch DNS for third-party services
   const thirdPartyDomains = [
-    'https://www.google-analytics.com',
+    'https://www.googletagmanager.com',
     'https://connect.facebook.net',
     'https://res.cloudinary.com'
   ];

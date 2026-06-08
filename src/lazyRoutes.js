@@ -102,6 +102,7 @@ export const LaLawAccountDeletionForm = lazyDefault(() =>
   import('./components/Products/LaLawAccountDeletionForm')
 );
 export const RioALMGenericLanding = lazyDefault(() => import('./components/Products/RioALMGenericLanding'));
+export const RioEAMLanding = lazyDefault(() => import('./components/Products/RioEAMLanding'));
 
 export const StaffingComparison = lazyDefault(() => import('./components/ServiceComparison/StaffingComparison'));
 export const WebDevComparison = lazyDefault(() => import('./components/ServiceComparison/WebDevComparison'));

@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { FiActivity, FiAlertCircle, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDatabase, FiFileText, FiGrid, FiLayers, FiMapPin, FiMonitor, FiSettings, FiShield, FiSmartphone, FiTool, FiTruck, FiUsers } from 'react-icons/fi';
 import './RioALMGenericLanding.css';
 import { getApiBaseUrl } from '../../utils/urlHelper';
+import { trackGenerateLead } from '../../utils/gtm';
+import ReactPixel from 'react-facebook-pixel';
 
 const featureCards = [
   {
@@ -46,7 +48,13 @@ const featureCards = [
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 const UTM_STORAGE_KEY = 'rio_alm_landing_utm';
 
-const RioALMGenericLanding = () => {
+const DEFAULT_CANONICAL_PATH = '/asset-maintenance-management-software';
+const SITE_ORIGIN = 'https://riobizsols.com';
+
+const RioALMGenericLanding = ({
+  canonicalPath = DEFAULT_CANONICAL_PATH,
+}) => {
+  const pageUrl = `${SITE_ORIGIN}${canonicalPath}`;
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isPricingSubmitted, setIsPricingSubmitted] = useState(false);
   const [isPricingSubmitting, setIsPricingSubmitting] = useState(false);
@@ -273,6 +281,8 @@ const RioALMGenericLanding = () => {
         throw new Error('Pricing request failed');
       }
 
+      trackGenerateLead('alm_generic_pricing_form');
+      ReactPixel.track('Lead');
       setIsPricingSubmitted(true);
       formEl.reset();
     } catch (error) {
@@ -301,14 +311,14 @@ const RioALMGenericLanding = () => {
           content="Centralize asset records, automate maintenance, track calibration, manage vendors, and keep audit-ready records with RIO EAM."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.riobizsols.com/asset-maintenance-management-software" />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content="https://www.riobizsols.com/alm-dashboard-user.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="RIO EAM - Asset Lifecycle & Maintenance Management Software" />
         <meta name="twitter:description" content="Centralize asset records, automate maintenance, track calibration, manage vendors, and keep audit-ready records with RIO EAM." />
         <meta name="twitter:image" content="https://www.riobizsols.com/alm-dashboard-user.png" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <link rel="canonical" href="https://www.riobizsols.com/asset-maintenance-management-software" />
+        <link rel="canonical" href={pageUrl} />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <script type="application/ld+json">{JSON.stringify(softwareSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

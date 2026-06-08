@@ -2,6 +2,8 @@ import { useState } from "react";
 import { formOptions } from "../data";
 import { getApiBaseUrl } from "../utils/api";
 import { captureUtmParams } from "../utils/utm";
+import { trackGenerateLead } from "../../../../utils/gtm";
+import ReactPixel from "react-facebook-pixel";
 import FaqList from "./FaqList";
 
 const initial = {
@@ -67,6 +69,8 @@ export default function LeadForm() {
 
       if (!response.ok) throw new Error("Pricing request failed");
 
+      trackGenerateLead("cmms_pricing_form", { industry: form.industry });
+      ReactPixel.track("Lead");
       setSuccess(true);
       setForm(initial);
     } catch (submitError) {

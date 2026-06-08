@@ -2,6 +2,7 @@ import { CONTACT } from "../assets";
 import { getApiBaseUrl } from "./api";
 import { UTM_KEYS } from "./utm";
 import { getOrCreateVisitorId } from "./visitor";
+import { trackGenerateLead } from "../../../../utils/gtm";
 
 let bookingListenerAttached = false;
 let bookingHandled = false;
@@ -105,6 +106,8 @@ async function notifyDemoBooking({ calendlyEventPayload }) {
   } catch (error) {
     console.warn("Demo booking notify failed:", error);
   }
+
+  trackGenerateLead("calendly_demo_booking", { source_page: sourcePage });
 }
 
 export function initCalendlyBookingListener() {

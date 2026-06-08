@@ -1,47 +1,504 @@
 [
   {
-    "visitorId": "visitor_1773062357702_53yyu8aor",
+    "visitorId": "visitor_1777948472609_guehu4g77",
     "behavior": {
       "pagesVisited": [
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T11:53:54.085Z"
+          "timestamp": "2026-05-07T13:08:18.985Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:04:40.969Z"
+          "timestamp": "2026-05-07T13:08:18.987Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:31:04.877Z"
+          "timestamp": "2026-05-07T13:23:27.448Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:31:29.632Z"
+          "timestamp": "2026-05-07T13:23:27.448Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:32:59.790Z"
+          "timestamp": "2026-05-07T13:33:46.797Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:34:02.863Z"
+          "timestamp": "2026-05-07T13:33:46.822Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:34:05.812Z"
+          "timestamp": "2026-05-07T13:33:50.992Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:36:29.680Z"
+          "timestamp": "2026-05-07T13:33:50.993Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:44:44.213Z"
+          "timestamp": "2026-05-07T13:42:44.276Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-29T12:45:22.391Z",
+          "timestamp": "2026-05-07T13:42:44.278Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
+            "title": "Enterprise Asset Managment Software | RIO EAM"
+          }
+        }
+      ],
+      "servicesInterested": [
+        "Web Development"
+      ],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 212866,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "lastActivity": "2026-05-07T13:42:44.278Z",
+    "createdAt": "2026-05-06T10:50:06.511Z"
+  },
+  {
+    "visitorId": "visitor_1773395413187_wcxdu9wds",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:34:28.011Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:34:28.013Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:02.815Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:02.816Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:08.797Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:08.798Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:35.048Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:36:35.048Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:37:09.255Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-13T11:37:09.256Z",
+          "data": {
+            "url": "http://localhost:3000/products/la-law/account-deletion/",
+            "title": "End-to-End Business Services | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 5276811,
+      "formSubmitted": true,
+      "ctaClicked": [
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-13T09:50:26.759Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-23T12:12:57.440Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-05-12T11:46:09.415Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-05-12T11:49:16.200Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-05-13T11:36:25.185Z"
+        }
+      ]
+    },
+    "lastActivity": "2026-05-13T11:37:09.256Z",
+    "createdAt": "2026-05-12T11:46:31.381Z"
+  },
+  {
+    "visitorId": "visitor_1779952059425_mhfdlyeuo",
+    "sessionId": "session_1779952059425_48ae2d0hq",
+    "timestamp": "2026-05-28T07:07:39.753Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:07:39.982Z",
+          "data": {
+            "url": "http://localhost:3000/",
+            "title": "Digital Solutions for Business Growth | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:07:39.762Z",
+    "lastActivity": "2026-05-28T07:07:39.982Z",
+    "createdAt": "2026-05-28T07:07:39.978Z"
+  },
+  {
+    "visitorId": "visitor_1779952059426_8c0hhrxy9",
+    "sessionId": "session_1779952059425_48ae2d0hq",
+    "timestamp": "2026-05-28T07:07:39.993Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:26:37.974Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:26:37.975Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:26:42.725Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T08:26:42.725Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:10:36.484Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:10:36.484Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:10:57.434Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:10:57.435Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:11:02.112Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T10:11:02.113Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
+            "title": "Enterprise Asset Management Software | RIO EAM"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 10993,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:07:39.993Z",
+    "lastActivity": "2026-05-28T10:11:02.113Z",
+    "createdAt": "2026-05-28T07:07:40.000Z"
+  },
+  {
+    "visitorId": "visitor_1779952519596_tb1i5uk3c",
+    "sessionId": "session_1779952519596_lkygkbnn5",
+    "timestamp": "2026-05-28T07:15:19.882Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.5.38 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:15:19.901Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
+            "title": "Enterprise Asset Management Software | RIO EAM"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:15:19.896Z",
+    "lastActivity": "2026-05-28T07:15:19.901Z",
+    "createdAt": "2026-05-28T07:15:19.899Z"
+  },
+  {
+    "visitorId": "visitor_1779952519597_dzeuooizc",
+    "sessionId": "session_1779952519596_lkygkbnn5",
+    "timestamp": "2026-05-28T07:15:20.125Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.5.38 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1536x864",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "117.215.121.161",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "National Internet Backbone",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:28:51.017Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:28:51.017Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:46.078Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:33:54.906Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:47:14.550Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:47:14.550Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.498Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.656Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:43.657Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-28T07:52:56.035Z",
+          "data": {
+            "url": "http://localhost:3000/products/rio-eam",
+            "title": "RIO EAM - Enterprise Asset Managment Software Solution"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 66,
+      "timeOnSite": 2253,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-05-28T07:15:20.125Z",
+    "lastActivity": "2026-05-28T07:52:56.035Z",
+    "createdAt": "2026-05-28T07:15:20.126Z"
+  },
+  {
+    "visitorId": "visitor_1780049938371_sizs9441j",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:32:59.224Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:35:20.633Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:35:20.634Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:38:29.724Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:38:29.724Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:40:00.308Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:40:00.308Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:42:26.309Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:42:26.310Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T12:44:25.002Z",
           "data": {
             "url": "http://localhost:3000/",
             "title": "End-to-End Business Services | RioBizSols"
@@ -51,20 +508,200 @@
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 6996355,
+      "timeOnSite": 8716,
       "formSubmitted": false,
-      "ctaClicked": [
+      "ctaClicked": []
+    },
+    "lastActivity": "2026-05-29T12:44:25.002Z",
+    "createdAt": "2026-05-29T10:25:39.437Z"
+  },
+  {
+    "visitorId": "visitor_1780049907552_dlhxe43sc",
+    "behavior": {
+      "pagesVisited": [
         {
-          "cta": "exit_intent_dismiss_default",
-          "timestamp": "2026-03-09T13:19:31.561Z"
+          "page": "App Load",
+          "timestamp": "2026-05-29T10:18:29.483Z"
         },
         {
-          "cta": "exit_intent_dismiss_rio_alm",
-          "timestamp": "2026-03-09T13:23:11.653Z"
+          "page": "App Load",
+          "timestamp": "2026-05-29T10:18:29.567Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T10:22:19.119Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T10:22:19.123Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:18:30.427Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-05-29T11:18:30.428Z",
+          "data": {
+            "url": "http://localhost:3000/asset-maintenance-management-software-v2",
+            "title": "CMMS & Maintenance Management Software | RIO BizSols"
+          }
         }
-      ]
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 3599,
+      "formSubmitted": false,
+      "ctaClicked": []
     },
-    "lastActivity": "2026-05-29T12:45:22.391Z",
-    "createdAt": "2026-05-29T11:33:23.841Z"
+    "lastActivity": "2026-05-29T11:18:30.428Z",
+    "createdAt": "2026-05-29T11:18:32.126Z"
+  },
+  {
+    "visitorId": "visitor_1780286355911_8gy1sv7qg",
+    "sessionId": "session_1780286355913_tlrpjwy9t",
+    "timestamp": "2026-06-01T03:59:17.060Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "142",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cursor/3.5.33 Chrome/142.0.7444.265 Electron/39.8.1 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1280x720",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2409:40f4:2109:6018:a969:be4b:e423:72b9",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Reliance Jio Infocomm Limited",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T03:59:17.384Z",
+          "data": {
+            "url": "http://localhost:3003/",
+            "title": "Digital Solutions for Business Growth | RioBizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 0,
+      "timeOnSite": 0,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-06-01T03:59:17.100Z",
+    "lastActivity": "2026-06-01T03:59:17.384Z",
+    "createdAt": "2026-06-01T03:59:17.340Z"
+  },
+  {
+    "visitorId": "visitor_1780286367500_f581al2g5",
+    "sessionId": "session_1780286367500_5o17kgar8",
+    "timestamp": "2026-06-01T03:59:28.910Z",
+    "device": {
+      "type": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-US",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1280x720",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "2409:40f4:2109:6018:a969:be4b:e423:72b9",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Coimbatore",
+      "region": "Tamil Nadu",
+      "timezone": "Asia/Kolkata",
+      "latitude": 11.0102,
+      "longitude": 76.9701
+    },
+    "company": "Reliance Jio Infocomm Limited",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T03:59:29.137Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:25:40.327Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:30:03.498Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:30:27.403Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:35:10.234Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:38:54.118Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-01T04:40:49.385Z",
+          "data": {
+            "url": "http://localhost:3003/asset-maintenance-management-software-v2",
+            "title": "CMMS & Maintenance Management Software | RIO BizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 2475,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "firstVisit": "2026-06-01T03:59:28.911Z",
+    "lastActivity": "2026-06-01T04:40:49.385Z",
+    "createdAt": "2026-06-01T03:59:29.061Z"
   }
 ]

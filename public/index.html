@@ -26,7 +26,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>End-to-End Business Services | RioBizSols</title>
-    <!-- Google Tag Manager (deferred on ALM/EAM ad landings for faster LCP) -->
+    <!-- Google Tag Manager (single container; GA4 + Ads configured inside GTM) -->
     <script>
       (function () {
         function loadGtm() {
@@ -43,13 +43,12 @@
         }
 
         var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
-        var isEamAdsV2 = path === '/asset-maintenance-management-software-v2';
-        var isAlmLanding =
-          path === '/uk/asset-maintenance-management-software' ||
-          path === '/asset-maintenance-management-software' ||
-          isEamAdsV2;
+        var isCmmsLanding =
+          path === '/asset-maintenance-management-software-v2' ||
+          path === '/cmms-maintenance-management-software' ||
+          path === '/uk/cmms-maintenance-management-software';
 
-        if (isEamAdsV2) {
+        if (isCmmsLanding) {
           // PageSpeed / LCP: load tags after engagement (or late fallback for attribution).
           var gtmStarted = false;
           function startGtmOnce() {
@@ -77,6 +76,14 @@
       })();
     </script>
     <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "x0ps48ha6x");
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

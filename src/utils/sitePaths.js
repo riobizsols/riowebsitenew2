@@ -1,4 +1,9 @@
-import { isAlmLandingPath, normalizePathname } from './almLandingPaths';
+import {
+  isAlmGenericPath,
+  isCmmsLandingPath,
+  isEamClassicLandingPath,
+  normalizePathname,
+} from './almLandingPaths';
 
 /** Product pages with their own layout — skip main site navbar/footer/widgets. */
 const PRODUCT_LANDING_PREFIXES = [
@@ -18,5 +23,11 @@ export function isProductLandingPath(pathname) {
 
 /** Main marketing chrome (nav, footer, popups) is not needed on these routes. */
 export function isLiteChromePath(pathname) {
-  return isAlmLandingPath(pathname) || isProductLandingPath(pathname);
+  const path = normalizePathname(pathname);
+  return (
+    isAlmGenericPath(path) ||
+    isCmmsLandingPath(path) ||
+    isEamClassicLandingPath(path) ||
+    isProductLandingPath(path)
+  );
 }

@@ -1,13 +1,15 @@
 import './App.css';
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import Header from './components/Navbar';
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 import CanonicalLink from './Canonical';
 import EamAdsLandingReload from './components/Products/EamAdsLandingReload';
 import AlmLandingReload from './components/AlmLandingReload';
+import EamClassicLandingReload from './components/Products/EamClassicLandingReload';
 import DeferredSiteWidgets from './components/DeferredSiteWidgets';
 import { isLiteChromePath } from './utils/sitePaths';
+import { assertSingleGoogleTag, trackVirtualPageView } from './utils/gtm';
 import * as Lazy from './lazyRoutes';
 
 const SchemaMarkup = lazy(() => import('./components/SchemeMarkup'));
@@ -21,8 +23,13 @@ function RouteLoadingFallback() {
 
 function AppContent() {
   const location = useLocation();
+  const isInitialRoute = useRef(true);
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const useLiteChrome = isLiteChromePath(normalizedPath);
+
+  useEffect(() => {
+    assertSingleGoogleTag();
+  }, []);
 
   useEffect(() => {
     const initPixel = async () => {
@@ -101,6 +108,47 @@ function AppContent() {
       cleanupTracking();
     };
   }, [useLiteChrome]);
+
+  useEffect(() => {
+    if (useLiteChrome) return undefined;
+
+    const pagePath = `${location.pathname}${location.search}${location.hash}`;
+
+    const trackRoute = async () => {
+      try {
+        const visitorTracking = await import('./services/visitorTracking');
+        visitorTracking.trackPageView(document.title, {
+          url: window.location.href,
+          title: document.title,
+        });
+      } catch {
+        /* optional */
+      }
+
+      if (isInitialRoute.current) {
+        isInitialRoute.current = false;
+        return;
+      }
+
+      trackVirtualPageView({
+        page_path: pagePath,
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+
+      if (marketingPixelInitialized) {
+        try {
+          const ReactPixel = (await import('react-facebook-pixel')).default;
+          ReactPixel.pageView();
+        } catch {
+          /* optional */
+        }
+      }
+    };
+
+    const timer = window.setTimeout(trackRoute, 100);
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, location.search, location.hash, useLiteChrome]);
 
   return (
     <div className="App">
@@ -195,9 +243,17 @@ function AppContent() {
           <Route path="/products/la-law/account-deletion/request" element={<Lazy.LaLawAccountDeletionForm />} />
           <Route path="/products/la-law/account-deletion" element={<Lazy.LaLawAccountDeletion />} />
           <Route path="/products/la-law" element={<Lazy.LaLawLanding />} />
+
           <Route path="/uk/asset-maintenance-management-software" element={<AlmLandingReload />} />
           <Route path="/asset-maintenance-management-software" element={<AlmLandingReload />} />
-          <Route path="/asset-maintenance-management-software-v2" element={<EamAdsLandingReload />} />
+          <Route path="/cmms-maintenance-management-software" element={<EamAdsLandingReload />} />
+          <Route path="/uk/cmms-maintenance-management-software" element={<EamAdsLandingReload />} />
+          <Route
+            path="/asset-maintenance-management-software-v2"
+            element={<Navigate to="/cmms-maintenance-management-software" replace />}
+          />
+          <Route path="/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
+          <Route path="/uk/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
 
           <Route path="/compare/staffing" element={<Lazy.StaffingComparison />} />
           <Route path="/compare/web-development" element={<Lazy.WebDevComparison />} />

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -9,14 +9,11 @@ import { initCalendlyBookingListener, openCalendlyPopup } from "./utils/calendly
 import { captureUtmParams } from "./utils/utm";
 
 const loadFeatures = () => import("./components/Features");
-const loadWhyRioAlm = () => import("./components/WhyRioAlm");
+const loadStructuredOperations = () => import("./components/StructuredOperations");
 const loadIndustries = () => import("./components/Industries");
 const loadCtaStrip = () => import("./components/CtaStrip");
-const loadLeadForm = () => import("./components/LeadForm");
-const loadFooter = () => import("./components/Footer");
 
-export default function App() {
-  const pricingRef = useRef(null);
+export default function EamLandingApp({ showWhatsApp = true }) {
   const [utmParams, setUtmParams] = useState(() => captureUtmParams());
 
   useEffect(() => {
@@ -25,8 +22,8 @@ export default function App() {
     initCalendlyBookingListener();
   }, []);
 
-  const scrollToPricing = useCallback(() => {
-    pricingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToForm = useCallback(() => {
+    document.getElementById("demo-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   const onBookDemo = useCallback(() => {
@@ -34,27 +31,33 @@ export default function App() {
   }, [utmParams]);
 
   const onRequestPricing = useCallback(() => {
-    scrollToPricing();
-  }, [scrollToPricing]);
+    scrollToForm();
+  }, [scrollToForm]);
 
-  const ctaStripProps = { onBookDemo };
+  const ctaStripProps = { onBookDemo, onRequestPricing, showWhatsApp };
 
   return (
-    <div className="rio-v2-landing">
-      <Header onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+    <div className="rio-cmms-landing rio-v2-landing">
+      <Header
+        onBookDemo={onBookDemo}
+        onRequestPricing={onRequestPricing}
+        showWhatsApp={showWhatsApp}
+      />
       <main>
-        <Hero onBookDemo={onBookDemo} onRequestPricing={onRequestPricing} />
+        <section className="v2-hero-wrap">
+          <Hero
+            onBookDemo={onBookDemo}
+            onRequestPricing={onRequestPricing}
+            showWhatsApp={showWhatsApp}
+          />
+        </section>
         <PainPoints />
         <LazyWhenVisible loader={loadFeatures} minHeight={420} rootMargin="0px 0px 80px 0px" />
-        <LazyWhenVisible loader={loadWhyRioAlm} minHeight={360} rootMargin="0px 0px 80px 0px" />
+        <LazyWhenVisible loader={loadStructuredOperations} minHeight={360} rootMargin="0px 0px 80px 0px" />
         <LazyWhenVisible loader={loadIndustries} minHeight={440} rootMargin="0px 0px 80px 0px" />
         <LazyWhenVisible loader={loadCtaStrip} minHeight={160} rootMargin="0px 0px 80px 0px" componentProps={ctaStripProps} />
-        <div ref={pricingRef}>
-          <LazyWhenVisible loader={loadLeadForm} minHeight={480} />
-        </div>
       </main>
-      <LazyWhenVisible loader={loadFooter} minHeight={200} />
-      <MobileStickyCta onBookDemo={onBookDemo} />
+      <MobileStickyCta onBookDemo={onBookDemo} showWhatsApp={showWhatsApp} />
     </div>
   );
 }

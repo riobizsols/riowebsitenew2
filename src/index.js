@@ -1,11 +1,17 @@
-import { isAlmLandingPath, isEamAdsLandingPath } from './utils/almLandingPaths';
+import {
+  isAlmGenericPath,
+  isCmmsLandingPath,
+  isEamClassicLandingPath,
+} from './utils/almLandingPaths';
 
 const path = window.location.pathname;
 
 let bootstrap;
-if (isEamAdsLandingPath(path)) {
+if (isCmmsLandingPath(path)) {
   bootstrap = import('./landing-entry').then((m) => m.startLanding());
-} else if (isAlmLandingPath(path)) {
+} else if (isEamClassicLandingPath(path)) {
+  bootstrap = import('./eam-classic-entry').then((m) => m.startEamClassicLanding());
+} else if (isAlmGenericPath(path)) {
   bootstrap = import('./alm-landing-entry').then((m) => m.startAlmLanding());
 } else {
   bootstrap = import('./site-entry').then((m) => m.startSite());

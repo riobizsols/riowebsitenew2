@@ -3,6 +3,7 @@ import '../../css/Contact.css';
 import axios from 'axios';
 import ReactPixel from 'react-facebook-pixel';
 import { getApiBaseUrl } from '../../utils/urlHelper';
+import { trackGenerateLead } from '../../utils/gtm';
 
 
 const ContactFrom = () => {
@@ -104,10 +105,7 @@ const ContactFrom = () => {
         ReactPixel.track('Lead');
         setSubmitStatus('success');
         setFormData({ firstname: '', email: '', phone: '', message: '' });
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'generate_lead'
-        });
+        trackGenerateLead('service_contact');
       } else {
         setSubmitStatus('error');
       }
