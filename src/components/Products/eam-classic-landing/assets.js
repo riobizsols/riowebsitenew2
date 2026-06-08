@@ -1,7 +1,7 @@
 import dashboardDesktop from "../../../assets/images/rio-alm-dashboard f.png";
 
 export const ASSETS = {
-  logo: "/rio-logo.png",
+  logo: "/RIO-Logo.png",
   logoFooter: "/rio-logo-footer.png",
   lifecycleLoop: "/lifecycle-loop.png",
   dashboardDesktop,

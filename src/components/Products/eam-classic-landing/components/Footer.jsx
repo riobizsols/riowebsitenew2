@@ -13,8 +13,7 @@ export default function Footer() {
             src={ASSETS.logoFooter}
             alt="RIO"
             className="v2-footer-logo-img"
-            width={140}
-            height={48}
+            decoding="async"
           />
         </a>
         <p className="v2-footer-line">
