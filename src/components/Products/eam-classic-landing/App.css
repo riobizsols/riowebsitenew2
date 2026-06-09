@@ -635,49 +635,58 @@
 }
 
 
-/* ─── INDUSTRIES ──────────────────────────────────────────────────────── */
-.v2-industries {
+/* ─── INDUSTRIES (scoped — eam-landing/App.css loads after this file) ─── */
+.rio-eam-classic-landing .v2-industries {
   background: #fff;
   padding: 20px 0 72px;
 }
 
-.v2-industry-grid {
+.rio-eam-classic-landing .v2-industry-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.v2-industry-card {
+.rio-eam-classic-landing .v2-industry-card {
   background: #fff;
   border: 1px solid var(--v2-border);
   border-radius: 14px;
   overflow: hidden;
+  padding: 0;
   transition: all 0.2s ease;
 }
-.v2-industry-card:hover { box-shadow: var(--v2-shadow-md); transform: translateY(-2px); }
 
-.v2-industry-image {
+.rio-eam-classic-landing .v2-industry-card:hover {
+  box-shadow: var(--v2-shadow-md);
+  transform: translateY(-2px);
+}
+
+.rio-eam-classic-landing .v2-industry-image {
   aspect-ratio: 4 / 3;
   background: #d6deef center / cover no-repeat;
   width: 100%;
 }
 
-.v2-industry-body { padding: 16px 16px 20px; }
-.v2-industry-body h3 {
+.rio-eam-classic-landing .v2-industry-body { padding: 16px 16px 20px; }
+
+.rio-eam-classic-landing .v2-industry-body h3 {
   color: var(--v2-text);
   font-size: 0.95rem;
   font-weight: 700;
   margin: 0 0 10px;
 }
-.v2-industry-body ul { list-style: none; margin: 0; padding: 0; }
-.v2-industry-body li {
+
+.rio-eam-classic-landing .v2-industry-body ul { list-style: none; margin: 0; padding: 0; }
+
+.rio-eam-classic-landing .v2-industry-body li {
   color: var(--v2-text-muted);
   font-size: 0.84rem;
   line-height: 1.5;
   padding: 3px 0 3px 14px;
   position: relative;
 }
-.v2-industry-body li::before {
+
+.rio-eam-classic-landing .v2-industry-body li::before {
   color: var(--v2-primary);
   content: "•";
   font-weight: 700;
@@ -913,8 +922,22 @@
 .v2-footer {
   background: #0a1931;
   color: #fff;
+  isolation: isolate;
   padding: 40px 20px 44px;
+  position: relative;
   text-align: center;
+}
+
+.v2-footer::before {
+  background: #0a1931;
+  content: "";
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
 }
 
 .v2-footer-inner {
@@ -937,12 +960,13 @@
   opacity: 0.92;
 }
 
-.v2-footer-logo-img {
+.rio-v2-landing .v2-footer-logo-img {
+  border: none;
   display: block;
-  height: auto;
-  max-height: 52px;
-  width: auto;
+  height: 68px;
+  max-width: none;
   object-fit: contain;
+  width: auto;
 }
 
 .v2-footer-line {
@@ -1018,7 +1042,7 @@
   .v2-phone-mock { bottom: -24px; right: 8px; }
   .v2-problem-grid { grid-template-columns: repeat(3, 1fr); }
   .v2-feature-grid { grid-template-columns: repeat(2, 1fr); }
-  .v2-industry-grid { grid-template-columns: repeat(3, 1fr); }
+  .rio-eam-classic-landing .v2-industry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .v2-lifecycle-features { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -1039,6 +1063,10 @@
   }
 
   .v2-logo {
+    height: 44px;
+  }
+
+  .rio-v2-landing .v2-footer-logo-img {
     height: 44px;
   }
 
@@ -1135,7 +1163,7 @@
     width: min(220px, 88vw);
   }
   .v2-problem-grid { grid-template-columns: repeat(2, 1fr); }
-  .v2-industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .rio-eam-classic-landing .v2-industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .v2-cta-strip-inner { flex-direction: column; padding: 22px; }
   .v2-cta-strip-text { flex-direction: column; align-items: flex-start; }
   .v2-form-grid { grid-template-columns: 1fr; }
@@ -1247,7 +1275,8 @@
 @media (max-width: 480px) {
   .v2-hero-text h1 { font-size: 1.7rem; }
   .v2-trust-row { font-size: 0.85rem; gap: 12px; }
-  .v2-feature-grid, .v2-problem-grid, .v2-industry-grid { grid-template-columns: 1fr; }
+  .v2-feature-grid, .v2-problem-grid { grid-template-columns: 1fr; }
+  .rio-eam-classic-landing .v2-industry-grid { grid-template-columns: 1fr; }
   .v2-footer-line {
     font-size: 0.78rem;
     line-height: 1.55;

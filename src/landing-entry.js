@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import './landing-reset.css';
 import { normalizePathname } from './utils/almLandingPaths';
 
 /** Meta Pixel is loaded via GTM — avoid duplicate third-party JS on CMMS landings. */

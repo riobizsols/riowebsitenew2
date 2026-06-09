@@ -16,8 +16,11 @@
   color: var(--v2-text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  max-width: 100%;
   min-height: 100vh;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
 }
 
 .rio-v2-landing img {
@@ -1159,7 +1162,21 @@
 /* ─── FINAL CTA ───────────────────────────────────────────────────────── */
 .v2-final-cta {
   background: linear-gradient(135deg, #002d6e 0%, #0047ab 100%);
+  isolation: isolate;
   padding: 44px 0 0;
+  position: relative;
+}
+
+.v2-final-cta::before {
+  background: linear-gradient(135deg, #002d6e 0%, #0047ab 100%);
+  content: "";
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
 }
 
 .v2-final-cta-inner {
@@ -1461,8 +1478,22 @@
 .v2-footer {
   background: #0a1931;
   color: #fff;
+  isolation: isolate;
   padding: 40px 20px 44px;
+  position: relative;
   text-align: center;
+}
+
+.v2-footer::before {
+  background: #0a1931;
+  content: "";
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
 }
 
 .v2-footer-inner {
@@ -1485,12 +1516,13 @@
   opacity: 0.92;
 }
 
-.v2-footer-logo-img {
+.rio-v2-landing .v2-footer-logo-img {
+  border: none;
   display: block;
-  height: auto;
-  max-height: 52px;
-  width: auto;
+  height: 68px;
+  max-width: none;
   object-fit: contain;
+  width: auto;
 }
 
 .v2-footer-line {
@@ -1673,6 +1705,10 @@
   }
 
   .v2-logo {
+    height: 44px;
+  }
+
+  .rio-v2-landing .v2-footer-logo-img {
     height: 44px;
   }
 

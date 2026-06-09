@@ -2,7 +2,7 @@ import dashboardDesktop from "../../../assets/images/rio-alm-dashboard f.png";
 
 /** Local + public assets for the CMMS landing page */
 export const ASSETS = {
-  logo: "/rio-logo.png",
+  logo: "/RIO-Logo.png",
   logoFooter: "/rio-logo-footer.png",
   dashboardDesktop,
   dashboardMobile: "/rio-alm-asset-management-mobile-640.png",

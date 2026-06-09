@@ -1,0 +1,13 @@
+/* Standalone landings skip site-entry (no index.css) — prevent gutter/overflow gaps */
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
