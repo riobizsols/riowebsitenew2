@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FiCalendar, FiUser, FiArrowRight, FiSearch } from 'react-icons/fi';
+import { FiCalendar, FiArrowRight, FiSearch } from 'react-icons/fi';
 import '../../css/BlogList.css';
 import LazyImage from '../LazyImage';
+import { blogCardImage, cloudinarySrcSet } from '../../utils/cloudinary';
+
+const BLOG_CARD_WIDTH = 480;
+const BLOG_CARD_HEIGHT = 220;
 
 const blogPosts = [
   {
@@ -139,6 +143,13 @@ const BlogList = () => {
         <meta property="og:url" content="https://riobizsols.com/blog" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://riobizsols.com/blog" />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="image"
+          href={blogCardImage(blogPosts[0].image, BLOG_CARD_WIDTH)}
+          fetchPriority="high"
+        />
       </Helmet>
       <div className="blog-page">
         {/* Hero Section */}
@@ -182,7 +193,7 @@ const BlogList = () => {
         {/* Blog Posts Grid */}
         <div className="blog-container">
           <div className="blog-posts-grid">
-            {filteredPosts.map((post) => (
+            {filteredPosts.map((post, index) => (
               <div
                 key={post.id}
                 className="blog-card"
@@ -198,7 +209,15 @@ const BlogList = () => {
                 aria-label={`Open blog: ${post.title}`}
               >
                 <div className="blog-card-image">
-                  <LazyImage src={post.image} alt={post.title} width={400} height={250} />
+                  <LazyImage
+                    src={blogCardImage(post.image, BLOG_CARD_WIDTH)}
+                    srcSet={cloudinarySrcSet(post.image, [320, 480, 640], { crop: 'fill' })}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                    alt={post.title}
+                    width={BLOG_CARD_WIDTH}
+                    height={BLOG_CARD_HEIGHT}
+                    priority={index === 0}
+                  />
                   <span className="blog-category-badge">{post.category}</span>
                 </div>
                 

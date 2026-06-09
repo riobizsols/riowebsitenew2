@@ -7,12 +7,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../css/Header.css'
 import Logo from '../assets/images/RIO-Logo.png'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
-
-
 export default function Header() {
   const [productsOpen, setProductsOpen] = useState(false);
 
@@ -20,8 +14,8 @@ export default function Header() {
     
     <Navbar expand="lg" className='nav_bar'>
     <Container>
-      <Navbar.Brand href="/">
-        <img src={Logo} alt=''/>
+      <Navbar.Brand href="/" aria-label="RioBizSols home">
+        <img src={Logo} alt="RioBizSols" width={150} height={68} decoding="async" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="mob-navbar" />
       <Navbar.Collapse id="basic-navbar-nav" >

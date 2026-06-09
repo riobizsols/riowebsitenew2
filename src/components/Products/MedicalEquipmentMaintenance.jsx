@@ -11,10 +11,10 @@ import {
   FiSmartphone,
   FiLock
 } from 'react-icons/fi';
-import memsSecurityIcon from '../../assets/images/mems compliance.png';
+import LazyImage from '../LazyImage';
+import { MEMS_COMPLIANCE } from '../../utils/productImages';
 import FeatureCard from './FeatureCard';
-import CTABanner from './CTABanner';
-import FAQAccordion from './FAQAccordion';
+import { LazyProductCTA, LazyProductFAQ } from './LazyProductFooter';
 import './RioALMLanding.css';
 
 const MedicalEquipmentMaintenance = () => {
@@ -398,10 +398,12 @@ const MedicalEquipmentMaintenance = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <img
-                src={memsSecurityIcon}
-                alt="Medical equipment security illustration"
+              <LazyImage
+                src={MEMS_COMPLIANCE.src}
+                alt="Medical equipment security and compliance illustration"
                 className="security-image"
+                width={MEMS_COMPLIANCE.width}
+                height={MEMS_COMPLIANCE.height}
               />
             </div>
           </div>
@@ -414,12 +416,12 @@ const MedicalEquipmentMaintenance = () => {
           <h2 className="section-title">
             Frequently Asked Questions from Hospitals
           </h2>
-          <FAQAccordion faqs={faqs} />
+          <LazyProductFAQ faqs={faqs} />
         </div>
       </section>
 
       {/* Final CTA */}
-      <CTABanner
+      <LazyProductCTA
         title="See MEMS in Action"
         subtitle="Schedule a walkthrough tailored to your hospital or healthcare network and explore how we can support your biomedical and maintenance teams."
         ctaText="Book MEMS Demo"

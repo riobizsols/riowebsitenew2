@@ -93,9 +93,12 @@
   width: 100%;
   margin: 0;
   overflow: hidden;
-  border-radius: 0; /* no rounded corners so it touches edges */
+  border-radius: 0;
   box-shadow: none;
-  max-height: 460px; /* keeps paragraph below fully visible */
+  aspect-ratio: 1340 / 460;
+  max-height: 460px;
+  min-height: 180px;
+  background-color: #d1e6fb;
 }
 
 .about-main-image {
@@ -103,8 +106,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transform-origin: center;
-  transition: transform 0.8s ease;
 }
 
 .about-title {
@@ -119,10 +120,6 @@
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
   text-align: center;
   pointer-events: none;
-}
-
-.about-image-wrapper:hover .about-main-image {
-  transform: rotate(360deg) scale(1.03);
 }
 
 /* Mobile: keep banner text comfortably inside the image */

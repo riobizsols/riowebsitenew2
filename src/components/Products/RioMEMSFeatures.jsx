@@ -11,7 +11,7 @@ import {
   FiBarChart2
 } from 'react-icons/fi';
 import FeatureCard from './FeatureCard';
-import CTABanner from './CTABanner';
+import { LazyProductCTA } from './LazyProductFooter';
 import './RioALMFeatures.css';
 
 const RioMEMSFeatures = () => {
@@ -165,7 +165,7 @@ const RioMEMSFeatures = () => {
       </section>
 
       {/* CTA Section */}
-      <CTABanner
+      <LazyProductCTA
         title="See RIO MEMS in Action"
         subtitle="Schedule a focused demo on how RIO MEMS supports your biomedical and maintenance workflows."
         ctaText="Book RIO MEMS Demo"

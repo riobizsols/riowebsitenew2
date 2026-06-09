@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { FiCalendar, FiUser, FiArrowLeft } from 'react-icons/fi';
 import '../../css/BlogDetail.css';
 import LazyImage from '../LazyImage';
+import { blogCardImage, blogHeroImage, cloudinarySrcSet } from '../../utils/cloudinary';
 
 const blogPosts = [
   {
@@ -548,7 +549,7 @@ const BlogDetail = () => {
         <meta name="published_time" content={blog.date} />
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.excerpt || (blog.content && blog.content.slice(0, 160))} />
-        <meta property="og:image" content={blog.image} />
+        <meta property="og:image" content={blogHeroImage(blog.image, 1200)} />
         <meta property="og:url" content={`https://riobizsols.com/blog/${blog.id}`} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={blog.date} />
@@ -557,14 +558,29 @@ const BlogDetail = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog.title} />
         <meta name="twitter:description" content={blog.excerpt || (blog.content && blog.content.slice(0, 160))} />
-        <meta name="twitter:image" content={blog.image} />
+        <meta name="twitter:image" content={blogHeroImage(blog.image, 1200)} />
         <link rel="canonical" href={`https://riobizsols.com/blog/${blog.id}`} />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="image"
+          href={blogHeroImage(blog.image, 960)}
+          fetchPriority="high"
+        />
       </Helmet>
       <div className="blog-detail-page">
         {/* Hero Section */}
         <div className="blog-detail-hero">
           <div className="hero-image">
-            <LazyImage src={blog.image} alt={blog.title} width={1200} height={600} />
+            <LazyImage
+              src={blogHeroImage(blog.image, 960)}
+              srcSet={cloudinarySrcSet(blog.image, [480, 768, 960, 1200])}
+              sizes="100vw"
+              alt={blog.title}
+              width={960}
+              height={480}
+              priority
+            />
             <span className="category-badge">{blog.category}</span>
           </div>
         </div>
@@ -665,7 +681,12 @@ const BlogDetail = () => {
                 {relatedPosts.map(relPost => (
                   <Link key={relPost.id} to={`/blog/${relPost.id}`} className="related-post-card">
                     <div className="related-post-image">
-                      <LazyImage src={relPost.image} alt={relPost.title} width={350} height={220} />
+                      <LazyImage
+                        src={blogCardImage(relPost.image, 350)}
+                        alt={relPost.title}
+                        width={350}
+                        height={220}
+                      />
                       <span className="related-post-category">{relPost.category}</span>
                     </div>
                     <div className="related-post-content">

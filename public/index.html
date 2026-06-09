@@ -16,6 +16,8 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -47,8 +49,9 @@
           path === '/asset-maintenance-management-software-v2' ||
           path === '/cmms-maintenance-management-software' ||
           path === '/uk/cmms-maintenance-management-software';
+        var isProductPage = path.indexOf('/products/') === 0;
 
-        if (isCmmsLanding) {
+        if (isCmmsLanding || isProductPage) {
           // PageSpeed / LCP: load tags after engagement (or late fallback for attribution).
           var gtmStarted = false;
           function startGtmOnce() {
@@ -76,13 +79,38 @@
       })();
     </script>
     <!-- End Google Tag Manager -->
-    <!-- Microsoft Clarity -->
+    <!-- Microsoft Clarity (deferred for faster LCP) -->
     <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "x0ps48ha6x");
+      (function () {
+        function loadClarity() {
+          (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+            t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+          })(window, document, 'clarity', 'script', 'x0ps48ha6x');
+        }
+        var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
+        var deferClarity = path.indexOf('/products/') === 0;
+        if (deferClarity) {
+          var clarityStarted = false;
+          function startClarityOnce() {
+            if (clarityStarted) return;
+            clarityStarted = true;
+            loadClarity();
+            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+              window.removeEventListener(ev, startClarityOnce, true);
+            });
+          }
+          ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+            window.addEventListener(ev, startClarityOnce, { capture: true, passive: true });
+          });
+          window.addEventListener('load', function () {
+            window.setTimeout(startClarityOnce, 12000);
+          }, { once: true });
+        } else {
+          window.addEventListener('load', loadClarity, { once: true });
+        }
+      })();
     </script>
   </head>
   <body>

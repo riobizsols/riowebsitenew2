@@ -6,7 +6,7 @@ import {
   FiGitBranch, FiCheckSquare, FiAlertCircle, FiRotateCw, FiCamera
 } from 'react-icons/fi';
 import FeatureCard from './FeatureCard';
-import CTABanner from './CTABanner';
+import { LazyProductCTA } from './LazyProductFooter';
 import './RioALMFeatures.css';
 
 const RioALMFeatures = () => {
@@ -356,7 +356,7 @@ const RioALMFeatures = () => {
       </section>
 
       {/* CTA Section */}
-      <CTABanner
+      <LazyProductCTA
         title="Ready to Experience RIO EAM?"
         subtitle="Schedule a personalized demo and see how these features can transform your asset management."
         ctaText="Schedule a Demo"

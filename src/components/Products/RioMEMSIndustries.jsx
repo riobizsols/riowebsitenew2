@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiTrendingUp, FiCheckCircle } from 'react-icons/fi';
-import CTABanner from './CTABanner';
+import { LazyProductCTA } from './LazyProductFooter';
 import './RioALMIndustries.css';
 
 const RioMEMSIndustries = () => {
@@ -181,7 +181,7 @@ const RioMEMSIndustries = () => {
       </section>
 
       {/* CTA */}
-      <CTABanner
+      <LazyProductCTA
         title="See How RIO MEMS Fits Your Healthcare Setup"
         subtitle="Get a segment-specific walkthrough for your hospital, chain, or diagnostics network."
         ctaText="Schedule RIO MEMS Demo"

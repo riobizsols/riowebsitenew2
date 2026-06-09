@@ -1,42 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 /**
- * LazyImage Component - Optimized image loading with placeholder
- * Features:
- * - Native lazy loading with fallback
- * - Responsive images with srcSet
- * - WebP support with fallback
- * - Placeholder while loading
- * - Error handling
+ * Optimized image with optional LCP priority, responsive srcSet, and WebP.
  */
-
-const LazyImage = ({ 
-  src, 
-  alt, 
-  className = '', 
-  width, 
+const LazyImage = ({
+  src,
+  alt,
+  className = '',
+  width,
   height,
   placeholder = null,
   onLoad = null,
   srcSet = null,
   sizes = null,
   webp = null,
-  style = {}
+  style = {},
+  priority = false,
+  decoding = 'async',
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef(null);
 
   useEffect(() => {
-    const img = imgRef.current;
-    if (!img) return;
+    if (priority) return undefined;
 
-    // Use native loading="lazy" with Intersection Observer fallback
+    const img = imgRef.current;
+    if (!img) return undefined;
+
     if ('loading' in img) {
-      // Browser supports native lazy loading
-      return;
+      return undefined;
     }
 
-    // Fallback for older browsers
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && img.dataset.src) {
@@ -45,63 +39,53 @@ const LazyImage = ({
           observer.unobserve(img);
         }
       },
-      { rootMargin: '50px' }
+      { rootMargin: '80px' }
     );
 
     observer.observe(img);
-
     return () => observer.unobserve(img);
-  }, []);
+  }, [priority]);
 
   const imgStyle = {
     display: 'block',
     width: '100%',
     height: 'auto',
-    ...style
+    ...style,
   };
+
+  const loading = priority ? 'eager' : 'lazy';
+  const fetchPriority = priority ? 'high' : undefined;
 
   const handleImageLoad = () => {
     setIsLoaded(true);
     if (onLoad) onLoad();
   };
 
+  const commonImgProps = {
+    ref: imgRef,
+    alt,
+    className: `${className} ${isLoaded ? 'loaded' : 'loading'}`.trim(),
+    width,
+    height,
+    loading,
+    decoding,
+    style: imgStyle,
+    sizes,
+    onLoad: handleImageLoad,
+    ...(fetchPriority ? { fetchPriority } : {}),
+  };
+
   if (webp) {
     return (
       <picture style={{ display: 'block', width: '100%', height: 'auto' }}>
         <source srcSet={webp} type="image/webp" />
-        <source srcSet={srcSet || src} type="image/jpeg" />
-        <img
-          ref={imgRef}
-          alt={alt}
-          className={`${className} ${isLoaded ? 'loaded' : 'loading'}`}
-          width={width}
-          height={height}
-          loading="lazy"
-          src={src}
-          srcSet={srcSet}
-          sizes={sizes}
-          style={imgStyle}
-          onLoad={handleImageLoad}
-        />
+        <source srcSet={srcSet || src} />
+        <img {...commonImgProps} src={src} srcSet={srcSet} />
       </picture>
     );
   }
 
-  return (
-    <img
-      ref={imgRef}
-      src={src}
-      alt={alt}
-      className={`${className} ${isLoaded ? 'loaded' : 'loading'}`}
-      width={width}
-      height={height}
-      loading="lazy"
-      style={imgStyle}
-      srcSet={srcSet}
-      sizes={sizes}
-      onLoad={handleImageLoad}
-    />
-  );
+  return <img {...commonImgProps} src={src} srcSet={srcSet} />;
 };
 
 export default LazyImage;

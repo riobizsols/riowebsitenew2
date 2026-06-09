@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiServer, FiGitBranch, FiDatabase } from 'react-icons/fi';
-import securityIcon from '../../assets/images/alm deployment security icon.png';
-import CTABanner from './CTABanner';
+import LazyImage from '../LazyImage';
+import { DEPLOYMENT_SECURITY } from '../../utils/productImages';
+import { LazyProductCTA } from './LazyProductFooter';
 import './RioALMDeployment.css';
 
 const RioALMDeployment = () => {
@@ -224,10 +225,12 @@ const RioALMDeployment = () => {
             </div>
             <div className="security-bottom-right">
               <div className="security-visual">
-                <img
-                  src={securityIcon}
+                <LazyImage
+                  src={DEPLOYMENT_SECURITY.src}
                   alt="Security and compliance illustration"
                   className="security-image"
+                  width={DEPLOYMENT_SECURITY.width}
+                  height={DEPLOYMENT_SECURITY.height}
                 />
               </div>
             </div>
@@ -236,7 +239,7 @@ const RioALMDeployment = () => {
       </section>
 
       {/* CTA */}
-      <CTABanner
+      <LazyProductCTA
         title="Choose Your Deployment Model"
         subtitle="Let's discuss which deployment option best fits your organization's requirements and infrastructure."
         ctaText="Discuss Deployment Options"

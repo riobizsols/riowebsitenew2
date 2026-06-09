@@ -44,16 +44,35 @@ function AppContent() {
       }
     };
 
-    const schedulePixel = () => {
-      if (typeof window.requestIdleCallback === 'function') {
-        window.requestIdleCallback(() => initPixel(), { timeout: 5000 });
-      } else {
-        window.setTimeout(() => initPixel(), 3000);
-      }
+    let started = false;
+    const startOnce = () => {
+      if (started) return;
+      started = true;
+      initPixel();
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach((ev) => {
+        window.removeEventListener(ev, startOnce, true);
+      });
     };
 
-    schedulePixel();
-    return undefined;
+    const onLoad = () => {
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach((ev) => {
+        window.addEventListener(ev, startOnce, { capture: true, passive: true });
+      });
+      window.setTimeout(startOnce, 12000);
+    };
+
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      window.addEventListener('load', onLoad, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener('load', onLoad);
+      ['scroll', 'click', 'touchstart', 'keydown'].forEach((ev) => {
+        window.removeEventListener(ev, startOnce, true);
+      });
+    };
   }, []);
 
   useEffect(() => {

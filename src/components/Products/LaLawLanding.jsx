@@ -11,10 +11,10 @@ import {
   FiUserMinus,
 } from 'react-icons/fi';
 import FeatureCard from './FeatureCard';
-import CTABanner from './CTABanner';
-import FAQAccordion from './FAQAccordion';
-import laLawHeroImage from '../../assets/images/login_background.png';
-import EnterpriseSecurityImage from '../../assets/images/enterprise-security.png';
+import { LazyProductCTA, LazyProductFAQ } from './LazyProductFooter';
+import ProductHeroImage from './ProductHeroImage';
+import LazyImage from '../LazyImage';
+import { LA_LAW_HERO, ENTERPRISE_SECURITY } from '../../utils/productImages';
 import './RioALMLanding.css';
 
 const LaLawLanding = () => {
@@ -173,6 +173,7 @@ const LaLawLanding = () => {
           content="Cases, petitions, documents, and secure sharing—built for advocates and legal teams."
         />
         <link rel="canonical" href="https://riobizsols.com/products/la-law" />
+        <link rel="preload" as="image" href={LA_LAW_HERO.preload} fetchPriority="high" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -221,10 +222,14 @@ const LaLawLanding = () => {
           </div>
           <div className="hero-visual">
             <div className="dashboard-placeholder la-law-hero-photo-wrap">
-              <img
-                src={laLawHeroImage}
+              <ProductHeroImage
+                src={LA_LAW_HERO.src}
+                srcSet={LA_LAW_HERO.srcSet}
+                sizes={LA_LAW_HERO.sizes}
                 alt="La Law — legal productivity and case management"
                 className="hero-dashboard-image la-law-hero-photo"
+                width={LA_LAW_HERO.width}
+                height={LA_LAW_HERO.height}
               />
             </div>
           </div>
@@ -480,14 +485,12 @@ const LaLawLanding = () => {
               </article>
             </div>
             <figure className="la-law-security-figure">
-              <img
-                src={EnterpriseSecurityImage}
-                alt=""
+              <LazyImage
+                src={ENTERPRISE_SECURITY.src}
+                alt="Secure access and encryption for legal case data"
                 className="la-law-security-figure-img"
                 width={280}
                 height={373}
-                loading="lazy"
-                decoding="async"
               />
               <figcaption className="la-law-security-figure-caption">Secure access and encryption</figcaption>
             </figure>
@@ -671,11 +674,11 @@ const LaLawLanding = () => {
       <section className="alm-faq">
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>
-          <FAQAccordion faqs={faqs} />
+          <LazyProductFAQ faqs={faqs} />
         </div>
       </section>
 
-      <CTABanner
+      <LazyProductCTA
         title="Ready to try La Law for your practice?"
         subtitle="Ask how verification, admin approval, and secure cloud handling fit your firm—or schedule a walkthrough of cases, petitions, and sharing."
         ctaText="Contact RIO BizSols"

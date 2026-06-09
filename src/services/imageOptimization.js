@@ -223,7 +223,9 @@ export default {
   getOptimizedImage,
   preloadResources,
   deferNonCriticalCSS,
-  deferNonCriticalJS,
   compressText,
-  getImageDimensions
+  getImageDimensions,
+  getWebpSrcSet,
+  supportsWebP,
+  generatePictureElement,
 };

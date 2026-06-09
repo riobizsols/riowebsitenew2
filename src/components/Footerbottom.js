@@ -9,8 +9,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { FaWhatsapp } from 'react-icons/fa';
-import US from '../assets/images/US.jpg';
-import India from '../assets/images/India.jpg';
+import LazyImage from './LazyImage';
+
+const FOOTER_US_IMG = `${process.env.PUBLIC_URL}/footer-us.jpg`;
+const FOOTER_INDIA_IMG = `${process.env.PUBLIC_URL}/footer-india.jpg`;
 
  function Footerbottom() {
   const whatsappPhone = '918884910777';
@@ -25,7 +27,7 @@ import India from '../assets/images/India.jpg';
         <div className="container">
             <div className="row">
                 <div className="col-lg-4 col-md-6">
-                <img src={FooterLogo} alt='RioBizSols Logo' className='footer_title'/>
+                <img src={FooterLogo} alt="RioBizSols Logo" className="footer_title" width={180} height={60} decoding="async" />
                 <div className='social_media'>
           <a href='https://www.facebook.com/riobizsols/' target="_blank" rel="noopener noreferrer" style={{textDecoration:'none', color:'#FFFF'}}><FacebookRoundedIcon color='#fff' className='social_icon' sx={{ fontSize: 30 }}/></a>
           <a href='https://www.linkedin.com/company/rio-business-solutions-usa/' target="_blank" rel="noopener noreferrer" style={{textDecoration:'none', color:'#FFFF'}}><LinkedInIcon color='#fff' sx={{ fontSize: 30 }}  className='social_icon'/></a>
@@ -76,10 +78,16 @@ import India from '../assets/images/India.jpg';
           <div className="row">
             <div className="col-12 footer-locations-wrap">
               <div className="footer-locations-inner">
-                <h1 className='foot-loc'>Our Locations</h1>
+                <h2 className='foot-loc'>Our Locations</h2>
                 <div className="row footer-locations-row">
                   <div className="col-md-6 text-center">
-                    <img src={US} alt="US" className='footer_location_img1'/>
+                    <LazyImage
+                      src={FOOTER_US_IMG}
+                      alt="Map showing RioBizSols USA office in San Francisco"
+                      className="footer_location_img1"
+                      width={256}
+                      height={139}
+                    />
                     <h5 className='location_title'>USA Office</h5>
                     <p className='location_title'>180 Steuart St,<br/>#192750 SanFrancisco,<br/>CA 94119, USA</p>
                   </div>
@@ -90,7 +98,13 @@ import India from '../assets/images/India.jpg';
                       rel="noopener noreferrer"
                       aria-label="Open India office in Google Maps"
                     >
-                      <img src={India} alt="India Office Location" className='footer_location_img2'/>
+                      <LazyImage
+                        src={FOOTER_INDIA_IMG}
+                        alt="Map showing RioBizSols India office in Coimbatore"
+                        className="footer_location_img2"
+                        width={256}
+                        height={139}
+                      />
                     </a>
                     <h5 className='location_title1'>INDIA Office</h5>
                     <p className='location_title1'>103/1, Karunanidhi Nagar,<br/>Ramanathapuram PO, Sungam,<br/>Coimbatore – 641045, India</p>

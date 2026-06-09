@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './RioALMLanding.css';
-import CTABanner from './CTABanner';
-import FAQAccordion from './FAQAccordion';
+import { LazyProductCTA, LazyProductFAQ } from './LazyProductFooter';
 
 const AissistLanding = () => {
   const pricingUrl = 'https://oneaissist.com/pricing';
@@ -309,12 +308,12 @@ const AissistLanding = () => {
       <section className="alm-faq">
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>
-          <FAQAccordion faqs={faqs} />
+          <LazyProductFAQ faqs={faqs} />
         </div>
       </section>
 
       {/* Final CTA */}
-      <CTABanner
+      <LazyProductCTA
         title="Ready to Upgrade Your LinkedIn Engagement?"
         subtitle="Install AIssist, start with the free plan, and see how much time you save while staying authentic."
         ctaText="Add AIssist to Chrome"

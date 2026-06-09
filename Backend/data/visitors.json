@@ -703,5 +703,73 @@
     "firstVisit": "2026-06-01T03:59:28.911Z",
     "lastActivity": "2026-06-01T04:40:49.385Z",
     "createdAt": "2026-06-01T03:59:29.061Z"
+  },
+  {
+    "visitorId": "visitor_1773062357702_53yyu8aor",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-09T11:48:56.962Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-09T11:48:56.962Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-09T11:50:05.733Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-09T11:50:05.734Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-09T11:50:10.411Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-09T11:50:11.858Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-09T11:54:21.877Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-09T11:54:21.877Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-09T11:54:30.188Z"
+        },
+        {
+          "page": "La Law — Legal Productivity & Case Management | RIO BizSols",
+          "timestamp": "2026-06-09T11:54:30.396Z",
+          "data": {
+            "url": "http://localhost:3000/products/la-law",
+            "title": "La Law — Legal Productivity & Case Management | RIO BizSols"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 100,
+      "timeOnSite": 7943701,
+      "formSubmitted": false,
+      "ctaClicked": [
+        {
+          "cta": "exit_intent_dismiss_default",
+          "timestamp": "2026-03-09T13:19:31.561Z"
+        },
+        {
+          "cta": "exit_intent_dismiss_rio_alm",
+          "timestamp": "2026-03-09T13:23:11.653Z"
+        }
+      ]
+    },
+    "lastActivity": "2026-06-09T11:54:30.396Z",
+    "createdAt": "2026-06-09T10:45:34.541Z"
   }
 ]

@@ -1211,7 +1211,21 @@ const possibleBuildPaths = [
 const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || possibleBuildPaths[0];
 
 if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
-  app.use(express.static(buildPath));
+  app.use(
+    express.static(buildPath, {
+      maxAge: '365d',
+      immutable: false,
+      setHeaders(res, filePath) {
+        if (filePath.endsWith('index.html')) {
+          res.setHeader('Cache-Control', 'no-cache');
+          return;
+        }
+        if (/\.(js|css|woff2?|png|jpe?g|webp|svg|gif|ico)$/i.test(filePath)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+      },
+    })
+  );
 
   // SEO/Ads-crawler ready prerender for the RIO EAM landing page.
   // Returns fully-rendered HTML (H1, content, FAQs, schema, OG tags) so

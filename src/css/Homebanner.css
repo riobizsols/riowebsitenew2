@@ -70,6 +70,12 @@
   /* Prevent vertical overflow that can cause next sections to overlap on desktop */
   margin: 40px auto 30px;
   width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
+.homebanner-img-col {
+  min-height: 280px;
 }
 
 

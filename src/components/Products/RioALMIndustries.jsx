@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiTrendingUp, FiClock, FiCheckCircle, FiBarChart2 } from 'react-icons/fi';
-import CTABanner from './CTABanner';
+import { LazyProductCTA } from './LazyProductFooter';
 import './RioALMIndustries.css';
 
 const RioALMIndustries = () => {
@@ -226,7 +226,7 @@ const RioALMIndustries = () => {
       </section>
 
       {/* CTA */}
-      <CTABanner
+      <LazyProductCTA
         title="See How RIO EAM Works for Your Industry"
         subtitle="Get a personalized demo tailored to your industry's specific challenges and requirements."
         ctaText="Schedule Industry-Specific Demo"

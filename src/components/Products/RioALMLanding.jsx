@@ -7,10 +7,10 @@ import {
   FiLayers, FiLock
 } from 'react-icons/fi';
 import FeatureCard from './FeatureCard';
-import CTABanner from './CTABanner';
-import FAQAccordion from './FAQAccordion';
-import RioAlmDashboard from '../../assets/images/rio-alm-dashboard f.png';
-import EnterpriseSecurityImage from '../../assets/images/enterprise-security.png';
+import { LazyProductCTA, LazyProductFAQ } from './LazyProductFooter';
+import ProductHeroImage from './ProductHeroImage';
+import LazyImage from '../LazyImage';
+import { RIO_EAM_DASHBOARD, ENTERPRISE_SECURITY } from '../../utils/productImages';
 import './RioALMLanding.css';
 
 const RioALMLanding = () => {
@@ -145,7 +145,8 @@ const RioALMLanding = () => {
         
         {/* Canonical Link */}
         <link rel="canonical" href="https://riobizsols.com/products/rio-eam" />
-        
+        <link rel="preload" as="image" href={RIO_EAM_DASHBOARD.preload} fetchPriority="high" />
+
         {/* Schema.org Product & SoftwareApplication Markup */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -204,10 +205,13 @@ const RioALMLanding = () => {
           <div className="hero-visual">
             <div className="dashboard-placeholder">
               <div className="placeholder-header">Dashboard Preview</div>
-              <img
-                src={RioAlmDashboard}
+              <ProductHeroImage
+                src={RIO_EAM_DASHBOARD.src}
+                srcSet={RIO_EAM_DASHBOARD.srcSet}
+                sizes={RIO_EAM_DASHBOARD.sizes}
                 alt="RIO EAM dashboard preview"
-                className="hero-dashboard-image"
+                width={RIO_EAM_DASHBOARD.width}
+                height={RIO_EAM_DASHBOARD.height}
               />
             </div>
           </div>
@@ -422,7 +426,13 @@ const RioALMLanding = () => {
               </ul>
             </div>
             <div className="security-visual">
-              <img src={EnterpriseSecurityImage} alt="Enterprise-grade security" className="security-image" />
+              <LazyImage
+                src={ENTERPRISE_SECURITY.src}
+                alt="Enterprise-grade security controls"
+                className="security-image"
+                width={ENTERPRISE_SECURITY.width}
+                height={ENTERPRISE_SECURITY.height}
+              />
             </div>
           </div>
         </div>
@@ -561,12 +571,12 @@ const RioALMLanding = () => {
       <section className="alm-faq">
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>
-          <FAQAccordion faqs={faqs} />
+          <LazyProductFAQ faqs={faqs} />
         </div>
       </section>
 
       {/* Final CTA */}
-      <CTABanner 
+      <LazyProductCTA
         title="Ready to Transform Your Asset Management?"
         subtitle="Get a personalized demo and see how RIO EAM can streamline your operations, reduce downtime, and ensure compliance."
         ctaText="Schedule Your Demo"
