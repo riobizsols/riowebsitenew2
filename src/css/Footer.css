@@ -1,5 +1,10 @@
+.site-footer-shell {
+    contain: layout style;
+    min-height: 520px;
+}
+
 .deferred-footer-placeholder {
-    min-height: 680px;
+    min-height: 520px;
     background-color: #171717;
 }
 

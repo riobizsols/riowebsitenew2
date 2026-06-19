@@ -16,7 +16,13 @@
   display: none;
 }
 
+.nav_bar--shell {
+    min-height: 72px;
+    background-color: #f4f9ff;
+}
+
 .nav_bar{
+    min-height: 72px;
    display: flex;
    align-items: center; /* vertically center logo + nav + button */
    padding-top: 12px;

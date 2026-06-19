@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+/* Outfit loaded non-blocking from public/index.html — system stack avoids FOIT */
 
 /* Prevent mobile content from being cut off on the right */
 html {
@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Outfit, sans-serif;
+  font-family: Outfit, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: #f4f9ff;
   max-width: 100%;
   overflow-x: hidden;

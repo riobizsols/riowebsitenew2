@@ -1,6 +1,5 @@
 import './App.css';
 import { lazy, Suspense, useEffect, useRef } from 'react';
-import Header from './components/Navbar';
 import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop/ScrollToTop';
 import CanonicalLink from './Canonical';
@@ -10,8 +9,12 @@ import EamClassicLandingReload from './components/Products/EamClassicLandingRelo
 import DeferredSiteWidgets from './components/DeferredSiteWidgets';
 import { isLiteChromePath } from './utils/sitePaths';
 import { assertSingleGoogleTag, trackVirtualPageView } from './utils/gtm';
+import { runOnceOnInteraction } from './utils/deferUntilInteraction';
 import * as Lazy from './lazyRoutes';
 
+import NavbarShell from './components/NavbarShell';
+
+const Header = lazy(() => import('./components/Navbar'));
 const SchemaMarkup = lazy(() => import('./components/SchemeMarkup'));
 
 const PIXEL_ID = '2112408199250636';
@@ -54,25 +57,7 @@ function AppContent() {
       });
     };
 
-    const onLoad = () => {
-      ['scroll', 'click', 'touchstart', 'keydown'].forEach((ev) => {
-        window.addEventListener(ev, startOnce, { capture: true, passive: true });
-      });
-      window.setTimeout(startOnce, 12000);
-    };
-
-    if (document.readyState === 'complete') {
-      onLoad();
-    } else {
-      window.addEventListener('load', onLoad, { once: true });
-    }
-
-    return () => {
-      window.removeEventListener('load', onLoad);
-      ['scroll', 'click', 'touchstart', 'keydown'].forEach((ev) => {
-        window.removeEventListener(ev, startOnce, true);
-      });
-    };
+    return runOnceOnInteraction(startOnce);
   }, []);
 
   useEffect(() => {
@@ -83,14 +68,10 @@ function AppContent() {
 
     const initTracking = async () => {
       try {
-        const [{ default: webVitalsMonitor }, visitorTracking] = await Promise.all([
-          import('./services/webVitalsMonitor'),
-          import('./services/visitorTracking'),
-        ]);
+        const visitorTracking = await import('./services/visitorTracking');
         if (cancelled) return;
 
-        webVitalsMonitor.init();
-        const profile = await visitorTracking.getVisitorProfile();
+        await visitorTracking.getVisitorProfile();
         if (cancelled) return;
 
         visitorTracking.trackPageView('App Load', {
@@ -100,7 +81,7 @@ function AppContent() {
 
         const handleScroll = () => visitorTracking.trackScrollDepth();
         window.addEventListener('scroll', handleScroll, { passive: true });
-        const timeInterval = window.setInterval(() => visitorTracking.trackTimeOnSite(), 10000);
+        const timeInterval = window.setInterval(() => visitorTracking.trackTimeOnSite(), 15000);
 
         cleanupTracking = () => {
           window.removeEventListener('scroll', handleScroll);
@@ -111,19 +92,17 @@ function AppContent() {
       }
     };
 
-    if (typeof window.requestIdleCallback === 'function') {
-      const id = window.requestIdleCallback(() => initTracking(), { timeout: 6000 });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(id);
-        cleanupTracking();
-      };
-    }
+    const stopInteractionWait = runOnceOnInteraction(() => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(() => initTracking(), { timeout: 8000 });
+      } else {
+        window.setTimeout(initTracking, 1000);
+      }
+    });
 
-    const timeoutId = window.setTimeout(initTracking, 2500);
     return () => {
       cancelled = true;
-      window.clearTimeout(timeoutId);
+      stopInteractionWait();
       cleanupTracking();
     };
   }, [useLiteChrome]);
@@ -177,7 +156,11 @@ function AppContent() {
           <SchemaMarkup />
         </Suspense>
       )}
-      {!useLiteChrome && <Header />}
+      {!useLiteChrome && (
+        <Suspense fallback={<NavbarShell />}>
+          <Header />
+        </Suspense>
+      )}
       <ScrollToTop />
       <Suspense fallback={<RouteLoadingFallback />}>
         <Routes>

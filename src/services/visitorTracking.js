@@ -93,10 +93,10 @@ const getUTMParameters = () => {
   };
 };
 
-// Get company from IP using ipapi.co
+// Get company from IP using ipapi.co (deferred — not on critical path)
 const getCompanyFromIP = async () => {
   try {
-    const response = await fetch('https://ipapi.co/json/');
+    const response = await fetch('https://ipapi.co/json/', { priority: 'low' });
     const data = await response.json();
     return {
       ip: data.ip,
@@ -129,15 +129,7 @@ const getReferrerInfo = () => {
   };
 };
 
-// Initialize visitor profile
-export const initializeVisitorProfile = async () => {
-  const visitorId = generateVisitorId();
-  const sessionId = getOrCreateSessionId();
-
-  // Get IP and company info
-  const ipInfo = await getCompanyFromIP();
-
-  const visitorProfile = {
+const buildVisitorProfile = (visitorId, sessionId, ipInfo = null) => ({
     visitorId,
     sessionId,
     timestamp: new Date().toISOString(),
@@ -188,17 +180,15 @@ export const initializeVisitorProfile = async () => {
     // Timing
     firstVisit: new Date().toISOString(),
     lastActivity: new Date().toISOString(),
-  };
+});
 
-  // Store in localStorage
-  localStorage.setItem('visitorProfile', JSON.stringify(visitorProfile));
-
-  // Send initial tracking data to backend
+const syncVisitorProfile = async (visitorProfile) => {
   try {
     const res = await fetch(`${getApiBaseUrl()}/api/visitors/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(visitorProfile),
+      priority: 'low',
     });
     if (!res.ok) {
       console.warn('Could not send visitor profile. Status:', res.status);
@@ -206,6 +196,44 @@ export const initializeVisitorProfile = async () => {
   } catch (error) {
     console.warn('Could not send visitor profile:', error);
   }
+};
+
+const enrichProfileWithIp = async (visitorId) => {
+  const ipInfo = await getCompanyFromIP();
+  const stored = localStorage.getItem('visitorProfile');
+  if (!stored) return null;
+
+  const profile = JSON.parse(stored);
+  if (profile.visitorId !== visitorId) return profile;
+
+  profile.location = ipInfo
+    ? {
+        ip: ipInfo.ip,
+        country: ipInfo.country,
+        country_code: ipInfo.country_code,
+        city: ipInfo.city,
+        region: ipInfo.region,
+        timezone: ipInfo.timezone,
+        latitude: ipInfo.latitude,
+        longitude: ipInfo.longitude,
+      }
+    : null;
+  profile.company = ipInfo?.org || null;
+  profile.lastActivity = new Date().toISOString();
+  localStorage.setItem('visitorProfile', JSON.stringify(profile));
+  await syncVisitorProfile(profile);
+  return profile;
+};
+
+// Initialize visitor profile (IP enrichment runs in background)
+export const initializeVisitorProfile = async () => {
+  const visitorId = generateVisitorId();
+  const sessionId = getOrCreateSessionId();
+  const visitorProfile = buildVisitorProfile(visitorId, sessionId, null);
+
+  localStorage.setItem('visitorProfile', JSON.stringify(visitorProfile));
+  void syncVisitorProfile(visitorProfile);
+  void enrichProfileWithIp(visitorId);
 
   return visitorProfile;
 };

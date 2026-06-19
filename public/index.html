@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="48x48" href="%PUBLIC_URL%/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/logo192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#003399" />
     <meta name="google-site-verification" content="tHSw9ZWFsKMotYA9nkT8dO-Tr5bGNxibv16ttnbG-D0" />
     <meta
       name="description"
       content="Explore Riobizsols for digital marketing, ERP, staffing, IPR, web & app development. Your partner in innovation and growth. Contact us today!"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -18,6 +20,21 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <!-- Non-blocking Outfit (limited weights; optional = no layout swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=optional"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=optional"
+      />
+    </noscript>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -49,33 +66,19 @@
           path === '/asset-maintenance-management-software-v2' ||
           path === '/cmms-maintenance-management-software' ||
           path === '/uk/cmms-maintenance-management-software';
-        var isProductPage = path.indexOf('/products/') === 0;
-
-        if (isCmmsLanding || isProductPage) {
-          // PageSpeed / LCP: load tags after engagement (or late fallback for attribution).
-          var gtmStarted = false;
-          function startGtmOnce() {
-            if (gtmStarted) return;
-            gtmStarted = true;
-            loadGtm();
-            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-              window.removeEventListener(ev, startGtmOnce, true);
-            });
-          }
+        // PageSpeed: defer GTM until first user interaction.
+        var gtmStarted = false;
+        function startGtmOnce() {
+          if (gtmStarted) return;
+          gtmStarted = true;
+          loadGtm();
           ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-            window.addEventListener(ev, startGtmOnce, { capture: true, passive: true });
+            window.removeEventListener(ev, startGtmOnce, true);
           });
-          window.addEventListener(
-            'load',
-            function () {
-              window.setTimeout(startGtmOnce, 12000);
-            },
-            { once: true }
-          );
-        } else {
-          // Main site + v1 ALM: defer GTM until after load (lower TBT / faster LCP).
-          window.addEventListener('load', loadGtm, { once: true });
         }
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+          window.addEventListener(ev, startGtmOnce, { capture: true, passive: true });
+        });
       })();
     </script>
     <!-- End Google Tag Manager -->
@@ -89,27 +92,18 @@
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
           })(window, document, 'clarity', 'script', 'x0ps48ha6x');
         }
-        var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
-        var deferClarity = path.indexOf('/products/') === 0;
-        if (deferClarity) {
-          var clarityStarted = false;
-          function startClarityOnce() {
-            if (clarityStarted) return;
-            clarityStarted = true;
-            loadClarity();
-            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-              window.removeEventListener(ev, startClarityOnce, true);
-            });
-          }
+        var clarityStarted = false;
+        function startClarityOnce() {
+          if (clarityStarted) return;
+          clarityStarted = true;
+          loadClarity();
           ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-            window.addEventListener(ev, startClarityOnce, { capture: true, passive: true });
+            window.removeEventListener(ev, startClarityOnce, true);
           });
-          window.addEventListener('load', function () {
-            window.setTimeout(startClarityOnce, 12000);
-          }, { once: true });
-        } else {
-          window.addEventListener('load', loadClarity, { once: true });
         }
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+          window.addEventListener(ev, startClarityOnce, { capture: true, passive: true });
+        });
       })();
     </script>
   </head>

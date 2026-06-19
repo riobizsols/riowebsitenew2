@@ -1256,8 +1256,10 @@ if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)
     });
   });
 
+  const { sendIndexWithPreloads } = require('./htmlPreloads');
+
   app.get('*', (req, res) => {
-    res.sendFile(path.join(buildPath, 'index.html'));
+    return sendIndexWithPreloads(req, res, buildPath);
   });
   console.log('Serving static build from:', buildPath);
 } else {
