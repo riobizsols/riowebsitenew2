@@ -164,6 +164,7 @@ function AppContent() {
       <ScrollToTop />
       <Suspense fallback={<RouteLoadingFallback />}>
         <Routes>
+          <Route path="/index" element={<Navigate to="/" replace />} />
           <Route path="/" element={<Lazy.Home />} />
           <Route path="/our-service" element={<Lazy.MainServices />} />
           <Route path="/blog" element={<Lazy.BlogList />} />

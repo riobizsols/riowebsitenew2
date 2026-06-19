@@ -14,6 +14,11 @@ const { renderAlmLandingHtml } = require('./almLandingPrerender');
 const app = express();
 const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
 
+// Canonical home URL: /index -> /
+app.get(['/index', '/index/'], (req, res) => {
+  res.redirect(301, '/');
+});
+
 // Behind one reverse proxy (cPanel / nginx / Apache), so req.ip uses X-Forwarded-For in production.
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);

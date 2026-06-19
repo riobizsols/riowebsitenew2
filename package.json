@@ -43,8 +43,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "optimize:landing-images": "bash scripts/optimize-landing-images.sh",
-    "build": "bash scripts/optimize-landing-images.sh && react-scripts build",
+    "optimize:landing-images": "node scripts/optimize-landing-images.js",
+    "build": "node scripts/optimize-landing-images.js && react-scripts build",
     "build:prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
