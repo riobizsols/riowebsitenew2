@@ -201,10 +201,26 @@
 
 .v2-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 
+.v2-hero-wa-inline.v2-btn-whatsapp,
 .v2-hero-wa.v2-btn-whatsapp {
+  background: #fff;
+  border: 1.5px solid #25d366;
+  border-radius: 10px;
+  box-shadow: none;
   box-sizing: border-box;
+  color: #128c7e;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 8px;
   justify-content: center;
-  width: 100%;
+  padding: 12px 18px;
+}
+
+.v2-hero-wa-inline.v2-btn-whatsapp:hover,
+.v2-hero-wa.v2-btn-whatsapp:hover {
+  background: #f0fdf4;
+  box-shadow: none;
+  transform: none;
 }
 
 .v2-trust-row {
@@ -993,25 +1009,29 @@
 }
 
 .rio-eam-classic-landing .v2-mobile-sticky-cta-inner {
-  display: flex;
+  display: grid;
   gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
 }
 
 .rio-eam-classic-landing .v2-mobile-sticky-cta .v2-sticky-btn {
   align-items: center;
   border-radius: 10px;
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-flex;
-  flex: 1 1 0;
   font-size: 13px;
   font-weight: 700;
   justify-content: center;
   line-height: 1.2;
   min-height: 44px;
+  min-width: 0;
   padding: 10px 8px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  width: 100%;
 }
 
 .rio-eam-classic-landing .v2-mobile-sticky-cta .v2-sticky-btn--book {
@@ -1051,6 +1071,24 @@
   .v2-lifecycle-top { grid-template-columns: 1fr; }
   .v2-lifecycle-diagram { order: -1; }
   .v2-lifecycle-features { grid-template-columns: repeat(3, 1fr); }
+
+  .v2-hero-ctas {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: min(400px, 100%);
+    width: 100%;
+  }
+
+  .v2-hero-ctas .v2-btn-primary,
+  .v2-hero-ctas .v2-btn-outline,
+  .v2-hero-wa-inline.v2-btn-whatsapp,
+  .v2-hero-wa.v2-btn-whatsapp {
+    box-sizing: border-box;
+    justify-content: center;
+    min-height: 44px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1123,31 +1161,6 @@
 
   .v2-hero-cta-stack {
     max-width: 100%;
-    width: 100%;
-  }
-
-  .v2-hero-ctas {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-  }
-
-  .v2-hero-ctas .v2-btn-primary,
-  .v2-hero-ctas .v2-btn-outline {
-    font-size: 12px;
-    justify-content: center;
-    line-height: 1.2;
-    min-height: 44px;
-    padding: 10px 8px;
-    white-space: normal;
-    width: 100%;
-  }
-
-  .v2-hero-wa.v2-btn-whatsapp {
-    font-size: 13px;
-    min-height: 44px;
-    padding: 12px 10px;
     width: 100%;
   }
 

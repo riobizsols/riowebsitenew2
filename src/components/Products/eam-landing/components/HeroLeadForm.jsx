@@ -2,6 +2,21 @@ import { useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { formOptions } from "../data";
 import { getApiBaseUrl } from "../utils/api";
+import {
+  firstFieldError,
+  getPhoneLimits,
+  sanitizeCompanyInput,
+  sanitizeMessageInput,
+  sanitizeNameInput,
+  sanitizePhoneInput,
+  validateCompany,
+  validateEmail,
+  validateFullName,
+  validateHeroLeadForm,
+  validateIndustry,
+  validateMessage,
+  validatePhone,
+} from "../utils/formValidation";
 import { captureUtmParams } from "../utils/utm";
 import { trackGenerateLead } from "../../../../utils/gtm";
 import ReactPixel from "react-facebook-pixel";
@@ -16,37 +31,86 @@ const initial = {
   message: "",
 };
 
-function isValidEmail(e) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
+const fieldSanitizers = {
+  fullName2: sanitizeNameInput,
+  company2: sanitizeCompanyInput,
+  message: sanitizeMessageInput,
+};
+
+function FieldError({ message }) {
+  if (!message) return null;
+  return (
+    <p className="v2-field-error" role="alert">
+      {message}
+    </p>
+  );
 }
 
-export default function HeroLeadForm() {
+export default function HeroLeadForm({ trackingEvent = "cmms_hero_form" }) {
   const [form, setForm] = useState(initial);
+  const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  const phoneDigitLimit = getPhoneLimits(form.countryCode).max;
+
+  const inputClass = (name) => (fieldErrors[name] ? "v2-input-error" : undefined);
+
+  const validateField = (name, value, countryCode = form.countryCode) => {
+    let message = "";
+    if (name === "fullName2") message = validateFullName(value);
+    else if (name === "company2") message = validateCompany(value);
+    else if (name === "phone2") {
+      message = validatePhone(value, { required: true, countryCode });
+    } else if (name === "email2") message = validateEmail(value);
+    else if (name === "industry") message = validateIndustry(value);
+    else if (name === "message") message = validateMessage(value);
+
+    setFieldErrors((prev) => ({ ...prev, [name]: message }));
+    return message;
+  };
+
   const update = (e) => {
     const { name, value } = e.target;
-    setForm((p) => ({ ...p, [name]: value }));
+
+    if (name === "countryCode") {
+      setForm((prev) => {
+        const phone2 = sanitizePhoneInput(prev.phone2, value);
+        if (fieldErrors.phone2) {
+          const message = validatePhone(phone2, { required: true, countryCode: value });
+          setFieldErrors((fe) => ({ ...fe, phone2: message }));
+        }
+        return { ...prev, countryCode: value, phone2 };
+      });
+      return;
+    }
+
+    const next =
+      name === "phone2"
+        ? sanitizePhoneInput(value, form.countryCode)
+        : fieldSanitizers[name]
+          ? fieldSanitizers[name](value)
+          : value;
+
+    setForm((prev) => ({ ...prev, [name]: next }));
+    if (fieldErrors[name]) validateField(name, next);
+  };
+
+  const handleBlur = (e) => {
+    validateField(e.target.name, e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = validateHeroLeadForm(form);
+    setFieldErrors(errors);
+    const firstError = firstFieldError(errors);
+    if (firstError) {
+      setError(firstError);
+      return;
+    }
     setError("");
-
-    if (!form.fullName2.trim() || form.fullName2.trim().length < 2) {
-      setError("Please enter your full name.");
-      return;
-    }
-    if (!form.company2.trim()) {
-      setError("Please enter your company name.");
-      return;
-    }
-    if (!isValidEmail(form.email2)) {
-      setError("Please enter a valid work email.");
-      return;
-    }
 
     const payload = {
       ...form,
@@ -67,10 +131,11 @@ export default function HeroLeadForm() {
 
       if (!response.ok) throw new Error("Demo request failed");
 
-      trackGenerateLead("cmms_hero_form", { industry: form.industry });
+      trackGenerateLead(trackingEvent, { industry: form.industry });
       ReactPixel.track("Lead");
       setSuccess(true);
       setForm(initial);
+      setFieldErrors({});
     } catch (submitError) {
       console.error("Error submitting demo request:", submitError);
       setError("Unable to send your request right now. Please try again.");
@@ -98,10 +163,15 @@ export default function HeroLeadForm() {
               name="fullName2"
               type="text"
               placeholder="Enter your full name"
+              autoComplete="name"
               required
               value={form.fullName2}
+              className={inputClass("fullName2")}
+              aria-invalid={fieldErrors.fullName2 ? "true" : undefined}
               onChange={update}
+              onBlur={handleBlur}
             />
+            <FieldError message={fieldErrors.fullName2} />
           </div>
 
           <div>
@@ -111,10 +181,15 @@ export default function HeroLeadForm() {
               name="company2"
               type="text"
               placeholder="Enter company name"
+              autoComplete="organization"
               required
               value={form.company2}
+              className={inputClass("company2")}
+              aria-invalid={fieldErrors.company2 ? "true" : undefined}
               onChange={update}
+              onBlur={handleBlur}
             />
+            <FieldError message={fieldErrors.company2} />
           </div>
 
           <div>
@@ -136,11 +211,20 @@ export default function HeroLeadForm() {
                 id="hero-phone"
                 name="phone2"
                 type="tel"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 placeholder="Enter mobile number"
+                autoComplete="tel-national"
+                maxLength={phoneDigitLimit}
+                required
                 value={form.phone2}
+                className={inputClass("phone2")}
+                aria-invalid={fieldErrors.phone2 ? "true" : undefined}
                 onChange={update}
+                onBlur={handleBlur}
               />
             </div>
+            <FieldError message={fieldErrors.phone2} />
           </div>
 
           <div>
@@ -150,10 +234,15 @@ export default function HeroLeadForm() {
               name="email2"
               type="email"
               placeholder="Enter work email"
+              autoComplete="email"
               required
               value={form.email2}
+              className={inputClass("email2")}
+              aria-invalid={fieldErrors.email2 ? "true" : undefined}
               onChange={update}
+              onBlur={handleBlur}
             />
+            <FieldError message={fieldErrors.email2} />
           </div>
 
           <div>
@@ -163,7 +252,10 @@ export default function HeroLeadForm() {
               name="industry"
               required
               value={form.industry}
+              className={inputClass("industry")}
+              aria-invalid={fieldErrors.industry ? "true" : undefined}
               onChange={update}
+              onBlur={handleBlur}
             >
               <option value="" disabled>
                 Select your industry
@@ -174,6 +266,7 @@ export default function HeroLeadForm() {
                 </option>
               ))}
             </select>
+            <FieldError message={fieldErrors.industry} />
           </div>
 
           <div>
@@ -182,10 +275,15 @@ export default function HeroLeadForm() {
               id="hero-message"
               name="message"
               rows={3}
+              maxLength={1000}
               placeholder="Tell us about your requirement"
               value={form.message}
+              className={inputClass("message")}
+              aria-invalid={fieldErrors.message ? "true" : undefined}
               onChange={update}
+              onBlur={handleBlur}
             />
+            <FieldError message={fieldErrors.message} />
           </div>
 
           <button

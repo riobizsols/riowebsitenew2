@@ -61,7 +61,7 @@ export default function Hero({ onBookDemo, onRequestPricing, showWhatsApp = true
         </div>
 
         <div className="v2-hero-aside">
-          <HeroLeadForm />
+          <HeroLeadForm trackingEvent="eam_classic_hero_form" />
         </div>
       </div>
     </section>

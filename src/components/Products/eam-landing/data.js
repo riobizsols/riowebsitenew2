@@ -192,6 +192,29 @@ export const trustBarItems = [
   "Multilingual Support",
 ];
 
+export const faqs = [
+  {
+    q: "What is RIO CMMS?",
+    a: "RIO CMMS is maintenance management software that helps teams plan preventive maintenance, manage breakdowns, assign work orders, and keep service history organized in one system.",
+  },
+  {
+    q: "Is RIO CMMS the same as EAM?",
+    a: "CMMS focuses on maintenance workflows such as work orders, PM schedules, and breakdowns. RIO EAM extends those capabilities with wider asset lifecycle features such as registry, documents, contracts, and depreciation.",
+  },
+  {
+    q: "Can it integrate with ERP or SAP PM?",
+    a: "Yes. Integration can be planned based on your system landscape so maintenance and asset data can flow between RIO and ERP or SAP PM where needed.",
+  },
+  {
+    q: "Is on-prem deployment available?",
+    a: "Yes. RIO can be deployed on cloud, private cloud, or on-prem depending on your IT policy.",
+  },
+  {
+    q: "How do we get pricing?",
+    a: "Pricing depends on locations, asset volume, modules, deployment model, and support needs. Submit the demo or pricing form on this page and our team will respond.",
+  },
+];
+
 export const formOptions = {
   industries: [
     "Manufacturing",
@@ -209,4 +232,6 @@ export const formOptions = {
     { code: "+971", label: "UAE +971" },
     { code: "+65", label: "SG +65" },
   ],
+  sites: ["1", "2-5", "6-20", "20+"],
+  assetCounts: ["Below 500", "500-2,000", "2,000-10,000", "10,000+"],
 };

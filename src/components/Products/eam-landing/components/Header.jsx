@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { ASSETS, SITE } from "../assets";
 import WhatsAppButton from "./WhatsAppButton";
+import fallbackLogo from "../../../../assets/images/riologo.png";
 
 function CalendarIcon() {
   return (
@@ -26,17 +28,23 @@ function TagIcon() {
 }
 
 export default function Header({ onBookDemo, onRequestPricing, showWhatsApp = true }) {
+  const [logoSrc, setLogoSrc] = useState(ASSETS.logo);
+
   return (
     <header className="v2-topbar">
       <div className="v2-container v2-topbar-inner">
         <a href={SITE.home} className="v2-logo-link" aria-label="RIO BizSols">
           <img
-            src={ASSETS.logo}
+            src={logoSrc}
             alt="RIO BizSols"
             className="v2-logo"
-            width={150}
+            width={180}
             height={68}
             decoding="async"
+            fetchPriority="high"
+            onError={() => {
+              if (logoSrc !== fallbackLogo) setLogoSrc(fallbackLogo);
+            }}
           />
         </a>
 

@@ -1,12 +1,15 @@
 import dashboardDesktop from "../../../assets/images/rio-alm-dashboard f.png";
+import logoHeader from "../../../assets/images/eam-rio-logo.png";
+import logoFooterImg from "../../../assets/images/eam-rio-logo-footer.png";
+import lifecycleLoopImg from "../../../assets/images/eam-lifecycle-loop.png";
 
-/** Local + public assets for the CMMS landing page */
+/** Bundled assets — reliable on mobile when /public paths fail behind SPA routing */
 export const ASSETS = {
-  logo: "/RIO-Logo.png",
-  logoFooter: "/rio-logo-footer.png",
+  logo: logoHeader,
+  logoFooter: logoFooterImg,
   dashboardDesktop,
   dashboardMobile: "/rio-alm-asset-management-mobile-640.png",
-  lifecycleLoop: "/lifecycle-loop.png",
+  lifecycleLoop: lifecycleLoopImg,
 };
 
 export const SITE = {
