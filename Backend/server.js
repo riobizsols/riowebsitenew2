@@ -295,6 +295,22 @@ const whatsappClickMessageDefault =
 const whatsappClickDedupMs = 120_000;
 const whatsappClickDedup = new Map();
 
+function resolveLandingProduct(body = {}) {
+  const product = String(body.product || '').trim().toUpperCase();
+  if (product === 'EAM' || product === 'CMMS') return product;
+  const landingPage = String(body.landing_page || '').toLowerCase();
+  if (landingPage.includes('cmms')) return 'CMMS';
+  if (landingPage.includes('eam')) return 'EAM';
+  return 'RIO';
+}
+
+function resolvePricingRequestSubject(body = {}) {
+  const product = resolveLandingProduct(body);
+  const requestType = String(body.request_type || '').trim().toLowerCase();
+  const label = requestType === 'pricing' ? 'Pricing' : 'Demo';
+  return `${product} ${label} Request - ${body.company2 || 'Unknown company'}`;
+}
+
 function isDuplicateWhatsAppClick(visitorId) {
   const key = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
   const now = Date.now();
@@ -685,6 +701,8 @@ app.post('/api/pricing-request', async (req, res) => {
     utm_content = '',
     landing_page = '',
     referrer = '',
+    product = '',
+    request_type = '',
   } = req.body || {};
 
   if (!email2 || !fullName2 || !company2) {
@@ -704,13 +722,16 @@ app.post('/api/pricing-request', async (req, res) => {
 
   try {
     const transporter = createSmtpTransporter();
+    const productLabel = resolveLandingProduct(req.body);
+    const requestType = String(request_type || '').trim().toLowerCase();
+    const requestLabel = requestType === 'pricing' ? 'pricing' : 'demo';
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: pricingRequestRecipient,
       replyTo: email2,
-      subject: `Pricing Request - ${company2}`,
+      subject: resolvePricingRequestSubject(req.body),
       text:
-        `New pricing request from RIO EAM landing page\n\n` +
+        `New ${productLabel} ${requestLabel} request from RIO landing page\n\n` +
         `Full Name: ${fullName2}\n` +
         `Company Name: ${company2}\n` +
         `Work Email: ${email2}\n` +
@@ -729,7 +750,7 @@ app.post('/api/pricing-request', async (req, res) => {
         `utm_term: ${utm_term || '-'}\n` +
         `utm_content: ${utm_content || '-'}\n`,
       html:
-        `<h3>New pricing request from RIO EAM landing page</h3>` +
+        `<h3>New ${productLabel} ${requestLabel} request from RIO landing page</h3>` +
         `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
         `<tr><td><strong>Full Name</strong></td><td>${String(fullName2)}</td></tr>` +
         `<tr><td><strong>Company Name</strong></td><td>${String(company2)}</td></tr>` +

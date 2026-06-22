@@ -46,7 +46,11 @@ function FieldError({ message }) {
   );
 }
 
-export default function HeroLeadForm({ trackingEvent = "cmms_hero_form" }) {
+export default function HeroLeadForm({
+  trackingEvent = "cmms_hero_form",
+  formTitle = "Request a CMMS Demo / Pricing",
+  product = "CMMS",
+}) {
   const [form, setForm] = useState(initial);
   const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
@@ -114,6 +118,8 @@ export default function HeroLeadForm({ trackingEvent = "cmms_hero_form" }) {
 
     const payload = {
       ...form,
+      product,
+      request_type: "demo",
       phone2: `${form.countryCode} ${form.phone2}`.trim(),
       ...captureUtmParams(),
       landing_page: typeof window !== "undefined" ? window.location.href : "",
@@ -146,7 +152,7 @@ export default function HeroLeadForm({ trackingEvent = "cmms_hero_form" }) {
 
   return (
     <div className="v2-hero-form-card" id="demo-form">
-      <h2 className="v2-hero-form-title">Request a CMMS Demo / Pricing</h2>
+      <h2 className="v2-hero-form-title">{formTitle}</h2>
 
       {success ? (
         <div className="v2-form-success" role="status">

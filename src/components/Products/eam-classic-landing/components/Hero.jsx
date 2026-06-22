@@ -1,4 +1,5 @@
 import { heroHighlights } from "../../eam-landing/data";
+import { CONTACT } from "../assets";
 import ProductShowcase from "../../eam-landing/components/ProductShowcase";
 import HeroLeadForm from "../../eam-landing/components/HeroLeadForm";
 import WhatsAppButton from "../../eam-landing/components/WhatsAppButton";
@@ -40,6 +41,14 @@ export default function Hero({ onBookDemo, onRequestPricing, showWhatsApp = true
               <WhatsAppButton className="v2-hero-wa-inline" source="eam_classic_hero" />
             )}
           </div>
+          {showWhatsApp && (
+            <p className="v2-wa-direct">
+              Or WhatsApp us directly:{" "}
+              <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">
+                +91 88849 10777
+              </a>
+            </p>
+          )}
         </div>
 
         <ul className="v2-hero-highlights">
@@ -61,7 +70,11 @@ export default function Hero({ onBookDemo, onRequestPricing, showWhatsApp = true
         </div>
 
         <div className="v2-hero-aside">
-          <HeroLeadForm trackingEvent="eam_classic_hero_form" />
+          <HeroLeadForm
+            trackingEvent="eam_classic_hero_form"
+            formTitle="Request an EAM Demo / Pricing"
+            product="EAM"
+          />
         </div>
       </div>
     </section>

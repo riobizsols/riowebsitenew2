@@ -63,7 +63,7 @@ function FieldError({ message }) {
   );
 }
 
-export default function LeadForm({ trackingEvent = "cmms_pricing_form" }) {
+export default function LeadForm({ trackingEvent = "cmms_pricing_form", product = "CMMS" }) {
   const [form, setForm] = useState(initial);
   const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
@@ -108,6 +108,8 @@ export default function LeadForm({ trackingEvent = "cmms_pricing_form" }) {
 
     const payload = {
       ...form,
+      product,
+      request_type: "pricing",
       ...captureUtmParams(),
       landing_page:
         typeof window !== "undefined" ? window.location.href : "",
