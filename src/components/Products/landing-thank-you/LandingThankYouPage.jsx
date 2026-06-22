@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import ReactPixel from "react-facebook-pixel";
 import { getApiBaseUrl } from "../../../utils/urlHelper";
 import { trackGenerateLead, trackVirtualPageView } from "../../../utils/gtm";
+import { trackMouseflowPageView } from "../../../utils/mouseflow";
 import {
   buildPricingApiPayload,
   clearLeadInFlight,
@@ -38,6 +39,7 @@ export default function LandingThankYouPage() {
       page_title: "Thank You - RIO BizSols",
       page_path: window.location.pathname,
     });
+    trackMouseflowPageView({ page_path: window.location.pathname });
 
     const pending = readPendingLead();
     if (!pending) {

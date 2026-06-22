@@ -10,6 +10,7 @@ import LandingThankYouReload from './components/Products/LandingThankYouReload';
 import DeferredSiteWidgets from './components/DeferredSiteWidgets';
 import { isLiteChromePath } from './utils/sitePaths';
 import { assertSingleGoogleTag, trackVirtualPageView } from './utils/gtm';
+import { trackMouseflowPageView } from './utils/mouseflow';
 import { runOnceOnInteraction } from './utils/deferUntilInteraction';
 import * as Lazy from './lazyRoutes';
 
@@ -134,6 +135,7 @@ function AppContent() {
         page_title: document.title,
         page_location: window.location.href,
       });
+      trackMouseflowPageView({ page_path: pagePath });
 
       if (marketingPixelInitialized) {
         try {
