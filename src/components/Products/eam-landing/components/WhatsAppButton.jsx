@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CONTACT } from "../assets";
-import { getWhatsAppConfig, notifyWhatsAppClick } from "../utils/whatsapp";
+import { resolveWhatsAppUrl, trackWhatsAppCtaClick } from "../../../../utils/landingWhatsApp";
 
 function WhatsAppIcon() {
   return (
@@ -26,7 +26,7 @@ export default function WhatsAppButton({
 
   useEffect(() => {
     const loadConfig = () => {
-      void getWhatsAppConfig().then((config) => {
+      void resolveWhatsAppUrl(CONTACT.whatsapp).then((config) => {
         if (config?.url) setHref(config.url);
       });
     };
@@ -41,7 +41,7 @@ export default function WhatsAppButton({
   }, []);
 
   const handleClick = () => {
-    void notifyWhatsAppClick(source);
+    trackWhatsAppCtaClick(source);
   };
 
   return (

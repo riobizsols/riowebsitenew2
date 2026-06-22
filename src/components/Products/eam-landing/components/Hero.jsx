@@ -1,4 +1,5 @@
 import { heroHighlights } from "../data";
+import { CONTACT } from "../assets";
 import ProductShowcase from "./ProductShowcase";
 import WhatsAppButton from "./WhatsAppButton";
 import HeroLeadForm from "./HeroLeadForm";
@@ -40,6 +41,14 @@ export default function Hero({ onBookDemo, onRequestPricing, showWhatsApp = true
               <WhatsAppButton className="v2-hero-wa-inline" source="hero" />
             )}
           </div>
+          {showWhatsApp && (
+            <p className="v2-wa-direct">
+              Or WhatsApp us directly:{" "}
+              <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">
+                +91 88849 10777
+              </a>
+            </p>
+          )}
         </div>
 
         <ul className="v2-hero-highlights">

@@ -375,6 +375,22 @@
   margin-bottom: 0;
 }
 
+.v2-wa-direct {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.v2-wa-direct a {
+  color: #128c7e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.v2-wa-direct a:hover {
+  text-decoration: underline;
+}
+
 .v2-hero-wa-inline.v2-btn-whatsapp {
   background: #fff;
   border: 1.5px solid #25d366;

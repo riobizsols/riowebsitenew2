@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const nodemailer = require('nodemailer');
@@ -13,6 +14,37 @@ const { renderAlmLandingHtml } = require('./almLandingPrerender');
 
 const app = express();
 const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
+
+const possibleBuildPaths = [
+  path.join(__dirname, '..', 'build'),
+  path.join(__dirname, 'build'),
+  path.join(process.cwd(), 'build'),
+];
+
+function resolveBuildPath() {
+  return possibleBuildPaths.find((p) => fs.existsSync(p)) || possibleBuildPaths[0];
+}
+
+const BRAND_STATIC_FILES = [
+  { file: 'favicon.ico', type: 'image/x-icon' },
+  { file: 'favicon-48x48.png', type: 'image/png' },
+  { file: 'logo192.png', type: 'image/png' },
+  { file: 'logo512.png', type: 'image/png' },
+  { file: 'apple-touch-icon.png', type: 'image/png' },
+  { file: 'manifest.json', type: 'application/json; charset=utf-8' },
+];
+
+const brandBuildPath = resolveBuildPath();
+BRAND_STATIC_FILES.forEach(({ file, type }) => {
+  app.get(`/${file}`, (req, res, next) => {
+    const filePath = path.join(brandBuildPath, file);
+    if (!fs.existsSync(filePath)) return next();
+    res.set('Cache-Control', 'public, max-age=604800');
+    res.set('X-Rio-Brand-Asset', '1');
+    res.type(type);
+    return res.sendFile(filePath);
+  });
+});
 
 // Canonical home URL: /index -> /
 app.get(['/index', '/index/'], (req, res) => {
@@ -259,7 +291,27 @@ const chatNotificationFromFallback = 'bizsolsrio@gmail.com';
 const demoBookingRecipientsFallback = ['muthukumaran1052005@gmail.com'];
 const whatsappClickPhoneDefault = '918884910777';
 const whatsappClickMessageDefault =
-  'Hi RIO BizSols, I would like to know more about RIO EAM';
+  'Hi RIO BizSols, I am interested in CMMS Software. Please contact me.';
+const whatsappClickDedupMs = 120_000;
+const whatsappClickDedup = new Map();
+
+function isDuplicateWhatsAppClick(visitorId) {
+  const key = hasValue(visitorId) ? String(visitorId).trim() : 'unknown';
+  const now = Date.now();
+  const last = whatsappClickDedup.get(key);
+  if (last && now - last < whatsappClickDedupMs) return true;
+  whatsappClickDedup.set(key, now);
+  if (whatsappClickDedup.size > 5000) {
+    for (const [id, ts] of whatsappClickDedup) {
+      if (now - ts > whatsappClickDedupMs) whatsappClickDedup.delete(id);
+    }
+  }
+  return false;
+}
+
+function isWhatsAppClickEmailEnabled() {
+  return String(process.env.WHATSAPP_CLICK_EMAIL_NOTIFY || '').trim().toLowerCase() === 'true';
+}
 
 function buildWhatsAppClickUrl() {
   const phone = hasValue(process.env.WHATSAPP_CLICK_PHONE)
@@ -730,10 +782,16 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
   const safeSource = hasValue(source) ? String(source).trim() : 'landing_page';
   const safeSourcePage = hasValue(sourcePage) ? String(sourcePage).trim() : '-';
   const safeReferrer = hasValue(referrer) ? String(referrer).trim() : '-';
-  const senderIp = getClientIpForChatEmail(req);
-  const senderUserAgent = req.headers['user-agent'] || 'unknown';
-  const receivedAtIst = formatChatEmailReceivedAtIST(new Date().toISOString());
   const links = buildWhatsAppClickUrl();
+
+  if (isDuplicateWhatsAppClick(safeVisitorId)) {
+    return res.status(200).json({
+      success: true,
+      message: 'WhatsApp click deduplicated.',
+      emailSent: false,
+      url: links.url,
+    });
+  }
 
   console.log('[whatsapp-click] CTA clicked', {
     visitorId: safeVisitorId,
@@ -742,13 +800,27 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
     phone: links.phone,
   });
 
+  if (!isWhatsAppClickEmailEnabled()) {
+    return res.status(200).json({
+      success: true,
+      message: 'WhatsApp click logged (email disabled — track in GA4).',
+      emailSent: false,
+      url: links.url,
+    });
+  }
+
   if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
     return res.status(200).json({
       success: true,
       message: 'WhatsApp click logged (email notification skipped: SMTP not configured).',
+      emailSent: false,
       url: links.url,
     });
   }
+
+  const senderIp = getClientIpForChatEmail(req);
+  const senderUserAgent = req.headers['user-agent'] || 'unknown';
+  const receivedAtIst = formatChatEmailReceivedAtIST(new Date().toISOString());
 
   try {
     const transporter = createSmtpTransporter();
@@ -762,6 +834,7 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
       subject: `WhatsApp CTA clicked - ${safeVisitorId}`,
       text:
         `A visitor clicked the WhatsApp button on the website.\n\n` +
+        `Note: This is a button click only — the visitor may not have sent a WhatsApp message.\n\n` +
         `Visitor ID: ${safeVisitorId}\n` +
         `Source: ${safeSource}\n` +
         `Page: ${safeSourcePage}\n` +
@@ -772,6 +845,7 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
         `Browser: ${senderUserAgent}\n`,
       html:
         `<h3>WhatsApp CTA clicked</h3>` +
+        `<p><em>Button click only — visitor may not have sent a WhatsApp message.</em></p>` +
         `<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">` +
         `<tr><td><strong>Visitor ID</strong></td><td>${safeVisitorId}</td></tr>` +
         `<tr><td><strong>Source</strong></td><td>${safeSource}</td></tr>` +
@@ -787,6 +861,7 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
     return res.status(200).json({
       success: true,
       message: 'WhatsApp click notification sent.',
+      emailSent: true,
       url: links.url,
     });
   } catch (error) {
@@ -794,6 +869,7 @@ app.post('/api/whatsapp/click-notify', async (req, res) => {
     return res.status(500).json({
       success: false,
       message: 'Failed to send WhatsApp click notification.',
+      emailSent: false,
       url: links.url,
     });
   }
@@ -1208,14 +1284,9 @@ app.post('/api/whatsapp/webhook', (req, res) => {
 });
 
 // Serve static files from the React build folder (production)
-const possibleBuildPaths = [
-  path.join(__dirname, '..', 'build'),  // project root: .../riowebsitenew2/build
-  path.join(__dirname, 'build'),         // build inside Backend: .../Backend/build
-  path.join(process.cwd(), 'build'),     // cwd/build (e.g. cPanel app root)
-];
-const buildPath = possibleBuildPaths.find(p => require('fs').existsSync(p)) || possibleBuildPaths[0];
+const buildPath = resolveBuildPath();
 
-if (process.env.NODE_ENV === 'production' || require('fs').existsSync(buildPath)) {
+if (process.env.NODE_ENV === 'production' || fs.existsSync(buildPath)) {
   app.use(
     express.static(buildPath, {
       maxAge: '365d',

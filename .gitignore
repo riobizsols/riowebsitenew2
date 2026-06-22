@@ -16,6 +16,7 @@
 /build
 Backend/build
 Backend/*.zip
+/cpanel-public-icons
 
 # runtime / local data (chatbot_downloads is stats; SQLite is local DB)
 Backend/data/chatbot_downloads.json

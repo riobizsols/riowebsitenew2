@@ -16,7 +16,7 @@ export const SITE = {
 
 export const CONTACT = {
   whatsapp:
-    "https://wa.me/918884910777?text=Hi%20RIO%20BizSols%2C%20I%20would%20like%20to%20know%20more%20about%20RIO%20CMMS",
+    "https://wa.me/918884910777?text=Hi%20RIO%20BizSols%2C%20I%20am%20interested%20in%20CMMS%20Software.%20Please%20contact%20me.",
   calendly:
     process.env.REACT_APP_CALENDLY_URL ||
     "https://calendly.com/tony-rozario-vs6w/30min",

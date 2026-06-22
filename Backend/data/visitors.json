@@ -66,22 +66,6 @@
       "pagesVisited": [
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:34:28.011Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:34:28.013Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:02.815Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:02.816Z"
-        },
-        {
-          "page": "App Load",
           "timestamp": "2026-05-13T11:36:08.797Z"
         },
         {
@@ -102,17 +86,33 @@
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:37:09.256Z",
+          "timestamp": "2026-05-13T11:37:09.256Z"
+        },
+        {
+          "page": "Digital Solutions for Business Growth | RioBizSols",
+          "timestamp": "2026-06-21T09:58:40.830Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-21T10:00:09.902Z"
+        },
+        {
+          "page": "Digital Solutions for Business Growth | RioBizSols",
+          "timestamp": "2026-06-21T10:52:14.368Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-21T10:52:58.065Z",
           "data": {
-            "url": "http://localhost:3000/products/la-law/account-deletion/",
-            "title": "End-to-End Business Services | RioBizSols"
+            "url": "http://localhost:3000/",
+            "title": "Digital Solutions for Business Growth | RioBizSols"
           }
         }
       ],
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 5276811,
+      "timeOnSite": 5708736,
       "formSubmitted": true,
       "ctaClicked": [
         {
@@ -137,7 +137,7 @@
         }
       ]
     },
-    "lastActivity": "2026-05-13T11:37:09.256Z",
+    "lastActivity": "2026-06-21T10:52:58.065Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
   },
   {
@@ -710,14 +710,6 @@
       "pagesVisited": [
         {
           "page": "End-to-End Business Services | RioBizSols",
-          "timestamp": "2026-06-09T11:48:56.962Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-06-09T11:48:56.962Z"
-        },
-        {
-          "page": "End-to-End Business Services | RioBizSols",
           "timestamp": "2026-06-09T11:50:05.733Z"
         },
         {
@@ -746,17 +738,25 @@
         },
         {
           "page": "La Law — Legal Productivity & Case Management | RIO BizSols",
-          "timestamp": "2026-06-09T11:54:30.396Z",
+          "timestamp": "2026-06-09T11:54:30.396Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-21T09:58:20.782Z"
+        },
+        {
+          "page": "End-to-End Business Services | RioBizSols",
+          "timestamp": "2026-06-21T10:00:08.457Z",
           "data": {
-            "url": "http://localhost:3000/products/la-law",
-            "title": "La Law — Legal Productivity & Case Management | RIO BizSols"
+            "url": "http://localhost:3000/chmod777",
+            "title": "End-to-End Business Services | RioBizSols"
           }
         }
       ],
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 7943701,
+      "timeOnSite": 8094153,
       "formSubmitted": false,
       "ctaClicked": [
         {
@@ -769,7 +769,7 @@
         }
       ]
     },
-    "lastActivity": "2026-06-09T11:54:30.396Z",
+    "lastActivity": "2026-06-21T10:00:08.462Z",
     "createdAt": "2026-06-09T10:45:34.541Z"
   }
 ]

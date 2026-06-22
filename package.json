@@ -55,7 +55,9 @@
     "audit:landing": "bash scripts/audit-landing-page.sh",
     "audit:landing:local": "BASE_URL=http://127.0.0.1:3003 bash scripts/audit-landing-page.sh",
     "audit:site": "bash scripts/audit-site-pages.sh",
-    "audit:site:local": "BASE_URL=http://127.0.0.1:3456 bash scripts/audit-site-pages.sh"
+    "audit:site:local": "BASE_URL=http://127.0.0.1:3456 bash scripts/audit-site-pages.sh",
+    "verify:icons": "bash scripts/verify-brand-icons.sh",
+    "cpanel:icons": "bash scripts/cpanel-public-html-icons.sh"
   },
   "eslintConfig": {
     "extends": [
