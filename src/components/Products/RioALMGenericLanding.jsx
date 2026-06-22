@@ -2,9 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FiActivity, FiAlertCircle, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDatabase, FiFileText, FiGrid, FiLayers, FiMapPin, FiMonitor, FiSettings, FiShield, FiSmartphone, FiTool, FiTruck, FiUsers } from 'react-icons/fi';
 import './RioALMGenericLanding.css';
-import { getApiBaseUrl } from '../../utils/urlHelper';
-import { trackGenerateLead } from '../../utils/gtm';
-import ReactPixel from 'react-facebook-pixel';
+import {
+  redirectToThankYou,
+  savePendingLead,
+} from '../../utils/landingThankYou';
+
+/** ALM generic landing — hero + pricing forms redirect to /thank-you after submit. */
 
 const featureCards = [
   {
@@ -55,10 +58,6 @@ const RioALMGenericLanding = ({
   canonicalPath = DEFAULT_CANONICAL_PATH,
 }) => {
   const pageUrl = `${SITE_ORIGIN}${canonicalPath}`;
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isPricingSubmitted, setIsPricingSubmitted] = useState(false);
-  const [isPricingSubmitting, setIsPricingSubmitting] = useState(false);
-  const [pricingError, setPricingError] = useState('');
   const [utmParams, setUtmParams] = useState({
     utm_source: '',
     utm_medium: '',
@@ -218,11 +217,23 @@ const RioALMGenericLanding = ({
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Placeholder: wire this payload to Odoo CRM, Email API, webhook, Google Sheet, or backend endpoint.
     const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
-    console.log('Landing lead payload (placeholder):', payload);
-    setIsSubmitted(true);
+    const entries = Object.fromEntries(formData.entries());
+    const payload = {
+      fullName2: entries.name,
+      company2: entries.company,
+      email2: entries.email,
+      phone2: entries.phone || '',
+      country2: entries.country,
+      product: 'EAM',
+      request_type: 'demo',
+      ...utmParams,
+      landing_page: typeof window !== 'undefined' ? window.location.href : '',
+      referrer: typeof document !== 'undefined' ? document.referrer : '',
+    };
+
+    savePendingLead({ ...payload, trackingEvent: 'alm_generic_hero_form' });
+    redirectToThankYou();
   };
 
   const jumpToPricingForm = () => {
@@ -253,44 +264,20 @@ const RioALMGenericLanding = ({
     window.open(urlWithUtm, '_blank', 'noopener,noreferrer');
   };
 
-  const handlePricingFormSubmit = async (event) => {
+  const handlePricingFormSubmit = (event) => {
     event.preventDefault();
-    if (isPricingSubmitting) return;
-
-    const formEl = event.currentTarget;
-    const formData = new FormData(formEl);
+    const formData = new FormData(event.currentTarget);
     const payload = {
       ...Object.fromEntries(formData.entries()),
+      product: 'EAM',
+      request_type: 'pricing',
       ...utmParams,
       landing_page: typeof window !== 'undefined' ? window.location.href : '',
       referrer: typeof document !== 'undefined' ? document.referrer : '',
     };
-    const apiBase = getApiBaseUrl();
 
-    setPricingError('');
-    setIsPricingSubmitting(true);
-
-    try {
-      const response = await fetch(`${apiBase}/api/pricing-request`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!response.ok) {
-        throw new Error('Pricing request failed');
-      }
-
-      trackGenerateLead('alm_generic_pricing_form');
-      ReactPixel.track('Lead');
-      setIsPricingSubmitted(true);
-      formEl.reset();
-    } catch (error) {
-      console.error('Error submitting pricing request:', error);
-      setPricingError('Unable to send pricing request right now. Please try again in a moment.');
-    } finally {
-      setIsPricingSubmitting(false);
-    }
+    savePendingLead({ ...payload, trackingEvent: 'alm_generic_pricing_form' });
+    redirectToThankYou();
   };
 
   return (
@@ -387,25 +374,17 @@ const RioALMGenericLanding = ({
             <form id="uk-landing-form" className="lead-form" onSubmit={handleFormSubmit}>
               <h3>Request a Demo / Pricing</h3>
               <p className="micro-proof">No long sales cycle on first call. Get a practical product walkthrough.</p>
-              {isSubmitted ? (
-                <p className="form-success">
-                  Thank you. Our team will review your requirement and contact you shortly.
-                </p>
-              ) : (
-                <>
-                  <label htmlFor="name">Full Name</label>
-                  <input id="name" name="name" required />
-                  <label htmlFor="company">Company Name</label>
-                  <input id="company" name="company" required />
-                  <label htmlFor="email">Work Email</label>
-                  <input id="email" type="email" name="email" required />
-                  <label htmlFor="phone">Phone Number</label>
-                  <input id="phone" name="phone" />
-                  <label htmlFor="country">Country</label>
-                  <input id="country" name="country" placeholder="Country" required />
-                  <button className="btn-primary-uk full-btn" type="submit">Book My Demo</button>
-                </>
-              )}
+              <label htmlFor="name">Full Name</label>
+              <input id="name" name="name" required />
+              <label htmlFor="company">Company Name</label>
+              <input id="company" name="company" required />
+              <label htmlFor="email">Work Email</label>
+              <input id="email" type="email" name="email" required />
+              <label htmlFor="phone">Phone Number</label>
+              <input id="phone" name="phone" />
+              <label htmlFor="country">Country</label>
+              <input id="country" name="country" placeholder="Country" required />
+              <button className="btn-primary-uk full-btn" type="submit">Book My Demo</button>
             </form>
           </div>
         </div>
@@ -616,12 +595,7 @@ const RioALMGenericLanding = ({
           <h2>Request Pricing</h2>
           <p className="mb-20">Share your requirement and we will send a pricing response to your team.</p>
           <form className="lead-form lead-form-bottom" onSubmit={handlePricingFormSubmit}>
-            {isPricingSubmitted ? (
-              <p className="form-success">
-                Thank you. Your pricing request has been sent to tony.rozario@riobizsols.com.
-              </p>
-            ) : (
-              <div className="bottom-form-grid">
+            <div className="bottom-form-grid">
                 <div>
                   <label htmlFor="fullName2">Full Name</label>
                   <input id="fullName2" name="fullName2" required />
@@ -682,13 +656,11 @@ const RioALMGenericLanding = ({
                   <input key={key} type="hidden" name={key} value={utmParams[key] || ''} readOnly />
                 ))}
                 <div className="full-width">
-                  {pricingError && <p className="form-error">{pricingError}</p>}
-                  <button className="btn-primary-uk full-btn" type="submit" disabled={isPricingSubmitting}>
-                    {isPricingSubmitting ? 'Sending...' : 'Send Pricing Request'}
+                  <button className="btn-primary-uk full-btn" type="submit">
+                    Send Pricing Request
                   </button>
                 </div>
               </div>
-            )}
           </form>
         </div>
       </section>

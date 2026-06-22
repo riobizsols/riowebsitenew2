@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { formOptions } from "../data";
-import { getApiBaseUrl } from "../utils/api";
 import {
   firstFieldError,
   sanitizeCompanyInput,
@@ -19,8 +18,10 @@ import {
   validateRequiredSelect,
 } from "../utils/formValidation";
 import { captureUtmParams } from "../utils/utm";
-import { trackGenerateLead } from "../../../../utils/gtm";
-import ReactPixel from "react-facebook-pixel";
+import {
+  redirectToThankYou,
+  savePendingLead,
+} from "../../../../utils/landingThankYou";
 import FaqList from "./FaqList";
 
 const initial = {
@@ -67,7 +68,6 @@ export default function LeadForm({ trackingEvent = "cmms_pricing_form", product 
   const [form, setForm] = useState(initial);
   const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const inputClass = (name) => (fieldErrors[name] ? "v2-input-error" : undefined);
@@ -119,25 +119,13 @@ export default function LeadForm({ trackingEvent = "cmms_pricing_form", product 
     setSubmitting(true);
 
     try {
-      const response = await fetch(`${getApiBaseUrl()}/api/pricing-request`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) throw new Error("Pricing request failed");
-
-      trackGenerateLead(trackingEvent, { industry: form.industry });
-      ReactPixel.track("Lead");
-      setSuccess(true);
-      setForm(initial);
-      setFieldErrors({});
+      savePendingLead({ ...payload, trackingEvent });
+      redirectToThankYou();
     } catch (submitError) {
-      console.error("Error submitting pricing request:", submitError);
+      console.error("Error preparing pricing request:", submitError);
       setError(
         "Unable to send pricing request right now. Please try again in a moment."
       );
-    } finally {
       setSubmitting(false);
     }
   };
@@ -153,13 +141,7 @@ export default function LeadForm({ trackingEvent = "cmms_pricing_form", product 
               to your team.
             </p>
 
-            {success ? (
-              <div className="v2-form-success" role="status">
-                Thank you. Your pricing request has been sent to
-                tony.rozario@riobizsols.com.
-              </div>
-            ) : (
-              <form className="v2-form" onSubmit={handleSubmit} noValidate>
+            <form className="v2-form" onSubmit={handleSubmit} noValidate>
                 {error && <div className="v2-form-error">{error}</div>}
                 <div className="v2-form-grid">
                   <div>
@@ -338,7 +320,6 @@ export default function LeadForm({ trackingEvent = "cmms_pricing_form", product 
                   {submitting ? "Sending…" : "Send Pricing Request"}
                 </button>
               </form>
-            )}
           </div>
 
           <div className="v2-faq-col" id="faq">

@@ -1,0 +1,90 @@
+.landing-thank-you-page--site {
+  background: #f7f9fc;
+  color: #001f3f;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.landing-thank-you-page--site .landing-thank-you-main {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 48px 20px 56px;
+  width: 100%;
+}
+
+.landing-thank-you-card {
+  background: #fff;
+  border: 1px solid #dce4f0;
+  border-radius: 16px;
+  box-shadow: 0 14px 36px #0d245d1a;
+  max-width: 620px;
+  padding: 40px 32px;
+  text-align: center;
+  width: 100%;
+}
+
+.landing-thank-you-card h1 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.landing-thank-you-lead {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.landing-thank-you-card .landing-thank-you-status {
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 24px;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.landing-thank-you-status--success {
+  background: #e9f7ec;
+  border: 1px solid #acd9b5;
+  color: #194f25;
+}
+
+.landing-thank-you-status--error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #9f1239;
+}
+
+.landing-thank-you-status--loading {
+  background: #eef4ff;
+  border: 1px solid #c7d8f5;
+  color: #1e3a8a;
+}
+
+.landing-thank-you-back {
+  color: #0047ab;
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.landing-thank-you-back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .landing-thank-you-page--site .landing-thank-you-main {
+    padding: 32px 16px 40px;
+  }
+
+  .landing-thank-you-card {
+    padding: 32px 20px;
+  }
+}

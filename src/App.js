@@ -6,6 +6,7 @@ import CanonicalLink from './Canonical';
 import EamAdsLandingReload from './components/Products/EamAdsLandingReload';
 import AlmLandingReload from './components/AlmLandingReload';
 import EamClassicLandingReload from './components/Products/EamClassicLandingReload';
+import LandingThankYouReload from './components/Products/LandingThankYouReload';
 import DeferredSiteWidgets from './components/DeferredSiteWidgets';
 import { isLiteChromePath } from './utils/sitePaths';
 import { assertSingleGoogleTag, trackVirtualPageView } from './utils/gtm';
@@ -257,6 +258,12 @@ function AppContent() {
           />
           <Route path="/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
           <Route path="/uk/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
+          <Route path="/cmms-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/uk/cmms-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/eam-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/uk/eam-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/asset-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/uk/asset-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
 
           <Route path="/compare/staffing" element={<Lazy.StaffingComparison />} />
           <Route path="/compare/web-development" element={<Lazy.WebDevComparison />} />

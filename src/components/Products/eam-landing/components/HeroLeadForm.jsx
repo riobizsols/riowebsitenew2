@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { formOptions } from "../data";
-import { getApiBaseUrl } from "../utils/api";
 import {
   firstFieldError,
   getPhoneLimits,
@@ -18,8 +17,10 @@ import {
   validatePhone,
 } from "../utils/formValidation";
 import { captureUtmParams } from "../utils/utm";
-import { trackGenerateLead } from "../../../../utils/gtm";
-import ReactPixel from "react-facebook-pixel";
+import {
+  redirectToThankYou,
+  savePendingLead,
+} from "../../../../utils/landingThankYou";
 
 const initial = {
   fullName2: "",
@@ -54,7 +55,6 @@ export default function HeroLeadForm({
   const [form, setForm] = useState(initial);
   const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const phoneDigitLimit = getPhoneLimits(form.countryCode).max;
@@ -129,23 +129,11 @@ export default function HeroLeadForm({
     setSubmitting(true);
 
     try {
-      const response = await fetch(`${getApiBaseUrl()}/api/pricing-request`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) throw new Error("Demo request failed");
-
-      trackGenerateLead(trackingEvent, { industry: form.industry });
-      ReactPixel.track("Lead");
-      setSuccess(true);
-      setForm(initial);
-      setFieldErrors({});
+      savePendingLead({ ...payload, trackingEvent });
+      redirectToThankYou();
     } catch (submitError) {
-      console.error("Error submitting demo request:", submitError);
+      console.error("Error preparing demo request:", submitError);
       setError("Unable to send your request right now. Please try again.");
-    } finally {
       setSubmitting(false);
     }
   };
@@ -154,12 +142,7 @@ export default function HeroLeadForm({
     <div className="v2-hero-form-card" id="demo-form">
       <h2 className="v2-hero-form-title">{formTitle}</h2>
 
-      {success ? (
-        <div className="v2-form-success" role="status">
-          Thank you. Our team will contact you shortly to schedule your demo.
-        </div>
-      ) : (
-        <form className="v2-hero-form" onSubmit={handleSubmit} noValidate>
+      <form className="v2-hero-form" onSubmit={handleSubmit} noValidate>
           {error && <div className="v2-form-error">{error}</div>}
 
           <div>
@@ -305,7 +288,6 @@ export default function HeroLeadForm({
             Your information is secure and will only be used to contact you.
           </p>
         </form>
-      )}
     </div>
   );
 }

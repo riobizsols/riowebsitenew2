@@ -27,6 +27,7 @@ const FOOTER_INDIA_IMG = `${process.env.PUBLIC_URL}/footer-india.jpg`;
         <div className="container">
             <div className="row">
                 <div className="col-lg-4 col-md-6">
+                <div className="footer-brand-block">
                 <img src={FooterLogo} alt="RioBizSols Logo" className="footer_title" width={180} height={60} decoding="async" />
                 <div className='social_media'>
           <a href='https://www.facebook.com/riobizsols/' target="_blank" rel="noopener noreferrer" style={{textDecoration:'none', color:'#FFFF'}}><FacebookRoundedIcon color='#fff' className='social_icon' sx={{ fontSize: 30 }}/></a>
@@ -37,6 +38,7 @@ const FOOTER_INDIA_IMG = `${process.env.PUBLIC_URL}/footer-india.jpg`;
             <FaWhatsapp className="social_icon" style={{ fontSize: 30, color: '#fff' }} />
           </a>
          </div>
+                </div>
                 </div>
                 <div className="col-lg-8 col-md-6 footer-right-group">
                 <div className="footer-right-col">
