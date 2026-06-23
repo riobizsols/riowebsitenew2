@@ -21,6 +21,34 @@ export function pushToDataLayer(payload) {
   window.dataLayer.push(payload);
 }
 
+/** Load GTM if not already present (thank-you / conversion pages need tags before interaction). */
+export function ensureGtmLoaded() {
+  if (typeof window === 'undefined') {
+    return Promise.resolve();
+  }
+
+  initDataLayer();
+
+  const existing = document.querySelector(
+    'script[src*="googletagmanager.com/gtm.js"]'
+  );
+  if (existing) {
+    return new Promise((resolve) => {
+      window.setTimeout(resolve, 150);
+    });
+  }
+
+  return new Promise((resolve) => {
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+    script.onload = () => window.setTimeout(resolve, 150);
+    script.onerror = () => resolve();
+    document.head.appendChild(script);
+  });
+}
+
 export function trackVirtualPageView(overrides = {}) {
   if (typeof window === 'undefined') return;
 

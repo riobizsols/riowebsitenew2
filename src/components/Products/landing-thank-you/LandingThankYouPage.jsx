@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ReactPixel from "react-facebook-pixel";
 import { getApiBaseUrl } from "../../../utils/urlHelper";
-import { trackGenerateLead, trackVirtualPageView } from "../../../utils/gtm";
+import { trackGenerateLead, trackVirtualPageView, ensureGtmLoaded } from "../../../utils/gtm";
 import { trackMouseflowPageView } from "../../../utils/mouseflow";
 import {
   buildPricingApiPayload,
@@ -35,35 +35,37 @@ export default function LandingThankYouPage() {
     if (startedRef.current) return;
     startedRef.current = true;
 
-    trackVirtualPageView({
-      page_title: "Thank You - RIO BizSols",
-      page_path: window.location.pathname,
-    });
-    trackMouseflowPageView({ page_path: window.location.pathname });
-
-    const pending = readPendingLead();
-    if (!pending) {
-      setStatus("empty");
-      return;
-    }
-
-    if (wasLeadSent(pending.submissionId)) {
-      setStatus("success");
-      return;
-    }
-
-    if (!markLeadInFlight(pending.submissionId)) {
-      return;
-    }
-
-    const apiPayload = buildPricingApiPayload(pending);
-    if (!apiPayload) {
-      clearLeadInFlight(pending.submissionId);
-      setStatus("empty");
-      return;
-    }
-
     (async () => {
+      await ensureGtmLoaded();
+
+      trackVirtualPageView({
+        page_title: "Thank You - RIO BizSols",
+        page_path: window.location.pathname,
+      });
+      trackMouseflowPageView({ page_path: window.location.pathname });
+
+      const pending = readPendingLead();
+      if (!pending) {
+        setStatus("empty");
+        return;
+      }
+
+      if (wasLeadSent(pending.submissionId)) {
+        setStatus("success");
+        return;
+      }
+
+      if (!markLeadInFlight(pending.submissionId)) {
+        return;
+      }
+
+      const apiPayload = buildPricingApiPayload(pending);
+      if (!apiPayload) {
+        clearLeadInFlight(pending.submissionId);
+        setStatus("empty");
+        return;
+      }
+
       try {
         const response = await fetch(`${getApiBaseUrl()}/api/pricing-request`, {
           method: "POST",
@@ -73,6 +75,7 @@ export default function LandingThankYouPage() {
 
         if (!response.ok) throw new Error("Lead request failed");
 
+        await ensureGtmLoaded();
         trackGenerateLead(pending.trackingEvent || "landing_form", {
           industry: pending.industry || "",
         });

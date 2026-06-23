@@ -62,23 +62,25 @@
         }
 
         var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
-        var isCmmsLanding =
-          path === '/asset-maintenance-management-software-v2' ||
-          path === '/cmms-maintenance-management-software' ||
-          path === '/uk/cmms-maintenance-management-software';
-        // PageSpeed: defer GTM until first user interaction.
-        var gtmStarted = false;
-        function startGtmOnce() {
-          if (gtmStarted) return;
-          gtmStarted = true;
+        var isThankYouPage = path.indexOf('/thank-you') !== -1;
+        // Thank-you / conversion pages: load GTM immediately so lead tags fire.
+        if (isThankYouPage) {
           loadGtm();
+        } else {
+          // PageSpeed: defer GTM until first user interaction on other pages.
+          var gtmStarted = false;
+          function startGtmOnce() {
+            if (gtmStarted) return;
+            gtmStarted = true;
+            loadGtm();
+            ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
+              window.removeEventListener(ev, startGtmOnce, true);
+            });
+          }
           ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-            window.removeEventListener(ev, startGtmOnce, true);
+            window.addEventListener(ev, startGtmOnce, { capture: true, passive: true });
           });
         }
-        ['scroll', 'click', 'touchstart', 'keydown'].forEach(function (ev) {
-          window.addEventListener(ev, startGtmOnce, { capture: true, passive: true });
-        });
       })();
     </script>
     <!-- End Google Tag Manager -->
