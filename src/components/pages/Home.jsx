@@ -16,10 +16,10 @@ function Home() {
   return (
     <div>
       <Helmet>
-        <title>Digital Solutions for Business Growth | RioBizSols</title>
+        <title>RIO BizSols | Enterprise Software & AI Business Solutions</title>
         <meta
           name="description"
-          content="RioBizSols provides staffing, digital marketing, web & app development, Odoo ERP, and RIO EAM solutions. Scale your business with our end-to-end digital transformation services."
+          content="RIO BizSols Pvt. Ltd. is a product-based technology company delivering enterprise software and AI-powered business solutions."
         />
         <meta
           name="keywords"
@@ -32,10 +32,10 @@ function Home() {
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preload" as="image" href={HERO_PRELOAD} fetchPriority="high" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Digital Solutions for Business Growth | RioBizSols" />
+        <meta property="og:title" content="RIO BizSols | Enterprise Software & AI Business Solutions" />
         <meta
           property="og:description"
-          content="RioBizSols provides staffing, digital marketing, web & app development, Odoo ERP, and RIO EAM solutions. Scale your business with our end-to-end digital transformation services."
+          content="RIO BizSols Pvt. Ltd. is a product-based technology company delivering enterprise software and AI-powered business solutions."
         />
         <meta property="og:url" content="https://riobizsols.com" />
         <meta
@@ -45,10 +45,10 @@ function Home() {
         <meta property="og:image:alt" content="RioBizSols - End-to-End Business Solutions" />
         <meta property="og:site_name" content="RioBizSols" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Digital Solutions for Business Growth | RioBizSols" />
+        <meta name="twitter:title" content="RIO BizSols | Enterprise Software & AI Business Solutions" />
         <meta
           name="twitter:description"
-          content="RioBizSols provides staffing, digital marketing, web & app development, Odoo ERP, and RIO EAM solutions."
+          content="RIO BizSols Pvt. Ltd. is a product-based technology company delivering enterprise software and AI-powered business solutions."
         />
         <meta
           name="twitter:image"
