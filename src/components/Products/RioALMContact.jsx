@@ -109,6 +109,7 @@ const RioALMContact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className="form-input"
+                      placeholder="Enter your full name"
                       required
                     />
                   </div>
@@ -122,6 +123,7 @@ const RioALMContact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="form-input"
+                      placeholder="you@company.com"
                       required
                     />
                   </div>
@@ -136,6 +138,7 @@ const RioALMContact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="form-input"
+                        placeholder="+91 XXXXX XXXXX"
                       />
                     </div>
                     <div className="form-group">
@@ -147,6 +150,7 @@ const RioALMContact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className="form-input"
+                        placeholder="Your company name"
                       />
                     </div>
                   </div>
@@ -177,6 +181,7 @@ const RioALMContact = () => {
                       onChange={handleChange}
                       className="form-input"
                       rows="5"
+                      placeholder="Tell us about your asset management needs..."
                       required
                     ></textarea>
                   </div>

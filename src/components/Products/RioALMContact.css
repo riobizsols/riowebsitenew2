@@ -46,10 +46,21 @@
   flex-direction: column;
 }
 
+.contact-form-section .section-title {
+  color: #1a1a1a;
+}
+
+.contact-info-section .section-title {
+  color: #1a1a1a;
+}
+
+.faq-section .section-title {
+  color: #1a1a1a;
+}
+
 .section-title {
   font-size: 28px;
   font-weight: 700;
-  color: #ffffff;
   margin: 0 0 32px 0;
   line-height: 1.2;
 }
@@ -76,7 +87,7 @@
 .form-label {
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff !important;
+  color: #1a1a1a;
   display: block;
 }
 
@@ -88,6 +99,10 @@
   color: #1a1a1a;
   font-family: inherit;
   transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
 }
 
 .form-input:focus {

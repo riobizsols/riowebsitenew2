@@ -771,5 +771,98 @@
     },
     "lastActivity": "2026-06-21T10:00:08.462Z",
     "createdAt": "2026-06-09T10:45:34.541Z"
+  },
+  {
+    "visitorId": "visitor_1782737841306_cmk8zqj3i",
+    "behavior": {
+      "pagesVisited": [
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-29T12:57:21.320Z"
+        },
+        {
+          "page": "Contact RIO EAM | Request Demo or Proposal",
+          "timestamp": "2026-06-29T12:57:54.316Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-29T12:57:55.514Z"
+        },
+        {
+          "page": "Digital Solutions for Business Growth | RioBizSols",
+          "timestamp": "2026-06-30T11:30:36.393Z"
+        },
+        {
+          "page": "Contact RIO EAM | Request Demo or Proposal",
+          "timestamp": "2026-06-30T11:30:36.708Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-30T11:30:36.709Z"
+        },
+        {
+          "page": "Digital Solutions for Business Growth | RioBizSols",
+          "timestamp": "2026-06-30T11:30:37.240Z"
+        },
+        {
+          "page": "Contact RIO EAM | Request Demo or Proposal",
+          "timestamp": "2026-06-30T11:30:37.965Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-06-30T11:30:37.965Z",
+          "data": {
+            "url": "http://localhost:3000/products/rio-eam/contact",
+            "title": "Contact RIO EAM | Request Demo or Proposal"
+          }
+        }
+      ],
+      "servicesInterested": [],
+      "engagementScore": 0,
+      "scrollDepth": 50,
+      "timeOnSite": 81192,
+      "formSubmitted": false,
+      "ctaClicked": []
+    },
+    "lastActivity": "2026-06-30T11:30:37.965Z",
+    "createdAt": "2026-06-29T12:57:21.480Z",
+    "sessionId": "session_1782737841307_idycmbxzq",
+    "timestamp": "2026-06-29T12:57:21.307Z",
+    "device": {
+      "type": "desktop",
+      "os": "MacOS",
+      "browser": "Chrome",
+      "browserVersion": "148",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "language": "en-GB",
+      "timezone": "Asia/Calcutta",
+      "screenResolution": "1280x800",
+      "cookiesEnabled": true
+    },
+    "location": {
+      "ip": "223.185.134.180",
+      "country": "India",
+      "country_code": "IN",
+      "city": "Bengaluru",
+      "region": "Karnataka",
+      "timezone": "Asia/Kolkata",
+      "latitude": 12.9753,
+      "longitude": 77.591
+    },
+    "company": "Bharti Airtel Ltd., Telemedia Services",
+    "source": {
+      "utm_source": null,
+      "utm_medium": null,
+      "utm_campaign": null,
+      "utm_content": null,
+      "utm_term": null,
+      "referrer": null,
+      "isDirectTraffic": true,
+      "isFromGoogle": false,
+      "isFromLinkedIn": false,
+      "isFromFacebook": false,
+      "isFromTwitter": false
+    },
+    "firstVisit": "2026-06-29T12:57:21.319Z"
   }
 ]
