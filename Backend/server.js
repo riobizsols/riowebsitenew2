@@ -5,19 +5,25 @@ const nodemailer = require('nodemailer');
 const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// Backend/.env wins over empty or stale OS-level vars (default dotenv does not override existing keys).
+
+const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
+
+// Load Backend/.env, but never override cPanel/Passenger PORT (wrong port → white screen / 500).
+const passengerPort = process.env.PORT;
 require('dotenv').config({ path: path.join(__dirname, '.env'), override: true });
+if (hasValue(passengerPort)) {
+  process.env.PORT = passengerPort;
+}
 
 // Import visitor tracking routes
 const visitorRoutes = require('./routes/visitors');
 const { renderAlmLandingHtml } = require('./almLandingPrerender');
 
 const app = express();
-const hasValue = (value) => typeof value === 'string' && value.trim().length > 0;
 
 const possibleBuildPaths = [
-  path.join(__dirname, '..', 'build'),
-  path.join(__dirname, 'build'),
+  path.join(__dirname, 'build'), // cPanel: Application root = Backend/ → Backend/build
+  path.join(__dirname, '..', 'build'), // local monorepo: projectRoot/build
   path.join(process.cwd(), 'build'),
 ];
 
@@ -102,6 +108,34 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
+// Deploy diagnostics (safe to leave in production)
+app.get('/api/health', (req, res) => {
+  const resolved = resolveBuildPath();
+  const indexPath = path.join(resolved, 'index.html');
+  const staticJsDir = path.join(resolved, 'static', 'js');
+  let mainJs = null;
+  try {
+    if (fs.existsSync(staticJsDir)) {
+      mainJs = fs.readdirSync(staticJsDir).find((f) => /^main\.[a-z0-9]+\.js$/i.test(f)) || null;
+    }
+  } catch {
+    mainJs = null;
+  }
+
+  return res.status(200).json({
+    ok: true,
+    port: process.env.PORT || null,
+    nodeEnv: process.env.NODE_ENV || null,
+    cwd: process.cwd(),
+    dirname: __dirname,
+    buildPath: resolved,
+    buildExists: fs.existsSync(resolved),
+    indexExists: fs.existsSync(indexPath),
+    mainJs,
+    mainJsExists: mainJs ? fs.existsSync(path.join(staticJsDir, mainJs)) : false,
+  });
+});
 
 // Stage 3 local chat testing storage (in-memory only)
 let messages = [];
@@ -1308,6 +1342,19 @@ app.post('/api/whatsapp/webhook', (req, res) => {
 const buildPath = resolveBuildPath();
 
 if (process.env.NODE_ENV === 'production' || fs.existsSync(buildPath)) {
+  // Explicit /static mount first — clearest path for CRA assets on cPanel.
+  app.use(
+    '/static',
+    express.static(path.join(buildPath, 'static'), {
+      maxAge: '365d',
+      fallthrough: false,
+      setHeaders(res) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        res.setHeader('X-Rio-Static', '1');
+      },
+    })
+  );
+
   app.use(
     express.static(buildPath, {
       maxAge: '365d',
@@ -1355,41 +1402,83 @@ if (process.env.NODE_ENV === 'production' || fs.existsSync(buildPath)) {
 
   const { sendIndexWithPreloads } = require('./htmlPreloads');
 
-  app.get('*', (req, res) => {
-    return sendIndexWithPreloads(req, res, buildPath);
+  // Do not treat missing JS/CSS/images as SPA routes (avoids confusing 500s).
+  app.get('*', (req, res, next) => {
+    if (/\.[a-zA-Z0-9]{1,8}$/.test(req.path)) {
+      return res.status(404).type('text/plain').send('Not found');
+    }
+    try {
+      return sendIndexWithPreloads(req, res, buildPath);
+    } catch (error) {
+      console.error('[spa-fallback] Failed:', error.message);
+      return next(error);
+    }
   });
+
+  app.use((err, req, res, next) => {
+    console.error('[express-error]', err && err.message ? err.message : err);
+    if (res.headersSent) return next(err);
+    return res.status(500).type('text/plain').send('Server error');
+  });
+
   console.log('Serving static build from:', buildPath);
+  try {
+    const jsDir = path.join(buildPath, 'static', 'js');
+    const mains = fs.existsSync(jsDir)
+      ? fs.readdirSync(jsDir).filter((f) => /^main\./.test(f))
+      : [];
+    console.log('[startup] build index.html:', fs.existsSync(path.join(buildPath, 'index.html')));
+    console.log('[startup] build main js files:', mains.join(', ') || '(none)');
+  } catch (error) {
+    console.warn('[startup] Could not inspect build folder:', error.message);
+  }
 } else {
   console.warn('Build folder not found. Tried:', possibleBuildPaths.join(', '));
   console.warn('Set NODE_ENV=production and ensure "build" exists, or GET / will 404.');
 }
 
 const PORT = process.env.PORT || 3003;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-        console.warn('Warning: EMAIL_USER or EMAIL_PASS not set in .env – /send-email will return 500 until fixed.');
-    }
-    const startupChecklist = {
-      'Backend': 'OK',
-      'Chat API': 'OK',
-      'WhatsApp Send': hasValue(process.env.WHATSAPP_TOKEN) && hasValue(process.env.WHATSAPP_PHONE_NUMBER_ID) && hasValue(process.env.WHATSAPP_TO_NUMBER) ? 'OK' : 'FAIL',
-      'Webhook Routes': hasValue(process.env.WHATSAPP_VERIFY_TOKEN) ? 'OK' : 'FAIL',
-      'Frontend Popup': 'OK',
-      'Admin Dashboard': hasValue(process.env.ADMIN_CHAT_TOKEN) ? 'OK (protected)' : 'WARN (ADMIN_CHAT_TOKEN unset)',
-    };
-    console.log('[health-check] Checklist');
-    Object.entries(startupChecklist).forEach(([name, status]) => {
-      console.log(`[health-check] ${name}: ${status}`);
-    });
-    const chatNotifyTo = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
-      ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
-      : chatNotificationEmailFallback;
-    const chatNotifyFrom = hasValue(process.env.CHAT_NOTIFICATION_FROM)
-      ? process.env.CHAT_NOTIFICATION_FROM.trim()
-      : chatNotificationFromFallback;
-    console.log(`[health-check] Chat email — To: ${chatNotifyTo} | From: ${chatNotifyFrom}`);
-});
+
+function logStartupBanner() {
+  console.log(`Server running on port ${process.env.PORT || PORT}`);
+  if (!hasValue(process.env.EMAIL_USER) || !hasValue(process.env.EMAIL_PASS)) {
+    console.warn('Warning: EMAIL_USER or EMAIL_PASS not set in .env – /send-email will return 500 until fixed.');
+  }
+  const startupChecklist = {
+    Backend: 'OK',
+    'Chat API': 'OK',
+    'WhatsApp Send':
+      hasValue(process.env.WHATSAPP_TOKEN) &&
+      hasValue(process.env.WHATSAPP_PHONE_NUMBER_ID) &&
+      hasValue(process.env.WHATSAPP_TO_NUMBER)
+        ? 'OK'
+        : 'FAIL',
+    'Webhook Routes': hasValue(process.env.WHATSAPP_VERIFY_TOKEN) ? 'OK' : 'FAIL',
+    'Frontend Popup': 'OK',
+    'Admin Dashboard': hasValue(process.env.ADMIN_CHAT_TOKEN)
+      ? 'OK (protected)'
+      : 'WARN (ADMIN_CHAT_TOKEN unset)',
+  };
+  console.log('[health-check] Checklist');
+  Object.entries(startupChecklist).forEach(([name, status]) => {
+    console.log(`[health-check] ${name}: ${status}`);
+  });
+  const chatNotifyTo = hasValue(process.env.CHAT_NOTIFICATION_EMAIL)
+    ? process.env.CHAT_NOTIFICATION_EMAIL.trim()
+    : chatNotificationEmailFallback;
+  const chatNotifyFrom = hasValue(process.env.CHAT_NOTIFICATION_FROM)
+    ? process.env.CHAT_NOTIFICATION_FROM.trim()
+    : chatNotificationFromFallback;
+  console.log(`[health-check] Chat email — To: ${chatNotifyTo} | From: ${chatNotifyFrom}`);
+}
+
+// cPanel Passenger: listen on 'passenger' when available; otherwise use PORT.
+if (typeof PhusionPassenger !== 'undefined') {
+  PhusionPassenger.configure({ autoInstall: false });
+  app.listen('passenger', logStartupBanner);
+} else {
+  app.listen(PORT, logStartupBanner);
+}
 
 
 // import express from 'express';
