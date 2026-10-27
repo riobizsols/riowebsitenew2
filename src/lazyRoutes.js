@@ -97,6 +97,7 @@ export const RioMEMSIndustries = lazyDefault(() => import('./components/Products
 export const RioMEMSPricing = lazyDefault(() => import('./components/Products/RioMEMSPricing'));
 export const AissistLanding = lazyDefault(() => import('./components/Products/AissistLanding'));
 export const LaLawLanding = lazyDefault(() => import('./components/Products/LaLawLanding'));
+export const RioEduConnectLanding = lazyDefault(() => import('./components/Products/RioEduConnectLanding'));
 export const LaLawAccountDeletion = lazyDefault(() => import('./components/Products/LaLawAccountDeletion'));
 export const LaLawAccountDeletionForm = lazyDefault(() =>
   import('./components/Products/LaLawAccountDeletionForm')

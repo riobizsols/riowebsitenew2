@@ -250,6 +250,9 @@ function AppContent() {
           <Route path="/products/la-law/account-deletion" element={<Lazy.LaLawAccountDeletion />} />
           <Route path="/products/la-law" element={<Lazy.LaLawLanding />} />
 
+          <Route path="/products/rio-educonnect" element={<Lazy.RioEduConnectLanding />} />
+          <Route path="/products/rio-educonnect/contact" element={<Navigate to="/contact" replace />} />
+
           <Route path="/uk/asset-maintenance-management-software" element={<AlmLandingReload />} />
           <Route path="/asset-maintenance-management-software" element={<AlmLandingReload />} />
           <Route path="/cmms-maintenance-management-software" element={<EamAdsLandingReload />} />

@@ -1,0 +1,119 @@
+.educonnect-hero-card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  color: #1f2a44;
+}
+
+.educonnect-hero-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f1f5ff;
+  border-bottom: 1px solid #e3e9f7;
+}
+
+.educonnect-hero-card-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
+  color: #003d82;
+}
+
+.educonnect-hero-card-date {
+  font-size: 0.85rem;
+  color: #5b6782;
+  margin: 0;
+}
+
+.educonnect-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px 20px 8px;
+}
+
+.educonnect-hero-stat {
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.educonnect-hero-stat strong {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.educonnect-hero-stat span {
+  font-size: 0.78rem;
+  color: #5b6782;
+}
+
+.educonnect-hero-stat--present {
+  background: #e8f7ee;
+  color: #1a7f45;
+}
+
+.educonnect-hero-stat--absent {
+  background: #fdecec;
+  color: #c0392b;
+}
+
+.educonnect-hero-stat--leave {
+  background: #fff6e0;
+  color: #b7791f;
+}
+
+.educonnect-hero-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 20px 18px;
+}
+
+.educonnect-hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef1f7;
+  font-size: 0.92rem;
+}
+
+.educonnect-hero-row:last-child {
+  border-bottom: none;
+}
+
+.educonnect-hero-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.educonnect-hero-pill--present {
+  background: #e8f7ee;
+  color: #1a7f45;
+}
+
+.educonnect-hero-pill--absent {
+  background: #fdecec;
+  color: #c0392b;
+}
+
+.educonnect-hero-pill--leave {
+  background: #fff6e0;
+  color: #b7791f;
+}
+
+.educonnect-hero-footer {
+  padding: 12px 20px;
+  background: #f8faff;
+  border-top: 1px solid #e3e9f7;
+  font-size: 0.82rem;
+  color: #5b6782;
+}

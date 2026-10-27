@@ -57,6 +57,10 @@ export default function Header() {
               <NavDropdown.Item href="/products/la-law">Overview</NavDropdown.Item>
               <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown drop="end" title="RIO EduConnect" id="products-educonnect-dropdown">
+              <NavDropdown.Item href="/products/rio-educonnect">Overview</NavDropdown.Item>
+              <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
+            </NavDropdown>
           </NavDropdown>
           </div>
           <Nav.Link href="/blog">Blog</Nav.Link>

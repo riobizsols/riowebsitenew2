@@ -48,6 +48,7 @@ const FOOTER_INDIA_IMG = `${process.env.PUBLIC_URL}/footer-india.jpg`;
                <li><Link to='/products/medical-equipment-maintenance' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO MEMS (Medical Equipment Maintenance)</Link></li>
                <li><Link to='/products/aissist' style={{textDecoration:'none', color:'#BDBBBB'}}>AIssist – LinkedIn Assistant</Link></li>
                <li><Link to='/products/la-law' style={{textDecoration:'none', color:'#BDBBBB'}}>La Law</Link></li>
+               <li><Link to='/products/rio-educonnect' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EduConnect</Link></li>
                <li><Link to='/products/rio-eam/features' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Features</Link></li>
                <li><Link to='/products/rio-eam/industries' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Industries</Link></li>
                <li><Link to='/products/rio-eam/deployment' style={{textDecoration:'none', color:'#BDBBBB'}}>RIO EAM Deployment</Link></li>
