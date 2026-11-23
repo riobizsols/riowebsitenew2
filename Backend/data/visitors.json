@@ -65,54 +65,54 @@
     "behavior": {
       "pagesVisited": [
         {
-          "page": "App Load",
-          "timestamp": "2026-05-13T11:36:08.797Z"
+          "page": "RIO BizSols | Enterprise Software & AI Business Solutions",
+          "timestamp": "2026-07-20T05:32:31.581Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:36:08.798Z"
+          "timestamp": "2026-07-20T05:32:39.640Z"
+        },
+        {
+          "page": "RIO BizSols | Enterprise Software & AI Business Solutions",
+          "timestamp": "2026-07-20T05:32:41.379Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:36:35.048Z"
+          "timestamp": "2026-07-20T05:32:42.694Z"
+        },
+        {
+          "page": "RIO BizSols | Enterprise Software & AI Business Solutions",
+          "timestamp": "2026-11-23T04:55:47.763Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:36:35.048Z"
+          "timestamp": "2026-11-23T04:55:54.211Z"
+        },
+        {
+          "page": "RIO BizSols | Enterprise Software & AI Business Solutions",
+          "timestamp": "2026-11-23T04:56:12.563Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:37:09.255Z"
+          "timestamp": "2026-11-23T04:56:14.307Z"
+        },
+        {
+          "page": "RIO EAM - Enterprise Asset Managment Software Solution",
+          "timestamp": "2026-11-23T04:56:15.313Z"
         },
         {
           "page": "App Load",
-          "timestamp": "2026-05-13T11:37:09.256Z"
-        },
-        {
-          "page": "Digital Solutions for Business Growth | RioBizSols",
-          "timestamp": "2026-06-21T09:58:40.830Z"
-        },
-        {
-          "page": "End-to-End Business Services | RioBizSols",
-          "timestamp": "2026-06-21T10:00:09.902Z"
-        },
-        {
-          "page": "Digital Solutions for Business Growth | RioBizSols",
-          "timestamp": "2026-06-21T10:52:14.368Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-06-21T10:52:58.065Z",
+          "timestamp": "2026-11-23T04:56:16.917Z",
           "data": {
-            "url": "http://localhost:3000/",
-            "title": "Digital Solutions for Business Growth | RioBizSols"
+            "url": "http://localhost:3000/products/rio-eam",
+            "title": "RIO EAM - Enterprise Asset Managment Software Solution"
           }
         }
       ],
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 5708736,
+      "timeOnSite": 22014355,
       "formSubmitted": true,
       "ctaClicked": [
         {
@@ -137,7 +137,7 @@
         }
       ]
     },
-    "lastActivity": "2026-06-21T10:52:58.065Z",
+    "lastActivity": "2026-11-23T04:56:16.917Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
   },
   {

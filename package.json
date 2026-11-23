@@ -57,7 +57,10 @@
     "audit:site": "bash scripts/audit-site-pages.sh",
     "audit:site:local": "BASE_URL=http://127.0.0.1:3456 bash scripts/audit-site-pages.sh",
     "verify:icons": "bash scripts/verify-brand-icons.sh",
-    "cpanel:icons": "bash scripts/cpanel-public-html-icons.sh"
+    "cpanel:icons": "bash scripts/cpanel-public-html-icons.sh",
+    "vps:deploy": "bash deploy/scripts/deploy.sh",
+    "vps:ssl": "bash deploy/scripts/init-ssl.sh",
+    "vps:logs": "docker compose --env-file .env.vps logs -f --tail=100"
   },
   "eslintConfig": {
     "extends": [

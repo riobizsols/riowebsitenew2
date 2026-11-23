@@ -1,0 +1,76 @@
+# RioBizSols.com — VPS production stack
+# App (Express + React build) behind Nginx, with Let's Encrypt SSL.
+#
+# Usage:
+#   1. cp .env.vps.example .env.vps   # fill secrets
+#   2. docker compose --env-file .env.vps up -d --build
+#   3. ./deploy/scripts/init-ssl.sh   # first-time SSL certificates
+#
+# Second domain on same VPS: add another server block under deploy/nginx/conf.d/
+# (see other-domain.conf.example). Nginx routes by Host header — no conflict.
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: riobizsols-app
+    restart: unless-stopped
+    env_file:
+      - path: .env.vps
+        required: false
+    environment:
+      NODE_ENV: production
+      PORT: "3003"
+      FRONTEND_ORIGINS: ${FRONTEND_ORIGINS:-https://riobizsols.com,https://www.riobizsols.com}
+      CHATBOT_PUBLIC_BASE_URL: ${CHATBOT_PUBLIC_BASE_URL:-https://riobizsols.com}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://riobizsols.com}
+    volumes:
+      # Persist visitor tracking / chat JSON across redeploys
+      - app_data:/app/data
+    expose:
+      - "3003"
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3003/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: riobizsols-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deploy/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./deploy/certbot/www:/var/www/certbot:ro
+      - ./deploy/certbot/conf:/etc/letsencrypt:ro
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - web
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: riobizsols-certbot
+    volumes:
+      - ./deploy/certbot/www:/var/www/certbot
+      - ./deploy/certbot/conf:/etc/letsencrypt
+    # Renew periodically; first certs via deploy/scripts/init-ssl.sh
+    entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h & wait $${!}; done"
+    networks:
+      - web
+
+volumes:
+  app_data:
+
+networks:
+  web:
+    driver: bridge
