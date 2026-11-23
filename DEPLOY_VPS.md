@@ -3,60 +3,62 @@
 This stack runs **one Node app** (Express API + React `build`).
 
 On the Rio VPS, **ports 80/443 are already owned by `alm_nginx`**.  
-So we **do not** bind those ports. The website app listens on **`127.0.0.1:3010`**, and you add a `server_name riobizsols.com` block to **existing `alm_nginx`**.
+The website app listens on **`0.0.0.0:3010`**, and `alm_nginx` proxies `riobizsols.com` → `172.17.0.1:3010`.
 
 ---
 
-## Architecture (this VPS)
+## Architecture
 
 ```text
 Internet
    │
-   └─ :80 / :443  →  alm_nginx  (already running)
-                       ├─ other ALM / mansoor / odoo hosts…
+   └─ :80 / :443  →  alm_nginx
                        └─ riobizsols.com  →  172.17.0.1:3010  →  riobizsols-app
 ```
 
+**Important:** publish as `"3010:3003"` (all interfaces).  
+`127.0.0.1:3010` causes **502** because `alm_nginx` cannot reach localhost-only binds.
+
 ---
 
-## Prerequisites on the VPS
+## Everyday deploy (one script)
 
-- Ubuntu 22.04+ (or similar)
-- Docker Engine + Docker Compose plugin
-- DNS:
-  - `riobizsols.com` → VPS IP
-  - `www.riobizsols.com` → VPS IP
-- Firewall: allow **80** and **443**
-- Nothing else should bind ports 80/443 (stop old Apache/Nginx/cPanel proxies)
-
-Install Docker (if needed):
+On the VPS:
 
 ```bash
-curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker $USER
-# log out / log in, then:
-docker --version
-docker compose version
+cd ~/riobizsols/riowebsitenew2
+./deploy-docker.sh
+```
+
+That will:
+
+1. `git pull`
+2. Build + recreate `riobizsols-app`
+3. Health-check host `:3010` and path through `alm_nginx`
+4. Reload `alm_nginx`
+5. Verify `https://riobizsols.com/api/health`
+
+Options:
+
+```bash
+./deploy-docker.sh --no-pull   # rebuild without git pull
 ```
 
 ---
 
-## First-time deploy
+## First-time setup
 
-### 1. Copy project to VPS
+### 1. Clone on VPS
 
 ```bash
-# from your Mac (example)
-rsync -avz --exclude node_modules --exclude build --exclude Backend/node_modules \
-  ./ user@YOUR_VPS_IP:~/riowebsitenew2/
+cd ~/riobizsols
+git clone https://github.com/riobizsols/riowebsitenew2.git
+cd riowebsitenew2
 ```
 
-Or `git clone` if the repo is on GitHub.
-
-### 2. Create env file
+### 2. Env file
 
 ```bash
-cd ~/riowebsitenew2
 cp .env.vps.example .env.vps
 nano .env.vps
 ```
@@ -64,83 +66,49 @@ nano .env.vps
 Fill email, WhatsApp, admin token, etc.  
 **Do not set PORT** — Compose sets `PORT=3003` inside the container.
 
-### 3. Start the app only (behind alm_nginx)
+### 3. Wire domain in alm_nginx (once)
 
 ```bash
-chmod +x deploy/scripts/*.sh
-./deploy/scripts/deploy.sh
-```
-
-This builds React inside Docker and starts **`riobizsols-app` on `127.0.0.1:3010`**.
-
-Check locally:
-
-```bash
-curl -I http://127.0.0.1:3010
-curl http://127.0.0.1:3010/api/health
-docker compose --env-file .env.vps ps
-```
-
-### 4. Point riobizsols.com through alm_nginx
-
-```bash
-# Where are alm_nginx configs mounted?
 docker inspect alm_nginx --format '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{"\n"}}{{end}}'
 ```
 
-Copy `deploy/nginx/alm-nginx-riobizsols.conf` into that host `conf.d` folder (same place as other site configs).
-
-Issue SSL for `riobizsols.com` the **same way your other alm_nginx sites** get certs (certbot / existing script).
-
-Then:
+Copy `deploy/nginx/alm-nginx-riobizsols.conf` into that host `conf.d` folder.  
+SSL certs must be mounted into `alm_nginx` (same pattern as your other sites).
 
 ```bash
 docker exec alm_nginx nginx -t
 docker exec alm_nginx nginx -s reload
 ```
 
+### 4. First deploy
+
+```bash
+chmod +x deploy-docker.sh
+./deploy-docker.sh
+```
+
 Open: https://riobizsols.com
 
 ---
 
-## Updates (redeploy)
+## Workflow from your Mac
+
+1. Commit & push your changes.
+2. SSH to the VPS and run:
 
 ```bash
-cd ~/riowebsitenew2
-git pull   # if using git
-./deploy/scripts/deploy.sh
+cd ~/riobizsols/riowebsitenew2
+./deploy-docker.sh
 ```
-
----
-
-## Second domain on same VPS
-
-**Not a problem.** Nginx chooses the site by `Host` header.
-
-1. Keep this stack for `riobizsols.com` only.  
-2. For the other domain, either:
-   - Add `deploy/nginx/conf.d/other-domain.conf` (from the example), **or**
-   - Run a separate compose project / reverse proxy for that domain.
-
-Do **not** point both domains at this app unless you want both to show the Rio site.
 
 ---
 
 ## Useful commands
 
 ```bash
-# Status
 docker compose --env-file .env.vps ps
-
-# Logs
 docker compose --env-file .env.vps logs -f app
-docker compose --env-file .env.vps logs -f nginx
-
-# Restart
-docker compose --env-file .env.vps restart
-
-# Stop
-docker compose --env-file .env.vps down
+docker compose --env-file .env.vps restart app
 ```
 
 ---
@@ -149,10 +117,9 @@ docker compose --env-file .env.vps down
 
 | Symptom | Fix |
 |--------|-----|
-| Port 80 already in use | `sudo lsof -i :80` — stop Apache/Nginx/other |
-| 502 Bad Gateway | `docker compose logs app` — wait for healthy, check `.env.vps` |
-| SSL fails | Confirm DNS A records; run `init-ssl.sh` again |
-| White screen | Check `/api/health` and browser Network for `/static/js/...` |
-| Wrong site on domain | Check `server_name` in nginx conf; second domain needs its own block |
+| 502 Bad Gateway | App must be `0.0.0.0:3010`, not `127.0.0.1`. Re-run `./deploy-docker.sh` |
+| Name conflict | Script removes old `riobizsols-app` automatically |
+| Health fails | `docker compose --env-file .env.vps logs --tail=100 app` |
+| Wrong SSL paths | Cert files inside `alm_nginx` must match the conf (`/etc/nginx/ssl/*-riobizsols.pem`) |
 
-Health endpoint: `/api/health` should return JSON with `"ok": true`.
+Health endpoint: `/api/health` → `{"ok": true, ...}`.

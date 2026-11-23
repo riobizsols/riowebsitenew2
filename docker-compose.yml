@@ -29,9 +29,10 @@ services:
       PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://riobizsols.com}
     volumes:
       - app_data:/app/data
-    # Host 3003 is already used by alm-pressana-frontend — use 3010.
+    # Host 3003 is used by alm-pressana-frontend — use 3010.
+    # Bind 0.0.0.0 (not 127.0.0.1) so alm_nginx can reach it via 172.17.0.1:3010
     ports:
-      - "127.0.0.1:3010:3003"
+      - "3010:3003"
     networks:
       - web
     healthcheck:
