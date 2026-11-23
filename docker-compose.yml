@@ -1,13 +1,15 @@
-# RioBizSols.com — VPS production stack
-# App (Express + React build) behind Nginx, with Let's Encrypt SSL.
+# RioBizSols.com — VPS (behind existing alm_nginx on :80/:443)
+#
+# Your VPS already uses alm_nginx for ports 80/443. This stack only runs the
+# Express+React app on localhost:3010. Point riobizsols.com in alm_nginx to it.
 #
 # Usage:
-#   1. cp .env.vps.example .env.vps   # fill secrets
-#   2. docker compose --env-file .env.vps up -d --build
-#   3. ./deploy/scripts/init-ssl.sh   # first-time SSL certificates
+#   1. cp .env.vps.example .env.vps
+#   2. ./deploy/scripts/deploy.sh
+#   3. Add deploy/nginx/alm-nginx-riobizsols.conf into alm_nginx and reload
 #
-# Second domain on same VPS: add another server block under deploy/nginx/conf.d/
-# (see other-domain.conf.example). Nginx routes by Host header — no conflict.
+# Optional standalone (only if NOTHING else uses 80/443):
+#   docker compose --profile standalone --env-file .env.vps up -d --build
 
 services:
   app:
@@ -26,10 +28,10 @@ services:
       CHATBOT_PUBLIC_BASE_URL: ${CHATBOT_PUBLIC_BASE_URL:-https://riobizsols.com}
       PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://riobizsols.com}
     volumes:
-      # Persist visitor tracking / chat JSON across redeploys
       - app_data:/app/data
-    expose:
-      - "3003"
+    # Host 3003 is already used by alm-pressana-frontend — use 3010.
+    ports:
+      - "127.0.0.1:3010:3003"
     networks:
       - web
     healthcheck:
@@ -39,7 +41,9 @@ services:
       retries: 5
       start_period: 25s
 
+  # Only with: --profile standalone  (conflicts with alm_nginx — do not use on this VPS)
   nginx:
+    profiles: ["standalone"]
     image: nginx:1.27-alpine
     container_name: riobizsols-nginx
     restart: unless-stopped
@@ -58,12 +62,12 @@ services:
       - web
 
   certbot:
+    profiles: ["standalone"]
     image: certbot/certbot:latest
     container_name: riobizsols-certbot
     volumes:
       - ./deploy/certbot/www:/var/www/certbot
       - ./deploy/certbot/conf:/etc/letsencrypt
-    # Renew periodically; first certs via deploy/scripts/init-ssl.sh
     entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h & wait $${!}; done"
     networks:
       - web

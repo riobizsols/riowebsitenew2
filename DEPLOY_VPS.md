@@ -1,20 +1,20 @@
 # Deploy riobizsols.com on VPS (Docker Compose)
 
-This stack runs **one Node app** (Express API + React `build`) behind **Nginx**, with **Let's Encrypt** SSL.
+This stack runs **one Node app** (Express API + React `build`).
 
-Second domain on the same VPS is fine — Nginx routes by hostname (`server_name`). Only configure `riobizsols.com` in this compose; add another `server` block for the other site (see `deploy/nginx/conf.d/other-domain.conf.example`).
+On the Rio VPS, **ports 80/443 are already owned by `alm_nginx`**.  
+So we **do not** bind those ports. The website app listens on **`127.0.0.1:3010`**, and you add a `server_name riobizsols.com` block to **existing `alm_nginx`**.
 
 ---
 
-## Architecture
+## Architecture (this VPS)
 
 ```text
 Internet
    │
-   ├─ :80 / :443  →  nginx container
-   │                    └─ proxy_pass → app:3003  (riobizsols.com / www)
-   │
-   └─ (other domain) → its own nginx server block / other stack
+   └─ :80 / :443  →  alm_nginx  (already running)
+                       ├─ other ALM / mansoor / odoo hosts…
+                       └─ riobizsols.com  →  172.17.0.1:3010  →  riobizsols-app
 ```
 
 ---
@@ -64,37 +64,42 @@ nano .env.vps
 Fill email, WhatsApp, admin token, etc.  
 **Do not set PORT** — Compose sets `PORT=3003` inside the container.
 
-### 3. Start stack
+### 3. Start the app only (behind alm_nginx)
 
 ```bash
 chmod +x deploy/scripts/*.sh
 ./deploy/scripts/deploy.sh
 ```
 
-This will:
+This builds React inside Docker and starts **`riobizsols-app` on `127.0.0.1:3010`**.
 
-1. Create temporary SSL files so Nginx can start  
-2. Build the React app inside Docker  
-3. Start `app` + `nginx` + `certbot`
-
-Check:
+Check locally:
 
 ```bash
-curl -I http://riobizsols.com
-curl http://riobizsols.com/api/health
+curl -I http://127.0.0.1:3010
+curl http://127.0.0.1:3010/api/health
 docker compose --env-file .env.vps ps
-docker compose --env-file .env.vps logs -f app
 ```
 
-### 4. Enable real HTTPS (Let's Encrypt)
-
-After DNS has propagated:
+### 4. Point riobizsols.com through alm_nginx
 
 ```bash
-SSL_EMAIL=admin@riobizsols.com ./deploy/scripts/init-ssl.sh
+# Where are alm_nginx configs mounted?
+docker inspect alm_nginx --format '{{range .Mounts}}{{.Source}} -> {{.Destination}}{{"\n"}}{{end}}'
 ```
 
-Then open: https://riobizsols.com
+Copy `deploy/nginx/alm-nginx-riobizsols.conf` into that host `conf.d` folder (same place as other site configs).
+
+Issue SSL for `riobizsols.com` the **same way your other alm_nginx sites** get certs (certbot / existing script).
+
+Then:
+
+```bash
+docker exec alm_nginx nginx -t
+docker exec alm_nginx nginx -s reload
+```
+
+Open: https://riobizsols.com
 
 ---
 
