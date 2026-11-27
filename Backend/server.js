@@ -393,6 +393,37 @@ function createSmtpTransporter() {
   });
 }
 
+/**
+ * Landing-page forms (pricing / demo / OEE simulator) — Zoho by default.
+ * Keeps Gmail (EMAIL_USER / EMAIL_PASS) for chat and other mail.
+ */
+function createLandingSmtpTransporter() {
+  const user = process.env.LANDING_EMAIL_USER || process.env.EMAIL_USER;
+  const passRaw = process.env.LANDING_EMAIL_PASS || process.env.EMAIL_PASS || '';
+  const pass = typeof passRaw === 'string' ? passRaw.replace(/\s+/g, '') : '';
+  const host = process.env.LANDING_EMAIL_HOST || 'smtp.zoho.in';
+  const port = Number(process.env.LANDING_EMAIL_PORT || 587);
+  const secure = port === 465;
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    requireTLS: !secure,
+    auth: { user, pass },
+  });
+}
+
+function getLandingEmailFrom() {
+  return process.env.LANDING_EMAIL_USER || process.env.EMAIL_USER;
+}
+
+function hasLandingEmailConfig() {
+  return (
+    hasValue(process.env.LANDING_EMAIL_USER || process.env.EMAIL_USER) &&
+    hasValue(process.env.LANDING_EMAIL_PASS || process.env.EMAIL_PASS)
+  );
+}
+
 /** Best-effort client IP for email text; labels loopback so ::1 is not mistaken for a public address. */
 function getClientIpForChatEmail(req) {
   const xff = req.headers['x-forwarded-for'];
@@ -746,8 +777,10 @@ app.post('/api/pricing-request', async (req, res) => {
     });
   }
 
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error('[pricing-request] Missing EMAIL_USER or EMAIL_PASS in .env');
+  if (!hasLandingEmailConfig()) {
+    console.error(
+      '[pricing-request] Missing LANDING_EMAIL_USER/LANDING_EMAIL_PASS (or EMAIL_USER/EMAIL_PASS fallback) in .env'
+    );
     return res.status(500).json({
       success: false,
       message: 'Server email config missing',
@@ -755,12 +788,12 @@ app.post('/api/pricing-request', async (req, res) => {
   }
 
   try {
-    const transporter = createSmtpTransporter();
+    const transporter = createLandingSmtpTransporter();
     const productLabel = resolveLandingProduct(req.body);
     const requestType = String(request_type || '').trim().toLowerCase();
     const requestLabel = requestType === 'pricing' ? 'pricing' : 'demo';
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: getLandingEmailFrom(),
       to: pricingRequestRecipient,
       replyTo: email2,
       subject: resolvePricingRequestSubject(req.body),

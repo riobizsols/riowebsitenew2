@@ -66,14 +66,6 @@
       "pagesVisited": [
         {
           "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:29:33.116Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-11-27T12:29:33.132Z"
-        },
-        {
-          "page": "Production OEE | RIO EAM | Riobizsols",
           "timestamp": "2026-11-27T12:36:08.893Z"
         },
         {
@@ -102,9 +94,17 @@
         },
         {
           "page": "App Load",
-          "timestamp": "2026-11-27T12:53:38.023Z",
+          "timestamp": "2026-11-27T12:53:38.023Z"
+        },
+        {
+          "page": "Production OEE | RIO EAM | Riobizsols",
+          "timestamp": "2026-11-27T13:02:11.158Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-11-27T13:02:15.958Z",
           "data": {
-            "url": "http://localhost:3000/eam-production#industries",
+            "url": "http://localhost:3000/eam-production",
             "title": "Production OEE | RIO EAM | Riobizsols"
           }
         }
@@ -112,7 +112,7 @@
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 22388603,
+      "timeOnSite": 22388979,
       "formSubmitted": true,
       "ctaClicked": [
         {
@@ -137,7 +137,7 @@
         }
       ]
     },
-    "lastActivity": "2026-11-27T12:53:38.023Z",
+    "lastActivity": "2026-11-27T13:02:15.958Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
   },
   {
