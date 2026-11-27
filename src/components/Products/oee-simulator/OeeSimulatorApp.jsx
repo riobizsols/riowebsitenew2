@@ -24,7 +24,7 @@ import { savePendingLead, redirectToThankYou } from '../../../utils/landingThank
 import './OeeSimulatorApp.css';
 
 const LANDING_PATH = '/eam-production';
-const LEAD_POPUP_DELAY_MS = 10000;
+const LEAD_POPUP_DELAY_MS = 7000;
 
 function AnimatedNumber({ value, decimals = 1, suffix = '' }) {
   const [display, setDisplay] = useState(value);
@@ -228,7 +228,6 @@ export default function OeeSimulatorApp() {
   const [leadError, setLeadError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [leadModalOpen, setLeadModalOpen] = useState(false);
-  const [leadFloatVisible, setLeadFloatVisible] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(true);
   const resultsRef = useRef(null);
   const modalResultsRef = useRef(null);
@@ -274,7 +273,7 @@ export default function OeeSimulatorApp() {
     return () => window.clearTimeout(timer);
   }, [result, setupOpen]);
 
-  // 5s after OEE results are shown, open the contact popup once.
+  // After score is shown: float icon stays available; contact popup opens once after 7s.
   useEffect(() => {
     if (!result) return;
     if (leadAutoShownRef.current) return;
@@ -282,7 +281,6 @@ export default function OeeSimulatorApp() {
     const timer = window.setTimeout(() => {
       leadAutoShownRef.current = true;
       setLeadModalOpen(true);
-      setLeadFloatVisible(false);
     }, LEAD_POPUP_DELAY_MS);
 
     return () => window.clearTimeout(timer);
@@ -300,7 +298,6 @@ export default function OeeSimulatorApp() {
   const resetLeadOffer = () => {
     leadAutoShownRef.current = false;
     setLeadModalOpen(false);
-    setLeadFloatVisible(false);
     setTooltipOpen(true);
   };
 
@@ -368,18 +365,16 @@ export default function OeeSimulatorApp() {
     setSetupModalOpen(true);
     leadAutoShownRef.current = false;
     setLeadModalOpen(false);
-    setLeadFloatVisible(false);
+    setTooltipOpen(true);
   };
 
   const closeLeadModal = () => {
     setLeadModalOpen(false);
-    setLeadFloatVisible(true);
     setTooltipOpen(true);
   };
 
   const openLeadModal = () => {
     setLeadModalOpen(true);
-    setLeadFloatVisible(false);
   };
 
   const validateLead = (form) => ({
@@ -953,7 +948,7 @@ export default function OeeSimulatorApp() {
         </div>
       ) : null}
 
-      {leadFloatVisible && !leadModalOpen ? (
+      {result && !leadModalOpen ? (
         <div className="oee-sim-float">
           {tooltipOpen ? (
             <div className="oee-sim-float-tooltip" role="tooltip">

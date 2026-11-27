@@ -65,34 +65,6 @@
     "behavior": {
       "pagesVisited": [
         {
-          "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:36:08.893Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-11-27T12:36:09.373Z"
-        },
-        {
-          "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:39:05.777Z"
-        },
-        {
-          "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:42:03.847Z"
-        },
-        {
-          "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:44:50.798Z"
-        },
-        {
-          "page": "App Load",
-          "timestamp": "2026-11-27T12:44:52.225Z"
-        },
-        {
-          "page": "Production OEE | RIO EAM | Riobizsols",
-          "timestamp": "2026-11-27T12:53:38.023Z"
-        },
-        {
           "page": "App Load",
           "timestamp": "2026-11-27T12:53:38.023Z"
         },
@@ -102,9 +74,37 @@
         },
         {
           "page": "App Load",
-          "timestamp": "2026-11-27T13:02:15.958Z",
+          "timestamp": "2026-11-27T13:02:15.958Z"
+        },
+        {
+          "page": "Production OEE | RIO EAM | Riobizsols",
+          "timestamp": "2026-11-27T13:28:22.377Z"
+        },
+        {
+          "page": "Production OEE | RIO EAM | Riobizsols",
+          "timestamp": "2026-11-27T14:22:56.911Z"
+        },
+        {
+          "page": "RIO BizSols | Enterprise Software & AI Business Solutions",
+          "timestamp": "2026-11-27T14:22:57.086Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-11-27T14:22:58.677Z"
+        },
+        {
+          "page": "Production OEE | RIO EAM | Riobizsols",
+          "timestamp": "2026-11-27T14:25:13.586Z"
+        },
+        {
+          "page": "App Load",
+          "timestamp": "2026-11-27T14:25:15.066Z"
+        },
+        {
+          "page": "Production OEE | RIO EAM | Riobizsols",
+          "timestamp": "2026-11-27T14:25:15.111Z",
           "data": {
-            "url": "http://localhost:3000/eam-production",
+            "url": "http://localhost:3000/eam-production#industries",
             "title": "Production OEE | RIO EAM | Riobizsols"
           }
         }
@@ -112,7 +112,7 @@
       "servicesInterested": [],
       "engagementScore": 0,
       "scrollDepth": 100,
-      "timeOnSite": 22388979,
+      "timeOnSite": 22394054,
       "formSubmitted": true,
       "ctaClicked": [
         {
@@ -137,7 +137,7 @@
         }
       ]
     },
-    "lastActivity": "2026-11-27T13:02:15.958Z",
+    "lastActivity": "2026-11-27T14:25:15.111Z",
     "createdAt": "2026-05-12T11:46:31.381Z"
   },
   {
