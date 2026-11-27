@@ -263,12 +263,19 @@ function AppContent() {
           />
           <Route path="/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
           <Route path="/uk/eam-maintenance-management-software" element={<EamClassicLandingReload />} />
+          <Route path="/eam-production" element={<Lazy.AmProductionSimulator />} />
+          <Route path="/am-production" element={<Navigate to="/eam-production" replace />} />
+          <Route
+            path="/eam-production-oee-simulator"
+            element={<Navigate to="/eam-production" replace />}
+          />
           <Route path="/cmms-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
           <Route path="/uk/cmms-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
           <Route path="/eam-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
           <Route path="/uk/eam-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
           <Route path="/asset-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
           <Route path="/uk/asset-maintenance-management-software/thank-you" element={<LandingThankYouReload />} />
+          <Route path="/eam-production/thank-you" element={<LandingThankYouReload />} />
 
           <Route path="/compare/staffing" element={<Lazy.StaffingComparison />} />
           <Route path="/compare/web-development" element={<Lazy.WebDevComparison />} />

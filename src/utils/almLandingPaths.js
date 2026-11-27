@@ -16,6 +16,11 @@ export const EAM_CLASSIC_LANDING_PATHS = new Set([
   '/uk/eam-maintenance-management-software',
 ]);
 
+/** Public Production OEE interactive page (full site chrome). */
+export const OEE_SIMULATOR_LANDING_PATH = '/eam-production';
+
+export const OEE_SIMULATOR_LANDING_PATHS = new Set([OEE_SIMULATOR_LANDING_PATH]);
+
 /** @deprecated use CMMS_LANDING_PATHS */
 export const ALM_LANDING_PATHS = new Set([
   ...ALM_GENERIC_PATHS,
@@ -39,6 +44,10 @@ export function isCmmsLandingPath(pathname) {
 
 export function isEamClassicLandingPath(pathname) {
   return EAM_CLASSIC_LANDING_PATHS.has(normalizePathname(pathname));
+}
+
+export function isOeeSimulatorLandingPath(pathname) {
+  return OEE_SIMULATOR_LANDING_PATHS.has(normalizePathname(pathname));
 }
 
 /** Any standalone ALM/EAM/CMMS landing (lite chrome, no site bootstrap). */
